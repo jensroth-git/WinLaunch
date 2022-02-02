@@ -1,0 +1,112 @@
+﻿<Window x:Class="WinLaunch.Welcome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Welcome"
+        Width="450.432"
+        Height="481.749"
+        MinWidth="430"
+        MinHeight="300"
+        Icon="/WinLaunch;component/icon.ico"
+        ResizeMode="CanResize"
+        ShowInTaskbar="False"
+        WindowStyle="ToolWindow"
+        Topmost="True"
+        UseLayoutRounding="True"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ThinScrollBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="298*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="254" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="1" Color="#FFEAEAEA" />
+                    <GradientStop Color="#FFEAEAEA" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Image Grid.Column="0"
+                   Height="100"
+                   Margin="10,10,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   RenderOptions.BitmapScalingMode="HighQuality"
+                   Source="{StaticResource WinLaunchLogo}" />
+
+            <TextBlock x:Name="VersionHeader"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       FontFamily="/WinLaunch;component/res/Fonts/#Helvetica Neue"
+                       Foreground="#FF616161"
+                       Text="Version x.x.x.x" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#FFEAEAEA" />
+                    <GradientStop Offset="1" Color="#FFF2F2F2" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Border Margin="10"
+                        Background="White"
+                        CornerRadius="5">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5"
+                                          Opacity="0.2"
+                                          ShadowDepth="0" />
+                </Border.Effect>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10">
+                    <StackPanel x:Name="MainContainer"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top">
+
+                        <StackPanel.Resources>
+                            <Style TargetType="Ellipse">
+                                <Setter Property="Width" Value="5" />
+                                <Setter Property="Height" Value="5" />
+                                <Setter Property="Fill" Value="Black" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="Margin" Value="0,3,10,0" />
+                            </Style>
+
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Foreground" Value="#FF494949" />
+                                <Setter Property="FontSize" Value="14" />
+                                <Setter Property="FontFamily" Value="Calibri" />
+                                <Setter Property="TextWrapping" Value="Wrap" />
+                                <Setter Property="Margin" Value="0,5,0,0" />
+                            </Style>
+
+                            <Style TargetType="{x:Type Rectangle}">
+                                <Setter Property="Fill" Value="#FFA0A0A0" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                <Setter Property="Height" Value="1" />
+                            </Style>
+                        </StackPanel.Resources>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

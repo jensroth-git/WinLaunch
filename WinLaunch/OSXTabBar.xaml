@@ -1,0 +1,368 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="TabItemFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="3,3,3,1"
+                               SnapsToDevicePixels="true"
+                               Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                               StrokeDashArray="1 2"
+                               StrokeThickness="1" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="TabItemSelectedBackground" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="#FFDDDDDD" />
+        <GradientStop Offset="0.51" Color="#FFB0B0B0" />
+        <GradientStop Offset="1" Color="#FFB0B0B0" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TabItemHotBorderBrush" Color="#3C7FB1" />
+    <SolidColorBrush x:Key="TabItemDisabledBackground" Color="#F4F4F4" />
+    <SolidColorBrush x:Key="TabItemDisabledBorderBrush" Color="#FFC9C7BA" />
+
+    <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#8C8E94" />
+    
+    <Style x:Key="OSXTabBar" TargetType="{x:Type TabControl}">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+        <Setter Property="Padding" Value="4,4,4,4" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}" />
+        <Setter Property="Background" Value="#F9F9F9" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabControl}">
+                    <Grid ClipToBounds="true"
+                          KeyboardNavigation.TabNavigation="Local"
+                          SnapsToDevicePixels="true">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="ColumnDefinition0" />
+                            <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="RowDefinition0" Height="Auto" />
+                            <RowDefinition x:Name="RowDefinition1" Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TabPanel x:Name="HeaderPanel"
+                                  HorizontalAlignment="Center"
+                                  Panel.ZIndex="1"
+                                  Background="{x:Null}"
+                                  IsItemsHost="true"
+                                  KeyboardNavigation.TabIndex="1" />
+
+                        <Border x:Name="ContentPanel"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="0,-10,0,0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="DimGray"
+                                BorderThickness="0"
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                KeyboardNavigation.TabIndex="2"
+                                KeyboardNavigation.TabNavigation="Local">
+
+                            <Border.OpacityMask>
+                                <VisualBrush Stretch="None" Visual="{Binding ElementName=ShadowBorder}" />
+                            </Border.OpacityMask>
+
+                            <Grid>
+                                <Border x:Name="ShadowBorder"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Background="White"
+                                        BorderThickness="1,1,1,1"
+                                        CornerRadius="10" />
+                                <Border HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        BorderBrush="White"
+                                        BorderThickness="1,1,1,1"
+                                        CornerRadius="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="4" ShadowDepth="0" />
+                                    </Border.Effect>
+                                </Border>
+
+                                <ContentPresenter x:Name="PART_SelectedContentHost"
+                                                  Margin="5,13,5,5"
+                                                  ContentSource="SelectedContent"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="OSXTabBarItemLeft" TargetType="{x:Type TabItem}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}" />
+        <Setter Property="Background" Value="#01000000" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Border x:Name="Bd"
+                                BorderBrush="#FFA2A2A2"
+                                BorderThickness="1,1,0,1"
+                                CornerRadius="3,0,0,3"
+                                Padding="{TemplateBinding Padding}">
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FFF1F1F1" />
+                                    <GradientStop Offset="0.5" Color="#FFF4F4F4" />
+                                    <GradientStop Offset="0.504" Color="#FFEDEDED" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <ContentPresenter x:Name="Content"
+                                              Margin="10,2,9,3"
+                                              HorizontalAlignment="{Binding HorizontalContentAlignment,
+                                                                            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                              VerticalAlignment="{Binding VerticalContentAlignment,
+                                                                          RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                              ContentSource="Header"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Panel.ZIndex" Value="1" />
+
+                            <Setter TargetName="Bd" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Offset="0" Color="#FF747474" />
+                                        <GradientStop Offset="0.866" Color="#FF9F9F9F" />
+                                        <GradientStop Offset="0.155" Color="#FF888888" />
+                                        <GradientStop Offset="1" Color="DarkGray" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#FF6E6E6E" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="White" />
+
+                            <Setter TargetName="Content" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="0"
+                                                      Direction="270"
+                                                      Opacity="0.3"
+                                                      ShadowDepth="1" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="false" />
+                                <Condition Property="IsMouseOver" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TabItemHotBorderBrush}" />
+                        </MultiTrigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource TabItemDisabledBackground}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TabItemDisabledBorderBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="OSXTabBarItemCenter" TargetType="{x:Type TabItem}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}" />
+        <Setter Property="Background" Value="#01000000" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Border x:Name="Bd"
+                                BorderBrush="#FFA2A2A2"
+                                BorderThickness="1,1,0,1"
+                                CornerRadius="0,0,0,0"
+                                Padding="{TemplateBinding Padding}">
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FFF1F1F1" />
+                                    <GradientStop Offset="0.5" Color="#FFF4F4F4" />
+                                    <GradientStop Offset="0.504" Color="#FFEDEDED" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <ContentPresenter x:Name="Content"
+                                              Margin="10,2,10,3"
+                                              HorizontalAlignment="{Binding HorizontalContentAlignment,
+                                                                            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                              VerticalAlignment="{Binding VerticalContentAlignment,
+                                                                          RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                              ContentSource="Header"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Panel.ZIndex" Value="1" />
+
+                            <Setter TargetName="Bd" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Offset="0" Color="#FF747474" />
+                                        <GradientStop Offset="0.866" Color="#FF9F9F9F" />
+                                        <GradientStop Offset="0.155" Color="#FF888888" />
+                                        <GradientStop Offset="1" Color="DarkGray" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#FF6E6E6E" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="White" />
+
+                            <Setter TargetName="Content" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="0"
+                                                      Direction="270"
+                                                      Opacity="0.3"
+                                                      ShadowDepth="1" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="false" />
+                                <Condition Property="IsMouseOver" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TabItemHotBorderBrush}" />
+                        </MultiTrigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource TabItemDisabledBackground}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TabItemDisabledBorderBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="OSXTabBarItemRight" TargetType="{x:Type TabItem}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}" />
+        <Setter Property="Background" Value="#01000000" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Border x:Name="Bd"
+                                BorderBrush="#FFA2A2A2"
+                                BorderThickness="1,1,1,1"
+                                CornerRadius="0,3,3,0"
+                                Padding="{TemplateBinding Padding}">
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Offset="0" Color="White" />
+                                    <GradientStop Offset="1" Color="#FFF1F1F1" />
+                                    <GradientStop Offset="0.5" Color="#FFF4F4F4" />
+                                    <GradientStop Offset="0.504" Color="#FFEDEDED" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <ContentPresenter x:Name="Content"
+                                              Margin="10,2,10,3"
+                                              HorizontalAlignment="{Binding HorizontalContentAlignment,
+                                                                            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                              VerticalAlignment="{Binding VerticalContentAlignment,
+                                                                          RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                              ContentSource="Header"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Panel.ZIndex" Value="1" />
+
+                            <Setter TargetName="Bd" Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Offset="0" Color="#FF747474" />
+                                        <GradientStop Offset="0.866" Color="#FF9F9F9F" />
+                                        <GradientStop Offset="0.155" Color="#FF888888" />
+                                        <GradientStop Offset="1" Color="DarkGray" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#FF6E6E6E" />
+                            <Setter TargetName="Content" Property="TextBlock.Foreground" Value="White" />
+
+                            <Setter TargetName="Content" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="0"
+                                                      Direction="270"
+                                                      Opacity="0.3"
+                                                      ShadowDepth="1" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="false" />
+                                <Condition Property="IsMouseOver" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TabItemHotBorderBrush}" />
+                        </MultiTrigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource TabItemDisabledBackground}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource TabItemDisabledBorderBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

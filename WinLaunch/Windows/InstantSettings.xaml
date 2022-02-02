@@ -1,0 +1,589 @@
+﻿<Window x:Class="WinLaunch.InstantSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:WinLaunch"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="{my:Loc Settings}"
+        Width="500"
+        Height="721"
+        FlowDirection="{my:LocFlow}"
+        Icon="/WinLaunch;component/res/Settings.png"
+        ResizeMode="NoResize"
+        Topmost="True"
+        UseLayoutRounding="True"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../OSXTabControl.xaml" />
+                <ResourceDictionary Source="../ThinScrollBar.xaml" />
+                <ResourceDictionary Source="../OSXTabBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="SeperatorBrush" Color="#FFE0E0E0" />
+
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+
+            <ObjectDataProvider x:Key="MiddleMouseButtonActionEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="my:MiddleMouseButtonAction" />
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <TabControl>
+            <!--  general  -->
+            <TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/general.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc General}" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer>
+                    <StackPanel Margin="7,0,0,0">
+                        <GroupBox Header="{my:Loc Options}">
+                            <StackPanel Margin="10">
+                                <StackPanel>
+                                    <TextBlock Foreground="Black" Text="{my:Loc Language}" />
+                                    <ComboBox x:Name="cbbLanguages" Height="26" Margin="3" SelectionChanged="cbbLanguages_SelectionChanged" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc LanguageInfo}" TextWrapping="WrapWithOverflow" />
+                                    <TextBlock x:Name="tbTranslationLink"
+                                               Cursor="Hand"
+                                               Foreground="#FF646464"
+                                               MouseLeftButtonDown="tbTranslationLink_MouseLeftButtonDown"
+                                               Text="http://winlaunch.org/translate.php"
+                                               TextDecorations="Underline" />
+                                    <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <TextBlock Text="{my:Loc BackupAndRestore}" />
+                                    <StackPanel Margin="0,10" Orientation="Horizontal">
+
+                                        <Button x:Name="btnSaveBackup"
+                                                Height="24"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Stretch"
+                                                Click="btnSaveBackup_Click">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30" />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Width="16"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       RenderOptions.BitmapScalingMode="HighQuality"
+                                                       Source="/WinLaunch;component/res/Settings/save.png" />
+                                                <TextBlock Grid.Column="1"
+                                                           Margin="0,0,10,0"
+                                                           HorizontalAlignment="Left"
+                                                           VerticalAlignment="Center"
+                                                           Text="{my:Loc CreateBackup}" />
+                                            </Grid>
+                                        </Button>
+
+                                        <Button x:Name="btnLoadBackup"
+                                                Height="24"
+                                                Margin="10,0,0,0"
+                                                HorizontalAlignment="Left"
+                                                HorizontalContentAlignment="Stretch"
+                                                Click="btnLoadBackup_Click">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30" />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Width="16"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       RenderOptions.BitmapScalingMode="HighQuality"
+                                                       Source="/WinLaunch;component/res/Settings/backup.png" />
+                                                <TextBlock Grid.Column="1"
+                                                           Margin="0,0,10,0"
+                                                           HorizontalAlignment="Left"
+                                                           VerticalAlignment="Center"
+                                                           Text="{my:Loc RestoreBackup}" />
+                                            </Grid>
+                                        </Button>
+                                    </StackPanel>
+                                    <Rectangle Height="1" Margin="0,0,0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <CheckBox Margin="0,0,0,2" Content="{my:Loc AllowFreePlacement}" IsChecked="{Binding settings.FreeItemPlacement}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc AllowFreePlacementInfo}" TextWrapping="WrapWithOverflow" />
+                                    <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <CheckBox x:Name="cbAutostart" Margin="0,0,0,2" Content="{my:Loc StartWithWindows}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc StartWithWindowsInfo}" TextWrapping="WrapWithOverflow" />
+                                    <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <CheckBox Margin="0,0,0,2" Content="{my:Loc EnableTouchscreen}" IsChecked="{Binding settings.TabletMode}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc EnableTouchscreenInfo}" TextWrapping="WrapWithOverflow" />
+                                    <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <CheckBox Content="{my:Loc OpenFolders}" IsChecked="{Binding settings.OpenFolderWhenCreated}" />
+                                <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+
+                                <StackPanel>
+                                    <CheckBox x:Name="cbFillScreen" Margin="0,0,0,2" Content="{my:Loc FillScreen}" IsChecked="{Binding settings.FillScreen}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc FillScreenInfo}" TextWrapping="WrapWithOverflow" />
+                                    <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <CheckBox x:Name="cbDeskMode" Margin="0,0,0,2" Content="{my:Loc PinDesktop}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc PinDesktopInfo}" TextWrapping="WrapWithOverflow" />
+                                    <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <CheckBox Margin="0,0,0,2" Content="{my:Loc BlockFullscreen}" IsChecked="{Binding settings.BlockOnFullscreen}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc BlockFullscreenInfo}" TextWrapping="WrapWithOverflow" />
+                                </StackPanel>
+
+
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  Multi monitors  -->
+            <TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/dualMonitors.ico" />
+                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc MultiMonitors}" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer>
+                    <StackPanel Margin="7,0,0,0">
+                        <GroupBox Header="{my:Loc Options}">
+                            <StackPanel Margin="10">
+                                <StackPanel>
+                                    <CheckBox Margin="0,0,0,2" Content="{my:Loc OpenOnActiveMonitor}" IsChecked="{Binding settings.OpenOnActiveDesktop}" />
+                                    <TextBlock Foreground="#FF646464" Text="{my:Loc OpenOnActiveMonitorInfo}" TextWrapping="WrapWithOverflow" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{my:Loc ChooseMonitor}" IsEnabled="{Binding settings.OpenOnActiveDesktop, Converter={my:InverseBooleanConverter}}">
+                            <ComboBox x:Name="cbScreens" Height="26" Margin="3" ItemsSource="{Binding}" />
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  touchpad  -->
+            <!--<TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/synaptics.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="Touchpad" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer>
+                    <StackPanel Margin="7,0,0,0">
+                        <GroupBox Header="Synaptics scrolling">
+                            <StackPanel Margin="10">
+                                <CheckBox Margin="0,0,0,2"
+                                          Content="Enable synaptics scrolling"
+                                          IsChecked="{Binding settings.UseSynapticsScrolling}" />
+                                <TextBlock Foreground="#FF646464" Text="When enabled you can scroll using 2 fingers on the touchpad" />
+                                <Rectangle Height="1"
+                                           Margin="0,10"
+                                           HorizontalAlignment="Stretch"
+                                           Fill="{StaticResource SeperatorBrush}" />
+
+                                <StackPanel>
+                                    <CheckBox Margin="0,0,0,2"
+                                              Content="Invert synaptics scrolling"
+                                              IsChecked="{Binding settings.InverseSynapticsScrolling}"
+                                              IsEnabled="{Binding settings.UseSynapticsScrolling}" />
+                                    <Rectangle Height="1"
+                                               Margin="0,10"
+                                               HorizontalAlignment="Stretch"
+                                               Fill="{StaticResource SeperatorBrush}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <Grid>
+                                        <TextBlock HorizontalAlignment="Left" Text="{my:LanguageBinding Slow}" />
+                                        <TextBlock HorizontalAlignment="Center"
+                                                   FontWeight="Bold"
+                                                   Text="{my:LanguageBinding SynapticsScrollingSpeed}" />
+                                        <TextBlock HorizontalAlignment="Right" Text="{my:LanguageBinding Fast}" />
+                                    </Grid>
+                                    <Slider x:Name="slSynScrollingSpeed"
+                                            Margin="0,5,0,0"
+                                            IsEnabled="{Binding settings.UseSynapticsScrolling}"
+                                            IsSnapToTickEnabled="True"
+                                            LargeChange="0.1"
+                                            Maximum="2.0"
+                                            Minimum="0.5"
+                                            SelectionEnd="0.7"
+                                            TickFrequency="0.05"
+                                            TickPlacement="BottomRight"
+                                            Value="1.0" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>-->
+
+            <!--  activation  -->
+            <TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/lightning.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc Activation}" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer>
+                    <StackPanel Margin="7,0,0,0">
+                        <GroupBox Header="{my:Loc HotKeyActivation}">
+                            <StackPanel Margin="10">
+                                <StackPanel>
+                                    <CheckBox x:Name="cbEnableHotkey" Margin="0,0,0,2" Content="{my:Loc EnableHotKey}" IsChecked="{Binding settings.HotKeyEnabled}" />
+
+                                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal" Visibility="{Binding ElementName=cbEnableHotkey, Path=IsChecked, Converter={StaticResource BoolToVis}}">
+                                        <CheckBox Name="AltCheck"
+                                                  Height="16"
+                                                  Margin="0,5,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  Content="Alt"
+                                                  IsChecked="{Binding settings.HotAlt}" />
+                                        <Label Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="+" />
+                                        <CheckBox Name="ControlCheck"
+                                                  Height="16"
+                                                  Margin="5,5,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  Content="Control"
+                                                  IsChecked="{Binding settings.HotControl}" />
+                                        <Label Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="+" />
+                                        <CheckBox Name="ShiftCheck"
+                                                  Height="16"
+                                                  Margin="5,5,0,0"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Top"
+                                                  Content="Shift"
+                                                  IsChecked="{Binding settings.HotShift}" />
+                                        <Label Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="+" />
+
+                                        <Button x:Name="btnHotKey" Width="100" Click="btnHotKey_Click" PreviewKeyDown="btnHotKey_KeyDown" />
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{my:Loc HotCornersActivation}">
+                            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <CheckBox x:Name="cbEnabledHotCorner" Margin="8" Content="{my:Loc EnableHotCorner}" IsChecked="{Binding settings.HotCornersEnabled}" />
+
+                                <Grid Width="100"
+                                      Height="100"
+                                      Margin="8,0,0,8"
+                                      HorizontalAlignment="Left"
+                                      Visibility="{Binding ElementName=cbEnabledHotCorner, Path=IsChecked, Converter={StaticResource BoolToVis}}">
+                                    <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding settings.HotTopLeft}" />
+                                    <CheckBox HorizontalAlignment="Right" VerticalAlignment="Top" IsChecked="{Binding settings.HotTopRight}" />
+                                    <CheckBox HorizontalAlignment="Left" VerticalAlignment="Bottom" IsChecked="{Binding settings.HotBottomLeft}" />
+                                    <CheckBox HorizontalAlignment="Right" VerticalAlignment="Bottom" IsChecked="{Binding settings.HotBottomRight}" />
+                                </Grid>
+
+                                <StackPanel Margin="0,0,0,0" HorizontalAlignment="Center" Orientation="Horizontal" Visibility="{Binding ElementName=cbEnabledHotCorner, Path=IsChecked, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock HorizontalAlignment="Center" Text="{my:Loc HotCornerDelay}" />
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding settings.HotCornerDelay, StringFormat=N2}" />
+                                    <TextBlock HorizontalAlignment="Center" Text="s" />
+                                </StackPanel>
+
+                                <Slider x:Name="slHotCornerDelaySlider"
+                                        Margin="10,0,10,10"
+                                        Maximum="1"
+                                        Minimum="0"
+                                        TickPlacement="BottomRight"
+                                        Visibility="{Binding ElementName=cbEnabledHotCorner, Path=IsChecked, Converter={StaticResource BoolToVis}}"
+                                        Value="{Binding settings.HotCornerDelay}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{my:Loc MiddleMouseActivation}">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <StackPanel>
+                                    <ComboBox x:Name="cbbMiddleMouseActivation"
+                                              Height="26"
+                                              Margin="5"
+                                              HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Top"
+                                              ItemsSource="{Binding Source={StaticResource MiddleMouseButtonActionEnum}}"
+                                              SelectedIndex="{Binding settings.MiddleMouseActivation, Converter={my:EnumConverter}}" />
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!--  look & feel  -->
+            <TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/themes.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc LookAndFeel}" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <TabControl Margin="5" Style="{StaticResource OSXTabBar}">
+                    <TabItem Header="{my:Loc ColumnsAndRows}" Style="{StaticResource OSXTabBarItemLeft}">
+                        <ScrollViewer>
+                            <StackPanel Margin="7,0,0,0">
+                                <GroupBox Header="{my:Loc ColumnsAndRows}">
+                                    <StackPanel Margin="10">
+                                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc Columns}" />
+                                        <Slider x:Name="slColumnsSlider"
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="10"
+                                                Minimum="3"
+                                                TickPlacement="BottomRight"
+                                                Ticks="3, 4, 5, 6, 7, 8, 9, 10"
+                                                Value="{Binding mainWindow.SBM.GM.Columns}" />
+
+                                        <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Text="{my:Loc Rows}" />
+                                        <Slider x:Name="slRowsSlider"
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="7"
+                                                Minimum="3"
+                                                TickPlacement="BottomRight"
+                                                Ticks="3, 4, 5, 6, 7"
+                                                Value="{Binding mainWindow.SBM.GM.Rows}" />
+                                    </StackPanel>
+                                </GroupBox>
+
+                                <GroupBox Header="{my:Loc FolderColumns}">
+                                    <StackPanel Margin="10">
+                                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc Columns}" />
+                                        <Slider x:Name="slFolderColumnsSlider"
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="10"
+                                                Minimum="3"
+                                                TickPlacement="BottomRight"
+                                                Ticks="3, 4, 5, 6, 7, 8, 9, 10"
+                                                Value="{Binding mainWindow.SBM.FolderGrid.Columns}" />
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+
+                    <TabItem Header="{my:Loc Icons}" Style="{StaticResource OSXTabBarItemCenter}">
+                        <ScrollViewer>
+                            <StackPanel Margin="7,0,0,0">
+                                <GroupBox Header="{my:Loc Icons}">
+                                    <StackPanel Margin="10">
+                                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc IconSize}" />
+                                        <Slider x:Name="slIconSize"
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="1.8"
+                                                Minimum="1.0"
+                                                SmallChange="0.05"
+                                                TickFrequency="0.05"
+                                                TickPlacement="BottomRight"
+                                                Value="{Binding theme.IconSize}" />
+
+                                        <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Text="{my:Loc IconShadowOpacity}" />
+                                        <Slider x:Name="slIconShadowOpacity"
+                                                IsSnapToTickEnabled="True"
+                                                Maximum="1.0"
+                                                Minimum="0.0"
+                                                SmallChange="0.05"
+                                                TickFrequency="0.05"
+                                                TickPlacement="BottomRight"
+                                                Value="{Binding theme.IconShadowOpacity}" />
+
+                                        <Grid Margin="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="464*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Width="200" Text="{my:Loc IconText}" />
+                                            <extToolkit:ColorPicker x:Name="cpIconTextColor"
+                                                                    Grid.Column="1"
+                                                                    ColorMode="ColorCanvas"
+                                                                    DisplayColorAndName="True"
+                                                                    SelectedColor="{Binding theme.IconTextColor}" />
+
+                                        </Grid>
+                                        <Grid Margin="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="464*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Width="200" Text="{my:Loc IconTextShadow}" />
+                                            <extToolkit:ColorPicker x:Name="cpIconTextShadowColor"
+                                                                    Grid.Column="1"
+                                                                    ColorMode="ColorCanvas"
+                                                                    DisplayColorAndName="True"
+                                                                    SelectedColor="{Binding theme.IconTextShadowColor}" />
+
+                                        </Grid>
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+
+                    <TabItem Header="{my:Loc Background}" Style="{StaticResource OSXTabBarItemRight}">
+                        <ScrollViewer>
+                            <StackPanel Margin="7,0,0,0">
+                                <GroupBox Header="{my:Loc Background}">
+                                    <StackPanel Margin="10">
+                                        <StackPanel x:Name="spAero">
+                                            <CheckBox x:Name="cbEnableAero" Margin="0,0,0,2" Content="{my:Loc EnableAero}" IsChecked="{Binding theme.UseAeroBlur}" />
+                                            <TextBlock Margin="0,0,0,5" Foreground="#FF646464" Text="{my:Loc EnableAeroInfo}" TextWrapping="WrapWithOverflow" />
+
+                                            <CheckBox x:Name="cbEnableAcrylic" Margin="0,0,0,2" Content="{my:Loc EnableAcrylic}" IsChecked="{Binding theme.UseAcrylic}" />
+                                            <TextBlock Margin="0,0,0,5" Foreground="#FF646464" Text="{my:Loc EnableAcrylicInfo}" TextWrapping="WrapWithOverflow" />
+
+                                            <TextBlock HorizontalAlignment="Center" Text="{my:Loc BackgroundTint}" />
+
+                                            <Slider x:Name="slBackgroundTint"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="1.0"
+                                                    Minimum="0.0"
+                                                    SmallChange="0.05"
+                                                    TickFrequency="0.05"
+                                                    TickPlacement="BottomRight"
+                                                    Value="{Binding theme.BackgroundTransparency}" />
+                                            <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
+                                        </StackPanel>
+
+                                        <StackPanel x:Name="spBackgroundImageOptions">
+                                            <TextBlock HorizontalAlignment="Center" Text="{my:Loc BackgroundBlur}" />
+                                            <Slider x:Name="slBlurRadius"
+                                                    Margin="0,0,0,5"
+                                                    IsSnapToTickEnabled="True"
+                                                    Maximum="1.0"
+                                                    Minimum="0.0"
+                                                    SmallChange="0.05"
+                                                    TickFrequency="0.05"
+                                                    TickPlacement="BottomRight"
+                                                    Value="{Binding theme.BackgroundBlurRadius}" />
+
+                                            <CheckBox x:Name="cbEnableCustomBackground" Margin="0,0,0,2" Content="{my:Loc UseCustomBackground}" IsChecked="{Binding theme.UseCustomBackground}" />
+                                            <TextBlock Margin="0,0,0,5" Foreground="#FF646464" Text="{my:Loc UseCustomBackgroundInfo}" TextWrapping="WrapWithOverflow" />
+
+                                        </StackPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+
+            <!--  about  -->
+            <TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/about.ico" />
+                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc About}" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer>
+                    <StackPanel Margin="7,0,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="28*" />
+                                <ColumnDefinition Width="19*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="/WinLaunch;component/res/Logo.png" />
+                        </Grid>
+
+                        <GroupBox Header="{my:Loc About}">
+                            <StackPanel Margin="10">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{my:Loc CreatedBy}" />
+                                        <TextBlock Text=" C0rrupted" />
+                                    </StackPanel>
+
+                                    <TextBlock x:Name="tbEmailLink"
+                                               Margin="10,0,0,0"
+                                               Cursor="Hand"
+                                               MouseDown="tbEmailLink_MouseDown"
+                                               Text="winlaunch.official@gmail.com"
+                                               TextDecorations="Underline" />
+                                </StackPanel>
+
+                                <TextBlock Text="{my:Loc TranslatedBy}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{my:Loc Update}">
+                            <StackPanel Margin="10">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{my:Loc Version}" />
+                                    <TextBlock x:Name="tbVersion" Text="0.4.9.0" />
+                                </StackPanel>
+
+                                <Button x:Name="btnCheckUpdate"
+                                        Height="24"
+                                        Margin="0,5,0,0"
+                                        HorizontalAlignment="Left"
+                                        HorizontalContentAlignment="Stretch"
+                                        Click="btnCheckUpdate_Click">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Width="16"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               RenderOptions.BitmapScalingMode="HighQuality"
+                                               Source="/WinLaunch;component/res/Settings/refresh.png" />
+                                        <TextBlock Grid.Column="1"
+                                                   Margin="0,0,10,0"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   Text="{my:Loc CheckForUpdates}" />
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,91 @@
+﻿<Window x:Class="WinLaunch.Eula"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WinLaunch"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="End-User License Agreement (EULA"
+        Width="521"
+        Height="370"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <RichTextBox Grid.Row="0"
+                     IsReadOnly="True"
+                     IsReadOnlyCaretVisible="False"
+                     VerticalScrollBarVisibility="Visible">
+            <FlowDocument>
+                <Paragraph FontSize="17">End-User License Agreement for WinLaunch</Paragraph>
+                <Paragraph>This End-User License Agreement (EULA) is a legal agreement between you (either an individual or a single entity) and the mentioned author (winlaunch.org) of this Software for the software product identified above, which includes computer software and may include associated media, printed materials, and “online” or electronic documentation (“SOFTWARE PRODUCT”).</Paragraph>
+
+                <Paragraph>
+                    By installing, copying, or otherwise using the SOFTWARE PRODUCT, you agree to be bounded by the terms of this EULA.
+                    If you do not agree to the terms of this EULA, do not install or use the SOFTWARE PRODUCT.
+                </Paragraph>
+
+                <Paragraph FontWeight="Bold">SOFTWARE PRODUCT LICENSE</Paragraph>
+                <Paragraph>WinLaunch is being distributed as Freeware for personal, commercial use, non-profit organization, educational purpose. It may be included with CD-ROM/DVD-ROM distributions. You are NOT allowed to make a charge for distributing this Software (either for profit or merely to recover your media and distribution costs) whether as a stand-alone product, or as part of a compilation or anthology, nor to use it for supporting your business or customers. It may be distributed freely on any website or through any other distribution mechanism, as long as no part of it is changed in any way.</Paragraph>
+
+                <Paragraph FontWeight="Bold">1. GRANT OF LICENSE</Paragraph>
+                <Paragraph>This EULA grants you the following rights: Installation and Use. You may install and use an unlimited number of copies of the SOFTWARE PRODUCT.</Paragraph>
+
+                <Paragraph>Reproduction and Distribution. You may reproduce and distribute an unlimited number of copies of the SOFTWARE PRODUCT; provided that each copy shall be a true and complete copy, including all copyright and trademark notices, and shall be accompanied by a copy of this EULA.</Paragraph>
+                <Paragraph>Copies of the SOFTWARE PRODUCT may be distributed as a standalone product or included with your own product as long as The SOFTWARE PRODUCT is not sold or included in a product or package that intends to receive benefits through the inclusion of the SOFTWARE PRODUCT.</Paragraph>
+
+                <Paragraph>The SOFTWARE PRODUCT may be included in any free or non-profit packages or products.</Paragraph>
+
+                <Paragraph FontWeight="Bold">2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.</Paragraph>
+                <Paragraph>Limitations on Reverse Engineering, Decompilation, Disassembly and change (add,delete or modify) the resources in the compiled the assembly. You may not reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation.</Paragraph>
+
+                <Paragraph FontWeight="Bold">Separation of Components.</Paragraph>
+                <Paragraph>
+                    The SOFTWARE PRODUCT is licensed as a single product. Its component parts may not be separated for use on more than one computer.
+                </Paragraph>
+
+                <Paragraph FontWeight="Bold">Software Transfer.</Paragraph>
+                <Paragraph>
+                    You may permanently transfer all of your rights under this EULA, provided the recipient agrees to the terms of this EULA.
+                </Paragraph>
+
+                <Paragraph FontWeight="Bold">Termination.</Paragraph>
+                <Paragraph>
+                    Without prejudice to any other rights, the Author of this Software may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the SOFTWARE PRODUCT and all of its component parts.
+                </Paragraph>
+
+                <Paragraph FontWeight="Bold">LIMITED WARRANTY</Paragraph>
+                <Paragraph FontWeight="Bold">NO WARRANTIES.</Paragraph>
+                <Paragraph>
+                    The Author of this Software expressly disclaims any warranty for the SOFTWARE PRODUCT. The SOFTWARE PRODUCT and any related documentation is provided “as is” without warranty of any kind, either express or implied, including, without limitation, the implied warranties or merchantability, fitness for a particular purpose, or noninfringement. The entire risk arising out of use or performance of the SOFTWARE PRODUCT remains with you.
+                </Paragraph>
+
+                <Paragraph FontWeight="Bold">NO LIABILITY FOR DAMAGES.</Paragraph>
+                <Paragraph>In no event shall the author of this Software be liable for any special, consequential, incidental or indirect damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use this product, even if the Author of this Software is aware of the possibility of such damages and known defects.</Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+            <Button x:Name="btnConfirm"
+                    Width="89"
+                    Height="24"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="ConfirmClicked"
+                    Content="I Accept" />
+            <Button x:Name="btnDecline"
+                    Width="89"
+                    Height="24"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="CancelClicked"
+                    Content="I Decline" />
+        </StackPanel>
+    </Grid>
+</Window>

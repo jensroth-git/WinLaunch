@@ -1,0 +1,247 @@
+﻿<Window
+    x:Class="WinLaunch.EditItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:WinLaunch"
+    Title="EditItem"
+    AllowsTransparency="True"
+    Background="Transparent"
+    FlowDirection="{my:LocFlow}"
+    ShowInTaskbar="False"
+    SizeToContent="WidthAndHeight"
+    Topmost="True"
+    WindowStyle="None">
+    <Window.Resources>
+        <Storyboard x:Key="WindowOpenAnimation">
+            <DoubleAnimation
+                Storyboard.TargetName="MainGrid"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                From="0.0"
+                To="1.0"
+                Duration="00:00:00.200">
+                <DoubleAnimation.EasingFunction>
+                    <ElasticEase EasingMode="EaseOut" Oscillations="1" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation
+                Storyboard.TargetName="MainGrid"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                From="0.0"
+                To="1.0"
+                Duration="00:00:00.200">
+                <DoubleAnimation.EasingFunction>
+                    <ElasticEase EasingMode="EaseOut" Oscillations="1" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid
+        x:Name="MainGrid"
+        Width="600"
+        Height="239">
+        <!--  Height="146" Width="382">  -->
+        <Grid.RenderTransform>
+            <ScaleTransform
+                CenterX="191"
+                CenterY="73"
+                ScaleX="1.0"
+                ScaleY="1.0" />
+        </Grid.RenderTransform>
+
+        <!--  BG Form  -->
+        <Path
+            Margin="59,12,0,0"
+            Fill="#bbffffff"
+            Stroke="White"
+            StrokeThickness="1">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True" StartPoint="5,25">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <ArcSegment
+                                            IsLargeArc="False"
+                                            Point="10,20"
+                                            RotationAngle="90"
+                                            Size="5,5"
+                                            SweepDirection="Clockwise" />
+                                        <LineSegment x:Name="PointerLeft" Point="100,20" />
+                                        <LineSegment x:Name="PointerCenter" Point="110,10" />
+                                        <LineSegment x:Name="PointerRight" Point="120,20" />
+                                        <LineSegment Point="472,20" />
+                                        <ArcSegment
+                                            IsLargeArc="False"
+                                            Point="477,25"
+                                            RotationAngle="90"
+                                            Size="5,5"
+                                            SweepDirection="Clockwise" />
+                                        <LineSegment Point="477,181" />
+                                        <ArcSegment
+                                            IsLargeArc="False"
+                                            Point="472,186"
+                                            RotationAngle="90"
+                                            Size="5,5"
+                                            SweepDirection="Clockwise" />
+                                        <LineSegment x:Name="PointerRightBottom" Point="120,186" />
+                                        <LineSegment x:Name="PointerCenterBottom" Point="110,196" />
+                                        <LineSegment x:Name="PointerLeftBottom" Point="100,186" />
+                                        <LineSegment Point="10,186" />
+                                        <ArcSegment
+                                            IsLargeArc="False"
+                                            Point="5,181"
+                                            RotationAngle="90"
+                                            Size="5,5"
+                                            SweepDirection="Clockwise" />
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+
+            <Path.Effect>
+                <DropShadowEffect
+                    BlurRadius="5"
+                    Direction="270"
+                    Opacity="0.4"
+                    ShadowDepth="2"
+                    Color="Black" />
+            </Path.Effect>
+        </Path>
+
+        <Grid MaxWidth="470" MaxHeight="155">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="141" />
+                <ColumnDefinition Width="329*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="6,0,0,4">
+                <Image
+                    x:Name="IconFrame"
+                    Height="125"
+                    Cursor="Hand"
+                    MouseDown="IconFrame_MouseDown"
+                    RenderOptions.BitmapScalingMode="HighQuality" />
+                <Button
+                    x:Name="ResetIconButton"
+                    Click="ResetIconButton_Click"
+                    Content="{my:Loc RestoreIcon}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10">
+
+                <Grid Height="23" Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82" />
+                        <ColumnDefinition Width="227*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Grid.ColumnSpan="1"
+                        Height="23"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="{my:Loc Name}" />
+                    <TextBox
+                        x:Name="NameBox"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="1"
+                        Height="25"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+                <Grid
+                    x:Name="PathGrid"
+                    Height="23"
+                    Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82" />
+                        <ColumnDefinition Width="146*" />
+                        <ColumnDefinition Width="81*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Grid.Column="0"
+                        Grid.ColumnSpan="1"
+                        Height="23"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="{my:Loc Path}" />
+                    <TextBox
+                        x:Name="PathBox"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="1"
+                        Height="25"
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        IsReadOnly="True" />
+                    <Button
+                        x:Name="ChoosePathButton"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="1"
+                        Click="ChoosePathButton_Click"
+                        Content="{my:Loc ChoosePath}">
+                        <Button.ContextMenu>
+                            <ContextMenu x:Name="ChoosePathContextMenu">
+                                <MenuItem Click="FileMenuItem_Click" Header="File" />
+                                <MenuItem Click="FolderMenuItem_Click" Header="Folder" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+                </Grid>
+
+                <Grid
+                    x:Name="ArgumentsGrid"
+                    Height="23"
+                    Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82" />
+                        <ColumnDefinition Width="227*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Grid.ColumnSpan="1"
+                        Height="23"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="{my:Loc Arguments}" />
+                    <TextBox
+                        x:Name="ArgumentsBox"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="1"
+                        Height="25"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top" />
+                </Grid>
+                <CheckBox x:Name="cbAdmin" Content="{my:Loc OpenAsAdmin}" />
+            </StackPanel>
+
+            <Button
+                Grid.Column="1"
+                Width="89"
+                Height="24"
+                Margin="229,125,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="CancelClicked"
+                Content="{my:Loc Cancel}" />
+            <Button
+                Grid.Column="1"
+                Width="89"
+                Height="24"
+                Margin="137,125,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="ConfirmClicked"
+                Content="{my:Loc Confirm}"
+                IsDefault="True" />
+        </Grid>
+    </Grid>
+</Window>

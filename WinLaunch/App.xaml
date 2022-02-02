@@ -1,0 +1,52 @@
+﻿<Application
+    x:Class="WinLaunch.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Startup="Application_Startup"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <BitmapImage x:Key="WinLaunchLogo" UriSource="/res/logo.png" />
+
+        <BitmapImage x:Key="shadow" UriSource="/res/shadow.png" />
+        <BitmapImage x:Key="delete" UriSource="/res/closebox.png" />
+        <BitmapImage x:Key="drop" UriSource="/res/drop.png" />
+
+        <!--  folder resources  -->
+        <!--<BitmapImage x:Key="folder_rim_top" UriSource="/res/folder_rim_top.png" />
+        <BitmapImage x:Key="folder_icon" UriSource="/res/folder_icon.png" />
+        <BitmapImage x:Key="folder_bg" UriSource="/res/folder_bg.png" />-->
+
+        <!--  extensions  -->
+        <BitmapImage x:Key="extensions_icon" UriSource="/res/extensions.png" />
+
+        <!--  settings  -->
+        <BitmapImage x:Key="GeneralIcon" UriSource="/res/Settings/general.png" />
+        <BitmapImage x:Key="ActivationIcon" UriSource="/res/Settings/arrow.png" />
+        <BitmapImage x:Key="SynapticsIcon" UriSource="/res/Settings/synaptics.png" />
+        <BitmapImage x:Key="ScreenIcon" UriSource="/res/Settings/Monitor.png" />
+        <BitmapImage x:Key="ThemesIcon" UriSource="/res/Settings/personalization.png" />
+        <BitmapImage x:Key="UpdateIcon" UriSource="/res/Settings/Update.png" />
+        <BitmapImage x:Key="LanguageIcon" UriSource="/res/Settings/language.ico" />
+        <BitmapImage x:Key="AboutIcon" UriSource="/res/Settings/about.ico" />
+        <BitmapImage x:Key="LockIcon" UriSource="/res/Settings/lock.ico" />
+        <BitmapImage x:Key="UnlockIcon" UriSource="/res/Settings/unlock.ico" />
+
+        <BitmapImage x:Key="DonateImage" UriSource="/res/donate.png" />
+
+        <!--  Performance advisor resources  -->
+        <BitmapImage x:Key="PerformanceIcon" UriSource="/res/PerformanceAdvisor/icon.png" />
+        <BitmapImage x:Key="AeroPreview" UriSource="/res/PerformanceAdvisor/Aero.png" />
+        <BitmapImage x:Key="BlurPreview" UriSource="/res/PerformanceAdvisor/Blur.png" />
+        <BitmapImage x:Key="NoBlurPreview" UriSource="/res/PerformanceAdvisor/NoBlur.png" />
+
+        <LinearGradientBrush x:Key="FrontBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="#FF00FF3B" />
+            <GradientStop Offset="1" Color="#FF007C1C" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="BackBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="Red" />
+            <GradientStop Offset="1" Color="#FFAA0000" />
+        </LinearGradientBrush>
+    </Application.Resources>
+</Application>

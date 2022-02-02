@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>Activation</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>Ajouter un fichier</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Appuyer sur 'F' pour ajouter des fichiers</value>
+  </data>
+  <data name="AddFolder" xml:space="preserve">
+    <value>Ajouter un dossier</value>
+  </data>
+  <data name="AddLink" xml:space="preserve">
+    <value>Ajouter un lien</value>
+  </data>
+  <data name="AeroSwitch" xml:space="preserve">
+    <value>Pour activer Aero WinLaunch devra être redémarré, cela peut prendre quelques secondes. </value>
+  </data>
+  <data name="Arguments" xml:space="preserve">
+    <value>Arguments :</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>Fond d'écran</value>
+  </data>
+  <data name="BackgroundBlur" xml:space="preserve">
+    <value>Fond d'écran flou</value>
+  </data>
+  <data name="BackgroundTint" xml:space="preserve">
+    <value>Fond d'écran pastel</value>
+  </data>
+  <data name="BlockFullscreen" xml:space="preserve">
+    <value>Empêcher l'affichage de Winlaunch lorsqu'une application est en plein écran (jeu, par exemple) </value>
+  </data>
+  <data name="BlockFullscreenInfo" xml:space="preserve">
+    <value>Quand cette otion est active, Winlaunch est désactivé du plein écran</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abandonner</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Recherche de mises à jour</value>
+  </data>
+  <data name="ChooseMonitor" xml:space="preserve">
+    <value>Choix de l'écran</value>
+  </data>
+  <data name="ChoosePath" xml:space="preserve">
+    <value>Choix du chemin</value>
+  </data>
+  <data name="CloseWarning" xml:space="preserve">
+    <value>Êtes-vous sûr de que vouloir fermer WinLaunch ? !</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Colonnes</value>
+  </data>
+  <data name="ColumnsAndRows" xml:space="preserve">
+    <value>Colonnes et lignes</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copié</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Créé par</value>
+  </data>
+  <data name="DeskModeSwitch" xml:space="preserve">
+    <value>Pour activer/désactiver DeskMode WinLaunch devra être redémarré, cela peut prendre quelques secondes. </value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edition</value>
+  </data>
+  <data name="EnableAero" xml:space="preserve">
+    <value>Activer Aero</value>
+  </data>
+  <data name="EnableAeroInfo" xml:space="preserve">
+    <value>Quand cette option est active, Aero est utilisé à la place du papier peint</value>
+  </data>
+  <data name="EnableHotCorner" xml:space="preserve">
+    <value>Active les coins sensitifs</value>
+  </data>
+  <data name="EnableHotKey" xml:space="preserve">
+    <value>Active les raccourcis claviers</value>
+  </data>
+  <data name="EnableTouchscreen" xml:space="preserve">
+    <value>Mode écran tactile</value>
+  </data>
+  <data name="EnableTouchscreenInfo" xml:space="preserve">
+    <value>Ce mode vous autorise à ne déplacer des objets que lors d'un appui prolongé de 3 secondes sur ceux-ci</value>
+  </data>
+  <data name="FillScreen" xml:space="preserve">
+    <value>Plein écran</value>
+  </data>
+  <data name="FillScreenInfo" xml:space="preserve">
+    <value>Lorsque cette option est active, Winlaunch recouvre la totalité du bureau, barre de tâche incluse</value>
+  </data>
+  <data name="FolderColumns" xml:space="preserve">
+    <value>Colonne des répertoires</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="HotCornersActivation" xml:space="preserve">
+    <value>Activation des coins sensitifs</value>
+  </data>
+  <data name="HotKeyActivation" xml:space="preserve">
+    <value>Activation des raccourcis clavier</value>
+  </data>
+  <data name="Icons" xml:space="preserve">
+    <value>Icônes</value>
+  </data>
+  <data name="IconShadowOpacity" xml:space="preserve">
+    <value>Icône ombrage</value>
+  </data>
+  <data name="IconSize" xml:space="preserve">
+    <value>Icône taille</value>
+  </data>
+  <data name="IconText" xml:space="preserve">
+    <value>Icône texte :</value>
+  </data>
+  <data name="IconTextShadow" xml:space="preserve">
+    <value>Icône ombrage du texte :</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="LanguageInfo" xml:space="preserve">
+    <value>Mettre à jour une traduction ou visiter le site</value>
+  </data>
+  <data name="LatestVersion" xml:space="preserve">
+    <value>Vous possédez la version la plus récente</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Chargement...</value>
+  </data>
+  <data name="LoadWallpaper" xml:space="preserve">
+    <value>Charger le fond d'écran</value>
+  </data>
+  <data name="LookAndFeel" xml:space="preserve">
+    <value>Regardez &amp;t appréciez</value>
+  </data>
+  <data name="MiddleMouseActivation" xml:space="preserve">
+    <value>Activatrion du bouton central de la souris</value>
+  </data>
+  <data name="MultiMonitors" xml:space="preserve">
+    <value>Moniteurs multiples</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom :</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="OpenFolders" xml:space="preserve">
+    <value>Ouvrir les répertoires après leur création</value>
+  </data>
+  <data name="OpenLocation" xml:space="preserve">
+    <value>Ouvrir la cible</value>
+  </data>
+  <data name="OpenOnActiveMonitor" xml:space="preserve">
+    <value>Toujours lancer Winlaunch sur le moniteur actif</value>
+  </data>
+  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+    <value>Lorsque cette otion est activée, Winlaunch est lancé sur le moniteur où se situe le curseur de la souris</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Chemin :</value>
+  </data>
+  <data name="PinDesktop" xml:space="preserve">
+    <value>Epingler Winlaunch au Bureau</value>
+  </data>
+  <data name="PinDesktopInfo" xml:space="preserve">
+    <value>Lorsque cette otion est active, le Bureau remplace le papier peint</value>
+  </data>
+  <data name="PressAKey" xml:space="preserve">
+    <value>Appuyez sur un touche</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Enlever</value>
+  </data>
+  <data name="RemoveFolder" xml:space="preserve">
+    <value>Supprimer ce répertoire supprime aussi tout son contenu</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    
+  <value>Voulez-vous réellement supprimer cet objet ?</value></data>
+  <data name="RestoreIcon" xml:space="preserve">
+    <value>Restaure l'icône par défaut</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>Lignes</value>
+  </data>
+  <data name="Screen" xml:space="preserve">
+    <value>Ecran</value>
+  </data>
+  <data name="SelectBackground" xml:space="preserve">
+    <value>Choix d'une image de fond</value>
+  </data>
+  <data name="SelectIcon" xml:space="preserve">
+    <value>Choix d'une icône</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="StartWithWindows" xml:space="preserve">
+    <value>Démarrage avec Windows</value>
+  </data>
+  <data name="StartWithWindowsInfo" xml:space="preserve">
+    <value>Lorsque cette option est active, Winlauch est automatiquement lancé au démarrage de Windows</value>
+  </data>
+  <data name="SyncWallpaper" xml:space="preserve">
+    <value>Synchronisation avec les papiers peints</value>
+  </data>
+  <data name="SyncWallpaperInfo" xml:space="preserve">
+    <value>Quand cette otion est active, le fond d'écran est synchronisé avec le papier peint</value>
+  </data>
+  <data name="TranslatedBy" xml:space="preserve">
+    <value>Traduction de Gihem</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>Tutoriel</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Mise à jour</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Mise à jour disponible</value>
+  </data>
+  <data name="UpdateAvailableInfo" xml:space="preserve">
+    <value>Une nouvelle version de Winlaunch est disponible, vouluez-vous appliquer cette mise à jour ?</value>
+  </data>
+  <data name="UpdateError" xml:space="preserve">
+    <value>Pas pu télécharger des informations sur la version.</value>
+  </data>
+  <data name="UseCustomBackground" xml:space="preserve">
+    <value>Utiliser arrière-plan personnalisé</value>
+  </data>
+  <data name="UseCustomBackgroundInfo" xml:space="preserve">
+    <value>Lorsque activé va charger une image d’arrière-plan personnalisée </value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version : </value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Attention !</value>
+  </data>
+</root>

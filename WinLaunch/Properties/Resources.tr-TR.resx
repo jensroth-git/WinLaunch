@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>Aktivasyon</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>Dosya ekle</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>Dosya eklemek için 'F' tuşuna bas</value>
+  </data>
+  <data name="AddFolder" xml:space="preserve">
+    <value>Klasör ekle</value>
+  </data>
+  <data name="AddLink" xml:space="preserve">
+    <value>Bağlantı ekle</value>
+  </data>
+  <data name="AeroSwitch" xml:space="preserve">
+    <value>Aero WinLaunch'ı etkinleştirmek için yeniden başlatma gerekli, bu birkaç saniye sürebilir.</value>
+  </data>
+  <data name="AllowFreePlacement" xml:space="preserve">
+    <value>Serbest öğe yerleştirmeye izin ver</value>
+  </data>
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
+    <value>Öğelerin ızgara üzerinde herhangi bir yere yerleştirilmesine izin verir</value>
+  </data>
+  <data name="Arguments" xml:space="preserve">
+    <value>Argümanlar:</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>Arkaplan</value>
+  </data>
+  <data name="BackgroundBlur" xml:space="preserve">
+    <value>Arka plan bulanıklığı</value>
+  </data>
+  <data name="BackgroundTint" xml:space="preserve">
+    <value>Arka plan renk tonu</value>
+  </data>
+  <data name="BackupAndRestore" xml:space="preserve">
+    <value>Yedekleme ve Geri Yükleme</value>
+  </data>
+  <data name="BlockFullscreen" xml:space="preserve">
+    <value>Tam ekran uygulamaları aktifken WinLaunch aktivasyonunu engelle</value>
+  </data>
+  <data name="BlockFullscreenInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; tam ekran uygulamaları algılandığında WinLaunch engellenir, örn. Oyun oynarken veya video izlerken.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Güncellemeleri kontrol et</value>
+  </data>
+  <data name="ChooseMonitor" xml:space="preserve">
+    <value>Monitör seçin</value>
+  </data>
+  <data name="ChoosePath" xml:space="preserve">
+    <value>Dosya yolu seçin</value>
+  </data>
+  <data name="CloseWarning" xml:space="preserve">
+    <value>WinLaunch'ı kapatmak istediğinden emin misin?</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Sütunlar</value>
+  </data>
+  <data name="ColumnsAndRows" xml:space="preserve">
+    <value>Sütunlar &amp; Satırlar</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Kopyalandı</value>
+  </data>
+  <data name="CreateBackup" xml:space="preserve">
+    <value>Yedek oluştur</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Oluşturan</value>
+  </data>
+  <data name="DeskModeSwitch" xml:space="preserve">
+    <value>DeskMode'u değiştirmek için WinLaunch'ın yeniden başlatılması gerekecek, bu birkaç saniye sürebilir.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="EnableAcrylic" xml:space="preserve">
+    <value>Akriliği Etkinleştir</value>
+  </data>
+  <data name="EnableAcrylicInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde, Windows 10 yeni akrilik bulanıklaştırma kullanılır</value>
+  </data>
+  <data name="EnableAero" xml:space="preserve">
+    <value>Aero'yu etkinleştir</value>
+  </data>
+  <data name="EnableAeroInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde, duvar kağıdı yerine Windows Aero kullanılır</value>
+  </data>
+  <data name="EnableHotCorner" xml:space="preserve">
+    <value>Sıcak Köşeleri Etkinleştir</value>
+  </data>
+  <data name="EnableHotKey" xml:space="preserve">
+    <value>Kısayol Tuşunu Etkinleştir</value>
+  </data>
+  <data name="EnableTouchscreen" xml:space="preserve">
+    <value>Dokunmatik ekran modunu etkinleştir</value>
+  </data>
+  <data name="EnableTouchscreenInfo" xml:space="preserve">
+    <value>Dokunmatik ekran modu, öğeleri yalnızca 3 saniye basılı tuttuktan sonra taşımanıza izin verir (simge kıpırdamaya başlar)</value>
+  </data>
+  <data name="FillScreen" xml:space="preserve">
+    <value>Tüm ekranı doldur</value>
+  </data>
+  <data name="FillScreenInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; WinLaunch, görev çubuğu dahil tüm ekranı kaplayacaktır.</value>
+  </data>
+  <data name="FolderColumns" xml:space="preserve">
+    <value>Klasör sütunları</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Genel</value>
+  </data>
+  <data name="HotCornersActivation" xml:space="preserve">
+    <value>Sıcak Köşe aktivasyonu</value>
+  </data>
+  <data name="HotKeyActivation" xml:space="preserve">
+    <value>Kısayol tuşu aktivasyonu</value>
+  </data>
+  <data name="Icons" xml:space="preserve">
+    <value>Simgeler</value>
+  </data>
+  <data name="IconShadowOpacity" xml:space="preserve">
+    <value>Simge gölge opaklığı</value>
+  </data>
+  <data name="IconSize" xml:space="preserve">
+    <value>Simge boyutu</value>
+  </data>
+  <data name="IconText" xml:space="preserve">
+    <value>Simge metni:</value>
+  </data>
+  <data name="IconTextShadow" xml:space="preserve">
+    <value>Simge metin gölgesi:</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Lisan</value>
+  </data>
+  <data name="LanguageInfo" xml:space="preserve">
+    <value>Bir çeviriyi güncellemek veya yeni bir çeviri sağlamak için ziyaret et</value>
+  </data>
+  <data name="LatestVersion" xml:space="preserve">
+    <value>En son sürümü çalıştırıyorsun</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Yükleniyor...</value>
+  </data>
+  <data name="LoadWallpaper" xml:space="preserve">
+    <value>Duvar kağıdını yükle</value>
+  </data>
+  <data name="LookAndFeel" xml:space="preserve">
+    <value>Görünüm &amp; His</value>
+  </data>
+  <data name="MiddleMouseActivation" xml:space="preserve">
+    <value>Fare orta tuş aktivasyonu</value>
+  </data>
+  <data name="MultiMonitors" xml:space="preserve">
+    <value>Çoklu monitör</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>İsim:</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Aç</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>Yönetici Olarak Aç</value>
+  </data>
+  <data name="OpenFolders" xml:space="preserve">
+    <value>Klasörleri oluşturulduklarında aç</value>
+  </data>
+  <data name="OpenLocation" xml:space="preserve">
+    <value>Konumu aç</value>
+  </data>
+  <data name="OpenOnActiveMonitor" xml:space="preserve">
+    <value>WinLaunch'ı her zaman aktif monitörde aç</value>
+  </data>
+  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; farenin o anda açık olduğu monitörde WinLaunch otomatik olarak etkinleştirilir.</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Seçenekler</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Dosya yolu:</value>
+  </data>
+  <data name="PinDesktop" xml:space="preserve">
+    <value>WinLaunch'ı masaüstüne sabitle</value>
+  </data>
+  <data name="PinDesktopInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; WinLaunch, duvar kağıdının yerini alarak masaüstüne sabitlenecek</value>
+  </data>
+  <data name="PressAKey" xml:space="preserve">
+    <value>Bir tuşa bas</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Çık</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="RemoveFolder" xml:space="preserve">
+    <value>Bu klasörü kaldırıldığında, içindeki tüm öğeleri de kaldıracaktır</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Bu öğeyi gerçekten kaldırmak istiyor musun?</value>
+  </data>
+  <data name="RestoreBackup" xml:space="preserve">
+    <value>Yedekten geri yükle</value>
+  </data>
+  <data name="RestoreIcon" xml:space="preserve">
+    <value>Simgeyi geri yükle</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>Satırlar</value>
+  </data>
+  <data name="Screen" xml:space="preserve">
+    <value>Ekran</value>
+  </data>
+  <data name="SelectBackground" xml:space="preserve">
+    <value>Arka plan resmi seç</value>
+  </data>
+  <data name="SelectIcon" xml:space="preserve">
+    <value>Simge seç</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="StartWithWindows" xml:space="preserve">
+    <value>Windows ile başlat</value>
+  </data>
+  <data name="StartWithWindowsInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; WinLaunch, başlangıçta otomatik olarak başlatılacaktır</value>
+  </data>
+  <data name="SyncWallpaper" xml:space="preserve">
+    <value>Duvar kağıdını senkronize et</value>
+  </data>
+  <data name="SyncWallpaperInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; arka planı mevcut duvar kağıdıyla senkronize eder</value>
+  </data>
+  <data name="TranslatedBy" xml:space="preserve">
+    <value>FarisAGA tarafından çevrildi</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>Öğretici</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelleme</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Kullanılabilir güncelleme mevcut</value>
+  </data>
+  <data name="UpdateAvailableInfo" xml:space="preserve">
+    <value>WinLaunch'ın yeni versiyonu mevcut, güncellemek ister misin?</value>
+  </data>
+  <data name="UpdateError" xml:space="preserve">
+    <value>Sürüm bilgisi indirilemedi</value>
+  </data>
+  <data name="UseCustomBackground" xml:space="preserve">
+    <value>Özel arka plan kullan</value>
+  </data>
+  <data name="UseCustomBackgroundInfo" xml:space="preserve">
+    <value>Etkinleştirildiğinde; özel bir arka plan resmi yüklenir</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Sürüm: </value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Uyarı</value>
+  </data>
+</root>

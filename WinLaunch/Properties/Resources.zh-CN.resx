@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>激活</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>添加程序</value>
+  </data>
+  <data name="AddFiles" xml:space="preserve">
+    <value>按下 F 以添加快捷方式</value>
+  </data>
+  <data name="AddFolder" xml:space="preserve">
+    <value>添加目录</value>
+  </data>
+  <data name="AddLink" xml:space="preserve">
+    <value>添加链接</value>
+  </data>
+  <data name="AeroSwitch" xml:space="preserve">
+    <value>要启用 Aero WinLaunch 将必须重新启动，这可能需要几秒钟时间。</value>
+  </data>
+  <data name="Arguments" xml:space="preserve">
+    <value>参数：</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>背景</value>
+  </data>
+  <data name="BackgroundBlur" xml:space="preserve">
+    <value>背景模糊</value>
+  </data>
+  <data name="BackgroundTint" xml:space="preserve">
+    <value>背景着色</value>
+  </data>
+  <data name="BlockFullscreen" xml:space="preserve">
+    <value>运行全屏程序时禁用WinLaunch</value>
+  </data>
+  <data name="BlockFullscreenInfo" xml:space="preserve">
+    <value>启用后当检测到运行一些全屏程序例如玩游戏或看视频时将会禁用WinLaunch</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="ChooseMonitor" xml:space="preserve">
+    <value>选择显示器</value>
+  </data>
+  <data name="ChoosePath" xml:space="preserve">
+    <value>选择路径</value>
+  </data>
+  <data name="CloseWarning" xml:space="preserve">
+    <value>是否确实要关闭 WinLaunch？</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="ColumnsAndRows" xml:space="preserve">
+    <value>列和行</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>已复制</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="DeskModeSwitch" xml:space="preserve">
+    <value>要切换 DeskMode WinLaunch 将必须重新启动，这可能需要几秒钟时间。 </value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="EnableAero" xml:space="preserve">
+    <value>启用Aero</value>
+  </data>
+  <data name="EnableAeroInfo" xml:space="preserve">
+    <value>启用后将会使用Windows Aero替代壁纸</value>
+  </data>
+  <data name="EnableHotCorner" xml:space="preserve">
+    <value>启用触发角</value>
+  </data>
+  <data name="EnableHotKey" xml:space="preserve">
+    <value>启用快捷键</value>
+  </data>
+  <data name="EnableTouchscreen" xml:space="preserve">
+    <value>启用触摸模式</value>
+  </data>
+  <data name="EnableTouchscreenInfo" xml:space="preserve">
+    <value>触摸模式允许你按住一个图标3秒后移动它(进入编辑模式)</value>
+  </data>
+  <data name="FillScreen" xml:space="preserve">
+    <value>全屏</value>
+  </data>
+  <data name="FillScreenInfo" xml:space="preserve">
+    <value>启用后WinLaunch将会填满包括任务栏在内的整个屏幕</value>
+  </data>
+  <data name="FolderColumns" xml:space="preserve">
+    <value>文件夹列数</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="HotCornersActivation" xml:space="preserve">
+    <value>触发角激活</value>
+  </data>
+  <data name="HotKeyActivation" xml:space="preserve">
+    <value>快捷键激活</value>
+  </data>
+  <data name="Icons" xml:space="preserve">
+    <value>图标</value>
+  </data>
+  <data name="IconShadowOpacity" xml:space="preserve">
+    <value>图标阴影透明度</value>
+  </data>
+  <data name="IconSize" xml:space="preserve">
+    <value>图标尺寸</value>
+  </data>
+  <data name="IconText" xml:space="preserve">
+    <value>图标文本颜色：</value>
+  </data>
+  <data name="IconTextShadow" xml:space="preserve">
+    <value>图标文本阴影颜色：</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="LanguageInfo" xml:space="preserve">
+    <value>如需更新或提供新翻译请浏览</value>
+  </data>
+  <data name="LatestVersion" xml:space="preserve">
+    <value>当前已是最新版本</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>加载中...</value>
+  </data>
+  <data name="LoadWallpaper" xml:space="preserve">
+    <value>浏览壁纸</value>
+  </data>
+  <data name="LookAndFeel" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="MiddleMouseActivation" xml:space="preserve">
+    <value>鼠标中建激活</value>
+  </data>
+  <data name="MultiMonitors" xml:space="preserve">
+    <value>多显示器</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称：</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="OpenFolders" xml:space="preserve">
+    <value>创建文件夹后打开文件夹</value>
+  </data>
+  <data name="OpenLocation" xml:space="preserve">
+    <value>打开位置</value>
+  </data>
+  <data name="OpenOnActiveMonitor" xml:space="preserve">
+    <value>始终在活动显示器上打开WinLaunch</value>
+  </data>
+  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+    <value>启用后WinLaunch将会自动在你鼠标所在的显示器上启用</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>路径：</value>
+  </data>
+  <data name="PinDesktop" xml:space="preserve">
+    <value>使用WinLaunch替代桌面</value>
+  </data>
+  <data name="PinDesktopInfo" xml:space="preserve">
+    <value>启用后WinLaunch将会固定在桌面上以替代默认桌面</value>
+  </data>
+  <data name="PressAKey" xml:space="preserve">
+    <value>按一个键</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="RemoveFolder" xml:space="preserve">
+    <value>移除这个文件夹将会把该文件夹里所有的项目都移除：</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>你确定要移除这个项目？</value>
+  </data>
+  <data name="RestoreIcon" xml:space="preserve">
+    <value>恢复图标</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="Screen" xml:space="preserve">
+    <value>屏幕</value>
+  </data>
+  <data name="SelectBackground" xml:space="preserve">
+    <value>选择背景图像</value>
+  </data>
+  <data name="SelectIcon" xml:space="preserve">
+    <value>选择图标</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>偏好设置</value>
+  </data>
+  <data name="StartWithWindows" xml:space="preserve">
+    <value>随Windows启动</value>
+  </data>
+  <data name="StartWithWindowsInfo" xml:space="preserve">
+    <value>启用后WinLaunch将会开机自启</value>
+  </data>
+  <data name="SyncWallpaper" xml:space="preserve">
+    <value>同步壁纸</value>
+  </data>
+  <data name="SyncWallpaperInfo" xml:space="preserve">
+    <value>启用后背景会和壁纸自动同步</value>
+  </data>
+  <data name="TranslatedBy" xml:space="preserve">
+    <value>由 年糕 翻译</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>教程</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>有可用的更新</value>
+  </data>
+  <data name="UpdateAvailableInfo" xml:space="preserve">
+    <value>WinLaunch已发布了新的版本，您希望更新吗？</value>
+  </data>
+  <data name="UpdateError" xml:space="preserve">
+    <value>无法下载版本信息 </value>
+  </data>
+  <data name="UseCustomBackground" xml:space="preserve">
+    <value>使用自定义背景</value>
+  </data>
+  <data name="UseCustomBackgroundInfo" xml:space="preserve">
+    <value>当启用时将加载自定义背景图像 </value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本：</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+</root>

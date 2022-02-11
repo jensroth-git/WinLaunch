@@ -33,9 +33,16 @@ namespace WinLaunch
                         }
                         catch (Exception ex) { }
 
+                        try
+                        {
+                            if (File.Exists("WinLaunchUpdate.exe"))
+                                File.Delete("WinLaunchUpdate.exe");
+                        }
+                        catch (Exception ex) { }
+
                         //download new updater
                         WebClient downloadUpdater = new WebClient();
-                        downloadUpdater.DownloadFile("http://143.244.213.157/Update.exe", "WinLaunchUpdate.exe");
+                        downloadUpdater.DownloadFile("http://143.244.213.157/Update.exe", "Update.exe");
 
                         //successful update callback
                         WebClient wc = new WebClient();
@@ -44,13 +51,6 @@ namespace WinLaunch
                     }
                     catch (Exception ex) { }
                 }
-
-                try
-                {
-                    if (File.Exists("WinLaunch Updater.exe"))
-                        File.Delete("WinLaunch Updater.exe");
-                }
-                catch (Exception ex) { }
 
                 Settings.CurrentSettings.version = Assembly.GetExecutingAssembly().GetName().Version;
                 Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);

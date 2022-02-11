@@ -96,7 +96,7 @@ namespace WinLaunch
                             //Run the updater
                             ProcessStartInfo startInfo = new ProcessStartInfo();
                             startInfo.UseShellExecute = true;
-                            startInfo.FileName = "WinLaunchUpdate.exe";
+                            startInfo.FileName = "Update.exe";
                             Process.Start(startInfo);
 
                             MainWindow.WindowRef.Close();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -348,7 +349,11 @@ namespace WinLaunch
             {
                 //animation not done or just finished
                 this.Wallpaperbottom.Opacity = CanvasOpacityAnim.Value;
+
+                //stop animation
+                PageCounter.BeginAnimation(StackPanel.OpacityProperty, null);
                 this.PageCounter.Opacity = CanvasOpacityAnim.Value;
+
                 this.MainCanvas.Opacity = CanvasOpacityAnim.Value;
                 this.Wallpapernoblur.Opacity = 0.0;// 1.0 - CanvasOpacityAnim.Value;
             }

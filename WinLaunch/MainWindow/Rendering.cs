@@ -349,11 +349,7 @@ namespace WinLaunch
             {
                 //animation not done or just finished
                 this.Wallpaperbottom.Opacity = CanvasOpacityAnim.Value;
-
-                //stop animation
-                PageCounter.BeginAnimation(StackPanel.OpacityProperty, null);
                 this.PageCounter.Opacity = CanvasOpacityAnim.Value;
-
                 this.MainCanvas.Opacity = CanvasOpacityAnim.Value;
                 this.Wallpapernoblur.Opacity = 0.0;// 1.0 - CanvasOpacityAnim.Value;
             }
@@ -417,6 +413,9 @@ namespace WinLaunch
 
             //reposition background
             SetBackgroundPosition();
+
+            //stop animation
+            PageCounter.BeginAnimation(StackPanel.OpacityProperty, null);
         }
 
         private bool AnimationsRunning()

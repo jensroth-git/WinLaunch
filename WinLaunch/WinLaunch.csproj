@@ -197,7 +197,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Springboard\SpringPages.cs" />
-    <Compile Include="Springboard\Utils.cs" />
     <Compile Include="Theme\Theme.cs" />
     <Compile Include="Theme\Themes.cs" />
     <Compile Include="Utils\AnimationHelper.cs" />

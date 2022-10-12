@@ -1570,6 +1570,14 @@ namespace WinLaunch
             //        CloseFolder();
             //}
 
+
+            // Key Arrow functions
+
+            // Selecting Items to the left
+            // Behaviour discription if Key.Left is detected:
+            // Normal behaviour: Zoom out the Item on the left
+            // Corner cases: If current selected item is in the left border of the page, if is not the firt page, jump to the page on the left and select
+            // the item that is on the right border. If souch element does not exists then the last element on page is selected.
             if (e.Key == Key.Left)
             {                
                 GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
@@ -1604,15 +1612,20 @@ namespace WinLaunch
                 e.Handled = true;
             }
 
+            // Selecting Items to the Rigth
+            // Behaviour discription if Key.Right is detected:
+            // Normal behaviour: Zoom out the Item on the right
+            // Corner cases: If current selected item is in the right border of the page, if is not the last page, jump to the page on the right and select
+            // the item that is on the left border. If souch element does not exists then the first element on page is selected.
             if (e.Key == Key.Right)
             {
                 GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
                 int FirstFreeGridIndex = 0;
                 GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
 
-                if (((SelItemInd > 0) && ((SelItemInd + 1) % GM.XItems == 0)  && PageInd < (GM.GetUsedPages() - 1)) || (SelItemInd > (FirstFreeGridIndex - 1)))
+                if (((SelItemInd > 0) && ((SelItemInd + 1) % GM.XItems == 0) && PageInd < (GM.GetUsedPages() - 1)) || (SelItemInd > (FirstFreeGridIndex - 1)))
                 {
-                    PageInd++;                    
+                    PageInd++;
                     SelItemInd = SelItemInd - GM.XItems + 1;
                     GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
                     if (SelItemInd > FirstFreeGridIndex)
@@ -1642,7 +1655,7 @@ namespace WinLaunch
                             SelItemInd = 0;
                             SP.FlipPageRight();
                         }
-                            
+
                     }
                 }
 
@@ -1651,43 +1664,6 @@ namespace WinLaunch
                 e.Handled = true;
             }
 
-            if (e.Key == Key.Up)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-
-                if (SelItemInd >= GM.XItems)
-                    SelItemInd = SelItemInd - GM.XItems;
-
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
-                e.Handled = true;
-            }
-
-            if (e.Key == Key.Down)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-
-                int FirstFreeGridIndex = 0;
-                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-
-                if ((SelItemInd + GM.XItems) <= (FirstFreeGridIndex - 1)) 
-                    SelItemInd = SelItemInd + GM.XItems;
-                else
-                {
-                    SelItemInd = (FirstFreeGridIndex - 1);
-                }
-
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
-                e.Handled = true;
-            }
-
-            if (e.Key == Key.Enter)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-
-                ParentWindow.ItemActivated(GM.GetItemFromIndex(SelItemInd, PageInd), EventArgs.Empty);
-
-                e.Handled = true;
-            }
 
             if (e.Key == Key.F3 && !Moving)
             {

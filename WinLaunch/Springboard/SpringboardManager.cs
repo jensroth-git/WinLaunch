@@ -1701,6 +1701,15 @@ namespace WinLaunch
                 e.Handled = true;
             }
 
+            // Launch the selected Item, currently Folder Items are not suported
+            if (e.Key == Key.Enter)
+            {
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+
+                ParentWindow.ItemActivated(GM.GetItemFromIndex(SelItemInd, PageInd), EventArgs.Empty);
+
+                e.Handled = true;
+            }
 
             if (e.Key == Key.F3 && !Moving)
             {

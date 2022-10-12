@@ -16,6 +16,15 @@ namespace WinLaunch
         public GridManager GM { get; set; }
         public SpringPages SP;
 
+        //item selected
+        public int SelItemInd = 0 ;
+
+        //selected item scale zoom out size
+        public double SelItemScaleSize = 1.5;
+
+        //current Page
+        public int PageInd = 0 ;
+
         //item handling
         public SBItem HoldItem = null;
 
@@ -1562,15 +1571,120 @@ namespace WinLaunch
             //}
 
             if (e.Key == Key.Left)
-            {
-                SP.FlipPageLeft();
+            {                
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+                int FirstFreeGridIndex = 0;
+                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
 
+                if ((SelItemInd % GM.XItems) == 0 && PageInd > 0) 
+                {                    
+                    PageInd--;
+                    SelItemInd = SelItemInd + GM.XItems - 1;
+                    GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
+                    if (SelItemInd > FirstFreeGridIndex)
+                        SelItemInd = FirstFreeGridIndex - 1;
+                    SP.FlipPageLeft();
+                }
+                else
+                {
+                    if ((SelItemInd % GM.XItems) == 0 && PageInd == 0)
+                    {
+                        GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+                    }
+                    else
+                    {
+                        if (SelItemInd != 0)
+                            SelItemInd--;
+                    }
+
+                        
+                }
+
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
                 e.Handled = true;
             }
 
             if (e.Key == Key.Right)
             {
-                SP.FlipPageRight();
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+                int FirstFreeGridIndex = 0;
+                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
+
+                if (((SelItemInd > 0) && ((SelItemInd + 1) % GM.XItems == 0)  && PageInd < (GM.GetUsedPages() - 1)) || (SelItemInd > (FirstFreeGridIndex - 1)))
+                {
+                    PageInd++;                    
+                    SelItemInd = SelItemInd - GM.XItems + 1;
+                    GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
+                    if (SelItemInd > FirstFreeGridIndex)
+                        SelItemInd = 0;
+
+                    SP.FlipPageRight();
+                }
+                else
+                {
+                    GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
+                    if (SelItemInd < (FirstFreeGridIndex - 1))
+                    {
+                        if ((SelItemInd > 0) && ((SelItemInd + 1) % GM.XItems == 0) && PageInd == (GM.GetUsedPages() - 1))
+                        {
+                            GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+                        }
+                        else
+                        {
+                            SelItemInd++;
+                        }
+                    }
+                    else
+                    {
+                        if ((PageInd) < (GM.GetUsedPages() - 1))
+                        {
+                            PageInd++;
+                            SelItemInd = 0;
+                            SP.FlipPageRight();
+                        }
+                            
+                    }
+                }
+
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
+
+                e.Handled = true;
+            }
+
+            if (e.Key == Key.Up)
+            {
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+
+                if (SelItemInd >= GM.XItems)
+                    SelItemInd = SelItemInd - GM.XItems;
+
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
+                e.Handled = true;
+            }
+
+            if (e.Key == Key.Down)
+            {
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+
+                int FirstFreeGridIndex = 0;
+                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
+
+                if ((SelItemInd + GM.XItems) <= (FirstFreeGridIndex - 1)) 
+                    SelItemInd = SelItemInd + GM.XItems;
+                else
+                {
+                    SelItemInd = (FirstFreeGridIndex - 1);
+                }
+
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
+                e.Handled = true;
+            }
+
+            if (e.Key == Key.Enter)
+            {
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+
+                ParentWindow.ItemActivated(GM.GetItemFromIndex(SelItemInd, PageInd), EventArgs.Empty);
 
                 e.Handled = true;
             }

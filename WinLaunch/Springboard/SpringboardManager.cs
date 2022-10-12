@@ -1664,6 +1664,20 @@ namespace WinLaunch
                 e.Handled = true;
             }
 
+            // Selecting Items Up
+            // Behaviour discription if Key.Up is detected:
+            // Normal behaviour: Zoom out the Item is above the current position
+            // Corner cases: If current selected item is in the first row then no action is taken.
+            if (e.Key == Key.Up)
+            {
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+
+                if (SelItemInd >= GM.XItems)
+                    SelItemInd = SelItemInd - GM.XItems;
+
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
+                e.Handled = true;
+            }
 
             if (e.Key == Key.F3 && !Moving)
             {

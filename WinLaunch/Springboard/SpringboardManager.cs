@@ -1679,6 +1679,29 @@ namespace WinLaunch
                 e.Handled = true;
             }
 
+            // Selecting Items Down
+            // Behaviour discription if Key.Down is detected:
+            // Normal behaviour: Zoom out the Item is below the current position
+            // Corner cases: If current selected item does not have items below the last item on the page is selected.
+            if (e.Key == Key.Down)
+            {
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+
+                int FirstFreeGridIndex = 0;
+                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
+
+                if ((SelItemInd + GM.XItems) <= (FirstFreeGridIndex - 1))
+                    SelItemInd = SelItemInd + GM.XItems;
+                else
+                {
+                    SelItemInd = (FirstFreeGridIndex - 1);
+                }
+
+                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
+                e.Handled = true;
+            }
+
+
             if (e.Key == Key.F3 && !Moving)
             {
                 if (!JiggleMode)

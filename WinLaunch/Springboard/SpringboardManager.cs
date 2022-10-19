@@ -26,9 +26,6 @@ namespace WinLaunch
         public int SelItemInd = -1;
         public int SelItemIndFolder = -1;
 
-        //selected item scale zoom out size
-        public double SelItemScaleSize = 1.5;
-
         //item handling
         public SBItem HoldItem = null;
 

@@ -1559,7 +1559,7 @@ namespace WinLaunch
         {
             UnselectItem();
 
-            item.SelectionBorder = new System.Windows.Media.SolidColorBrush(Colors.Gray);
+            item.SelectionBorder = new System.Windows.Media.SolidColorBrush(Colors.White);
             CurrentSelectedItem = item;
         }
 

@@ -386,7 +386,7 @@ namespace WinLaunch
             IsHidden = false;
 
             //manage selection
-
+            SBM.UnselectItem();
 
             StartFlyInAnimation();
         }

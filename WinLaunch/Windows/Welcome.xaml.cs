@@ -14,12 +14,10 @@ namespace WinLaunch
             "---",
             "Close this window to start WinLaunch",
             "",
-            "#Changelog 0.5.5.0",
+            "#Changelog 0.5.6.1",
             "---",
-            "- added smooth transition",
-            "- added themeable extensions icon",
-            "- fixed folder rendering on 4k screens",
-            "- removed fps counter"
+            "- added arrow key navigation",
+            "- fixed bug when creating a folder and free placement was enabled"
         };
 
         public Welcome()

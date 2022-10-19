@@ -357,6 +357,9 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>Show extension icon</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start with Windows</value>
   </data>

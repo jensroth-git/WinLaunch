@@ -20,6 +20,8 @@
                 <ResourceDictionary Source="ContextMenu.xaml" />
 
                 <ResourceDictionary>
+                    <BooleanToVisibilityConverter x:Key="BoolToVis" />
+                    
                     <DataTemplate DataType="{x:Type my:SBItem}">
                         <Grid ContextMenuOpening="Grid_ContextMenuOpening" IsEnabled="{Binding IsEnabled}">
                             <Grid.Clip>
@@ -505,6 +507,7 @@
                    Width="35"
                    Height="35"
                    MouseDown="ExtensionsToggle_MouseDown"
+                   Visibility="{Binding Path=theme.ExtensionIconVisible, Converter={StaticResource BoolToVis}}"
                    RenderOptions.BitmapScalingMode="HighQuality"
                    Source="{Binding theme.ExtensionsToggle}">
                 <Image.RenderTransform>

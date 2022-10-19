@@ -101,6 +101,7 @@ namespace WinLaunch
         #region UI
         public Color ExtensionBarTextColor = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
 
+        public bool ExtensionIconVisible { get; set; }
         #endregion UI
 
         public void LoadImages()
@@ -370,6 +371,8 @@ namespace WinLaunch
             IconTextColor = Colors.White;
             IconTextShadowColor = Colors.Black;
             IconShadowOpacity = 1.0;
+
+            ExtensionIconVisible = true;
         }
 
         /// <summary>

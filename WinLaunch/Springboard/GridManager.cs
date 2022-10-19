@@ -579,7 +579,7 @@ namespace WinLaunch
         }
 
         #region Arrow Navigation
-        public void GetClostestItemOnPreviousPage(int Page, int currentIndex, out int page, out int index)
+        public void GetClosestItemOnPreviousPage(int Page, int currentIndex, out int page, out int index)
         {
             int row = currentIndex / XItems;
             int column = XItems - 1;
@@ -635,7 +635,7 @@ namespace WinLaunch
             index = closest.GridIndex;
         }
 
-        public void GetClostestItemOnNextPage(int Page, int currentIndex, out int page, out int index)
+        public void GetClosestItemOnNextPage(int Page, int currentIndex, out int page, out int index)
         {
             int row = currentIndex / XItems;
             int column = 0;
@@ -817,7 +817,7 @@ namespace WinLaunch
                 row++;
             }
 
-            //find the clostest match horizontaly
+            //find the clostest match horizontally
             SBItem closest = null;
             int clostestDistance = XItems * 2;
 
@@ -879,7 +879,7 @@ namespace WinLaunch
                 row--;
             }
 
-            //find the clostest match horizontaly
+            //find the clostest match horizontally
             SBItem closest = null;
             int clostestDistance = XItems * 2;
 
@@ -909,7 +909,7 @@ namespace WinLaunch
                 if (Page != 0)
                 {
                     //find clostest item on the previous page
-                    GetClostestItemOnPreviousPage(Page, currentIndex,out page, out index);
+                    GetClosestItemOnPreviousPage(Page, currentIndex,out page, out index);
                 }
                 else
                 {
@@ -936,7 +936,7 @@ namespace WinLaunch
                 if (Page != GetUsedPages() - 1)
                 {
                     //get the closest item on the next page
-                    GetClostestItemOnNextPage(Page, currentIndex, out page, out index);
+                    GetClosestItemOnNextPage(Page, currentIndex, out page, out index);
                 }
                 else
                 {

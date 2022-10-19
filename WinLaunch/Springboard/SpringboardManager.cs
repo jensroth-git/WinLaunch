@@ -1,9 +1,15 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
+using Xceed.Wpf.Toolkit.Primitives;
+using Point = System.Windows.Point;
 
 namespace WinLaunch
 {
@@ -17,13 +23,11 @@ namespace WinLaunch
         public SpringPages SP;
 
         //item selected
-        public int SelItemInd = 0 ;
+        public int SelItemInd = -1;
+        public int SelItemIndFolder = -1;
 
         //selected item scale zoom out size
         public double SelItemScaleSize = 1.5;
-
-        //current Page
-        public int PageInd = 0 ;
 
         //item handling
         public SBItem HoldItem = null;
@@ -367,7 +371,7 @@ namespace WinLaunch
         {
             //remove the item
             IC.Items.Remove(Item);
-            GM.RemoveGridCell(Item.GridIndex, Item.Page);
+            GM.RemoveGridCell(Item.GridIndex, Item.Page, Settings.CurrentSettings.FreeItemPlacement);
 
             //remove reference from Host container
             if (container.Contains(Item.ContentRef))
@@ -1143,7 +1147,7 @@ namespace WinLaunch
         //mouse stuff
         private MouseDevice MouseDev = null;
 
-        private Point MouseDownPoint = new Point();
+        private System.Windows.Point MouseDownPoint = new System.Windows.Point();
 
         bool RightMouseScrollAttempt = false;
 
@@ -1552,6 +1556,26 @@ namespace WinLaunch
             RestoreItemDarkness();
         }
 
+        SBItem CurrentSelectedItem = null;
+
+        public void SelectItem(SBItem item)
+        {
+            UnselectItem();
+
+            item.SelectionBorder = new System.Windows.Media.SolidColorBrush(Colors.Gray);
+            CurrentSelectedItem = item;
+        }
+
+        public void UnselectItem()
+        {
+            if (CurrentSelectedItem != null)
+            {
+                CurrentSelectedItem.SelectionBorder = new System.Windows.Media.SolidColorBrush(Colors.Transparent);
+            }
+
+            CurrentSelectedItem = null;
+        }
+
         public void KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space)
@@ -1564,153 +1588,188 @@ namespace WinLaunch
                 e.Handled = true;
             }
 
-            //if (e.Key == Key.Return && !Moving)
-            //{
-            //    if (FolderOpen)
-            //        CloseFolder();
-            //}
-
-
             // Key Arrow functions
-
-            // Selecting Items to the left
-            // Behaviour discription if Key.Left is detected:
-            // Normal behaviour: Zoom out the Item on the left
-            // Corner cases: If current selected item is in the left border of the page, if is not the firt page, jump to the page on the left and select
-            // the item that is on the right border. If souch element does not exists then the last element on page is selected.
-            if (e.Key == Key.Left)
-            {                
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-                int FirstFreeGridIndex = 0;
-                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-
-                if ((SelItemInd % GM.XItems) == 0 && PageInd > 0) 
-                {                    
-                    PageInd--;
-                    SelItemInd = SelItemInd + GM.XItems - 1;
-                    GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-                    if (SelItemInd > FirstFreeGridIndex)
-                        SelItemInd = FirstFreeGridIndex - 1;
-                    SP.FlipPageLeft();
-                }
-                else
+            if(FolderOpen)
+            {
+                //in folders we dont have to worry about the page index 
+                if (e.Key == Key.Left)
                 {
-                    if ((SelItemInd % GM.XItems) == 0 && PageInd == 0)
+                    int newPage = -1;
+                    int newIndex = -1;
+
+                    FolderGrid.GetItemLeft(0, SelItemIndFolder, out newPage, out newIndex);
+
+                    var selectItem = FolderGrid.GetItemFromIndex(newIndex, newPage);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemIndFolder = newIndex;
+
+                    e.Handled = true;
+                }
+
+                if (e.Key == Key.Right)
+                {
+                    int newPage = -1;
+                    int newIndex = -1;
+
+                    FolderGrid.GetItemRight(0, SelItemIndFolder, out newPage, out newIndex);
+
+                    var selectItem = FolderGrid.GetItemFromIndex(newIndex, newPage);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemIndFolder = newIndex;
+
+                    e.Handled = true;
+                }
+
+                if (e.Key == Key.Up)
+                {
+                    int newIndex = -1;
+                    FolderGrid.GetItemUp(0, SelItemIndFolder, out newIndex);
+
+                    if(newIndex == SelItemIndFolder)
                     {
-                        GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+                        //close folder
+                        BeginCloseFolder();
                     }
                     else
                     {
-                        if (SelItemInd != 0)
-                            SelItemInd--;
+                        var selectItem = FolderGrid.GetItemFromIndex(newIndex, 0);
+
+                        //select the new item
+                        SelectItem(selectItem);
+
+                        SelItemIndFolder = newIndex;
+                    }
+                    
+                    e.Handled = true;
+                }
+
+                if (e.Key == Key.Down)
+                {
+                    int newIndex = -1;
+                    FolderGrid.GetItemDown(0, SelItemIndFolder, out newIndex);
+
+                    var selectItem = FolderGrid.GetItemFromIndex(newIndex, 0);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemIndFolder = newIndex;
+                    e.Handled = true;
+                }
+
+                if (e.Key == Key.Enter)
+                {
+                    var selectItem = FolderGrid.GetItemFromIndex(SelItemIndFolder,0);
+
+                    ParentWindow.ItemActivated(selectItem, EventArgs.Empty);
+
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (e.Key == Key.Left)
+                {
+                    int newPage = -1;
+                    int newIndex = -1;
+
+                    GM.GetItemLeft(SP.CurrentPage, SelItemInd, out newPage, out newIndex);
+
+                    if (newPage < SP.CurrentPage)
+                    {
+                        SP.FlipPageLeft();
                     }
 
-                        
+                    var selectItem = GM.GetItemFromIndex(newIndex, newPage);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemInd = newIndex;
+
+                    e.Handled = true;
                 }
 
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
-                e.Handled = true;
-            }
-
-            // Selecting Items to the Rigth
-            // Behaviour discription if Key.Right is detected:
-            // Normal behaviour: Zoom out the Item on the right
-            // Corner cases: If current selected item is in the right border of the page, if is not the last page, jump to the page on the right and select
-            // the item that is on the left border. If souch element does not exists then the first element on page is selected.
-            if (e.Key == Key.Right)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-                int FirstFreeGridIndex = 0;
-                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-
-                if (((SelItemInd > 0) && ((SelItemInd + 1) % GM.XItems == 0) && PageInd < (GM.GetUsedPages() - 1)) || (SelItemInd > (FirstFreeGridIndex - 1)))
+                if (e.Key == Key.Right)
                 {
-                    PageInd++;
-                    SelItemInd = SelItemInd - GM.XItems + 1;
-                    GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-                    if (SelItemInd > FirstFreeGridIndex)
-                        SelItemInd = 0;
+                    int newPage = -1;
+                    int newIndex = -1;
 
-                    SP.FlipPageRight();
-                }
-                else
-                {
-                    GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-                    if (SelItemInd < (FirstFreeGridIndex - 1))
+                    GM.GetItemRight(SP.CurrentPage, SelItemInd, out newPage, out newIndex);
+
+                    if (newPage > SP.CurrentPage)
                     {
-                        if ((SelItemInd > 0) && ((SelItemInd + 1) % GM.XItems == 0) && PageInd == (GM.GetUsedPages() - 1))
+                        SP.FlipPageRight();
+                    }
+
+                    var selectItem = GM.GetItemFromIndex(newIndex, newPage);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemInd = newIndex;
+
+                    e.Handled = true;
+                }
+
+                if (e.Key == Key.Up)
+                {
+                    int newIndex = -1;
+                    GM.GetItemUp(SP.CurrentPage, SelItemInd, out newIndex);
+
+                    var selectItem = GM.GetItemFromIndex(newIndex, SP.CurrentPage);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemInd = newIndex;
+                    e.Handled = true;
+                }
+
+                if (e.Key == Key.Down)
+                {
+                    int newIndex = -1;
+                    GM.GetItemDown(SP.CurrentPage, SelItemInd, out newIndex);
+
+                    var selectItem = GM.GetItemFromIndex(newIndex, SP.CurrentPage);
+
+                    //select the new item
+                    SelectItem(selectItem);
+
+                    SelItemInd = newIndex;
+                    e.Handled = true;
+                }
+
+                // Launch the selected Item, currently Folder Items are not suported
+                if (e.Key == Key.Enter)
+                {
+                    if(SelItemInd != -1)
+                    {
+                        var selectItem = GM.GetItemFromIndex(SelItemInd, SP.CurrentPage);
+
+                        if (selectItem.IsFolder)
                         {
-                            GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
+                            //select the first item in the folder by setting this to something other than -1
+                            SelItemIndFolder = 0;
+
+                            OpenFolder(selectItem);
                         }
                         else
                         {
-                            SelItemInd++;
+                            ParentWindow.ItemActivated(selectItem, EventArgs.Empty);
                         }
                     }
-                    else
-                    {
-                        if ((PageInd) < (GM.GetUsedPages() - 1))
-                        {
-                            PageInd++;
-                            SelItemInd = 0;
-                            SP.FlipPageRight();
-                        }
 
-                    }
+                    e.Handled = true;
                 }
-
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
-
-                e.Handled = true;
             }
-
-            // Selecting Items Up
-            // Behaviour discription if Key.Up is detected:
-            // Normal behaviour: Zoom out the Item is above the current position
-            // Corner cases: If current selected item is in the first row then no action is taken.
-            if (e.Key == Key.Up)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-
-                if (SelItemInd >= GM.XItems)
-                    SelItemInd = SelItemInd - GM.XItems;
-
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
-                e.Handled = true;
-            }
-
-            // Selecting Items Down
-            // Behaviour discription if Key.Down is detected:
-            // Normal behaviour: Zoom out the Item is below the current position
-            // Corner cases: If current selected item does not have items below the last item on the page is selected.
-            if (e.Key == Key.Down)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-
-                int FirstFreeGridIndex = 0;
-                GM.GetFirstFreeGridIndex(PageInd, out PageInd, out FirstFreeGridIndex);
-
-                if ((SelItemInd + GM.XItems) <= (FirstFreeGridIndex - 1))
-                    SelItemInd = SelItemInd + GM.XItems;
-                else
-                {
-                    SelItemInd = (FirstFreeGridIndex - 1);
-                }
-
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = SelItemScaleSize;
-                e.Handled = true;
-            }
-
-            // Launch the selected Item, currently Folder Items are not suported
-            if (e.Key == Key.Enter)
-            {
-                GM.GetItemFromIndex(SelItemInd, PageInd).ScaleAnim.ValueTo = 1;
-
-                ParentWindow.ItemActivated(GM.GetItemFromIndex(SelItemInd, PageInd), EventArgs.Empty);
-
-                e.Handled = true;
-            }
-
+            
             if (e.Key == Key.F3 && !Moving)
             {
                 if (!JiggleMode)

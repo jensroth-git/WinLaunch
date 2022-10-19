@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Drawing;
+using System.Reflection;
 using System.Windows;
 
 namespace WinLaunch
@@ -26,7 +30,7 @@ namespace WinLaunch
 
         #region Get Positions
 
-        public Point GetPositionFromGridIndex(int GridIndex, int Page)
+        public System.Windows.Point GetPositionFromGridIndex(int GridIndex, int Page)
         {
             int YGrid = (int)Math.Floor(((double)GridIndex) / ((double)XItems));
             int XGrid = GridIndex - (YGrid * XItems);
@@ -36,10 +40,10 @@ namespace WinLaunch
 
             X += (Page * DisplayRect.Width);
 
-            return new Point(X, Y);
+            return new System.Windows.Point(X, Y);
         }
 
-        public int GetGridIndexFromPoint(Point Pos)
+        public int GetGridIndexFromPoint(System.Windows.Point Pos)
         {
             double cellwidth = (DisplayRect.Width / ((double)XItems + 1.0));
             double XPos = Pos.X - (cellwidth / 2.0) - DisplayRect.Left;
@@ -70,7 +74,7 @@ namespace WinLaunch
             foreach (SBItem item in IC.Items)
             {
                 //get position
-                Point ItemPosition = item.CenterPointXY(GetPositionFromGridIndex(GridIndex, Page));
+                System.Windows.Point ItemPosition = item.CenterPointXY(GetPositionFromGridIndex(GridIndex, Page));
 
                 //set values
                 item.GridIndex = GridIndex;
@@ -92,7 +96,7 @@ namespace WinLaunch
             foreach (SBItem item in IC.Items)
             {
                 //get position
-                Point ItemPosition = item.CenterPointXY(GetPositionFromGridIndex(item.GridIndex, item.Page));
+                System.Windows.Point ItemPosition = item.CenterPointXY(GetPositionFromGridIndex(item.GridIndex, item.Page));
 
                 ItemPosition.X += Xoff;
                 ItemPosition.Y += Yoff;
@@ -573,5 +577,398 @@ namespace WinLaunch
             Item.GridIndex = ToGridIndex;
             Item.Page = ToPage;
         }
+
+        #region Arrow Navigation
+        public void GetClostestItemOnPreviousPage(int Page, int currentIndex, out int page, out int index)
+        {
+            int row = currentIndex / XItems;
+            int column = XItems - 1;
+
+            //find last occupied column
+            List<SBItem> OccupiedColumn = new List<SBItem>();
+
+            bool found = false;
+            while (true)
+            {
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page-1 && item.GridIndex % XItems == column)
+                    {
+                        OccupiedColumn.Add(item);
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    break;
+                }
+
+                if (column == 0)
+                {
+                    //no items on the whole page
+                    index = currentIndex;
+                    page = Page;
+                }
+
+                //search the previous column
+                column--;
+            }
+
+            //find the clostest match horizontaly
+            SBItem closest = null;
+            int clostestDistance = XItems * 2;
+
+            foreach (SBItem item in OccupiedColumn)
+            {
+                int occupiedRow = item.GridIndex / XItems;
+
+                int distance = Math.Abs(occupiedRow - row);
+                if (distance < clostestDistance)
+                {
+                    closest = item;
+                    clostestDistance = distance;
+                }
+            }
+
+            page = closest.Page;
+            index = closest.GridIndex;
+        }
+
+        public void GetClostestItemOnNextPage(int Page, int currentIndex, out int page, out int index)
+        {
+            int row = currentIndex / XItems;
+            int column = 0;
+
+            //find last occupied column
+            List<SBItem> OccupiedColumn = new List<SBItem>();
+
+            bool found = false;
+            while (true)
+            {
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page+1 && item.GridIndex % XItems == column)
+                    {
+                        OccupiedColumn.Add(item);
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    break;
+                }
+
+                if (column == XItems-1)
+                {
+                    //no items on the whole page
+                    index = currentIndex;
+                    page = Page;
+                }
+
+                //search the next column
+                column++;
+            }
+
+            //find the clostest match horizontaly
+            SBItem closest = null;
+            int clostestDistance = XItems * 2;
+
+            foreach (SBItem item in OccupiedColumn)
+            {
+                int occupiedRow = item.GridIndex / XItems;
+
+                int distance = Math.Abs(occupiedRow - row);
+                if (distance < clostestDistance)
+                {
+                    closest = item;
+                    clostestDistance = distance;
+                }
+            }
+
+            page = closest.Page;
+            index = closest.GridIndex;
+        }
+
+        public int FindItemLeftOnPage(int Page, int currentIndex)
+        {
+            if(currentIndex % XItems == 0)
+            {
+                //no more items to the left
+                return -1;
+            }
+
+            //look to the left
+            currentIndex--;
+
+            bool found = false;
+
+            while (true)
+            {
+                found = false;
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page && item.GridIndex == currentIndex)
+                    {
+                        found = true;
+                    }
+                }
+
+                if(found)
+                {
+                    return currentIndex;
+                }
+                else
+                {
+                    if (currentIndex % XItems == 0)
+                    {
+                        //no more items to the left
+                        return -1;
+                    }
+
+                    //look to the left
+                    currentIndex--;
+                }
+            }
+        }
+
+        public int FindItemRightOnPage(int Page, int currentIndex)
+        {
+            if(currentIndex % XItems == XItems - 1)
+            {
+                //no more items to the right
+                return -1;
+            }
+
+            //look to the right
+            currentIndex++;
+
+            bool found = false;
+
+            while (true)
+            {
+                found = false;
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page && item.GridIndex == currentIndex)
+                    {
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    return currentIndex;
+                }
+                else
+                {
+                    if (currentIndex % XItems == XItems - 1)
+                    {
+                        //no more items to the right
+                        return -1;
+                    }
+
+                    //look to the right
+                    currentIndex++;
+                }
+            }
+        }
+
+        public int FindItemDown(int Page, int currentIndex)
+        {
+            int column = currentIndex % XItems;
+            int row = currentIndex / XItems;
+
+            //last row
+            if (row == YItems - 1)
+            {
+                return currentIndex;
+            }
+
+            row++;
+
+            //find next occupied row
+            List<SBItem> OccupiedRow = new List<SBItem>();
+
+            bool found = false;
+            while (true)
+            {
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page && item.GridIndex / XItems == row)
+                    {
+                        OccupiedRow.Add(item);
+                        found = true;
+                    }
+                }
+
+                if(found)
+                {
+                    break;
+                }
+
+                if (row == YItems - 1)
+                {
+                    return currentIndex;
+                }
+
+                //search the next row
+                row++;
+            }
+
+            //find the clostest match horizontaly
+            SBItem closest = null;
+            int clostestDistance = XItems * 2;
+
+            foreach (SBItem item in OccupiedRow)
+            {
+                int occupiedColumn = item.GridIndex % XItems;
+
+                int distance = Math.Abs(occupiedColumn - column);
+                if(distance < clostestDistance)
+                {
+                    closest = item;
+                    clostestDistance = distance;
+                }
+            }
+
+            return closest.GridIndex;
+        }
+
+
+        public int FindItemUp(int Page, int currentIndex)
+        {
+            int column = currentIndex % XItems;
+            int row = currentIndex / XItems;
+
+            //first row
+            if (row == 0)
+            {
+                return currentIndex;
+            }
+
+            row--;
+
+            //find previous occupied row
+            List<SBItem> OccupiedRow = new List<SBItem>();
+
+            bool found = false;
+            while (true)
+            {
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page && item.GridIndex / XItems == row)
+                    {
+                        OccupiedRow.Add(item);
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    break;
+                }
+
+                if (row == 0)
+                {
+                    return currentIndex;
+                }
+
+                //search the previous row
+                row--;
+            }
+
+            //find the clostest match horizontaly
+            SBItem closest = null;
+            int clostestDistance = XItems * 2;
+
+            foreach (SBItem item in OccupiedRow)
+            {
+                int occupiedColumn = item.GridIndex % XItems;
+
+                int distance = Math.Abs(occupiedColumn - column);
+                if (distance < clostestDistance)
+                {
+                    closest = item;
+                    clostestDistance = distance;
+                }
+            }
+
+            return closest.GridIndex;
+        }
+
+        public void GetItemLeft(int Page, int currentIndex, out int page, out int index)
+        {
+            //search item to the left 
+            int leftIndex = FindItemLeftOnPage(Page, currentIndex);
+
+            if (leftIndex == -1)
+            {
+                //no more item found to the left
+                if (Page != 0)
+                {
+                    //find clostest item on the previous page
+                    GetClostestItemOnPreviousPage(Page, currentIndex,out page, out index);
+                }
+                else
+                {
+                    //we stay on the current Item
+                    page = Page;
+                    index = currentIndex;
+                }
+            }
+            else
+            {
+                page = Page;
+                index = leftIndex;
+            }
+        }
+
+        public void GetItemRight(int Page, int currentIndex, out int page, out int index)
+        {
+            //search item to the left 
+            int rightIndex = FindItemRightOnPage(Page, currentIndex);
+
+            if (rightIndex == -1)
+            {
+                //no more item found to the right
+                if (Page != GetUsedPages() - 1)
+                {
+                    //get the closest item on the next page
+                    GetClostestItemOnNextPage(Page, currentIndex, out page, out index);
+                }
+                else
+                {
+                    //we stay on the current Item
+                    page = Page;
+                    index = currentIndex;
+                }
+            }
+            else
+            {
+                page = Page;
+                index = rightIndex;
+            }
+        }
+
+
+        public void GetItemDown(int Page, int currentIndex, out int index)
+        {
+            //find the closest item downwards from the currentIndex
+            int newIndex = FindItemDown(Page, currentIndex);
+
+            index = newIndex;
+        }
+
+        public void GetItemUp(int Page, int currentIndex, out int index)
+        {
+            //find the closest item downwards from the currentIndex
+            int newIndex = FindItemUp(Page, currentIndex);
+
+            index = newIndex;
+        }
+
+        #endregion
     }
 }

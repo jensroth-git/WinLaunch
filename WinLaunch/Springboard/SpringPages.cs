@@ -8,8 +8,8 @@ namespace WinLaunch
         public Rect DisplayRect = new Rect(0, 0, 1080, 1920);
 
         public double XOffset = 0.0;
-        public double CurrentPage = 0;
-        public double TotalPages = 0;
+        public int CurrentPage = 0;
+        public int TotalPages = 0;
 
         public bool Scrolling = false;
         public bool ScrollingLocked = false;
@@ -100,7 +100,7 @@ namespace WinLaunch
             TotalXOffsetAnimation.ValueTo = CurrentPage + XOffset;
         }
 
-        public bool SetPage(double Page)
+        public bool SetPage(int Page)
         {
             if (Scrolling || ScrollingLocked)
                 return false;

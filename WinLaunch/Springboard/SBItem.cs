@@ -100,6 +100,19 @@ namespace WinLaunch
             DependencyProperty.Register("IsEnabled", typeof(bool), typeof(SBItem), new PropertyMetadata(true));
 
 
+
+        public SolidColorBrush SelectionBorder
+        {
+            get { return (SolidColorBrush)GetValue(SelectionBorderProperty); }
+            set { SetValue(SelectionBorderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SelectionBorder.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectionBorderProperty =
+            DependencyProperty.Register("SelectionBorder", typeof(SolidColorBrush), typeof(SBItem), new PropertyMetadata(Brushes.Transparent));
+
+
+
         public Effect IconEffect
         {
             get { return (Effect)GetValue(IconEffectProperty); }
@@ -159,7 +172,7 @@ namespace WinLaunch
             DependencyProperty.Register("Scale", typeof(double), typeof(SBItem), new UIPropertyMetadata(1.0));
 
 
-        private Rect ClipRectangle
+        public Rect ClipRectangle
         {
             get { return (Rect)GetValue(ClipRectangleProperty); }
             set { SetValue(ClipRectangleProperty, value); }

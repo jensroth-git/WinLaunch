@@ -64,40 +64,52 @@
                                 </ContextMenu>
                             </Grid.ContextMenu>
 
-                            <Grid>
-                                <Grid.CacheMode>
-                                    <BitmapCache RenderAtScale="1.0" SnapsToDevicePixels="True" />
-                                </Grid.CacheMode>
+                            <Border BorderThickness="2" CornerRadius="10">
+                                <Border.BorderBrush>
+                                    <VisualBrush>
+                                        <VisualBrush.Visual>
+                                            <Rectangle StrokeDashArray="4 2" Stroke="{Binding SelectionBorder}" StrokeThickness="2" RadiusX="10" RadiusY="10"
+                  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"/>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Border.BorderBrush>
 
-                                <Image Width="150" Opacity="{Binding ShadowOpacity}" Source="{Binding Shadow}" />
+                                <Grid>
+                                    <Grid>
+                                        <Grid.CacheMode>
+                                            <BitmapCache RenderAtScale="1.0" SnapsToDevicePixels="True" />
+                                        </Grid.CacheMode>
 
-                                <Grid Width="150" Height="150">
-                                    <Image Width="140"
+                                        <Image Width="150" Opacity="{Binding ShadowOpacity}" Source="{Binding Shadow}" />
+
+                                        <Grid Width="150" Height="150">
+                                            <Image Width="140"
                                            Height="140"
                                            Margin="{Binding DropMargin}"
                                            Opacity="{Binding DropOpacity}"
                                            Source="{Binding DropImage}">
-                                        <Image.RenderTransform>
-                                            <ScaleTransform CenterX="70" CenterY="70" ScaleX="{Binding DropScale}" ScaleY="{Binding DropScale}" />
-                                        </Image.RenderTransform>
-                                    </Image>
-                                </Grid>
+                                                <Image.RenderTransform>
+                                                    <ScaleTransform CenterX="70" CenterY="70" ScaleX="{Binding DropScale}" ScaleY="{Binding DropScale}" />
+                                                </Image.RenderTransform>
+                                            </Image>
+                                        </Grid>
 
-                                <Grid Width="{Binding IconWidth}"
+                                        <Grid Width="{Binding IconWidth}"
                                       Height="{Binding IconHeight}"
                                       Margin="0,10,0,0"
                                       VerticalAlignment="Top"
                                       Effect="{Binding IconEffect}"
                                       RenderOptions.BitmapScalingMode="HighQuality">
 
-                                    <Image HorizontalAlignment="Stretch" Opacity="{Binding IconOpacity}" Source="{Binding Icon}" />
+                                            <Image HorizontalAlignment="Stretch" Opacity="{Binding IconOpacity}" Source="{Binding Icon}" />
 
-                                    <Grid Width="{Binding MiniatureWidth}" Height="{Binding MiniatureWidth}" HorizontalAlignment="Center" ClipToBounds="True">
-                                        <Image Width="{Binding MiniatureWidth}" Margin="{Binding MiniatureMargin}" Source="{Binding FolderMiniatures}" Stretch="UniformToFill" />
-                                    </Grid>
-                                </Grid>
+                                            <Grid Width="{Binding MiniatureWidth}" Height="{Binding MiniatureWidth}" HorizontalAlignment="Center" ClipToBounds="True">
+                                                <Image Width="{Binding MiniatureWidth}" Margin="{Binding MiniatureMargin}" Source="{Binding FolderMiniatures}" Stretch="UniformToFill" />
+                                            </Grid>
+                                        </Grid>
 
-                                <TextBlock Height="50"
+                                        <TextBlock Height="50"
                                            MaxWidth="150"
                                            Margin="{Binding TextMargin}"
                                            HorizontalAlignment="Center"
@@ -114,34 +126,36 @@
                                            UseLayoutRounding="True"
                                            Visibility="{Binding TextVisible}">
 
-                                    <TextBlock.Effect>
-                                        <DropShadowEffect BlurRadius="4"
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect BlurRadius="4"
                                                           Direction="270"
                                                           Opacity="{Binding FontShadowOpacity}"
                                                           ShadowDepth="1"
                                                           Color="{Binding FontShadowColor}" />
-                                    </TextBlock.Effect>
-                                </TextBlock>
-                            </Grid>
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </Grid>
 
-                            <Image Width="28"
+                                    <Image Width="28"
                                    Height="28"
                                    Margin="{Binding CloseBoxMargin}"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    Source="{Binding CloseBox}">
-                                <Image.Style>
-                                    <Style TargetType="{x:Type Image}">
-                                        <Setter Property="Visibility" Value="Hidden" />
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Visibility" Value="Hidden" />
 
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ShowClose}" Value="true">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ShowClose}" Value="true">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                </Grid>
+                            </Border>
                         </Grid>
                     </DataTemplate>
                 </ResourceDictionary>

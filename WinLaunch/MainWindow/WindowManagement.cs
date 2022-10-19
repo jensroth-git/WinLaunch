@@ -385,6 +385,9 @@ namespace WinLaunch
 
             IsHidden = false;
 
+            //manage selection
+
+
             StartFlyInAnimation();
         }
 

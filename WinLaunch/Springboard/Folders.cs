@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
+using Xceed.Wpf.Toolkit.Primitives;
 
 namespace WinLaunch
 {
@@ -280,9 +282,12 @@ namespace WinLaunch
             }
 
             //correct item positions
-
-
             Host.UpdateLayout();
+
+            if (SelItemIndFolder != -1)
+            {
+                SelectItem(ActiveFolder.IC.Items.First());
+            }
         }
 
         public void OpenFolder(SBItem Folder)
@@ -381,6 +386,12 @@ namespace WinLaunch
             //Restore everything
             RepositionFolderAndItems();
             UnmuteSpringboardItems();
+
+            //if we selected the folder via keyboard select it again after closing the folder
+            if(SelItemInd != -1)
+            {
+                SelectItem(ActiveFolder);
+            }
         }
 
         //gets called when either the animation is finished or another folder has been opened
@@ -404,6 +415,8 @@ namespace WinLaunch
             FolderClosing = false;
             FolderOpen = false;
             ActiveFolder = null;
+
+            SelItemIndFolder = -1;
         }
 
         public void CloseFolderInstant()

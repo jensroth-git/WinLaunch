@@ -388,9 +388,10 @@ namespace WinLaunch
             UnmuteSpringboardItems();
 
             //if we selected the folder via keyboard select it again after closing the folder
-            if(SelItemInd != -1)
+            if(SelItemIndFolder != -1)
             {
                 SelectItem(ActiveFolder);
+                SelItemIndFolder = -1;
             }
         }
 

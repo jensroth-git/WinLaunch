@@ -12,7 +12,7 @@ namespace WinLaunch
 {
     partial class MainWindow : Window
     {
-        bool FirstLaunch = true;
+        bool FirstLaunch = false;
 
         private void AddDefaultApps()
         {

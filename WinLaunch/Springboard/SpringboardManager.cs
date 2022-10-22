@@ -1148,7 +1148,7 @@ namespace WinLaunch
 
         #endregion Item event handling
 
-        #region Input handling
+    #region Input handling
 
         //mouse stuff
         private MouseDevice MouseDev = null;

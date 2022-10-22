@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>Aktivierung</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>Standard Apps hinzufügen</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>Datei hinzufügen</value>
   </data>

@@ -686,6 +686,32 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
+                    <Grid MouseDown="miAddDefaultApps_Clicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="1" Color="#19FFFFFF" />
+                                <GradientStop />
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+
+                    <!--  Content grid  -->
+                    <Grid IsHitTestVisible="False">
+                        <StackPanel Width="200" VerticalAlignment="Center" Orientation="Vertical">
+                            <Image Height="70" Source="res/add.png" />
+                            <TextBlock Margin="0,10,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontFamily="Lucida Sans Unicode"
+                                       FontSize="13"
+                                       Foreground="White"
+                                       Text="{my:Loc AddDefaultApps}" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                
+                <!--  Item grid  -->
+                <Grid>
+                    <!--  Background grid  -->
                     <Grid MouseDown="miTutorialClicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

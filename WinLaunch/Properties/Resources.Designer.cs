@@ -79,6 +79,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add default apps.
+        /// </summary>
+        internal static string AddDefaultApps {
+            get {
+                return ResourceManager.GetString("AddDefaultApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add file.
         /// </summary>
         internal static string AddFile {

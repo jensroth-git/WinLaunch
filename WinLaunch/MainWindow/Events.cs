@@ -86,6 +86,14 @@ namespace WinLaunch
         #endregion
 
         #region Main Context Menu
+        private void miAddDefaultApps_Clicked(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Do you really want to add all default apps?", "Add default apps", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                AddDefaultApps();
+            }
+        }
+
         private void miAddFile_Clicked(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -148,7 +156,6 @@ namespace WinLaunch
             MiscUtils.OpenURL("http://WinLaunch.org/howto.php");
         }
         #endregion
-
 
         #region MainCanvas events
 
@@ -309,9 +316,9 @@ namespace WinLaunch
                 System.IO.Directory.CreateDirectory(appData);
             }
 
-            if (!System.IO.File.Exists(ItemCollection.CurrentItemsPath))
+            //if (!System.IO.File.Exists(ItemCollection.CurrentItemsPath))
             {
-                //Set autostart on first ever startup
+                //Set autostart
                 Autostart.SetAutoStart("WinLaunch", Assembly.GetExecutingAssembly().Location, " -hide");
             }
 
@@ -336,6 +343,14 @@ namespace WinLaunch
                         //all items loaded
                         //apply theme
                         InitTheme();
+
+                        //add default apps on first launch
+                        if (FirstLaunch)
+                        {
+                            //new install
+                            //add default apps
+                            AddDefaultApps();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -638,7 +653,7 @@ namespace WinLaunch
             }
         }
 
-        private void AddFile(string File)
+        private SBItem PrepareFile(string File)
         {
             try
             {
@@ -653,7 +668,7 @@ namespace WinLaunch
                     Path = File;
 
                     if (Name == "")
-                        return;
+                        return null;
 
                     bmps = MiscUtils.GetFileThumbnail(File);
                 }
@@ -666,7 +681,7 @@ namespace WinLaunch
                     Path = folder;
 
                     if (Name == "")
-                        return;
+                        return null;
 
                     bmps = MiscUtils.GetFileThumbnail(folder);
                 }
@@ -698,18 +713,30 @@ namespace WinLaunch
                     }
 
                     if (Name == "")
-                        return;
+                        return null;
 
                     bmps = MiscUtils.GetFileThumbnail(File);
                 }
 
-                SBM.AddItem(new SBItem(Name, Path, null, "", bmps), (int)SBM.SP.CurrentPage, -1);
+                return new SBItem(Name, Path, null, "", bmps);
             }
             catch (Exception ex)
             {
                 CrashReporter.Report(ex);
                 MessageBox.Show(ex.Message);
+
+                return null;
             }
+        }
+
+        private void AddFile(string File)
+        {
+            var item = PrepareFile(File);
+
+            if (item == null)
+                return;
+
+            SBM.AddItem(item, (int)SBM.SP.CurrentPage, -1);
         }
 
         #endregion Utils

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -11,12 +12,18 @@ namespace WinLaunch
 {
     partial class MainWindow : Window
     {
-        bool FirstLaunch = false;
+        bool FirstLaunch = true;
 
         private void AddDefaultApps()
         {
             //clear all items 
-            //SBM.IC.Items.Clear();
+            foreach (var item in SBM.IC.Items)
+            {
+                SBM.container.Remove(item.ContentRef);
+            }
+
+            SBM.IC.Items.Clear();
+            
 
             string startMenuItems = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs";
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -21,6 +22,9 @@ namespace WinLaunch
         public ItemCollection IC;
         public GridManager GM { get; set; }
         public SpringPages SP;
+
+        //search 
+        public bool SearchMode = false;
 
         //item selected
         public int SelItemInd = -1;
@@ -174,6 +178,7 @@ namespace WinLaunch
         }
 
         #region Item Management
+
 
         #region AddItems
 
@@ -474,6 +479,11 @@ namespace WinLaunch
 
         public void Step()
         {
+            if (SearchMode)
+            {
+                return;
+            }
+
             #region Animations
 
             StepFolderAnimations();
@@ -482,7 +492,6 @@ namespace WinLaunch
             #endregion Animations
 
             #region Solve grids
-
             if (MoveMode)
             {
                 if (Moving)
@@ -776,7 +785,7 @@ namespace WinLaunch
         {
             MoveItemTimer.Stop();
 
-            if (LockItems || RemoveItemPending || ActivateItemPending || HoldItem == ActiveFolder)
+            if (LockItems || SearchMode || RemoveItemPending || ActivateItemPending || HoldItem == ActiveFolder)
             {
                 return;
             }
@@ -1275,7 +1284,7 @@ namespace WinLaunch
                         //mouse down on a item
                         if (found)
                         {
-                            if (!LockItems)
+                            if (!LockItems && !SearchMode)
                             {
                                 //attempt to activate delete mode
                                 if (!JiggleMode)
@@ -1332,7 +1341,7 @@ namespace WinLaunch
 
         public void MouseMove(object sender, MouseEventArgs e)
         {
-            if (LockItems)
+            if (LockItems || SearchMode)
             {
                 e.Handled = true;
                 return;
@@ -1666,9 +1675,12 @@ namespace WinLaunch
 
                 if (e.Key == Key.Enter)
                 {
-                    var selectItem = FolderGrid.GetItemFromIndex(SelItemIndFolder,0);
+                    if(!ParentWindow.FolderRenamingActive)
+                    {
+                        var selectItem = FolderGrid.GetItemFromIndex(SelItemIndFolder, 0);
 
-                    ParentWindow.ItemActivated(selectItem, EventArgs.Empty);
+                        ParentWindow.ItemActivated(selectItem, EventArgs.Empty);
+                    }
 
                     e.Handled = true;
                 }
@@ -1785,5 +1797,135 @@ namespace WinLaunch
         }
 
         #endregion Input handling
+
+        #region Search
+        private List<SBItem> AllItems;
+
+        public List<SBItem> FindItemsByName(string name)
+        {
+            List<SBItem> results = new List<SBItem>();
+
+            foreach (var item in AllItems)
+            {
+                if (item.IsFolder)
+                {
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        if (subItem.Name.ToLower().Contains(name.ToLower()))
+                        {
+                            results.Add(subItem);
+                        }
+                    }
+                }
+                else
+                {
+                    if (item.Name.ToLower().Contains(name.ToLower()))
+                    {
+                        results.Add(item);
+                    }
+                }
+            }
+
+            return results;
+        }
+
+        public void StartSearch()
+        {
+            SearchMode = true;
+
+            SP.SetPage(0);
+
+            AllItems = new List<SBItem>();
+
+            //remove all items from the board
+            foreach (var item in IC.Items)
+            {
+                AllItems.Add(item);
+                container.Remove(item.ContentRef);
+            }
+
+            IC.Items.Clear();
+
+            Host.UpdateLayout();
+        }
+
+        private void ClearContainerItems()
+        {
+            List<ContentControl> itemsToRemove = new List<ContentControl>();
+
+            foreach (var item in container)
+            {
+                if(item is ContentControl)
+                {
+                    itemsToRemove.Add(item as ContentControl);
+                }
+            }
+
+            foreach (var item in itemsToRemove)
+            {
+                container.Remove(item);
+            }
+
+
+        }
+
+        public void UpdateSearch(string search)
+        {
+            if (search == "")
+                return;
+
+            if(!SearchMode)
+            {
+                StartSearch();
+            }
+
+            var items = FindItemsByName(search);
+
+            ClearContainerItems();
+
+            IC.Items.Clear();
+
+            foreach (var item in items)
+            {
+                IC.Items.Add(item);
+                container.Add(item.ContentRef);
+                item.ContentRef.UpdateLayout();
+            }
+
+            GM.SetSearchPositions(items);
+
+            foreach (var item in items)
+            {
+                item.ApplyPosition();
+                item.ContentRef.UpdateLayout();
+            }
+
+            Host.UpdateLayout();
+        }
+
+        public void EndSearch()
+        {
+            if (!SearchMode)
+                return;
+
+            SearchMode = false;
+
+            ClearContainerItems();
+
+            IC.Items.Clear();
+
+            foreach (var item in AllItems)
+            {
+                IC.Items.Add(item);
+                container.Add(item.ContentRef);
+            }
+
+            AllItems.Clear();
+
+            GM.SetGridPositions(0, 0, true);
+
+            Host.UpdateLayout();
+        }
+        #endregion Search
     }
 }

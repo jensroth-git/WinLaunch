@@ -239,6 +239,11 @@ namespace WinLaunch
 
                 SBItem Item = sender as SBItem;
 
+                if(Item == null)
+                {
+                    return;
+                }
+
                 if (EditExtensionActive)
                 {
                     RunEditExtension(Item);
@@ -762,6 +767,26 @@ namespace WinLaunch
 
 
         #region Input events
+        private void tbSearch_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ActivateSearch();
+        }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //search and display results
+            SBM.UpdateSearch(tbSearch.Text);
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                DeactivateSearch();
+                e.Handled = true;
+            }
+        }
+
         private void MainWindow_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             //Check MouseWheel
@@ -785,6 +810,9 @@ namespace WinLaunch
 
         private void MainWindow_KeyUp(object sender, KeyEventArgs e)
         {
+            if (SearchActive)
+                return;
+
             if (FolderRenamingActive)
                 return;
 
@@ -793,6 +821,9 @@ namespace WinLaunch
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            if (SearchActive)
+                return;
+
             if (FolderRenamingActive)
                 return;
 

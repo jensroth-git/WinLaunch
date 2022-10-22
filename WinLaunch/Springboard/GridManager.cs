@@ -65,6 +65,31 @@ namespace WinLaunch
 
         #endregion Get Positions
 
+
+
+        public void SetSearchPositions(List<SBItem> searchResults)
+        {
+            int ItemsPerPage = XItems * YItems;
+            int Page = 0;
+            int GridIndex = 0;
+
+            foreach (SBItem item in searchResults)
+            {
+                //get position
+                System.Windows.Point ItemPosition = item.CenterPointXY(GetPositionFromGridIndex(GridIndex, Page));
+
+                //set values
+                item.SetPositionImmediate(ItemPosition);
+
+                GridIndex++;
+                if (GridIndex == ItemsPerPage)
+                {
+                    GridIndex = 0;
+                    Page++;
+                }
+            }
+        }
+
         public void InitializePositions()
         {
             int ItemsPerPage = XItems * YItems;

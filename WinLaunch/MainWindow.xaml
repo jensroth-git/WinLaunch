@@ -222,7 +222,7 @@
                    Stretch="Fill"
                    Visibility="Collapsed" />
         </Grid>
-
+        
         <Canvas x:Name="MainCanvas"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -453,6 +453,8 @@
                        Text="60"
                        Visibility="Collapsed" />
         </Canvas>
+
+        
 
         <TextBlock x:Name="LoadingText"
                    HorizontalAlignment="Center"
@@ -736,5 +738,18 @@
                 </Grid>
             </StackPanel>
         </Border>
+
+        <Border Width="300" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" CornerRadius="20" Background="#33000000">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image Source="res/search.png" Grid.Column="0" Width="20" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+                <TextBox x:Name="tbSearch" Focusable="false" MouseDown="tbSearch_MouseDown" TextChanged="tbSearch_TextChanged" KeyDown="tbSearch_KeyDown" Foreground="White" Grid.Column="1" VerticalContentAlignment="Center" Background="#01000000" BorderThickness="0" SelectionBrush="#80ffffff"/>
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

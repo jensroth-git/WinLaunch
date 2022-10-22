@@ -373,9 +373,34 @@ namespace WinLaunch
 
         #endregion Utils
 
+        #region Search
+        public bool SearchActive = false;
+
+        private void ActivateSearch()
+        {
+            SearchActive = true;
+            tbSearch.Focusable = true;
+            Keyboard.Focus(tbSearch);
+
+            SBM.UnselectItem();
+        }
+
+        private void DeactivateSearch()
+        {
+            tbSearch.Clear();
+
+            SearchActive = false;
+
+            tbSearch.Focusable = false;
+            
+            SBM.EndSearch();
+        }
+
+        #endregion
+
         #region Folder Title Renaming
 
-        private bool FolderRenamingActive = false;
+        public bool FolderRenamingActive = false;
 
         private void ActivateFolderRenaming()
         {

@@ -491,6 +491,8 @@ namespace WinLaunch
             FadingOut = false;
             StartingItem = false;
 
+            DeactivateSearch();
+
             //save items
             PerformItemBackup();
         }

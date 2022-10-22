@@ -392,6 +392,7 @@ namespace WinLaunch
             {
                 SelectItem(ActiveFolder);
                 SelItemIndFolder = -1;
+                SelItemInd = ActiveFolder.GridIndex;
             }
         }
 

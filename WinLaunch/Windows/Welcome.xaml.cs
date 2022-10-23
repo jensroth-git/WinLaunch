@@ -14,14 +14,9 @@ namespace WinLaunch
             "---",
             "Close this window to start WinLaunch",
             "",
-            "#Changelog 0.5.7.0",
+            "#Changelog 0.6.0.0",
             "---",
-            "- added an option to add all default apps",
-            "",
-            "#Changelog 0.5.6.1",
-            "---",
-            "- added arrow key navigation",
-            "- fixed bug when creating a folder and free placement was enabled"
+            "- added searchbar"
         };
 
         public Welcome()

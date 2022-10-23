@@ -1890,18 +1890,18 @@ namespace WinLaunch
 
             foreach (var item in items)
             {
-                item.UnsetClip();
-
                 IC.Items.Add(item);
                 container.Add(item.ContentRef);
                 item.ContentRef.UpdateLayout();
+
+                //unset clip only works after the item has a proper height (after UpdateLayout)
+                item.UnsetClip();
             }
 
             GM.SetSearchPositions(items);
 
             foreach (var item in items)
             {
-                
                 item.ApplyPosition();
                 item.ContentRef.UpdateLayout();
             }

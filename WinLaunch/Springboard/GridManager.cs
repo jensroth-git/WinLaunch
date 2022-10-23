@@ -80,6 +80,7 @@ namespace WinLaunch
 
                 //set values
                 item.SetPositionImmediate(ItemPosition);
+                item.SetOffsetPosition(0, 0);
 
                 GridIndex++;
                 if (GridIndex == ItemsPerPage)

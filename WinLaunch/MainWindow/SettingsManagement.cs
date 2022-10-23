@@ -17,12 +17,12 @@ namespace WinLaunch
         private void AddDefaultApps()
         {
             //clear all items 
-            foreach (var item in SBM.IC.Items)
-            {
-                SBM.container.Remove(item.ContentRef);
-            }
+            //foreach (var item in SBM.IC.Items)
+            //{
+            //    SBM.container.Remove(item.ContentRef);
+            //}
 
-            SBM.IC.Items.Clear();
+            //SBM.IC.Items.Clear();
             
 
             string startMenuItems = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs";

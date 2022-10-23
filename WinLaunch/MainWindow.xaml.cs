@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -14,6 +15,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
@@ -284,9 +286,6 @@ namespace WinLaunch
                     }
                 }
 
-                //remove all stock items again (people want buttons)
-                RemoveStockItems();
-
                 SBM.UpdateIC();
 
                 FPSWatch.Start();
@@ -298,50 +297,6 @@ namespace WinLaunch
             }
 
             SBM.IC.LoadIconsInBackground(Dispatcher, continueWith);
-        }
-
-        private void RemoveStockItems()
-        {
-            List<string> stockItems = new List<string>(new string[] { "winlaunch://settings", "winlaunch://tutorial", "winlaunch://quit" });
-
-            List<SBItem> deleteItems = new List<SBItem>();
-            foreach (SBItem item in SBM.IC.Items)
-            {
-                if (item.IsFolder)
-                {
-                    List<SBItem> deleteFolderItems = new List<SBItem>();
-
-                    foreach (SBItem folderItem in item.IC.Items)
-                    {
-                        if (stockItems.Contains(folderItem.ApplicationPath))
-                        {
-                            deleteFolderItems.Add(folderItem);
-                        }
-                    }
-
-                    //remove folder items
-                    foreach (SBItem folderItem in deleteFolderItems)
-                    {
-                        item.IC.Items.Remove(folderItem);
-                    }
-
-                    //if folder is empty remove it 
-                    if (item.IC.Items.Count == 0)
-                    {
-                        deleteItems.Add(item);
-                    }
-                }
-                else if (stockItems.Contains(item.ApplicationPath))
-                {
-                    deleteItems.Add(item);
-                }
-            }
-
-            //remove main screen items
-            foreach (SBItem item in deleteItems)
-            {
-                SBM.IC.Items.Remove(item);
-            }
         }
 
         private void AddArgumentFiles()
@@ -380,6 +335,9 @@ namespace WinLaunch
         {
             SearchActive = true;
             tbSearch.Focusable = true;
+
+            tbSearch.CaretBrush = new SolidColorBrush(Colors.White);
+
             Keyboard.Focus(tbSearch);
 
             SBM.UnselectItem();
@@ -392,6 +350,8 @@ namespace WinLaunch
             SearchActive = false;
 
             tbSearch.Focusable = false;
+
+            tbSearch.CaretBrush = new SolidColorBrush(Colors.Transparent);
             
             SBM.EndSearch();
         }

@@ -481,6 +481,12 @@ namespace WinLaunch
         {
             if (SearchMode)
             {
+                foreach (SBItem item in IC.Items)
+                {
+                    //progress animation to make launch animation work
+                    item.StepPosition();
+                }
+
                 return;
             }
 
@@ -1833,7 +1839,7 @@ namespace WinLaunch
         {
             SearchMode = true;
 
-            SP.SetPage(0);
+            CloseFolderInstant();
 
             AllItems = new List<SBItem>();
 
@@ -1871,9 +1877,6 @@ namespace WinLaunch
 
         public void UpdateSearch(string search)
         {
-            if (search == "")
-                return;
-
             if(!SearchMode)
             {
                 StartSearch();
@@ -1887,6 +1890,8 @@ namespace WinLaunch
 
             foreach (var item in items)
             {
+                item.UnsetClip();
+
                 IC.Items.Add(item);
                 container.Add(item.ContentRef);
                 item.ContentRef.UpdateLayout();
@@ -1896,6 +1901,7 @@ namespace WinLaunch
 
             foreach (var item in items)
             {
+                
                 item.ApplyPosition();
                 item.ContentRef.UpdateLayout();
             }

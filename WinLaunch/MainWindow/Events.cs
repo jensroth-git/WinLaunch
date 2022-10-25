@@ -440,7 +440,7 @@ namespace WinLaunch
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             }
 
-
+            Keyboard.Focus(tbSearch);
             
             e.Handled = true;
         }
@@ -761,10 +761,9 @@ namespace WinLaunch
         {
             this.MouseWheel += new MouseWheelEventHandler(MainWindow_MouseWheel);
 
-            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+            this.PreviewKeyDown += new KeyEventHandler(MainWindow_KeyDown);
             this.KeyUp += new KeyEventHandler(MainWindow_KeyUp);
         }
-
 
         #region Input events
         private void tbSearch_MouseDown(object sender, MouseButtonEventArgs e)
@@ -774,6 +773,12 @@ namespace WinLaunch
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if(tbSearch.Text == "")
+            {
+                SBM.EndSearch();
+                return;
+            }
+
             //search and display results
             SBM.UpdateSearch(tbSearch.Text);
         }
@@ -785,6 +790,15 @@ namespace WinLaunch
                 DeactivateSearch();
                 e.Handled = true;
             }
+
+            if (e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Down || e.Key == Key.Up || e.Key == Key.Enter)
+            {
+                SBM.KeyDown(sender, e);
+                e.Handled = true;
+                return;
+            }
+
+            ActivateSearch();
         }
 
         private void MainWindow_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -834,34 +848,11 @@ namespace WinLaunch
                 return;
             }
 
-            //using WinForms because WPF System.Windows.Input.Mouse is not system wide
-            if (e.Key == Key.F && System.Windows.Forms.Control.MouseButtons == System.Windows.Forms.MouseButtons.None)
+            if(e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Down || e.Key == Key.Up || e.Key == Key.Enter)
             {
-                //if (IsFullscreen)
-                //{
-                //    //fullscreen maximized -> make desktop window
-                //    MakeDesktopWindow();
-                //}
-                //else
-                //{
-                //    //desktop window -> make fullscreen
-                //    if (Settings.CurrentSettings.DeskMode)
-                //    {
-                //        MakeDesktopChildWindow();
-                //    }
-                //    else
-                //    {
-                //        HideWindow();
-                //        RevealWindow();
-                //    }
-                //}
-
-                miAddFile_Clicked(this, null);
+                SBM.KeyDown(sender, e);
+                e.Handled = true;
             }
-
-            SBM.KeyDown(sender, e);
-
-            e.Handled = true;
         }
         #endregion
         #endregion Input

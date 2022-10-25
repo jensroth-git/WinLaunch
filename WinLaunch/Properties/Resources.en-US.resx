@@ -129,9 +129,6 @@
   <data name="AddFile" xml:space="preserve">
     <value>Add file</value>
   </data>
-  <data name="AddFiles" xml:space="preserve">
-    <value>Hit 'F' to add files</value>
-  </data>
   <data name="AddFolder" xml:space="preserve">
     <value>Add folder</value>
   </data>

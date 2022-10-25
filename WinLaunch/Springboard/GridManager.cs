@@ -79,6 +79,9 @@ namespace WinLaunch
                 System.Windows.Point ItemPosition = item.CenterPointXY(GetPositionFromGridIndex(GridIndex, Page));
 
                 //set values
+                item.Page = Page;
+                item.GridIndex = GridIndex;
+
                 item.SetPositionImmediate(ItemPosition);
                 item.SetOffsetPosition(0, 0);
 
@@ -803,6 +806,11 @@ namespace WinLaunch
 
         public int FindItemDown(int Page, int currentIndex)
         {
+            if(currentIndex == -1)
+            {
+                return 0;
+            }
+
             int column = currentIndex % XItems;
             int row = currentIndex / XItems;
 

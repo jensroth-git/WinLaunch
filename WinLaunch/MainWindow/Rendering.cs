@@ -32,19 +32,9 @@ namespace WinLaunch
                     if (LoadingText.Visibility != System.Windows.Visibility.Hidden)
                         LoadingText.Visibility = System.Windows.Visibility.Hidden;
 
-                    //show howto message when no items are found
                     if (SBM.IC.Items.Count == 0)
                     {
                         SBM.StopMoveMode();
-
-                        //want items? message
-                        if (EmptySBText.Visibility != System.Windows.Visibility.Visible)
-                            EmptySBText.Visibility = System.Windows.Visibility.Visible;
-                    }
-                    else
-                    {
-                        if (EmptySBText.Visibility != System.Windows.Visibility.Hidden)
-                            EmptySBText.Visibility = System.Windows.Visibility.Hidden;
                     }
                 }
 

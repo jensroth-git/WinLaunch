@@ -126,9 +126,6 @@
   <data name="AddFile" xml:space="preserve">
     <value>添加程序</value>
   </data>
-  <data name="AddFiles" xml:space="preserve">
-    <value>按下 F 以添加快捷方式</value>
-  </data>
   <data name="AddFolder" xml:space="preserve">
     <value>添加目录</value>
   </data>

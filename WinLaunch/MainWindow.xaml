@@ -454,7 +454,7 @@
                        Visibility="Collapsed" />
         </Canvas>
 
-        
+
 
         <TextBlock x:Name="LoadingText"
                    HorizontalAlignment="Center"
@@ -463,19 +463,6 @@
                    FontSize="14pt"
                    Foreground="White"
                    Text="{my:Loc Loading}"
-                   Visibility="Collapsed">
-            <TextBlock.Effect>
-                <DropShadowEffect BlurRadius="2" Direction="270" ShadowDepth="1" Color="Black" />
-            </TextBlock.Effect>
-        </TextBlock>
-
-        <TextBlock x:Name="EmptySBText"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontFamily="res/Fonts/#Lucida Grande Bold"
-                   FontSize="14pt"
-                   Foreground="White"
-                   Text="{my:Loc AddFiles}"
                    Visibility="Collapsed">
             <TextBlock.Effect>
                 <DropShadowEffect BlurRadius="2" Direction="270" ShadowDepth="1" Color="Black" />
@@ -747,7 +734,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Image Source="res/search.png" Grid.Column="0" Width="20" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-                <TextBox x:Name="tbSearch" Focusable="false" MouseDown="tbSearch_MouseDown" TextChanged="tbSearch_TextChanged" KeyDown="tbSearch_KeyDown" Foreground="White" Grid.Column="1" VerticalContentAlignment="Center" Background="#01000000" BorderThickness="0" SelectionBrush="#80ffffff"/>
+                <TextBox x:Name="tbSearch" MouseDown="tbSearch_MouseDown" TextChanged="tbSearch_TextChanged" PreviewKeyDown="tbSearch_KeyDown" Foreground="White" Grid.Column="1" VerticalContentAlignment="Center" Background="#01000000" BorderThickness="0" SelectionBrush="#80ffffff" CaretBrush="Transparent"/>
             </Grid>
         </Border>
 

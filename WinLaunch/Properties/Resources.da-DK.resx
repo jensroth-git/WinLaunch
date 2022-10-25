@@ -126,9 +126,6 @@
   <data name="AddFile" xml:space="preserve">
     <value>Tilføj fil</value>
   </data>
-  <data name="AddFiles" xml:space="preserve">
-    <value>Tryk 'F' for at tilføje filer</value>
-  </data>
   <data name="AddFolder" xml:space="preserve">
     <value>Tilføj mappe...</value>
   </data>

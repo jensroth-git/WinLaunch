@@ -126,9 +126,6 @@
   <data name="AddFile" xml:space="preserve">
     <value>Dosya ekle</value>
   </data>
-  <data name="AddFiles" xml:space="preserve">
-    <value>Dosya eklemek için 'F' tuşuna bas</value>
-  </data>
   <data name="AddFolder" xml:space="preserve">
     <value>Klasör ekle</value>
   </data>

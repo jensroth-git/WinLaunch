@@ -100,46 +100,6 @@ namespace WinLaunch
 
         #region Init
 
-        #region Mutex
-
-        private Mutex mutex;
-        private string MutexName = "_WinLaunchMutex_";
-
-        private void SetMutex()
-        {
-            mutex = new Mutex(true, MutexName);
-        }
-
-        // true - already running
-        private bool CheckMutex()
-        {
-            try
-            {
-                mutex = Mutex.OpenExisting(MutexName);
-                return true;
-            }
-            catch //(Exception Ex)
-            {
-                //winLaunch not running
-                return false;
-            }
-        }
-
-        private bool PerformMutexCheck()
-        {
-            if (CheckMutex())
-            {
-                //2. instance - close
-                return true;
-            }
-
-            //1. instance - set mutex
-            SetMutex();
-            return false;
-        }
-
-        #endregion Mutex
-
         public static List<string> AddFiles = null;
 
         //private Stopwatch startupTime = new Stopwatch();
@@ -160,10 +120,9 @@ namespace WinLaunch
             string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
             backupManager = new BackupManager(ItemBackupPath, 20);
 
-            if (PerformMutexCheck())
+            if (ShortcutActivation.FindAndActivate())
             {
                 //wake main instance of WinLaunch then exit
-                ShortcutActivation.FindAndActivate();
                 Environment.Exit(-1);
             }
 
@@ -333,12 +292,12 @@ namespace WinLaunch
 
         private void ActivateSearch()
         {
+            if (SearchActive)
+                return;
+
             SearchActive = true;
-            tbSearch.Focusable = true;
-
+            
             tbSearch.CaretBrush = new SolidColorBrush(Colors.White);
-
-            Keyboard.Focus(tbSearch);
 
             SBM.UnselectItem();
         }
@@ -348,8 +307,6 @@ namespace WinLaunch
             tbSearch.Clear();
 
             SearchActive = false;
-
-            tbSearch.Focusable = false;
 
             tbSearch.CaretBrush = new SolidColorBrush(Colors.Transparent);
             

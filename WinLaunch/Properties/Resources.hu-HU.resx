@@ -126,9 +126,6 @@
   <data name="AddFile" xml:space="preserve">
     <value>Fájl hozzáadása</value>
   </data>
-  <data name="AddFiles" xml:space="preserve">
-    <value>Fájlok hozzáadásához tartsd nyomfa az F billentyűt.</value>
-  </data>
   <data name="AddFolder" xml:space="preserve">
     <value>Mappa hozzáadása...</value>
   </data>

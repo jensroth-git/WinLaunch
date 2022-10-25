@@ -129,9 +129,6 @@
   <data name="AddFile" xml:space="preserve">
     <value>Datei hinzufügen</value>
   </data>
-  <data name="AddFiles" xml:space="preserve">
-    <value>Drücke 'F' um Dateien hinzuzufügen</value>
-  </data>
   <data name="AddFolder" xml:space="preserve">
     <value>Ordner hinzufügen</value>
   </data>

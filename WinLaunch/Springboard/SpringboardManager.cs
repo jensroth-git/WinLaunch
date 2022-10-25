@@ -479,16 +479,16 @@ namespace WinLaunch
 
         public void Step()
         {
-            if (SearchMode)
-            {
-                foreach (SBItem item in IC.Items)
-                {
-                    //progress animation to make launch animation work
-                    item.StepPosition();
-                }
+            //if (SearchMode)
+            //{
+            //    foreach (SBItem item in IC.Items)
+            //    {
+            //        //progress animation to make launch animation work
+            //        item.StepPosition();
+            //    }
 
-                return;
-            }
+            //    return;
+            //}
 
             #region Animations
 
@@ -498,7 +498,7 @@ namespace WinLaunch
             #endregion Animations
 
             #region Solve grids
-            if (MoveMode)
+            if (MoveMode && !SearchMode)
             {
                 if (Moving)
                 {
@@ -632,7 +632,7 @@ namespace WinLaunch
                 GM.SetGridPositions();
             }
 
-            if (MoveMode)
+            if (MoveMode && !SearchMode)
             {
                 if (Moving)
                 {
@@ -1805,6 +1805,14 @@ namespace WinLaunch
         #endregion Input handling
 
         #region Search
+
+        class PagePosition
+        {
+            public int Page { get; set; }
+            public int GridIndex { get; set; }
+        }
+
+        Dictionary<SBItem, PagePosition> PagePositions;
         private List<SBItem> AllItems;
 
         public List<SBItem> FindItemsByName(string name)
@@ -1842,6 +1850,21 @@ namespace WinLaunch
             CloseFolderInstant();
 
             AllItems = new List<SBItem>();
+
+            //backup all grid positions 
+            PagePositions = new Dictionary<SBItem, PagePosition>();
+            foreach (var item in IC.Items)
+            {
+                PagePositions[item] = new PagePosition() { Page = item.Page, GridIndex = item.GridIndex };
+
+                if(item.IsFolder)
+                {
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        PagePositions[subItem] = new PagePosition() { Page = subItem.Page, GridIndex = subItem.GridIndex };
+                    }
+                }
+            }
 
             //remove all items from the board
             foreach (var item in IC.Items)
@@ -1881,6 +1904,10 @@ namespace WinLaunch
             {
                 StartSearch();
             }
+
+            SelItemInd = -1;
+            UnselectItem();
+            SP.SetPage(0);
 
             var items = FindItemsByName(search);
 
@@ -1924,6 +1951,22 @@ namespace WinLaunch
             {
                 IC.Items.Add(item);
                 container.Add(item.ContentRef);
+            }
+
+            //reset all grid positions
+            foreach (var item in IC.Items)
+            {
+                item.Page = PagePositions[item].Page;
+                item.GridIndex = PagePositions[item].GridIndex;
+                
+                if (item.IsFolder)
+                {
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        subItem.Page = PagePositions[subItem].Page;
+                        subItem.GridIndex = PagePositions[subItem].GridIndex;
+                    }
+                }
             }
 
             AllItems.Clear();

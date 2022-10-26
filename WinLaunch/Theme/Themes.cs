@@ -27,7 +27,12 @@ namespace WinLaunch
             {
                 try
                 {
-                    Theme.CurrentTheme.LoadImages();
+                    bool shouldUseVectorFolder;
+
+                    Theme.CurrentTheme.LoadImages(out shouldUseVectorFolder);
+
+                    //set folder theme based on what images were loaded 
+                    Theme.CurrentTheme.UseVectorFolder = shouldUseVectorFolder;
                 }
                 catch (Exception ex)
                 {

@@ -434,6 +434,8 @@ namespace WinLaunch
         {
             DeactivateFolderRenaming();
 
+            strokepath.Visibility = Visibility.Collapsed;
+
             //fade page counters in
             PageCounter.BeginAnimation(StackPanel.OpacityProperty, new DoubleAnimation(1.0, new Duration(new TimeSpan(0, 0, 0, 0, 200))));
         }

@@ -29,6 +29,8 @@ namespace WinLaunch
         public int FolderRows { get; set; }
         #endregion
 
+        public double IconSize { get; set; }
+
         public bool ExtensionIconVisible { get; set; }
 
         /// <summary>
@@ -159,6 +161,7 @@ namespace WinLaunch
                 version = new Version("0.0.0.0");
             }
 
+            IconSize = 1.4;
             ExtensionIconVisible = true;
 
             //set default settings

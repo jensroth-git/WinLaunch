@@ -185,7 +185,7 @@ namespace WinLaunch
             double FolderHeight = TopOffset + (Columns * ColumnHeight) + BottomOffset;
 
             //offset from the folder icon to the folder top
-            double TotalTopOffset = 26 * Theme.CurrentTheme.IconSize;
+            double TotalTopOffset = 26 * Settings.CurrentSettings.IconSize;
 
             //offset from the bottom of the folder to the bottom of the screen space
             double TotalBottomOffset = 13.0;
@@ -355,7 +355,7 @@ namespace WinLaunch
             //set initial springboard item positions
             GM.SetGridPositions();
 
-            double TotalTopOffset = 26 * Theme.CurrentTheme.IconSize;
+            double TotalTopOffset = 26 * Settings.CurrentSettings.IconSize;
 
             FolderHeightAnim.ValueTo = 0;
             FolderYOffsetAnim.ValueTo = GM.GetPositionFromGridIndex(ActiveFolder.GridIndex, ActiveFolder.Page).Y + TotalTopOffset;

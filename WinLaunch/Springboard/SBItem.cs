@@ -464,12 +464,12 @@ namespace WinLaunch
 
                 //Update positions
                 //only even numbers are displayed sharp ?!
-                this.IconWidth = MathHelper.ToEven(70.0 * Theme.CurrentTheme.IconSize);
+                this.IconWidth = MathHelper.ToEven(70.0 * Settings.CurrentSettings.IconSize);
                 this.IconHeight = MathHelper.ToEven(this.IconWidth + 10.0);
-                this.MiniatureWidth = MathHelper.ToEven(58.0 * Theme.CurrentTheme.IconSize);
+                this.MiniatureWidth = MathHelper.ToEven(58.0 * Settings.CurrentSettings.IconSize);
                 this.TextMargin = new Thickness(0, 10.0 + IconHeight, 0, 0);
 
-                double progress = (Theme.CurrentTheme.IconSize - 1.0) * (1.0 / 0.4);
+                double progress = (Settings.CurrentSettings.IconSize - 1.0) * (1.0 / 0.4);
                 this.CloseBoxMargin = new Thickness(15 - 7 * progress, 5, 0, 0);
 
                 if (this.ContentRef != null)
@@ -518,11 +518,11 @@ namespace WinLaunch
 
             //adjust margin
             //1.0 -45
-            double progress = (Theme.CurrentTheme.IconSize - 1.0) * (1.0 / 0.4);
+            double progress = (Settings.CurrentSettings.IconSize - 1.0) * (1.0 / 0.4);
             DropMargin = new Thickness(0, -50 + (4 * progress), 0, 0);
 
-            DropScaleAnim.Value = 0.5 * Theme.CurrentTheme.IconSize;
-            DropScaleAnim.ValueTo = 0.65 * Theme.CurrentTheme.IconSize;
+            DropScaleAnim.Value = 0.5 * Settings.CurrentSettings.IconSize;
+            DropScaleAnim.ValueTo = 0.65 * Settings.CurrentSettings.IconSize;
 
             DropOpacityAnim.Value = 0.0;
             DropOpacityAnim.ValueTo = 1.0;
@@ -539,7 +539,7 @@ namespace WinLaunch
                 IconOpacityAnim.ValueTo = 1.0;
             }
 
-            DropScaleAnim.ValueTo = 0.5 * Theme.CurrentTheme.IconSize;
+            DropScaleAnim.ValueTo = 0.5 * Settings.CurrentSettings.IconSize;
             DropOpacityAnim.ValueTo = 0.0;
 
             if (TextVisible)

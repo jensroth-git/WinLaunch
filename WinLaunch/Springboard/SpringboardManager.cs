@@ -1849,6 +1849,8 @@ namespace WinLaunch
                 }
             }
 
+            results.Sort((a,b)=> a.Name.CompareTo(b.Name));
+
             return results;
         }
 

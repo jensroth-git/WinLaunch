@@ -95,7 +95,6 @@ namespace WinLaunch
         #endregion BackgroundEffects
 
         #region Icons
-        public double IconSize { get; set; }
         public Color IconTextColor { get; set; }
         public Color IconTextShadowColor { get; set; }
         public double IconShadowOpacity { get; set; }
@@ -105,7 +104,7 @@ namespace WinLaunch
         public Color ExtensionBarTextColor = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
         #endregion UI
 
-        public void LoadImages()
+        public void LoadImages(out bool shouldUseVectorFolder)
         {
             //load all images (prefreezed)
             if (CloseBox == null)
@@ -186,6 +185,15 @@ namespace WinLaunch
                 try { rightBottomBorder = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/rightBottomBorder.png"); }
                 catch { }
             #endregion
+
+            if(center != null && arrow == null)
+            {
+                shouldUseVectorFolder = true;
+            }
+            else
+            {
+                shouldUseVectorFolder = false;
+            }
 
 
             #region folder images app
@@ -369,7 +377,6 @@ namespace WinLaunch
             BackgroundTransparency = 0.8;
             UseCustomBackground = false;
 
-            IconSize = 1.4;
             IconTextColor = Colors.White;
             IconTextShadowColor = Colors.Black;
             IconShadowOpacity = 1.0;

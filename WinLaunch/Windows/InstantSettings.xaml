@@ -413,7 +413,7 @@
                                                 SmallChange="0.05"
                                                 TickFrequency="0.05"
                                                 TickPlacement="BottomRight"
-                                                Value="{Binding theme.IconSize}" />
+                                                Value="{Binding settings.IconSize}" />
 
                                         <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Text="{my:Loc IconShadowOpacity}" />
                                         <Slider x:Name="slIconShadowOpacity"

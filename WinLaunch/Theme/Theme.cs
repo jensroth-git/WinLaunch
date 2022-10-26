@@ -346,7 +346,7 @@ namespace WinLaunch
         /// </summary>
         public Theme()
         {
-            UseVectorFolder = true;
+            UseVectorFolder = false;
 
             UseAeroBlur = true;
             UseAcrylic = false;

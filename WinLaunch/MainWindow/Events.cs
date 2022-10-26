@@ -789,8 +789,18 @@ namespace WinLaunch
         {
             if (e.Key == Key.Escape)
             {
-                DeactivateSearch();
-                e.Handled = true;
+                if (SearchActive)
+                {
+                    DeactivateSearch();
+                    e.Handled = true;
+                    return;
+                }
+                else
+                {
+                    ToggleLaunchpad();
+                    e.Handled = true;
+                    return;
+                }
             }
 
             if (e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Down || e.Key == Key.Up || e.Key == Key.Enter)

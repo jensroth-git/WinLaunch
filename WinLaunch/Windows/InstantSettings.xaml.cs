@@ -106,7 +106,7 @@ namespace WinLaunch
                 //no change 
                 return;
             }
-
+            
             //we have to restart the application to switch deskmode
             if (MessageBox.Show(TranslationSource.Instance["DeskModeSwitch"], "Switch DeskMode", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
             {

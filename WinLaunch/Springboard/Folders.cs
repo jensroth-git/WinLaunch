@@ -286,7 +286,15 @@ namespace WinLaunch
 
             if (SelItemIndFolder != -1)
             {
-                SelectItem(ActiveFolder.IC.Items.First());
+                //select the first index in the folder
+                foreach (var item in ActiveFolder.IC.Items)
+                {
+                    if(item.GridIndex == 0)
+                    {
+                        SelectItem(item);
+                        break;
+                    }
+                }
             }
         }
 

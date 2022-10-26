@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -225,10 +227,39 @@ namespace WinLaunch
         [DllImport("User32", CharSet = CharSet.Auto, ExactSpelling = true)]
         internal static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndParent);
 
+        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetParent(IntPtr hWnd);
+
+        enum GetAncestorFlags
+        {
+            /// <summary>
+            /// Retrieves the parent window. This does not include the owner, as it does with the GetParent function.
+            /// </summary>
+            GetParent = 1,
+            /// <summary>
+            /// Retrieves the root window by walking the chain of parent windows.
+            /// </summary>
+            GetRoot = 2,
+            /// <summary>
+            /// Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent.
+            /// </summary>
+            GetRootOwner = 3
+        }
+
+
+        [DllImport("user32.dll", ExactSpelling = true)]
+        static extern IntPtr GetAncestor(IntPtr hwnd, GetAncestorFlags flags);
+
         private IntPtr OriginalParentWindow = IntPtr.Zero;
         private bool IsDesktopChild = false;
 
-        private void MakeDesktopChildWindow()
+        IntPtr windowHandle;
+        IntPtr DesktopWindow;
+
+        Thread tt;
+
+
+        public void MakeDesktopChildWindow()
         {
             if (IsDesktopChild)
                 return;
@@ -246,7 +277,7 @@ namespace WinLaunch
                 1.0
                 );
 
-            IntPtr hprog = FindWindowEx(
+            DesktopWindow = FindWindowEx(
                 FindWindowEx(
                     FindWindow("Progman", "Program Manager"),
                     IntPtr.Zero, "SHELLDLL_DefView", ""
@@ -254,32 +285,50 @@ namespace WinLaunch
                 IntPtr.Zero, "SysListView32", "FolderView"
             );
 
-            IntPtr WorkerW = IntPtr.Zero;
-            while (hprog == IntPtr.Zero)
+            while (DesktopWindow == IntPtr.Zero)
             {
-                WorkerW = FindWindowEx(IntPtr.Zero, WorkerW, "WorkerW", "");
-
-                if (WorkerW == IntPtr.Zero)
-                    break;
-
-                IntPtr ShellDll = FindWindowEx(WorkerW, IntPtr.Zero, "SHELLDLL_DefView", "");
-                hprog = FindWindowEx(ShellDll, IntPtr.Zero, "SysListView32", "FolderView");
+                DesktopWindow = FindWindowEx(
+                FindWindowEx(
+                    FindWindow("Progman", "Program Manager"),
+                    IntPtr.Zero, "SHELLDLL_DefView", ""
+                ),
+                IntPtr.Zero, "SysListView32", "FolderView");
             }
 
-            if (hprog == IntPtr.Zero)
+            if (DesktopWindow == IntPtr.Zero)
             {
                 MessageBox.Show("failed to locate the desktop!", "Error");
             }
 
-            IntPtr windowHandle = new WindowInteropHelper(this).Handle;
+            windowHandle = new WindowInteropHelper(this).Handle;
 
-            OriginalParentWindow = SetParent(windowHandle, hprog);
+            OriginalParentWindow = SetParent(windowHandle, DesktopWindow);
 
             IsDesktopChild = true;
             IsFullscreen = true;
+
+            tt = new Thread(new ThreadStart(new Action(() =>
+            {
+                while (true)
+                {
+
+                    IntPtr t = GetAncestor(windowHandle, GetAncestorFlags.GetParent);
+
+                    if(t == IntPtr.Zero)
+                    {
+                        MessageBox.Show("DeskMode has crashed, restarting");
+
+                        MiscUtils.RestartApplication();
+                    }
+
+                    Thread.Sleep(1000);
+                }
+            })));
+
+            tt.Start();
         }
 
-        private void UnsetDesktopChild()
+        public void UnsetDesktopChild()
         {
             if (IsDesktopChild)
             {
@@ -408,7 +457,7 @@ namespace WinLaunch
                 ToggleToolbar();
                 return;
             }
-                
+
 
             CleanMemory();
 

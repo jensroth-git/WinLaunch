@@ -1925,8 +1925,10 @@ namespace WinLaunch
                 StartSearch();
             }
 
+            //clear selection 
             SelItemInd = -1;
             UnselectItem();
+
             SP.SetPage(0);
 
             var items = FindItemsByName(search);
@@ -1962,6 +1964,10 @@ namespace WinLaunch
                 return;
 
             SearchMode = false;
+
+            //clear selection 
+            SelItemInd = -1;
+            UnselectItem();
 
             ClearContainerItems();
 

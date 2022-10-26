@@ -471,17 +471,6 @@ namespace WinLaunch
 
         public void Step()
         {
-            //if (SearchMode)
-            //{
-            //    foreach (SBItem item in IC.Items)
-            //    {
-            //        //progress animation to make launch animation work
-            //        item.StepPosition();
-            //    }
-
-            //    return;
-            //}
-
             #region Animations
 
             StepFolderAnimations();
@@ -1914,8 +1903,6 @@ namespace WinLaunch
             {
                 container.Remove(item);
             }
-
-
         }
 
         public void UpdateSearch(string search)

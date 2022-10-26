@@ -454,7 +454,7 @@
 
                                         </Grid>
 
-                                        <CheckBox x:Name="cbShowExtensionIcon" Margin="0,0,0,2" Content="{my:Loc ShowExtensionIcon}" IsChecked="{Binding theme.ExtensionIconVisible}" />
+                                        <CheckBox x:Name="cbShowExtensionIcon" Margin="0,0,0,2" Content="{my:Loc ShowExtensionIcon}" IsChecked="{Binding settings.ExtensionIconVisible}" />
 
                                     </StackPanel>
                                 </GroupBox>

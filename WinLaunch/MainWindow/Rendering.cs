@@ -217,78 +217,144 @@ namespace WinLaunch
 
         private void SetFolderPosition(double YOrigin, double YOffset, double Width, double Height, double PointerOffset, double AnimationProgress, bool FadeIn)
         {
-            #region Fade border
-
-            double FadeOutBorderStart = 0.5;
-
-            if (FadeIn)
+            if (Theme.CurrentTheme.UseVectorFolder)
             {
-                FolderBackgroundGrid.Opacity = 1.0;
-            }
-            else
-            {
-                if (AnimationProgress > FadeOutBorderStart)
-                    FolderBackgroundGrid.Opacity = 1 - ((AnimationProgress - FadeOutBorderStart) / (1.0 - FadeOutBorderStart));
+                #region Fade border
+                double FadeOutBorderStart = 0.5;
+
+                if (FadeIn)
+                {
+                    strokepath.Opacity = 1.0;
+                }
                 else
-                    FolderBackgroundGrid.Opacity = 1.0;
-            }
+                {
+                    if (AnimationProgress > FadeOutBorderStart)
+                        strokepath.Opacity = 1 - ((AnimationProgress - FadeOutBorderStart) / (1.0 - FadeOutBorderStart));
+                    else
+                        strokepath.Opacity = 1.0;
+                }
+                #endregion
 
-            #endregion Fade border
+                //Dimensions of the pointer
+                double PointerHeight = 18.0;
+                double PointerWidth = PointerHeight * 2;
 
-            //Dimensions of the pointer
-            double PointerHeight = 21.0;
-            double PointerWidth = 66;
+                double BottomPos = PointerHeight + Height;
+                if (BottomPos < PointerHeight)
+                    BottomPos = PointerHeight;
 
-            //Round Values to reduce jitter
-            YOrigin = Math.Round(YOrigin);
-            YOffset = Math.Round(YOffset);
-            Height = Math.Round(Height);
-            PointerOffset = Math.Round(PointerOffset);
+                double PathXClip = 100;
 
-            double BottomPos = PointerHeight + Height;
-            if (BottomPos < PointerHeight)
-                BottomPos = PointerHeight;
+                FolderShapePath.StartPoint = new Point(-PathXClip, PointerHeight);
 
-            double PathXClip = 100;
+                //Top Pointer 
+                FolderPointerLeft.Point = new Point(PointerOffset - PointerWidth / 2.0, PointerHeight);
+                FolderPointerCenter.Point = new Point(PointerOffset, 0);
+                FolderPointerRight.Point = new Point(PointerOffset + PointerWidth / 2.0, PointerHeight);
 
-            //FolderShapePath.StartPoint = new Point(-PathXClip, PointerHeight);
+                //Bottom Pointer 
+                double PointerAnimationProgress;
+                if (FadeIn)
+                {
+                    //Hiding the Pointer 
+                    PointerAnimationProgress = MathHelper.Animate(AnimationProgress, 1.0, 0.0);
+                }
+                else
+                {
+                    //Showing the Pointer 
+                    PointerAnimationProgress = MathHelper.Animate(AnimationProgress * 1.5, 0.0, 1.0);
+                }
 
-            ////Top Pointer
-            //FolderPointerLeft.Point = new Point(PointerOffset - PointerWidth / 2.0, PointerHeight);
-            //FolderPointerCenter.Point = new Point(PointerOffset, 0);
-            //FolderPointerRight.Point = new Point(PointerOffset + PointerWidth / 2.0, PointerHeight);
-            double ActualArrowOffset = PointerOffset - (120 + (PointerWidth / 2));
+                FolderBottomPointerLeft.Point = new Point(PointerOffset - (PointerWidth / 2.0) * PointerAnimationProgress, BottomPos);
+                FolderBottomPointerCenter.Point = new Point(PointerOffset, BottomPos - PointerHeight * PointerAnimationProgress);
+                FolderBottomPointerRight.Point = new Point(PointerOffset + (PointerWidth / 2.0) * PointerAnimationProgress, BottomPos);
 
-            if (ActualArrowOffset < 0)
-                ActualArrowOffset = 0;
+                FolderTopRight.Point = new Point(Width + PathXClip, PointerHeight);
 
-            FolderArrowOffsetColumn.Width = new GridLength(ActualArrowOffset);
+                FolderBottomRight.Point = new Point(Width + PathXClip, BottomPos);
+                FolderBottomLeft.Point = new Point(-PathXClip, BottomPos);
 
-            //Bottom Pointer
-            double PointerAnimationProgress;
-            if (FadeIn)
-            {
-                //Hiding the Pointer
-                PointerAnimationProgress = MathHelper.Animate(AnimationProgress, 1.0, 0.0);
+                FolderGrid.Height = BottomPos;
+                FolderGrid.Margin = new Thickness(0, YOffset, 0, 0);
+                strokepath.Margin = new Thickness(0, YOffset, 0, 0);
+
+                strokepath.Visibility = Visibility.Visible;
             }
             else
             {
-                //Showing the Pointer
-                PointerAnimationProgress = MathHelper.Animate(AnimationProgress * 1.5, 0.0, 1.0);
+                #region Fade border
+
+                double FadeOutBorderStart = 0.5;
+
+                if (FadeIn)
+                {
+                    FolderBackgroundGrid.Opacity = 1.0;
+                }
+                else
+                {
+                    if (AnimationProgress > FadeOutBorderStart)
+                        FolderBackgroundGrid.Opacity = 1 - ((AnimationProgress - FadeOutBorderStart) / (1.0 - FadeOutBorderStart));
+                    else
+                        FolderBackgroundGrid.Opacity = 1.0;
+                }
+
+                #endregion Fade border
+
+                //Dimensions of the pointer
+                double PointerHeight = 21.0;
+                double PointerWidth = 66;
+
+                //Round Values to reduce jitter
+                YOrigin = Math.Round(YOrigin);
+                YOffset = Math.Round(YOffset);
+                Height = Math.Round(Height);
+                PointerOffset = Math.Round(PointerOffset);
+
+                double BottomPos = PointerHeight + Height;
+                if (BottomPos < PointerHeight)
+                    BottomPos = PointerHeight;
+
+                double PathXClip = 100;
+
+                //FolderShapePath.StartPoint = new Point(-PathXClip, PointerHeight);
+
+                ////Top Pointer
+                //FolderPointerLeft.Point = new Point(PointerOffset - PointerWidth / 2.0, PointerHeight);
+                //FolderPointerCenter.Point = new Point(PointerOffset, 0);
+                //FolderPointerRight.Point = new Point(PointerOffset + PointerWidth / 2.0, PointerHeight);
+                double ActualArrowOffset = PointerOffset - (120 + (PointerWidth / 2));
+
+                if (ActualArrowOffset < 0)
+                    ActualArrowOffset = 0;
+
+                FolderArrowOffsetColumn.Width = new GridLength(ActualArrowOffset);
+
+                //Bottom Pointer
+                double PointerAnimationProgress;
+                if (FadeIn)
+                {
+                    //Hiding the Pointer
+                    PointerAnimationProgress = MathHelper.Animate(AnimationProgress, 1.0, 0.0);
+                }
+                else
+                {
+                    //Showing the Pointer
+                    PointerAnimationProgress = MathHelper.Animate(AnimationProgress * 1.5, 0.0, 1.0);
+                }
+
+                //FolderBottomPointerLeft.Point = new Point(PointerOffset - (PointerWidth / 2.0) * PointerAnimationProgress, BottomPos);
+                //FolderBottomPointerCenter.Point = new Point(PointerOffset, BottomPos - PointerHeight * PointerAnimationProgress);
+                //FolderBottomPointerRight.Point = new Point(PointerOffset + (PointerWidth / 2.0) * PointerAnimationProgress, BottomPos);
+
+                //FolderTopRight.Point = new Point(Width + PathXClip, PointerHeight);
+
+                //FolderBottomRight.Point = new Point(Width + PathXClip, BottomPos);
+                //FolderBottomLeft.Point = new Point(-PathXClip, BottomPos);
+
+                FolderGridNew.Height = BottomPos;
+                FolderGridNew.Margin = new Thickness(0, YOffset, 0, 0);
+                //strokepath.Margin = new Thickness(0, YOffset, 0, 0);
             }
-
-            //FolderBottomPointerLeft.Point = new Point(PointerOffset - (PointerWidth / 2.0) * PointerAnimationProgress, BottomPos);
-            //FolderBottomPointerCenter.Point = new Point(PointerOffset, BottomPos - PointerHeight * PointerAnimationProgress);
-            //FolderBottomPointerRight.Point = new Point(PointerOffset + (PointerWidth / 2.0) * PointerAnimationProgress, BottomPos);
-
-            //FolderTopRight.Point = new Point(Width + PathXClip, PointerHeight);
-
-            //FolderBottomRight.Point = new Point(Width + PathXClip, BottomPos);
-            //FolderBottomLeft.Point = new Point(-PathXClip, BottomPos);
-
-            FolderGrid.Height = BottomPos;
-            FolderGrid.Margin = new Thickness(0, YOffset, 0, 0);
-            //strokepath.Margin = new Thickness(0, YOffset, 0, 0);
 
         }
 
@@ -297,7 +363,11 @@ namespace WinLaunch
             //update values until all animations are finished
             if (!SBM.FolderHeightAnim.animation_done || !SBM.FolderYOffsetAnim.animation_done)
             {
-                FolderGrid.Visibility = System.Windows.Visibility.Visible;
+                if(Theme.CurrentTheme.UseVectorFolder)
+                    FolderGrid.Visibility = System.Windows.Visibility.Visible;
+                else
+                    FolderGridNew.Visibility = System.Windows.Visibility.Visible;
+
                 //strokepath.Visibility = System.Windows.Visibility.Visible;
 
                 SetFolderPosition(SBM.FolderYOffsetOrigin, SBM.FolderYOffset, this.MainCanvas.ActualWidth, SBM.FolderHeightAnim.Value, SBM.FolderArrowOffset,
@@ -309,7 +379,10 @@ namespace WinLaunch
                 if (!SBM.FolderOpen)
                 {
                     //Hide the vector graphics if they are not shown
-                    FolderGrid.Visibility = System.Windows.Visibility.Hidden;
+                    if (Theme.CurrentTheme.UseVectorFolder)
+                        FolderGrid.Visibility = System.Windows.Visibility.Hidden;
+                    else
+                        FolderGridNew.Visibility = System.Windows.Visibility.Hidden;
                 }
             }
         }

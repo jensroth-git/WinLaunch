@@ -287,9 +287,9 @@ namespace WinLaunch
 
         void ApplyColumnsSetting()
         {
-            theme.Columns = (int)slColumnsSlider.Value;
-            theme.Rows = (int)slRowsSlider.Value;
-            theme.FolderColumns = (int)slFolderColumnsSlider.Value;
+            settings.Columns = (int)slColumnsSlider.Value;
+            settings.Rows = (int)slRowsSlider.Value;
+            settings.FolderColumns = (int)slFolderColumnsSlider.Value;
         }
         #endregion
 

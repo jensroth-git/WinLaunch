@@ -392,6 +392,7 @@ namespace WinLaunch
             this.Closing += new System.ComponentModel.CancelEventHandler(MainWindow_Closing);
 
             this.FolderTitle.MouseDown += new MouseButtonEventHandler(FolderTitle_MouseDown);
+            this.FolderTitleNew.MouseDown += new MouseButtonEventHandler(FolderTitle_MouseDown);
 
             //framework events
             CompositionTargetEx.FrameUpdating += RenderFrame;

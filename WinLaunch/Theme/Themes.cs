@@ -48,18 +48,36 @@ namespace WinLaunch
             SBItem.FolderIcon = Theme.CurrentTheme.FolderIcon;
             SBItem.CloseBoxImage = Theme.CurrentTheme.CloseBox;
 
-            SBM.GM.XItems = Theme.CurrentTheme.Columns;
-            SBM.GM.YItems = Theme.CurrentTheme.Rows;
-
-            SBM.FolderGrid.XItems = Theme.CurrentTheme.FolderColumns;
-            SBM.FolderGrid.YItems = Theme.CurrentTheme.FolderRows;
-
             theme = Theme.CurrentTheme;
             DataContext = this;
             PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("theme"));
 
             //redraw all icons
             SBM.UpdateIcons();
+
+            UpdateFolder();
+        }
+
+        void UpdateFolder()
+        {
+            //update folder background
+            try
+            {
+                FolderBackgroundTileBrush.ImageSource = Theme.CurrentTheme.center;
+
+                //if (Theme.CurrentTheme.StretchFolderBG)
+                //{
+                //    double ratio = (double)Theme.CurrentTheme.FolderBackgroundTile.PixelWidth / (double)Theme.CurrentTheme.FolderBackgroundTile.PixelHeight;
+                //    Rect screen = GetFullscreenRect();
+
+                //    FolderBackgroundTileBrush.Viewport = new Rect(0, 0, screen.Width, screen.Width / ratio);
+                //}
+                //else
+                {
+                    FolderBackgroundTileBrush.Viewport = new Rect(0, 0, Theme.CurrentTheme.center.PixelWidth, Theme.CurrentTheme.center.PixelHeight);
+                }
+            }
+            catch { }
         }
 
         public void SetupThemes()

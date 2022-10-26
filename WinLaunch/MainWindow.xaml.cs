@@ -106,6 +106,7 @@ namespace WinLaunch
 
         BackupManager backupManager;
         public Theme theme { get; set; }
+        public Settings settings { get; set; }
 
         public MainWindow()
         {
@@ -323,29 +324,58 @@ namespace WinLaunch
         {
             FolderRenamingActive = true;
 
-            FolderTitle.Visibility = System.Windows.Visibility.Collapsed;
-            FolderTitleShadow.Visibility = System.Windows.Visibility.Collapsed;
+            if(Theme.CurrentTheme.UseVectorFolder)
+            {
+                FolderTitle.Visibility = System.Windows.Visibility.Collapsed;
+                FolderTitleShadow.Visibility = System.Windows.Visibility.Collapsed;
 
-            FolderTitleEdit.Visibility = System.Windows.Visibility.Visible;
+                FolderTitleEdit.Visibility = System.Windows.Visibility.Visible;
 
-            //focus field
-            Keyboard.Focus(FolderTitleEdit);
+                //focus field
+                Keyboard.Focus(FolderTitleEdit);
 
-            FolderTitleEdit.Text = FolderTitle.Text;
+                FolderTitleEdit.Text = FolderTitle.Text;
+            }
+            else
+            {
+                FolderTitleNew.Visibility = System.Windows.Visibility.Collapsed;
+                FolderTitleShadowNew.Visibility = System.Windows.Visibility.Collapsed;
+
+                FolderTitleEditNew.Visibility = System.Windows.Visibility.Visible;
+
+                //focus field
+                Keyboard.Focus(FolderTitleEditNew);
+
+                FolderTitleEditNew.Text = FolderTitleNew.Text;
+            }
+            
         }
 
         private void DeactivateFolderRenaming()
         {
             FolderRenamingActive = false;
+            if (Theme.CurrentTheme.UseVectorFolder)
+            {
+                FolderTitle.Visibility = System.Windows.Visibility.Visible;
+                FolderTitleShadow.Visibility = System.Windows.Visibility.Visible;
 
-            FolderTitle.Visibility = System.Windows.Visibility.Visible;
-            FolderTitleShadow.Visibility = System.Windows.Visibility.Visible;
+                FolderTitleEdit.Visibility = System.Windows.Visibility.Collapsed;
 
-            FolderTitleEdit.Visibility = System.Windows.Visibility.Collapsed;
+                //Set the edited text as new title
+                FolderTitle.Text = ValidateFolderName(FolderTitleEdit.Text);
+                SBM.ActiveFolder.Name = FolderTitle.Text;
+            }
+            else
+            {
+                FolderTitleNew.Visibility = System.Windows.Visibility.Visible;
+                FolderTitleShadowNew.Visibility = System.Windows.Visibility.Visible;
 
-            //Set the edited text as new title
-            FolderTitle.Text = ValidateFolderName(FolderTitleEdit.Text);
-            SBM.ActiveFolder.Name = FolderTitle.Text;
+                FolderTitleEditNew.Visibility = System.Windows.Visibility.Collapsed;
+
+                //Set the edited text as new title
+                FolderTitleNew.Text = ValidateFolderName(FolderTitleEditNew.Text);
+                SBM.ActiveFolder.Name = FolderTitleNew.Text;
+            }
         }
 
         private void FolderTitle_MouseDown(object sender, MouseButtonEventArgs e)
@@ -365,9 +395,18 @@ namespace WinLaunch
         //Direct events sent by springboard manager
         public void FolderOpened()
         {
-            //update Folder title UI text
-            FolderTitle.Text = SBM.ActiveFolder.Name;
-            FolderTitleEdit.Text = FolderTitle.Text;
+            if(Theme.CurrentTheme.UseVectorFolder)
+            {
+                //update Folder title UI text
+                FolderTitle.Text = SBM.ActiveFolder.Name;
+                FolderTitleEdit.Text = FolderTitle.Text;
+            }
+            else
+            {
+                //update Folder title UI text
+                FolderTitleNew.Text = SBM.ActiveFolder.Name;
+                FolderTitleEditNew.Text = FolderTitleNew.Text;
+            }
 
             //fade page counters out
             PageCounter.BeginAnimation(StackPanel.OpacityProperty, new DoubleAnimation(0.0, new Duration(new TimeSpan(0, 0, 0, 0, 200))));

@@ -70,17 +70,10 @@ namespace WinLaunch
         public BitmapSource ExtensionsToggle { get; set; }
         #endregion
 
-        #region Grid Settings
-        public int Columns { get; set; }
-        public int Rows { get; set; }
-
-        public int FolderColumns { get; set; }
-        public int FolderRows { get; set; }
-        #endregion
-
         #region Folder styling
         public Color FolderTitleShadowColor = Color.FromArgb(0x99, 0, 0, 0);
         public Color FolderTitleColor = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
+        public bool UseVectorFolder { get; set; } 
         #endregion Folder styling
 
         #region BackgroundEffects
@@ -100,8 +93,6 @@ namespace WinLaunch
 
         #region UI
         public Color ExtensionBarTextColor = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
-
-        public bool ExtensionIconVisible { get; set; }
         #endregion UI
 
         public void LoadImages()
@@ -355,11 +346,7 @@ namespace WinLaunch
         /// </summary>
         public Theme()
         {
-            Columns = 8;
-            Rows = 5;
-
-            FolderColumns = 8;
-            FolderRows = 5;
+            UseVectorFolder = true;
 
             UseAeroBlur = true;
             UseAcrylic = false;
@@ -371,8 +358,6 @@ namespace WinLaunch
             IconTextColor = Colors.White;
             IconTextShadowColor = Colors.Black;
             IconShadowOpacity = 1.0;
-
-            ExtensionIconVisible = true;
         }
 
         /// <summary>

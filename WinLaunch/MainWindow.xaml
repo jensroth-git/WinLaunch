@@ -236,12 +236,83 @@
             </Canvas.RenderTransform>
 
             <!--  Folder  -->
-            <Grid x:Name="FolderGrid"
+            <!-- Oldscool folder grid-->
+            <Path x:Name="strokepath" Visibility="Hidden" Stroke="#77ffffff" StrokeThickness="2" Margin="0,178,0,0" RenderOptions.EdgeMode="Aliased" >
+                <Path.Data>
+                    <PathGeometry x:Name="foldershape">
+                        <PathGeometry.Figures>
+                            <PathFigureCollection>
+                                <PathFigure IsClosed="True" x:Name="FolderShapePath" StartPoint="-10,20">
+                                    <PathFigure.Segments>
+                                        <PathSegmentCollection>
+
+                                            <LineSegment x:Name="FolderPointerLeft" Point="100,20" />
+                                            <LineSegment x:Name="FolderPointerCenter" Point="119,2" />
+                                            <LineSegment x:Name="FolderPointerRight" Point="138,20" />
+
+                                            <LineSegment x:Name="FolderTopRight" Point="800,20" />
+                                            <LineSegment x:Name="FolderBottomRight" Point="800,126" />
+
+                                            <LineSegment x:Name="FolderBottomPointerRight" Point="138,126" />
+                                            <LineSegment x:Name="FolderBottomPointerCenter" Point="119,108" />
+                                            <LineSegment x:Name="FolderBottomPointerLeft" Point="100,126" />
+
+                                            <LineSegment x:Name="FolderBottomLeft" Point="-10,126" />
+                                        </PathSegmentCollection>
+                                    </PathFigure.Segments>
+                                </PathFigure>
+                            </PathFigureCollection>
+                        </PathGeometry.Figures>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Grid Visibility="Hidden" Panel.ZIndex="1" x:Name="FolderGrid" Height="126" Width="{Binding ElementName=MainCanvas, Path=ActualWidth}" Clip="{Binding ElementName=foldershape}" Margin="0,178,0,0">
+                <Grid.Background>
+                    <ImageBrush x:Name="FolderBackgroundTileBrush" TileMode="Tile" ViewportUnits="Absolute" Stretch="Fill"/>
+                </Grid.Background>
+
+                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="60">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop x:Name="FolderTopShadowGradientStart" Offset="0.0" Color="#cc000000" />
+                            <GradientStop x:Name="FolderTopShadowGradientStop" Offset="1.0" Color="#00000000" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="{Binding ElementName=FolderGrid, Path=ActualHeight}" Margin="0,20,0,0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop x:Name="FolderBodyShadowGradientStart" Offset="0.0" Color="#00000000" />
+                            <GradientStop x:Name="FolderBodyShadowGradientStop" Offset="1.0" Color="#77000000" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="30">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop x:Name="FolderBottomShadowGradientStart" Offset="0.0" Color="#00000000" />
+                            <GradientStop x:Name="FolderBottomShadowGradientStop" Offset="1.0" Color="#77000000" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Grid x:Name="FolderTitleGrid" Margin="170.5,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SnapsToDevicePixels="True">
+                    <TextBlock x:Name="FolderTitleShadow" Margin="3,3,0,0" Foreground="#99000000" FontFamily="res/Fonts/#Lucida Grande Bold" FontSize="14pt" Text="{Binding ElementName=FolderTitle, Path=Text}"  />
+                    <TextBlock x:Name="FolderTitle" Margin="3,2,0,0" Foreground="White" FontFamily="res/Fonts/#Lucida Grande Bold" FontSize="14pt" Text=""  />
+                    <TextBox x:Name="FolderTitleEdit" Margin="0,1,0,0" BorderBrush="#00000000" Foreground="#ff000000" Background="#ffffffff" FontFamily="res/Fonts/#Lucida Grande Bold" FontSize="14pt"  BorderThickness="0" Visibility="Collapsed" KeyDown="FolderTitleEdit_KeyDown"/>
+                </Grid>
+            </Grid>
+
+
+            <Grid x:Name="FolderGridNew"
                   Width="{Binding ElementName=MainCanvas, Path=ActualWidth}"
                   Height="126"
                   Margin="0,178,0,0"
                   Panel.ZIndex="1"
-                  Visibility="Visible">
+                  Visibility="Hidden">
 
                 <Grid x:Name="FolderBackgroundGrid" Visibility="Visible">
                     <Grid.RowDefinitions>
@@ -258,7 +329,7 @@
                         <ColumnDefinition Width="120" />
                     </Grid.ColumnDefinitions>
 
-                    <!--  left side  -->
+                      <!--left side-->  
                     <Grid x:Name="LeftSide" Grid.Row="1" Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
@@ -285,7 +356,7 @@
                         </Grid>
                     </Grid>
 
-                    <!--  Left inner side  -->
+                      <!--Left inner side-->  
                     <Grid x:Name="LeftInnerSide" Grid.Row="1" Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
@@ -312,7 +383,7 @@
                         </Grid>
                     </Grid>
 
-                    <!--  middle  -->
+                      <!--middle-->  
                     <Grid x:Name="Middle" Grid.RowSpan="2" Grid.Column="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="47" />
@@ -339,7 +410,7 @@
                         </Grid>
                     </Grid>
 
-                    <!--  right inner side  -->
+                      <!--right inner side-->  
                     <Grid x:Name="RightInnerSide" Grid.Row="1" Grid.Column="3">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
@@ -366,7 +437,7 @@
                         </Grid>
                     </Grid>
 
-                    <!--  right side  -->
+                      <!--right side-->  
                     <Grid x:Name="RightSide" Grid.Row="1" Grid.Column="4">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
@@ -393,7 +464,7 @@
                         </Grid>
                     </Grid>
 
-                    <!--  Bottom border  -->
+                      <!--Bottom border-->  
                     <Grid Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Grid.Background>
                             <ImageBrush ImageSource="{Binding theme.leftBottomBorder}" />
@@ -417,21 +488,21 @@
                     </Grid>
                 </Grid>
 
-                <Grid x:Name="FolderTitleGrid" Margin="170.5,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid x:Name="FolderTitleGridNew" Margin="170.5,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
 
-                    <TextBlock x:Name="FolderTitleShadow"
+                    <TextBlock x:Name="FolderTitleShadowNew"
                                Margin="3,3,0,0"
                                FontFamily="res/Fonts/#Lucida Grande Bold"
                                FontSize="14pt"
                                Foreground="#99000000"
                                Text="{Binding ElementName=FolderTitle, Path=Text}" />
-                    <TextBlock x:Name="FolderTitle"
+                    <TextBlock x:Name="FolderTitleNew"
                                Margin="3,2,0,0"
                                FontFamily="res/Fonts/#Lucida Grande Bold"
                                FontSize="14pt"
                                Foreground="White"
                                Text="" />
-                    <TextBox x:Name="FolderTitleEdit"
+                    <TextBox x:Name="FolderTitleEditNew"
                              Margin="0,1,0,0"
                              Background="#ffffffff"
                              BorderBrush="#00000000"
@@ -496,7 +567,7 @@
                    Width="35"
                    Height="35"
                    MouseDown="ExtensionsToggle_MouseDown"
-                   Visibility="{Binding Path=theme.ExtensionIconVisible, Converter={StaticResource BoolToVis}}"
+                   Visibility="{Binding Path=settings.ExtensionIconVisible, Converter={StaticResource BoolToVis}}"
                    RenderOptions.BitmapScalingMode="HighQuality"
                    Source="{Binding theme.ExtensionsToggle}">
                 <Image.RenderTransform>

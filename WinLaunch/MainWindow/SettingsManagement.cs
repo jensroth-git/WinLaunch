@@ -96,7 +96,7 @@ namespace WinLaunch
 
             //sort files and directories 
             filesToAdd.Sort((a, b) =>
-                Path.GetFileName(a).CompareTo(Path.GetFileNameWithoutExtension(b))
+                Path.GetFileNameWithoutExtension(a).CompareTo(Path.GetFileNameWithoutExtension(b))
             );
 
             dirsToAdd.Sort();
@@ -143,12 +143,12 @@ namespace WinLaunch
             //show the welcome dialog if version is new
             if (Assembly.GetExecutingAssembly().GetName().Version > Settings.CurrentSettings.version)
             {
+                JustUpdated = true;
+
                 if (Settings.CurrentSettings.version == new Version("0.0.0.0"))
                 {
                     FirstLaunch = true;
                 }
-
-                JustUpdated = true;
 
                 Settings.CurrentSettings.version = Assembly.GetExecutingAssembly().GetName().Version;
                 Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
@@ -177,13 +177,27 @@ namespace WinLaunch
                 InitHotKey();
                 InitMiddleMouseButtonActivator();
                 //UpdateSynapticsSettings();
+                UpdateGridSettings();
 
                 UpdateMiddleMouseButtonActivator();
+
+                //update bindings
+                settings = Settings.CurrentSettings;
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("settings"));
             }
             catch
             {
                 MessageBox.Show("Could not initialize some activation methods", "Winlaunch Error");
             }
+        }
+
+        private void UpdateGridSettings()
+        {
+            SBM.GM.XItems = Settings.CurrentSettings.Columns;
+            SBM.GM.YItems = Settings.CurrentSettings.Rows;
+
+            SBM.FolderGrid.XItems = Settings.CurrentSettings.FolderColumns;
+            SBM.FolderGrid.YItems = Settings.CurrentSettings.FolderRows;
         }
 
         private void ApplySettings()
@@ -197,6 +211,12 @@ namespace WinLaunch
             UpdateHotCornerSettings();
 
             UpdateMiddleMouseButtonActivator();
+
+            UpdateGridSettings();
+
+            //update bindings
+            settings = Settings.CurrentSettings;
+            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("settings"));
         }
 
         private void UpdateMiddleMouseButtonActivator()

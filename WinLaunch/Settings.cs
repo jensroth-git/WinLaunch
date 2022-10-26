@@ -21,6 +21,16 @@ namespace WinLaunch
         /// </summary>
         public string Versionstring = "0.0.0.0";
 
+        #region Grid Settings
+        public int Columns { get; set; }
+        public int Rows { get; set; }
+
+        public int FolderColumns { get; set; }
+        public int FolderRows { get; set; }
+        #endregion
+
+        public bool ExtensionIconVisible { get; set; }
+
         /// <summary>
         /// When enabled will only allow movement of items while in wiggle mode (after holding an item for 2s)
         /// </summary>
@@ -149,7 +159,15 @@ namespace WinLaunch
                 version = new Version("0.0.0.0");
             }
 
+            ExtensionIconVisible = true;
+
             //set default settings
+            Columns = 8;
+            Rows = 5;
+
+            FolderColumns = 8;
+            FolderRows = 5;
+
             TabletMode = false;
             OpenFolderWhenCreated = true;
             FillScreen = false;

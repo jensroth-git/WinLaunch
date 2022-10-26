@@ -14,9 +14,12 @@ namespace WinLaunch
             "---",
             "Close this window to start WinLaunch",
             "",
-            "#Changelog 0.6.0.0",
+            "#Changelog 0.6.1.0",
             "---",
-            "- added searchbar"
+            "- immediate search",
+            "- add additional start menu items",
+            "- avoid duplicate start menu items",
+            "- fix bug when page was full and item was added"
         };
 
         public Welcome()

@@ -161,6 +161,24 @@ namespace WinLaunch
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
 
+            if(Theme.CurrentTheme.Rows != -1)
+            {
+                //old style 
+                Settings.CurrentSettings.Columns = Theme.CurrentTheme.Columns;
+                Settings.CurrentSettings.Rows = Theme.CurrentTheme.Rows;
+                Settings.CurrentSettings.FolderColumns = Theme.CurrentTheme.FolderColumns;
+                Settings.CurrentSettings.FolderRows = Theme.CurrentTheme.FolderRows;
+
+                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+
+                Theme.CurrentTheme.Columns = -1;
+                Theme.CurrentTheme.Rows = -1;
+                Theme.CurrentTheme.FolderColumns = -1;
+                Theme.CurrentTheme.FolderRows = -1;
+
+                Theme.SaveTheme(Theme.CurrentTheme);
+            }
+
             if (Settings.CurrentSettings.DeskMode)
             {
                 //Disable for desk mode on all plattforms

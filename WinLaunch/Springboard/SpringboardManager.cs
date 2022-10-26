@@ -241,16 +241,8 @@ namespace WinLaunch
 
             if (GridIndex == -1)
             {
-                if (Settings.CurrentSettings.FreeItemPlacement)
-                {
-                    //find first free space on the page
-                    GM.GetFirstFreeGridIndex(Page, out Page, out GridIndex);
-                }
-                else
-                {
-                    //push item to the end of the page and have it snap back
-                    GridIndex = (GM.XItems * GM.YItems) - 1;
-                }
+                //find first free space on the page
+                GM.GetFirstFreeGridIndex(Page, out Page, out GridIndex);
             }
 
             //add new items to the end of the current page and let them snap back 
@@ -1814,6 +1806,34 @@ namespace WinLaunch
 
         Dictionary<SBItem, PagePosition> PagePositions;
         private List<SBItem> AllItems;
+
+        public List<SBItem> GetItemsByName(string name)
+        {
+            List<SBItem> results = new List<SBItem>();
+
+            foreach (var item in IC.Items)
+            {
+                if (item.IsFolder)
+                {
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        if (subItem.Name == name)
+                        {
+                            results.Add(subItem);
+                        }
+                    }
+                }
+                else
+                {
+                    if (item.Name == name)
+                    {
+                        results.Add(item);
+                    }
+                }
+            }
+
+            return results;
+        }
 
         public List<SBItem> FindItemsByName(string name)
         {

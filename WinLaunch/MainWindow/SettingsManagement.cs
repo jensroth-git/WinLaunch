@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
 
@@ -23,21 +26,38 @@ namespace WinLaunch
             //}
 
             //SBM.IC.Items.Clear();
-            
 
             string startMenuItems = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs";
+            string additionalStartMenuItems = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft\\Windows\\Start Menu\\Programs");
 
-            var files = Directory.GetFiles(startMenuItems);
+            List<string> files = new List<string>();
+
+            if(Directory.Exists(startMenuItems))
+                files.AddRange(Directory.GetFiles(startMenuItems));
+
+            if (Directory.Exists(additionalStartMenuItems))
+                files.AddRange(Directory.GetFiles(additionalStartMenuItems));
+
+
+            List<string> filesToAdd = new List<string>();
+            List<string> dirsToAdd = new List<string>();
 
             foreach (var file in files)
             {
                 if (file.EndsWith(".lnk"))
                 {
-                    AddFile(file);
+                    if (SBM.GetItemsByName(Path.GetFileNameWithoutExtension(file)).Count == 0)
+                        filesToAdd.Add(file);
                 }
             }
 
-            var subDirectories = Directory.GetDirectories(startMenuItems);
+            List<string> subDirectories = new List<string>();
+
+            if (Directory.Exists(startMenuItems))
+                subDirectories.AddRange(Directory.GetDirectories(startMenuItems));
+
+            if (Directory.Exists(additionalStartMenuItems))
+                subDirectories.AddRange(Directory.GetDirectories(additionalStartMenuItems));
 
             foreach (var directory in subDirectories)
             {
@@ -49,34 +69,14 @@ namespace WinLaunch
                 {
                     if (file.EndsWith(".lnk"))
                     {
-                        numLnk++;
+                        if (SBM.GetItemsByName(Path.GetFileNameWithoutExtension(file)).Count == 0)
+                            numLnk++;
                     }
                 }
 
                 if (numLnk >= 2)
                 {
-                    //create a folder and add all items
-                    SBItem Folder = new SBItem(Path.GetFileName(directory), "Folder", null, "", SBItem.FolderIcon);
-                    Folder.IsFolder = true;
-
-                    int GridIndex = 0;
-                    foreach (var file in directoryFiles)
-                    {
-                        if (file.EndsWith(".lnk"))
-                        {
-                            var item = PrepareFile(file);
-
-                            item.Page = 0;
-                            item.GridIndex = GridIndex;
-
-                            Folder.IC.Items.Add(item);
-
-                            GridIndex++;
-                        }
-                    }
-
-                    SBM.AddItem(Folder);
-                    Folder.UpdateFolderIcon(true);
+                    dirsToAdd.Add(directory);
                 }
                 else
                 {
@@ -85,10 +85,53 @@ namespace WinLaunch
                     {
                         if (file.EndsWith(".lnk"))
                         {
-                            AddFile(file);
+                            if (SBM.GetItemsByName(Path.GetFileNameWithoutExtension(file)).Count == 0)
+                                filesToAdd.Add(file);
                         }
                     }
                 }
+            }
+
+            //exclude entries that exist already 
+
+            //sort files and directories 
+            filesToAdd.Sort((a, b) =>
+                Path.GetFileName(a).CompareTo(Path.GetFileNameWithoutExtension(b))
+            );
+
+            dirsToAdd.Sort();
+
+            foreach (var file in filesToAdd)
+            {
+                AddFile(file);
+            }
+
+            foreach (var directory in dirsToAdd)
+            {
+                var directoryFiles = Directory.GetFiles(directory);
+
+                //create a folder and add all items
+                SBItem Folder = new SBItem(Path.GetFileName(directory), "Folder", null, "", SBItem.FolderIcon);
+                Folder.IsFolder = true;
+
+                int GridIndex = 0;
+                foreach (var file in directoryFiles)
+                {
+                    if (file.EndsWith(".lnk"))
+                    {
+                        var item = PrepareFile(file);
+
+                        item.Page = 0;
+                        item.GridIndex = GridIndex;
+
+                        Folder.IC.Items.Add(item);
+
+                        GridIndex++;
+                    }
+                }
+
+                SBM.AddItem(Folder);
+                Folder.UpdateFolderIcon(true);
             }
         }
 

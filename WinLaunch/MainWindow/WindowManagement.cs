@@ -357,15 +357,18 @@ namespace WinLaunch
                 IntPtr.Zero, "SysListView32", "FolderView"
             );
 
+            IntPtr WorkerW = IntPtr.Zero;
             while (DesktopWindow == IntPtr.Zero)
             {
-                DesktopWindow = FindWindowEx(
-                FindWindowEx(
-                    FindWindow("Progman", "Program Manager"),
-                    IntPtr.Zero, "SHELLDLL_DefView", ""
-                ),
-                IntPtr.Zero, "SysListView32", "FolderView");
+                WorkerW = FindWindowEx(IntPtr.Zero, WorkerW, "WorkerW", "");
+
+                if (WorkerW == IntPtr.Zero)
+                    break;
+
+                IntPtr ShellDll = FindWindowEx(WorkerW, IntPtr.Zero, "SHELLDLL_DefView", "");
+                DesktopWindow = FindWindowEx(ShellDll, IntPtr.Zero, "SysListView32", "FolderView");
             }
+
 
             if (DesktopWindow == IntPtr.Zero)
             {

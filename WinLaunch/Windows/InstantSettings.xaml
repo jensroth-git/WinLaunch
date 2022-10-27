@@ -345,6 +345,15 @@
                                 </StackPanel>
                             </Grid>
                         </GroupBox>
+
+                        <GroupBox Header="{my:Loc WindowsKeyActivation}">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <StackPanel>
+                                    <CheckBox x:Name="cbEnableWindowsKeyActivation" Margin="8" Content="{my:Loc EnableWindowsKey}" IsChecked="{Binding settings.WindowsKeyActivationEnabled}" />
+
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

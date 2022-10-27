@@ -228,6 +228,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Touchscreen mode will allow you to only move items after you held them for 3 seconds (they will start to wiggle)</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>Enable windows key activation</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Fill the entire screen</value>
   </data>
@@ -407,5 +410,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>Windows key activation</value>
   </data>
 </root>

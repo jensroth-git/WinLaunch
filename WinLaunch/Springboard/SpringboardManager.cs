@@ -1914,10 +1914,6 @@ namespace WinLaunch
                 StartSearch();
             }
 
-            //clear selection 
-            SelItemInd = -1;
-            UnselectItem();
-
             SP.SetPage(0);
 
             var items = FindItemsByName(search);
@@ -1945,6 +1941,10 @@ namespace WinLaunch
             }
 
             Host.UpdateLayout();
+
+            //select the first item 
+            SelItemInd = 0;
+            SelectItem(items.First());
         }
 
         public void EndSearch()

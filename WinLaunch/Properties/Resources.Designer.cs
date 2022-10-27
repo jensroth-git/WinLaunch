@@ -394,6 +394,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable windows key activation.
+        /// </summary>
+        internal static string EnableWindowsKey {
+            get {
+                return ResourceManager.GetString("EnableWindowsKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fill the entire screen.
         /// </summary>
         internal static string FillScreen {
@@ -930,6 +939,15 @@ namespace WinLaunch.Properties {
         internal static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows key activation.
+        /// </summary>
+        internal static string WindowsKeyActivation {
+            get {
+                return ResourceManager.GetString("WindowsKeyActivation", resourceCulture);
             }
         }
     }

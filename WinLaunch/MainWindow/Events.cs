@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using WinLaunch.ActivationMethods;
 
 namespace WinLaunch
 {
@@ -520,6 +521,29 @@ namespace WinLaunch
             }));
         }
         #endregion HotCornerActivator
+
+        #region WindowsKeyActivation
+        WindowsKeyActivation wka = new WindowsKeyActivation();
+
+        private void InitWindowsKeyActivation()
+        {
+            wka.Activated += Wka_Activated;
+
+            if (Settings.CurrentSettings.WindowsKeyActivationEnabled)
+            {
+                wka.StartListening();
+            }
+        }
+
+        private void Wka_Activated(object sender, EventArgs e)
+        {
+            if (!ActivatorsEnabled)
+                return;
+
+            ToggleLaunchpad();
+        }
+
+        #endregion WindowsKeyActivation
 
         #region MiddleMouseButtonActivator
         MiddleMouseActivation middleMouseActivator = null;

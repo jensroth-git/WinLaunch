@@ -176,7 +176,8 @@ namespace WinLaunch
                 InitShortcutActivator();
                 InitHotKey();
                 InitMiddleMouseButtonActivator();
-                //UpdateSynapticsSettings();
+                InitWindowsKeyActivation();
+
                 UpdateGridSettings();
 
                 UpdateMiddleMouseButtonActivator();
@@ -207,10 +208,9 @@ namespace WinLaunch
 
             //update settings
             UpdateHotKeySettings();
-
             UpdateHotCornerSettings();
-
             UpdateMiddleMouseButtonActivator();
+            UpdateWindowsKeyActivation();
 
             UpdateGridSettings();
 
@@ -283,6 +283,18 @@ namespace WinLaunch
             catch (Exception ex)
             {
                 MessageBox.Show("Could not enable hotkey" + ex.Message, "Winlaunch Error");
+            }
+        }
+
+        private void UpdateWindowsKeyActivation()
+        {
+            if (Settings.CurrentSettings.WindowsKeyActivationEnabled)
+            {
+                wka.StartListening();
+            }
+            else
+            {
+                wka.StopListening();
             }
         }
 

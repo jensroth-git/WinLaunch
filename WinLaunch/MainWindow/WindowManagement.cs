@@ -511,12 +511,10 @@ namespace WinLaunch
         {
             //TODO: better tutorial
             //show tutorial when winlaunch closes for the first time
-            if (!Settings.CurrentSettings.PerformanceAdvisorShown)
+            if (FirstLaunch)
             {
+                FirstLaunch = false;
                 MiscUtils.OpenURL("http://WinLaunch.org/howto.php");
-
-                Settings.CurrentSettings.PerformanceAdvisorShown = true;
-                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
             }
 
             HideToolbar();

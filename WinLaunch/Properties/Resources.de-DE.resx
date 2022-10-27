@@ -228,6 +228,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Im Touchscreen Modus können Items erst nach 3 Sekunden verschoben werden  </value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>Aktiviere Windows Taste aktivierung</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Fülle den gesamten Bildschirm</value>
   </data>
@@ -407,5 +410,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warnung</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>Windows Key Aktivierung</value>
   </data>
 </root>

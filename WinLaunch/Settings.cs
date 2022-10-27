@@ -110,43 +110,15 @@ namespace WinLaunch
 
         public double HotCornerDelay { get; set; }
 
+        /// <summary>
+        /// Windows Key Activation
+        /// </summary>
+        public bool WindowsKeyActivationEnabled { get; set; }
 
         /// <summary>
         /// Middle mouse button settings
         /// </summary>
         public MiddleMouseButtonAction MiddleMouseActivation { get; set; }
-
-
-        /// <summary>
-        /// When enabled will watch for a 3 finger gesture on the synaptics touchpad to activate WinLaunch
-        /// </summary>
-        public bool UseSynapticsActivation { get; set; }
-
-        /// <summary>
-        /// specifies the activation gesture
-        /// </summary>
-        //public SynapticsActivationMethod SynapticsActivationMethod { get; set; }
-
-        /// <summary>
-        /// When enabled will allow scrolling with 2 fingers on the touchpad
-        /// </summary>
-        public bool UseSynapticsScrolling { get; set; }
-
-        /// <summary>
-        /// When enabled inverts the scrolling direction 
-        /// </summary>
-        public bool InverseSynapticsScrolling { get; set; }
-
-        /// <summary>
-        /// specifies the scrolling speed 
-        /// </summary>
-        public double SynapticsScrollingSpeed { get; set; }
-
-        /// <summary>
-        /// When false WinLaunch will display the performance advisor
-        /// and set it to true 
-        /// </summary>
-        public bool PerformanceAdvisorShown { get; set; }
 
         /// <summary>
         /// Construct a new Settings object
@@ -193,15 +165,9 @@ namespace WinLaunch
             HotTopLeft = true;
             HotCornerDelay = 0.0;
 
+            WindowsKeyActivationEnabled = true;
+
             MiddleMouseActivation = MiddleMouseButtonAction.DoubleClicked;
-
-            UseSynapticsActivation = false;
-            //SynapticsActivationMethod = WinLaunch.SynapticsActivationMethod.TouchDown;
-            UseSynapticsScrolling = false;
-            InverseSynapticsScrolling = false;
-            SynapticsScrollingSpeed = 2.0;
-
-            PerformanceAdvisorShown = false;
         }
 
         /// <summary>

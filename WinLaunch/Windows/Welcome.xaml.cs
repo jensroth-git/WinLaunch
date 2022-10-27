@@ -16,6 +16,10 @@ namespace WinLaunch
             "",
             "#Changelog 0.6.3.0",
             "---",
+            "- added windows key activation",
+            "",
+            "#Changelog 0.6.3.0",
+            "---",
             "- added option to hide the search bar",
             "- added bulgarian translation by Maxim Borisov"
         };

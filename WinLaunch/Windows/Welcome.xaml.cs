@@ -14,17 +14,10 @@ namespace WinLaunch
             "---",
             "Close this window to start WinLaunch",
             "",
-            "#Changelog 0.6.2.0",
+            "#Changelog 0.6.3.0",
             "---",
-            "- fixed bugs",
-            "- added vector folders",
-            "",
-            "#Changelog 0.6.1.0",
-            "---",
-            "- immediate search",
-            "- add additional start menu items",
-            "- avoid duplicate start menu items",
-            "- fix bug when page was full and item was added"
+            "- added option to hide the search bar",
+            "- added bulgarian translation by Maxim Borisov"
         };
 
         public Welcome()

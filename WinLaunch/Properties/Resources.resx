@@ -265,6 +265,9 @@
   <data name="IconTextShadow" xml:space="preserve">
     <value>Icon text shadow:</value>
   </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -360,6 +363,9 @@
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Show extension icon</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>Show search bar</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start with Windows</value>

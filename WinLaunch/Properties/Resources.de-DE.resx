@@ -264,6 +264,9 @@
   <data name="IconTextShadow" xml:space="preserve">
     <value>Icon Text Schatten</value>
   </data>
+  <data name="Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Sprache</value>
   </data>
@@ -359,6 +362,9 @@
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Zeige das extension icon</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>Zeige die Suchleiste</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Starte mit Windows</value>

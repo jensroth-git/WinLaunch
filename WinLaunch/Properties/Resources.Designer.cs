@@ -502,6 +502,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interface.
+        /// </summary>
+        internal static string Interface {
+            get {
+                return ResourceManager.GetString("Interface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string Language {
@@ -786,6 +795,15 @@ namespace WinLaunch.Properties {
         internal static string ShowExtensionIcon {
             get {
                 return ResourceManager.GetString("ShowExtensionIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show search bar.
+        /// </summary>
+        internal static string ShowSearchBar {
+            get {
+                return ResourceManager.GetString("ShowSearchBar", resourceCulture);
             }
         }
         

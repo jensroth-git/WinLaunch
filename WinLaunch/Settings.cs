@@ -32,6 +32,7 @@ namespace WinLaunch
         public double IconSize { get; set; }
 
         public bool ExtensionIconVisible { get; set; }
+        public bool SearchBarVisible { get; set; }
 
         /// <summary>
         /// When enabled will only allow movement of items while in wiggle mode (after holding an item for 2s)
@@ -163,6 +164,7 @@ namespace WinLaunch
 
             IconSize = 1.4;
             ExtensionIconVisible = true;
+            SearchBarVisible = true;
 
             //set default settings
             Columns = 8;

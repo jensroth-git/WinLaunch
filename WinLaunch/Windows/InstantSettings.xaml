@@ -453,16 +453,13 @@
                                                                     SelectedColor="{Binding theme.IconTextShadowColor}" />
 
                                         </Grid>
-
-                                        <CheckBox x:Name="cbShowExtensionIcon" Margin="0,0,0,2" Content="{my:Loc ShowExtensionIcon}" IsChecked="{Binding settings.ExtensionIconVisible}" />
-
                                     </StackPanel>
                                 </GroupBox>
                             </StackPanel>
                         </ScrollViewer>
                     </TabItem>
 
-                    <TabItem Header="{my:Loc Background}" Style="{StaticResource OSXTabBarItemRight}">
+                    <TabItem Header="{my:Loc Background}" Style="{StaticResource OSXTabBarItemCenter}">
                         <ScrollViewer>
                             <StackPanel Margin="7,0,0,0">
                                 <GroupBox Header="{my:Loc Background}">
@@ -503,6 +500,22 @@
                                             <TextBlock Margin="0,0,0,5" Foreground="#FF646464" Text="{my:Loc UseCustomBackgroundInfo}" TextWrapping="WrapWithOverflow" />
 
                                         </StackPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+
+                    <TabItem Header="{my:Loc Interface}" Style="{StaticResource OSXTabBarItemRight}">
+                        <ScrollViewer>
+                            <StackPanel Margin="7,0,0,0">
+                                <GroupBox Header="{my:Loc Interface}">
+                                    <StackPanel Margin="10">
+
+                                        <CheckBox x:Name="cbShowExtensionIcon" Margin="0,0,0,10" Content="{my:Loc ShowExtensionIcon}" IsChecked="{Binding settings.ExtensionIconVisible}" />
+
+                                        <CheckBox x:Name="cbShowSearchBar" Margin="0,0,0,0" Content="{my:Loc ShowSearchBar}" IsChecked="{Binding settings.SearchBarVisible}" />
+
                                     </StackPanel>
                                 </GroupBox>
                             </StackPanel>

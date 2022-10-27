@@ -101,6 +101,47 @@ namespace WinLaunch
 
         #region Init
 
+
+        #region Mutex
+
+        private Mutex mutex;
+        private string MutexName = "_WinLaunchMutex_";
+
+        private void SetMutex()
+        {
+            mutex = new Mutex(true, MutexName);
+        }
+
+        // true - already running
+        private bool CheckMutex()
+        {
+            try
+            {
+                mutex = Mutex.OpenExisting(MutexName);
+                return true;
+            }
+            catch //(Exception Ex)
+            {
+                //winLaunch not running
+                return false;
+            }
+        }
+
+        private bool PerformMutexCheck()
+        {
+            if (CheckMutex())
+            {
+                //2. instance - close
+                return true;
+            }
+
+            //1. instance - set mutex
+            SetMutex();
+            return false;
+        }
+
+        #endregion Mutex
+
         public static List<string> AddFiles = null;
 
         //private Stopwatch startupTime = new Stopwatch();
@@ -122,8 +163,9 @@ namespace WinLaunch
             string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
             backupManager = new BackupManager(ItemBackupPath, 20);
 
-            if (ShortcutActivation.FindAndActivate())
+            if (PerformMutexCheck())
             {
+                ShortcutActivation.FindAndActivate();
                 //wake main instance of WinLaunch then exit
                 Environment.Exit(-1);
             }
@@ -158,7 +200,14 @@ namespace WinLaunch
 
             //load settings and setup deskmode / no deskmode
             Settings.CurrentSettings = Settings.LoadSettings(Settings.CurrentSettingsPath);
-            
+
+            //disable desk mode
+            if(Settings.CurrentSettings.DeskMode)
+            {
+                Settings.CurrentSettings.DeskMode = false;
+                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+            }
+
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
 

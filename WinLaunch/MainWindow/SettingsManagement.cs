@@ -15,8 +15,6 @@ namespace WinLaunch
 {
     partial class MainWindow : Window
     {
-        bool FirstLaunch = false;
-
         private void AddDefaultApps()
         {
             //clear all items 

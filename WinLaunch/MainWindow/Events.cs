@@ -509,6 +509,8 @@ namespace WinLaunch
                 hotCorner.Active = false;
             else
                 hotCorner.Active = true;
+                
+            hotCorner.SetDelay(Settings.CurrentSettings.HotCornerDelay);
         }
 
         private void hotCorner_Activated(object sender, HotCornerArgs e)

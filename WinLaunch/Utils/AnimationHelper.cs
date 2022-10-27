@@ -77,6 +77,11 @@ namespace WinLaunch
 
                 val = MathHelper.Animate(currentProgress, startval, val_to);
 
+                if(double.IsInfinity(val))
+                {
+                    val = 0.0;
+                }
+
                 return false;
             }
 

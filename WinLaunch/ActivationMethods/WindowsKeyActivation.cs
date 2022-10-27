@@ -240,6 +240,9 @@ namespace WinLaunch.ActivationMethods
 
         public void StopListening()
         {
+            if (hook == null)
+                return;
+
             hook.Dispose();
             hook = null;
         }

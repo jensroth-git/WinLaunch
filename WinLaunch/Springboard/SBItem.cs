@@ -1021,24 +1021,36 @@ namespace WinLaunch
             {
                 if (XPos != FixPosition.X)
                 {
-                    XPos = FixPosition.X;
+                    if (!double.IsInfinity(FixPosition.X))
+                    {
+                        XPos = FixPosition.X;
+                    }
                 }
 
                 if (XPos != FixPosition.Y)
                 {
-                    YPos = FixPosition.Y;
+                    if (!double.IsInfinity(FixPosition.Y))
+                    {
+                        YPos = FixPosition.Y;
+                    }
                 }
             }
             else
             {
                 if (XPos != XOffset + XPosAnim.Value)
                 {
-                    XPos = XOffset + XPosAnim.Value;
+                    if(!double.IsInfinity(XOffset + XPosAnim.Value))
+                    {
+                        XPos = XOffset + XPosAnim.Value;
+                    }
                 }
 
                 if (YPos != YOffset + YPosAnim.Value)
                 {
-                    YPos = YOffset + YPosAnim.Value;
+                    if (!double.IsInfinity(YOffset + YPosAnim.Value))
+                    {
+                        YPos = YOffset + YPosAnim.Value;
+                    }
                 }
             }
         }

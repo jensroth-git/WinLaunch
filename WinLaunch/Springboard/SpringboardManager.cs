@@ -1944,7 +1944,12 @@ namespace WinLaunch
 
             //select the first item 
             SelItemInd = 0;
-            SelectItem(items.First());
+            try
+            {
+                SelectItem(items.First());
+            }
+            catch
+            { }
         }
 
         public void EndSearch()

@@ -469,6 +469,7 @@ namespace WinLaunch
 
         private void MainWindow_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
+            //StartFlyOutAnimation();
             CleanMemory();
             //PerformItemBackup();
         }

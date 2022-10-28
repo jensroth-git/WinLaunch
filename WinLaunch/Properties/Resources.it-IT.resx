@@ -1,65 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml">
+  <xsd:schema id="root" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -112,285 +53,377 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
+    <!--About-->
     <value>About</value>
   </data>
   <data name="Activation" xml:space="preserve">
+    <!--Attivazione-->
     <value>Attivazione</value>
   </data>
   <data name="AddFile" xml:space="preserve">
+    <!--Aggiungi File-->
     <value>Aggiungi File</value>
   </data>
   <data name="AddFolder" xml:space="preserve">
+    <!--Aggiungi Cartella-->
     <value>Aggiungi Cartella</value>
   </data>
   <data name="AddLink" xml:space="preserve">
+    <!--Aggiungi Link-->
     <value>Aggiungi Link</value>
   </data>
   <data name="AeroSwitch" xml:space="preserve">
+    <!--Per abilitare Aero WinLaunch dovrà essere riavviato, questo potrebbe richiedere alcuni secondi.-->
     <value>Per abilitare Aero WinLaunch dovrà essere riavviato, questo potrebbe richiedere alcuni secondi.</value>
   </data>
   <data name="AllowFreePlacement" xml:space="preserve">
+    <!--Consenti il ​​posizionamento libero degli elementi-->
     <value>Consenti il ​​posizionamento libero degli elementi</value>
   </data>
   <data name="AllowFreePlacementInfo" xml:space="preserve">
+    <!--Consente agli elementi di essere posizionati ovunque sulla griglia-->
     <value>Consente agli elementi di essere posizionati ovunque sulla griglia</value>
   </data>
   <data name="Arguments" xml:space="preserve">
+    <!--Argomenti:-->
     <value>Argomenti:</value>
   </data>
   <data name="Background" xml:space="preserve">
+    <!--Sfondo-->
     <value>Sfondo</value>
   </data>
   <data name="BackgroundBlur" xml:space="preserve">
+    <!--Sfocatura dello sfondo-->
     <value>Sfocatura dello sfondo</value>
   </data>
   <data name="BackgroundTint" xml:space="preserve">
+    <!--Tinta dello sfondo-->
     <value>Tinta dello sfondo</value>
   </data>
   <data name="BackupAndRestore" xml:space="preserve">
+    <!--Backup e Ripristino-->
     <value>Backup e Ripristino</value>
   </data>
   <data name="BlockFullscreen" xml:space="preserve">
+    <!--Blocca l'attivazione di WinLaunch quando le app a schermo intero sono attive-->
     <value>Blocca l'attivazione di WinLaunch quando le app a schermo intero sono attive</value>
   </data>
   <data name="BlockFullscreenInfo" xml:space="preserve">
+    <!--Quando abilitato bloccherà WinLaunch quando vengono rilevate app a schermo intero, ad es. Mentre giochi o guardi video.-->
     <value>Quando abilitato bloccherà WinLaunch quando vengono rilevate app a schermo intero, ad es. Mentre giochi o guardi video.</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Calcella</value>
+    <!--Calcella-->
+    <value>Cancella</value>
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
+    <!--Controlla gli aggiornamenti-->
     <value>Controlla gli aggiornamenti</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
+    <!--Scegli monitor-->
     <value>Scegli monitor</value>
   </data>
   <data name="ChoosePath" xml:space="preserve">
+    <!--Scegli il percorso-->
     <value>Scegli il percorso</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
+    <!--Sei sicuro di voler chiudere WinLaunch?-->
     <value>Sei sicuro di voler chiudere WinLaunch?</value>
   </data>
   <data name="Columns" xml:space="preserve">
+    <!--Colonne-->
     <value>Colonne</value>
   </data>
   <data name="ColumnsAndRows" xml:space="preserve">
+    <!--Colonne e Righe-->
     <value>Colonne e Righe</value>
   </data>
   <data name="Confirm" xml:space="preserve">
-    <value>Confermare</value>
+    <!--Confermare-->
+    <value>Conferma</value>
   </data>
   <data name="Copied" xml:space="preserve">
+    <!--Copiato-->
     <value>Copiato</value>
   </data>
   <data name="CreateBackup" xml:space="preserve">
-    <value>Creare il backup</value>
+    <!--Creare il backup-->
+    <value>Crea Backup</value>
   </data>
   <data name="CreatedBy" xml:space="preserve">
+    <!--Creato da-->
     <value>Creato da</value>
   </data>
   <data name="DeskModeSwitch" xml:space="preserve">
+    <!--Per attivare DeskMode, WinLaunch dovrà essere riavviato, questo potrebbe richiedere alcuni secondi.-->
     <value>Per attivare DeskMode, WinLaunch dovrà essere riavviato, questo potrebbe richiedere alcuni secondi.</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Modificare</value>
+    <!--Modificare-->
+    <value>Modifica</value>
   </data>
   <data name="EnableAcrylic" xml:space="preserve">
-    <value>Abilita Acrilico</value>
+    <!--Abilita Acrilico-->
+    <value>Abilita Effetto Acrylic</value>
   </data>
   <data name="EnableAcrylicInfo" xml:space="preserve">
+    <!--Quando abilitato, utilizzerà la nuova sfocatura acrilica di Windows 10-->
     <value>Quando abilitato, utilizzerà la nuova sfocatura acrilica di Windows 10</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
-    <value>Abilita Aero</value>
+    <!--Abilita Aero-->
+    <value>Abilita Effetto Aero</value>
   </data>
   <data name="EnableAeroInfo" xml:space="preserve">
+    <!--Quando abilitato, utilizzerà Windows Aero invece di uno sfondo-->
     <value>Quando abilitato, utilizzerà Windows Aero invece di uno sfondo</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
+    <!--Abilita "Hot Corner"-->
     <value>Abilita "Hot Corner"</value>
   </data>
   <data name="EnableHotKey" xml:space="preserve">
+    <!--Abilita tasto di scelta rapida-->
     <value>Abilita tasto di scelta rapida</value>
   </data>
   <data name="EnableTouchscreen" xml:space="preserve">
-    <value>Abilita la modalitàTouch Screen</value>
+    <!--Abilita la modalitàTouch Screen-->
+    <value>Abilita la modalità Touch Screen</value>
   </data>
   <data name="EnableTouchscreenInfo" xml:space="preserve">
-    <value>La modalità touch screen ti consentirà di spostare gli oggetti solo dopo averli tenuti premuti per 3 secondi (inizieranno a oscillare)</value>
+    <!--La modalità touch screen ti consentirà di spostare gli oggetti solo dopo averli tenuti premuti per 3 secondi (inizieranno a oscillare)-->
+    <value>La modalità Touch Screen ti consentirà di spostare gli oggetti solo dopo averli tenuti premuti per 3 secondi (inizieranno a oscillare)</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
+    <!--Riempi l'intero schermo-->
     <value>Riempi l'intero schermo</value>
   </data>
   <data name="FillScreenInfo" xml:space="preserve">
+    <!--Quando è abilitato, WinLaunch coprirà l'intero schermo inclusa la barra delle applicazioni-->
     <value>Quando è abilitato, WinLaunch coprirà l'intero schermo inclusa la barra delle applicazioni</value>
   </data>
   <data name="FolderColumns" xml:space="preserve">
+    <!--Colonne delle cartelle-->
     <value>Colonne delle cartelle</value>
   </data>
   <data name="General" xml:space="preserve">
+    <!--Generale-->
     <value>Generale</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
+    <!--Attivazione Hot Corner-->
     <value>Attivazione Hot Corner</value>
   </data>
   <data name="HotKeyActivation" xml:space="preserve">
+    <!--Attivazione tramite tasto di scelta rapida-->
     <value>Attivazione tramite tasto di scelta rapida</value>
   </data>
   <data name="Icons" xml:space="preserve">
+    <!--Icone-->
     <value>Icone</value>
   </data>
   <data name="IconShadowOpacity" xml:space="preserve">
+    <!--Opacità dell'ombra dell'icona-->
     <value>Opacità dell'ombra dell'icona</value>
   </data>
   <data name="IconSize" xml:space="preserve">
+    <!--Dimensioni dell'icona-->
     <value>Dimensioni dell'icona</value>
   </data>
   <data name="IconText" xml:space="preserve">
+    <!--Testo dell'icona:-->
     <value>Testo dell'icona:</value>
   </data>
   <data name="IconTextShadow" xml:space="preserve">
+    <!--Ombreggiatura del testo dell'icona:-->
     <value>Ombreggiatura del testo dell'icona:</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>linguaggio</value>
+    <!--linguaggio-->
+    <value>Lingua</value>
   </data>
   <data name="LanguageInfo" xml:space="preserve">
+    <!--Per aggiornare una traduzione o fornirne una nuova visita-->
     <value>Per aggiornare una traduzione o fornirne una nuova visita</value>
   </data>
   <data name="LatestVersion" xml:space="preserve">
+    <!--Stai eseguendo l'ultima versione-->
     <value>Stai eseguendo l'ultima versione</value>
   </data>
   <data name="Loading" xml:space="preserve">
+    <!--Caricamento in corso...-->
     <value>Caricamento in corso...</value>
   </data>
   <data name="LoadWallpaper" xml:space="preserve">
+    <!--Carica lo sfondo-->
     <value>Carica lo sfondo</value>
   </data>
   <data name="LookAndFeel" xml:space="preserve">
-    <value>Guarda e senti</value>
+    <!--Guarda e senti-->
+    <value>Personalizza</value>
   </data>
   <data name="MiddleMouseActivation" xml:space="preserve">
-    <value>Attivazione del tasto centrale del mouse</value>
+    <!--Attivazione del tasto centrale del mouse-->
+    <value>Attivazione dal tasto centrale del mouse</value>
   </data>
   <data name="MultiMonitors" xml:space="preserve">
+    <!--Multi monitor-->
     <value>Multi monitor</value>
   </data>
   <data name="Name" xml:space="preserve">
+    <!--Nome:-->
     <value>Nome:</value>
   </data>
   <data name="Open" xml:space="preserve">
+    <!--Apri-->
     <value>Apri</value>
   </data>
   <data name="OpenAsAdmin" xml:space="preserve">
+    <!--Apri come amministratore-->
     <value>Apri come amministratore</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
+    <!--Apri le cartelle quando vengono create-->
     <value>Apri le cartelle quando vengono create</value>
   </data>
   <data name="OpenLocation" xml:space="preserve">
-    <value>Apri posizione</value>
+    <!--Apri posizione-->
+    <value>Apri percorso</value>
   </data>
   <data name="OpenOnActiveMonitor" xml:space="preserve">
+    <!--Apri sempre WinLaunch sul monitor attivo-->
     <value>Apri sempre WinLaunch sul monitor attivo</value>
   </data>
   <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+    <!--Se abilitato attiverà automaticamente WinLaunch sul monitor su cui è attualmente posizionato il mouse-->
     <value>Se abilitato attiverà automaticamente WinLaunch sul monitor su cui è attualmente posizionato il mouse</value>
   </data>
   <data name="Options" xml:space="preserve">
+    <!--Opzioni-->
     <value>Opzioni</value>
   </data>
   <data name="Path" xml:space="preserve">
+    <!--Percorso:-->
     <value>Percorso:</value>
   </data>
   <data name="PinDesktop" xml:space="preserve">
+    <!--Blocca WinLaunch sul desktop-->
     <value>Blocca WinLaunch sul desktop</value>
   </data>
   <data name="PinDesktopInfo" xml:space="preserve">
+    <!--Se abilitato, WinLaunch verrà bloccato sul desktop sostituendo lo sfondo-->
     <value>Se abilitato, WinLaunch verrà bloccato sul desktop sostituendo lo sfondo</value>
   </data>
   <data name="PressAKey" xml:space="preserve">
+    <!--Premi un tasto-->
     <value>Premi un tasto</value>
   </data>
   <data name="Quit" xml:space="preserve">
+    <!--Abbandona-->
     <value>Abbandona</value>
   </data>
   <data name="Remove" xml:space="preserve">
+    <!--Rimuovi-->
     <value>Rimuovi</value>
   </data>
   <data name="RemoveFolder" xml:space="preserve">
+    <!--La rimozione di questa cartella rimuoverà anche tutti gli elementi all'interno-->
     <value>La rimozione di questa cartella rimuoverà anche tutti gli elementi all'interno</value>
   </data>
   <data name="RemoveItem" xml:space="preserve">
+    <!--Vuoi davvero rimuovere questo elemento?-->
     <value>Vuoi davvero rimuovere questo elemento?</value>
   </data>
   <data name="RestoreBackup" xml:space="preserve">
-    <value>Ripristinare dal backup</value>
+    <!--Ripristinare dal backup-->
+    <value>Ripristina Backup</value>
   </data>
   <data name="RestoreIcon" xml:space="preserve">
-    <value>Ripristinare Icona</value>
+    <!--Ripristinare Icona-->
+    <value>Ripristina Icona</value>
   </data>
   <data name="Rows" xml:space="preserve">
+    <!--Righe-->
     <value>Righe</value>
   </data>
   <data name="Screen" xml:space="preserve">
+    <!--Schermo-->
     <value>Schermo</value>
   </data>
   <data name="SelectBackground" xml:space="preserve">
+    <!--Seleziona l'immagine di sfondo-->
     <value>Seleziona l'immagine di sfondo</value>
   </data>
   <data name="SelectIcon" xml:space="preserve">
+    <!--Seleziona l'icona-->
     <value>Seleziona l'icona</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>impostazioni</value>
+    <!--impostazioni-->
+    <value>Impostazioni</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
+    <!--Inizia con Windows-->
     <value>Inizia con Windows</value>
   </data>
   <data name="StartWithWindowsInfo" xml:space="preserve">
+    <!--Se abilitato, WinLaunch verrà avviato automaticamente all'avvio di Windows-->
     <value>Se abilitato, WinLaunch verrà avviato automaticamente all'avvio di Windows</value>
   </data>
   <data name="SyncWallpaper" xml:space="preserve">
+    <!--Sincronizza lo sfondo-->
     <value>Sincronizza lo sfondo</value>
   </data>
   <data name="SyncWallpaperInfo" xml:space="preserve">
+    <!--Quando abilitato, sincronizzerà lo sfondo con lo sfondo corrente-->
     <value>Quando abilitato, sincronizzerà lo sfondo con lo sfondo corrente</value>
   </data>
   <data name="TranslatedBy" xml:space="preserve">
-    <value>Tradotto da Alessandro Piermo</value>
+    <!--Tradotto da Alessandro Piermo-->
+    <value>Tradotto da Alessandro Piermo &amp; Simone Broglia</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
+    <!--Tutorial-->
     <value>Tutorial</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Aggiornare</value>
+    <!--Aggiornare-->
+    <value>Aggiorna</value>
   </data>
   <data name="UpdateAvailable" xml:space="preserve">
+    <!--Aggiornamento disponibile-->
     <value>Aggiornamento disponibile</value>
   </data>
   <data name="UpdateAvailableInfo" xml:space="preserve">
+    <!--Nuova versione di WinLaunch disponibile, desideri aggiornare?-->
     <value>Nuova versione di WinLaunch disponibile, desideri aggiornare?</value>
   </data>
   <data name="UpdateError" xml:space="preserve">
+    <!--Impossibile scaricare le informazioni sulla versione-->
     <value>Impossibile scaricare le informazioni sulla versione</value>
   </data>
   <data name="UseCustomBackground" xml:space="preserve">
+    <!--Usa sfondo personalizzato-->
     <value>Usa sfondo personalizzato</value>
   </data>
   <data name="UseCustomBackgroundInfo" xml:space="preserve">
+    <!--Quando abilitato caricherà un'immagine di sfondo personalizzata-->
     <value>Quando abilitato caricherà un'immagine di sfondo personalizzata</value>
   </data>
   <data name="Version" xml:space="preserve">
+    <!--Versione:-->
     <value>Versione:</value>
   </data>
   <data name="Warning" xml:space="preserve">
+    <!--Avviso!-->
     <value>Avviso!</value>
   </data>
 </root>

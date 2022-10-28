@@ -171,6 +171,9 @@
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Check for updates</value>
   </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>Check for updates frequently</value>
+  </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Choose monitor</value>
   </data>

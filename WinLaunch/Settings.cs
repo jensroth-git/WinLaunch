@@ -16,6 +16,8 @@ namespace WinLaunch
 
         public static string CurrentSettingsPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/Settings.xml");
 
+        public bool CheckForUpdatesFrequently { get; set; }
+
         /// <summary>
         /// version information used to determine if the version changed (updates)
         /// </summary>
@@ -133,6 +135,8 @@ namespace WinLaunch
             {
                 version = new Version("0.0.0.0");
             }
+
+            CheckForUpdatesFrequently = true;
 
             IconSize = 1.4;
             ExtensionIconVisible = true;

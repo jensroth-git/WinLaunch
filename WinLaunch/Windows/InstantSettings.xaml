@@ -580,6 +580,9 @@
                                     <TextBlock x:Name="tbVersion" Text="0.4.9.0" />
                                 </StackPanel>
 
+                                <CheckBox x:Name="cbCheckForUpdatesFrequently" Margin="0,10,0,10" Content="{my:Loc CheckForUpdatesFrequently}" IsChecked="{Binding settings.CheckForUpdatesFrequently}" />
+
+
                                 <Button x:Name="btnCheckUpdate"
                                         Height="24"
                                         Margin="0,5,0,0"

@@ -85,6 +85,19 @@ namespace WinLaunch
 
             cbEnableCustomBackground.Checked += UpdateCustomBackground;
             cbEnableCustomBackground.Unchecked += UpdateBackground;
+
+            cbCheckForUpdatesFrequently.Unchecked += CbCheckForUpdatesFrequently_Unchecked;
+            cbCheckForUpdatesFrequently.Checked += CbCheckForUpdatesFrequently_Checked;
+        }
+
+        private void CbCheckForUpdatesFrequently_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateCheck.RunThreaded();
+        }
+
+        private void CbCheckForUpdatesFrequently_Unchecked(object sender, RoutedEventArgs e)
+        {
+            UpdateCheck.AbortCheckThread();
         }
 
         private void tbTranslationLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

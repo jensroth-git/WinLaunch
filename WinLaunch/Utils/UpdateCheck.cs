@@ -15,6 +15,12 @@ namespace WinLaunch
         private static Thread CheckThread;
         private static volatile bool running = false;
 
+        public static void AbortCheckThread()
+        {
+            if(CheckThread != null)
+                CheckThread.Abort();
+        }
+
         public static void RunThreaded()
         {
             CheckThread = new Thread(new ThreadStart(() =>
@@ -24,6 +30,12 @@ namespace WinLaunch
                     try
                     {
                         Run();
+
+                        //only check once at the start for updates 
+                        if(!Settings.CurrentSettings.CheckForUpdatesFrequently)
+                        {
+                            return;
+                        }
                     }
                     catch { }
                     Thread.Sleep(TimeSpan.FromHours(1));

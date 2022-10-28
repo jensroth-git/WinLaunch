@@ -223,6 +223,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check for updates frequently.
+        /// </summary>
+        internal static string CheckForUpdatesFrequently {
+            get {
+                return ResourceManager.GetString("CheckForUpdatesFrequently", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose monitor.
         /// </summary>
         internal static string ChooseMonitor {

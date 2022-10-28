@@ -406,6 +406,8 @@ namespace WinLaunch
             })));
 
             KeepWindowVisibleThread.Start();
+
+            IsDesktopChild = true;
         }
 
         public void UnsetDesktopChild()

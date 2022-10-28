@@ -124,7 +124,7 @@
     <value>Aktivasyon</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_Varsayılan uygulamalar ekle</value>
+    <value>Varsayılan uygulamalar ekle</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Dosya ekle</value>
@@ -172,7 +172,7 @@
     <value>Güncellemeleri kontrol et</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_Güncellemeleri sık sık kontrol edin</value>
+    <value>Güncellemeleri sık sık kontrol edin</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Monitör seçin</value>
@@ -232,7 +232,7 @@
     <value>Dokunmatik ekran modu, öğeleri yalnızca 3 saniye basılı tuttuktan sonra taşımanıza izin verir (simge kıpırdamaya başlar)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_Windows anahtar aktivasyonunu etkinleştir</value>
+    <value>Windows anahtar aktivasyonunu etkinleştir</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Tüm ekranı doldur</value>
@@ -247,7 +247,7 @@
     <value>Genel</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_Gecikme:</value>
+    <value>Gecikme:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Sıcak Köşe aktivasyonu</value>
@@ -271,7 +271,7 @@
     <value>Simge metin gölgesi:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_Arayüz</value>
+    <value>Arayüz</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Lisan</value>
@@ -367,10 +367,10 @@
     <value>Ayarlar</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_Uzantı simgesini göster</value>
+    <value>Uzantı simgesini göster</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_Arama çubuğunu göster</value>
+    <value>Arama çubuğunu göster</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Windows ile başlat</value>
@@ -415,6 +415,6 @@
     <value>Uyarı</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_Windows anahtar aktivasyonu</value>
+    <value>Windows anahtar aktivasyonu</value>
   </data>
 </root>

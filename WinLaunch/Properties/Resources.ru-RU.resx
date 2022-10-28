@@ -124,7 +124,7 @@
     <value>Горячие клавиши</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_Добавить приложения по умолчанию</value>
+    <value>Добавить приложения по умолчанию</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Добавить файл</value>
@@ -172,7 +172,7 @@
     <value>Проверка обновлений</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_Чаще проверяйте наличие обновлений</value>
+    <value>Чаще проверяйте наличие обновлений</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Выбрать монитор</value>
@@ -232,7 +232,7 @@
     <value>Сенсорный режим позволит вам перемещать объекты только после того, как вы удерживали их в течение 3 секунд (они начнут покачиваться)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_Включить активацию ключа Windows</value>
+    <value>Включить активацию ключа Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Заполнить весь экран</value>
@@ -247,7 +247,7 @@
     <value>Основные</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_Задерживать:</value>
+    <value>Задерживать:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Активация горячих углов</value>
@@ -271,7 +271,7 @@
     <value>Тень текста иконки:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_Интерфейс</value>
+    <value>Интерфейс</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Язык</value>
@@ -367,10 +367,10 @@
     <value>Настройки</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_Показать значок расширения</value>
+    <value>Показать значок расширения</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_Показать панель поиска</value>
+    <value>Показать панель поиска</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Запускать вместе с Windows</value>
@@ -415,6 +415,6 @@
     <value>Внимание</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_Активация виндовс ключом</value>
+    <value>Активация виндовс ключом</value>
   </data>
 </root>

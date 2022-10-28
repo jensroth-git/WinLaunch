@@ -124,7 +124,7 @@
     <value>Aktywacja</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_Dodaj domyślne aplikacje</value>
+    <value>Dodaj domyślne aplikacje</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Dodaj plik</value>
@@ -172,7 +172,7 @@
     <value>Sprawdź aktualizacje</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_Często sprawdzaj aktualizacje</value>
+    <value>Często sprawdzaj aktualizacje</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Wybierz monitor</value>
@@ -232,7 +232,7 @@
     <value>Tryb ekranu dotykowego zezwoli Ci na przemieszczenie pozycji tylko po przytrzymaniu ich przez 3 sekundy (zaczną się poruszać)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_Włącz aktywację klawisza Windows</value>
+    <value>Włącz aktywację klawisza Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Wypełnij cały ekran</value>
@@ -247,7 +247,7 @@
     <value>Ogólne</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_Opóźnienie:</value>
+    <value>Opóźnienie:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Aktywacja za pomocą HotCorner</value>
@@ -271,7 +271,7 @@
     <value>Cień tekstu ikony:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_Interfejs</value>
+    <value>Interfejs</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Język</value>
@@ -304,7 +304,7 @@
     <value>Otwórz</value>
   </data>
   <data name="OpenAsAdmin" xml:space="preserve">
-    <value>#TODO#_Otwórz jako administrator</value>
+    <value>Otwórz jako administrator</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>Otwórz foldery, kiedy zostają utworzone</value>
@@ -367,10 +367,10 @@
     <value>Ustawienia</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_Pokaż ikonę rozszerzenia</value>
+    <value>Pokaż ikonę rozszerzenia</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_Pokaż pasek wyszukiwania</value>
+    <value>Pokaż pasek wyszukiwania</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Uruchom z Windows</value>
@@ -415,6 +415,6 @@
     <value>Ostrzeżenie</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_Aktywacja klucza Windows</value>
+    <value>Aktywacja klucza Windows</value>
   </data>
 </root>

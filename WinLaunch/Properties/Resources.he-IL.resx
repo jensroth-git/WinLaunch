@@ -124,7 +124,7 @@
     <value>הפעלה</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_הוסף אפליקציות ברירת מחדל</value>
+    <value>הוסף אפליקציות ברירת מחדל</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>הוסף קובץ</value>
@@ -172,7 +172,7 @@
     <value>בדוק אחר עדכונים</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_בדוק אם יש עדכונים לעתים קרובות</value>
+    <value>בדוק אם יש עדכונים לעתים קרובות</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>בחר צג</value>
@@ -232,7 +232,7 @@
     <value>מצב מסך מגע יאפשר לך להעביר פריטים לאחר החזקתם במשך 3 שניות (פריטים יתחילו להתנועע)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_אפשר הפעלת מפתח Windows</value>
+    <value>אפשר הפעלת מפתח Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>הפעל במסך מלא</value>
@@ -247,7 +247,7 @@
     <value>כללי</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_לְעַכֵּב:</value>
+    <value>לְעַכֵּב:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>פינות חמות</value>
@@ -271,7 +271,7 @@
     <value>צל טקסט של צלמית:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_מִמְשָׁק</value>
+    <value>מִמְשָׁק</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>שפה</value>
@@ -367,10 +367,10 @@
     <value>הגדרות</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_הצג את סמל הרחבה</value>
+    <value>הצג את סמל הרחבה</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_הצג את שורת החיפוש</value>
+    <value>הצג את שורת החיפוש</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>הפעל בעת אתחול המחשב</value>
@@ -415,6 +415,6 @@
     <value>אזהרה</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_הפעלת מפתח Windows</value>
+    <value>הפעלת מפתח Windows</value>
   </data>
 </root>

@@ -124,7 +124,7 @@
     <value>Activación</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_Agregar aplicaciones predeterminadas</value>
+    <value>Agregar aplicaciones predeterminadas</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Agregar un archivo</value>
@@ -139,10 +139,10 @@
     <value>Para habilitar Aero WinLaunch tendrá que reiniciarse, esto puede tomar unos segundos.</value>
   </data>
   <data name="AllowFreePlacement" xml:space="preserve">
-    <value>#TODO#_Permitir la colocación gratuita de elementos</value>
+    <value>Permitir la colocación gratuita de elementos</value>
   </data>
   <data name="AllowFreePlacementInfo" xml:space="preserve">
-    <value>#TODO#_Permite colocar elementos en cualquier lugar de la cuadrícula.</value>
+    <value>Permite colocar elementos en cualquier lugar de la cuadrícula.</value>
   </data>
   <data name="Arguments" xml:space="preserve">
     <value>Argumentos:</value>
@@ -157,7 +157,7 @@
     <value>Tinción de fondo</value>
   </data>
   <data name="BackupAndRestore" xml:space="preserve">
-    <value>#TODO#_Copia de seguridad y restaurar</value>
+    <value>Copia de seguridad y restaurar</value>
   </data>
   <data name="BlockFullscreen" xml:space="preserve">
     <value>Bloquear la activación de WinLaunch cuando haya aplicaciones a pantalla completa ejecutándose</value>
@@ -172,7 +172,7 @@
     <value>Buscar actualizaciones</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_Buscar actualizaciones con frecuencia</value>
+    <value>Buscar actualizaciones con frecuencia</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Escoger monitor</value>
@@ -196,7 +196,7 @@
     <value>Copiado</value>
   </data>
   <data name="CreateBackup" xml:space="preserve">
-    <value>#TODO#_Crear copia de seguridad</value>
+    <value>Crear copia de seguridad</value>
   </data>
   <data name="CreatedBy" xml:space="preserve">
     <value>Creado por</value>
@@ -208,10 +208,10 @@
     <value>Editar</value>
   </data>
   <data name="EnableAcrylic" xml:space="preserve">
-    <value>#TODO#_Habilitar acrílico</value>
+    <value>Habilitar acrílico</value>
   </data>
   <data name="EnableAcrylicInfo" xml:space="preserve">
-    <value>#TODO#_Cuando esté habilitado, usará el nuevo desenfoque acrílico de Windows 10</value>
+    <value>Cuando esté habilitado, usará el nuevo desenfoque acrílico de Windows 10</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
     <value>Activar Aero</value>
@@ -232,7 +232,7 @@
     <value>El modo de pantalla táctil hace que solo se puedan mover los iconos tras mantenerlos pulsados 3 segundos.(empezarán a vibrar)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_Habilitar la activación de la tecla de Windows</value>
+    <value>Habilitar la activación de la tecla de Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Ocupar la pantalla entera</value>
@@ -247,7 +247,7 @@
     <value>General</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_Demora:</value>
+    <value>Demora:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Activación por HotCorners</value>
@@ -271,7 +271,7 @@
     <value>Sombra del texto de los iconos:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_Interfaz</value>
+    <value>Interfaz</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Idioma</value>
@@ -304,7 +304,7 @@
     <value>Abrir</value>
   </data>
   <data name="OpenAsAdmin" xml:space="preserve">
-    <value>#TODO#_Abrir como administrador</value>
+    <value>Abrir como administrador</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>Abrir carpetas cuando se crean</value>
@@ -316,8 +316,8 @@
     <value>Siempre abrir WinLaunch en el monitor activo</value>
   </data>
   <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
-    
-  <value>Cuando se activa, hace que WinLaunch se abra siempre en el monitor en el que se encuentre el cursor.</value></data>
+    <value>Cuando se activa, hace que WinLaunch se abra siempre en el monitor en el que se encuentre el cursor.</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
   </data>
@@ -346,7 +346,7 @@
     <value>Seguro que quieres quitar este objeto?</value>
   </data>
   <data name="RestoreBackup" xml:space="preserve">
-    <value>#TODO#_Reinstalar desde el respaldo</value>
+    <value>Reinstalar desde el respaldo</value>
   </data>
   <data name="RestoreIcon" xml:space="preserve">
     <value>Restaurar icono</value>
@@ -367,10 +367,10 @@
     <value>Ajustes</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_Mostrar icono de extensión</value>
+    <value>Mostrar icono de extensión</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_Mostrar barra de búsqueda</value>
+    <value>Mostrar barra de búsqueda</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Abrir en el inicio de Windows</value>
@@ -415,6 +415,6 @@
     <value>Advertencia</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_Activación de clave de Windows</value>
+    <value>Activación de clave de Windows</value>
   </data>
 </root>

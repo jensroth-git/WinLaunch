@@ -1,121 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
-
     Microsoft ResX Schema 
-
     
-
     Version 2.0
-
     
-
     The primary goals of this format is to allow a simple XML format 
-
     that is mostly human readable. The generation and parsing of the 
-
     various data types are done through the TypeConverter classes 
-
     associated with the data types.
-
     
-
     Example:
-
     
-
     ... ado.net/XML headers & schema ...
-
     <resheader name="resmimetype">text/microsoft-resx</resheader>
-
     <resheader name="version">2.0</resheader>
-
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-
     <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-
         <value>[base64 mime encoded serialized .NET Framework object]</value>
-
     </data>
-
     <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-
         <comment>This is a comment</comment>
-
     </data>
-
                 
-
     There are any number of "resheader" rows that contain simple 
-
     name/value pairs.
-
     
-
     Each data row contains a name, and value. The row also contains a 
-
     type or mimetype. Type corresponds to a .NET class that support 
-
     text/value conversion through the TypeConverter architecture. 
-
     Classes that don't support this are serialized and stored with the 
-
     mimetype set.
-
     
-
     The mimetype is used for serialized objects, and tells the 
-
     ResXResourceReader how to depersist the object. This is currently not 
-
     extensible. For a given mimetype the value must be set accordingly:
-
     
-
     Note - application/x-microsoft.net.object.binary.base64 is the format 
-
     that the ResXResourceWriter will generate, however the reader can 
-
     read any of the formats listed below.
-
     
-
     mimetype: application/x-microsoft.net.object.binary.base64
-
     value   : The object must be serialized with 
-
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-
             : and then encoded with base64 encoding.
-
     
-
     mimetype: application/x-microsoft.net.object.soap.base64
-
     value   : The object must be serialized with 
-
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-
             : and then encoded with base64 encoding.
-
-
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-
     value   : The object must be serialized into a byte array 
-
             : using a System.ComponentModel.TypeConverter
-
             : and then encoded with base64 encoding.
-
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -176,485 +118,303 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-
     <value>За</value>
-
   </data>
   <data name="Activation" xml:space="preserve">
-
     <value>Активиране</value>
-
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_Добавяне на приложения по подразбиране</value>
+    <value>_Добавяне на приложения по подразбиране</value>
   </data>
   <data name="AddFile" xml:space="preserve">
-
     <value>Добави файл</value>
-
   </data>
   <data name="AddFolder" xml:space="preserve">
-
     <value>Добави папка</value>
-
   </data>
   <data name="AddLink" xml:space="preserve">
-
     <value>Добави връзка</value>
-
   </data>
   <data name="AeroSwitch" xml:space="preserve">
-
     <value>За активиране на Aero WinLaunch, трябва рестарт, това може да отнеме няколко секунди.</value>
-
   </data>
   <data name="AllowFreePlacement" xml:space="preserve">
-
     <value>Разреши свободно поставяне на елементи</value>
-
   </data>
   <data name="AllowFreePlacementInfo" xml:space="preserve">
-
     <value>Позволява елементи да бъдат поставени навсякъде в мрежата</value>
-
   </data>
   <data name="Arguments" xml:space="preserve">
-
     <value>Аргументи:</value>
-
   </data>
   <data name="Background" xml:space="preserve">
-
     <value>Фон</value>
-
   </data>
   <data name="BackgroundBlur" xml:space="preserve">
-
     <value>Замъгляване на фона</value>
-
   </data>
   <data name="BackgroundTint" xml:space="preserve">
-
     <value>Фонов оттенък</value>
-
   </data>
   <data name="BackupAndRestore" xml:space="preserve">
-
     <value>Архивиране и възстановяване</value>
-
   </data>
   <data name="BlockFullscreen" xml:space="preserve">
-
     <value>Блокиране активиране на WinLaunch, когато приложения на цял екран са активни</value>
-
   </data>
   <data name="BlockFullscreenInfo" xml:space="preserve">
-
     <value>Когато е активирано, ще блокира WinLaunch, когато се открият приложения на цял екран, например докато играете игри или гледате видеоклипове.</value>
-
   </data>
   <data name="Cancel" xml:space="preserve">
-
     <value>Отказ</value>
-
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
-
     <value>Проверка за актуализации</value>
-
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_Проверявайте често за актуализации</value>
+    <value>_Проверявайте често за актуализации</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
-
     <value>Избери монитор</value>
-
   </data>
   <data name="ChoosePath" xml:space="preserve">
-
     <value>Избери път</value>
-
   </data>
   <data name="CloseWarning" xml:space="preserve">
-
     <value>Сигурни ли сте, че ще затворите WinLaunch?</value>
-
   </data>
   <data name="Columns" xml:space="preserve">
-
     <value>Колони</value>
-
   </data>
   <data name="ColumnsAndRows" xml:space="preserve">
-
     <value>Колони и редове</value>
-
   </data>
   <data name="Confirm" xml:space="preserve">
-
     <value>Потвърждаване</value>
-
   </data>
   <data name="Copied" xml:space="preserve">
-
     <value>Копирано</value>
-
   </data>
   <data name="CreateBackup" xml:space="preserve">
-
     <value>Създай архив</value>
-
   </data>
   <data name="CreatedBy" xml:space="preserve">
-
     <value>Създадено от</value>
-
   </data>
   <data name="DeskModeSwitch" xml:space="preserve">
-
     <value>За превключване на DeskMode WinLaunch трябва да се рестартира, това ще отнеме няколко секунди.</value>
-
   </data>
   <data name="Edit" xml:space="preserve">
-
     <value>Редакция</value>
-
   </data>
   <data name="EnableAcrylic" xml:space="preserve">
-
     <value>Активирай акрил</value>
-
   </data>
   <data name="EnableAcrylicInfo" xml:space="preserve">
-
     <value>Когато е активирано, ще се използва ново акрилно замъгляване на Windows 10</value>
-
   </data>
   <data name="EnableAero" xml:space="preserve">
-
     <value>Активирай Aero</value>
-
   </data>
   <data name="EnableAeroInfo" xml:space="preserve">
-
     <value>Когато е активирано, ще използвате Windows Aero вместо тапет</value>
-
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
-
     <value>Активирай HotCorners</value>
-
   </data>
   <data name="EnableHotKey" xml:space="preserve">
-
     <value>Активирай хоткей</value>
-
   </data>
   <data name="EnableTouchscreen" xml:space="preserve">
-
     <value>Активирай режим на сензорен екран</value>
-
   </data>
   <data name="EnableTouchscreenInfo" xml:space="preserve">
-
     <value>Режимът на сензорен екран ще позволи местене на елементи само след задържане за 3 сек. (те ще започнат да мърдат)</value>
-
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_Разрешаване на активиране с ключ на Windows</value>
+    <value>_Разрешаване на активиране с ключ на Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
-
     <value>Запълни целия екран</value>
-
   </data>
   <data name="FillScreenInfo" xml:space="preserve">
-
     <value>Когато е активирано, WinLaunch ще покрие целия екран и лентата на задачите</value>
-
   </data>
   <data name="FolderColumns" xml:space="preserve">
-
     <value>Колони с папки</value>
-
   </data>
   <data name="General" xml:space="preserve">
-
     <value>Общо</value>
-
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_Закъснение:</value>
+    <value>_Закъснение:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
-
     <value>Активиране на HotCorner</value>
-
   </data>
   <data name="HotKeyActivation" xml:space="preserve">
-
     <value>Активиране на хоткей</value>
-
   </data>
   <data name="Icons" xml:space="preserve">
-
     <value>Икони</value>
-
   </data>
   <data name="IconShadowOpacity" xml:space="preserve">
-
     <value>Непрозрачност в сянката на икони</value>
-
   </data>
   <data name="IconSize" xml:space="preserve">
-
     <value>Размер на икони</value>
-
   </data>
   <data name="IconText" xml:space="preserve">
-
     <value>Текст на икона:</value>
-
   </data>
   <data name="IconTextShadow" xml:space="preserve">
-
     <value>Икона текст сянка:</value>
-
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_Интерфейс</value>
+    <value>_Интерфейс</value>
   </data>
   <data name="Language" xml:space="preserve">
-
     <value>Език</value>
-
   </data>
   <data name="LanguageInfo" xml:space="preserve">
-
     <value>За да актуализирате превод или да предоставите нов, посетете</value>
-
   </data>
   <data name="LatestVersion" xml:space="preserve">
-
     <value>Използвате най-новата версия</value>
-
   </data>
   <data name="Loading" xml:space="preserve">
-
     <value>Зареждане...</value>
-
   </data>
   <data name="LoadWallpaper" xml:space="preserve">
-
     <value>Зареждане на тапет</value>
-
   </data>
   <data name="LookAndFeel" xml:space="preserve">
-
     <value>Визия и усещане</value>
-
   </data>
   <data name="MiddleMouseActivation" xml:space="preserve">
-
     <value>Активиране със среден бутон</value>
-
   </data>
   <data name="MultiMonitors" xml:space="preserve">
-
     <value>Мулти монитори</value>
-
   </data>
   <data name="Name" xml:space="preserve">
-
     <value>Име:</value>
-
   </data>
   <data name="Open" xml:space="preserve">
-
     <value>Отвори</value>
-
   </data>
   <data name="OpenAsAdmin" xml:space="preserve">
-    <value>#TODO#_Отворете като администратор</value>
+    <value>_Отворете като администратор</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
-
     <value>Отваряне на папки, когато са създадени</value>
-
   </data>
   <data name="OpenLocation" xml:space="preserve">
-
     <value>Отвори локацията</value>
-
   </data>
   <data name="OpenOnActiveMonitor" xml:space="preserve">
-
     <value>Винаги отваряй WinLaunch на активния монитор</value>
-
   </data>
   <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
-
     <value>Когато е активирано, ще се автоактивира WinLaunch на монитора, на който мишката е в момента</value>
-
   </data>
   <data name="Options" xml:space="preserve">
-
     <value>Опции</value>
-
   </data>
   <data name="Path" xml:space="preserve">
-
     <value>Път:</value>
-
   </data>
   <data name="PinDesktop" xml:space="preserve">
-
     <value>Закачи WinLaunch на десктопа</value>
-
   </data>
   <data name="PinDesktopInfo" xml:space="preserve">
-
     <value>Когато е активирано, WinLaunch ще бъде закачен на десктопа, замествайки тапета</value>
-
   </data>
   <data name="PressAKey" xml:space="preserve">
-
     <value>Натисни клавиш</value>
-
   </data>
   <data name="Quit" xml:space="preserve">
-
     <value>Изход</value>
-
   </data>
   <data name="Remove" xml:space="preserve">
-
     <value>Премахни</value>
-
   </data>
   <data name="RemoveFolder" xml:space="preserve">
-
     <value>Премахването на тази папка ще премахне и всички елементи в нея</value>
-
   </data>
   <data name="RemoveItem" xml:space="preserve">
-
     <value>Наистина ли ще премахнете този елемент?</value>
-
   </data>
   <data name="RestoreBackup" xml:space="preserve">
-
     <value>Възстанови от архив</value>
-
   </data>
   <data name="RestoreIcon" xml:space="preserve">
-
     <value>Възстанови иконата</value>
-
   </data>
   <data name="Rows" xml:space="preserve">
-
     <value>Редове</value>
-
   </data>
   <data name="Screen" xml:space="preserve">
-
     <value>Екран</value>
-
   </data>
   <data name="SelectBackground" xml:space="preserve">
-
     <value>Избери фоново изображение</value>
-
   </data>
   <data name="SelectIcon" xml:space="preserve">
-
     <value>Избери икона</value>
-
   </data>
   <data name="Settings" xml:space="preserve">
-
     <value>Настройки</value>
-
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_Показване на иконата на разширение</value>
+    <value>_Показване на иконата на разширение</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_Показване на лентата за търсене</value>
+    <value>_Показване на лентата за търсене</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
-
     <value>Старт с Windows</value>
-
   </data>
   <data name="StartWithWindowsInfo" xml:space="preserve">
-
     <value>Когато е активирано, WinLaunch ще се автостартира при стартиране</value>
-
   </data>
   <data name="SyncWallpaper" xml:space="preserve">
-
     <value>Синхрон на тапети</value>
-
   </data>
   <data name="SyncWallpaperInfo" xml:space="preserve">
-
     <value>Когато е активирано, ще синхронизира фона с текущия тапет</value>
-
   </data>
   <data name="TranslatedBy" xml:space="preserve">
-
     <value>Преведено от C0rrupted</value>
-
   </data>
   <data name="Tutorial" xml:space="preserve">
-
     <value>Урок</value>
-
   </data>
   <data name="Update" xml:space="preserve">
-
     <value>Актуализация</value>
-
   </data>
   <data name="UpdateAvailable" xml:space="preserve">
-
     <value>Налична актуализация</value>
-
   </data>
   <data name="UpdateAvailableInfo" xml:space="preserve">
-
     <value>Налична е нова версия на WinLaunch, ще актуализирате ли?</value>
-
   </data>
   <data name="UpdateError" xml:space="preserve">
-
     <value>Инфо за версията не можа да се изтегли</value>
-
   </data>
   <data name="UseCustomBackground" xml:space="preserve">
-
     <value>Използвай фон по избор</value>
-
   </data>
   <data name="UseCustomBackgroundInfo" xml:space="preserve">
-
     <value>Когато е активирано, ще се зареди фоново изображение по избор</value>
-
   </data>
   <data name="Version" xml:space="preserve">
-
     <value>Версия: </value>
-
   </data>
   <data name="Warning" xml:space="preserve">
-
     <value>Внимание</value>
-
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_Активиране на Windows ключ</value>
+    <value>_Активиране на Windows ключ</value>
   </data>
 </root>

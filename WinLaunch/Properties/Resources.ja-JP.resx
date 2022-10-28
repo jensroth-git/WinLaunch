@@ -124,7 +124,7 @@
     <value>アクティベーション</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>#TODO#_デフォルトのアプリを追加</value>
+    <value>デフォルトのアプリを追加</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>ファイルの追加</value>
@@ -172,7 +172,7 @@
     <value>更新の確認</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>#TODO#_アップデートを頻繁に確認する</value>
+    <value>アップデートを頻繁に確認する</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>モニターの選択</value>
@@ -232,7 +232,7 @@
     <value>タッチスクリーンモードでは、3秒間保持した後にのみアイテムを移動することができます（彼らはくねくねし始めます）</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>#TODO#_Windows キーのアクティベーションを有効にする</value>
+    <value>Windows キーのアクティベーションを有効にする</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>画面全体を塗りつぶす</value>
@@ -247,7 +247,7 @@
     <value>全般</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>#TODO#_遅れ：</value>
+    <value>遅れ：</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>HotCorner activation</value>
@@ -271,7 +271,7 @@
     <value>アイコン文字列の影:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>#TODO#_インターフェース</value>
+    <value>インターフェース</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>言語</value>
@@ -304,7 +304,7 @@
     <value>開く</value>
   </data>
   <data name="OpenAsAdmin" xml:space="preserve">
-    <value>#TODO#_管理者として開く</value>
+    <value>管理者として開く</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>フォルダ作成時に開く</value>
@@ -367,10 +367,10 @@
     <value>設定</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>#TODO#_拡張機能のアイコンを表示</value>
+    <value>拡張機能のアイコンを表示</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>#TODO#_検索バーを表示</value>
+    <value>検索バーを表示</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Windowsと同時に起動</value>
@@ -415,6 +415,6 @@
     <value>警告</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>#TODO#_Windows キーのアクティベーション</value>
+    <value>Windows キーのアクティベーション</value>
   </data>
 </root>

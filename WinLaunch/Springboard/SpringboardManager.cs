@@ -361,6 +361,8 @@ namespace WinLaunch
                 ActiveFolder = null;
 
             RemoveItemPending = false;
+
+            ItemsUpdated(this, EventArgs.Empty);
         }
 
         public void RemoveItemFromSB(SBItem Item)

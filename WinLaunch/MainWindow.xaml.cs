@@ -278,7 +278,7 @@ namespace WinLaunch
             try
             {
                 //do in parallel?
-                if(!SBM.IC.LoadFromXML(ItemCollection.CurrentItemsPath))
+                if(!File.Exists(ItemCollection.CurrentItemsPath) && backupManager.GetLatestBackup() != null || !SBM.IC.LoadFromXML(ItemCollection.CurrentItemsPath))
                 {
                     //item loading failed
                     //backup procedure

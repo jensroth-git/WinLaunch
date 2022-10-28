@@ -124,7 +124,7 @@
     <value>Активиране</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>_Добавяне на приложения по подразбиране</value>
+    <value>Добавяне на приложения по подразбиране</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Добави файл</value>
@@ -172,7 +172,7 @@
     <value>Проверка за актуализации</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>_Проверявайте често за актуализации</value>
+    <value>Проверявайте често за актуализации</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Избери монитор</value>
@@ -232,7 +232,7 @@
     <value>Режимът на сензорен екран ще позволи местене на елементи само след задържане за 3 сек. (те ще започнат да мърдат)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>_Разрешаване на активиране с ключ на Windows</value>
+    <value>Разрешаване на активиране с ключ на Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Запълни целия екран</value>
@@ -247,7 +247,7 @@
     <value>Общо</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>_Закъснение:</value>
+    <value>Закъснение:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Активиране на HotCorner</value>
@@ -271,7 +271,7 @@
     <value>Икона текст сянка:</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>_Интерфейс</value>
+    <value>Интерфейс</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Език</value>
@@ -304,7 +304,7 @@
     <value>Отвори</value>
   </data>
   <data name="OpenAsAdmin" xml:space="preserve">
-    <value>_Отворете като администратор</value>
+    <value>Отворете като администратор</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>Отваряне на папки, когато са създадени</value>
@@ -367,10 +367,10 @@
     <value>Настройки</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>_Показване на иконата на разширение</value>
+    <value>Показване на иконата на разширение</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
-    <value>_Показване на лентата за търсене</value>
+    <value>Показване на лентата за търсене</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Старт с Windows</value>
@@ -415,6 +415,6 @@
     <value>Внимание</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>_Активиране на Windows ключ</value>
+    <value>Активиране на Windows ключ</value>
   </data>
 </root>

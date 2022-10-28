@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinLaunch", "WinLaunch\WinLaunch.csproj", "{ECCAD27E-5232-40C9-B801-36FCB9738C67}"
 EndProject
@@ -32,9 +32,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_PrefixTranslations = True
-		RESX_ExcelExportMode = Text
-		RESX_SortFileContentOnSave = True
 		SolutionGuid = {1F34F839-E593-4871-9DB4-EAD3222AAEB2}
+		RESX_SortFileContentOnSave = True
+		RESX_ExcelExportMode = Text
+		RESX_PrefixTranslations = False
 	EndGlobalSection
 EndGlobal

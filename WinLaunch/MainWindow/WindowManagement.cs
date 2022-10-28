@@ -334,6 +334,42 @@ namespace WinLaunch
         [DllImport("user32.dll")]
         private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
 
+        private void StartKeepWindowVisibleThread()
+        {
+            if (KeepWindowVisibleThread != null)
+                KeepWindowVisibleThread.Abort();
+
+            KeepWindowVisibleThread = new Thread(new ThreadStart(new Action(() =>
+            {
+                while (IsDesktopChild)
+                {
+                    IntPtr window = WindowFromPoint(topLeftCorner);
+
+                    if (window == DesktopWindow)
+                    {
+                        Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            //show desktop activated
+                            if (IsDesktopChild)
+                            {
+                                this.Topmost = true;
+
+                                this.Topmost = false;
+
+                                this.Activate();
+                                this.Focus();
+                            }
+                        }));
+                    }
+
+                    //60 fps check
+                    Thread.Sleep(1000 / 60);
+                }
+            })));
+
+            KeepWindowVisibleThread.Start();
+        }
+
         public void MakeDesktopChildWindow()
         {
             if (IsDesktopChild)
@@ -377,37 +413,10 @@ namespace WinLaunch
             if (KeepWindowVisibleThread != null)
                 KeepWindowVisibleThread.Abort();
 
-            KeepWindowVisibleThread = new Thread(new ThreadStart(new Action(() =>
-            {
-                while (IsDesktopChild)
-                {
-                    IntPtr window = WindowFromPoint(topLeftCorner);
-
-                    if(window == DesktopWindow)
-                    {
-                        Dispatcher.BeginInvoke(new Action(() =>
-                        {
-                            //show desktop activated
-                            if (IsDesktopChild)
-                            {
-                                this.Topmost = true;
-
-                                this.Topmost = false;
-
-                                this.Activate();
-                                this.Focus();
-                            }                            
-                        }));
-                    }
-
-                    //60 fps check
-                    Thread.Sleep(1000 / 60);
-                }
-            })));
 
             IsDesktopChild = true;
 
-            KeepWindowVisibleThread.Start();
+            StartKeepWindowVisibleThread();
         }
 
         public void UnsetDesktopChild()
@@ -457,8 +466,7 @@ namespace WinLaunch
                         1.0
                         );
 
-                    if (KeepWindowVisibleThread != null)
-                        KeepWindowVisibleThread.Start();
+                    StartKeepWindowVisibleThread();
                 }
             }
             else

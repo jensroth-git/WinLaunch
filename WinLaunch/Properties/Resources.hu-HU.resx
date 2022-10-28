@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>Aktiválás</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Adjon hozzá alapértelmezett alkalmazásokat</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>Fájl hozzáadása</value>
   </data>
@@ -134,6 +137,12 @@
   </data>
   <data name="AeroSwitch" xml:space="preserve">
     <value>Ahhoz, hogy Aero WinLaunch lesz újra kell indítani, ez eltarthat néhány másodpercig,.</value>
+  </data>
+  <data name="AllowFreePlacement" xml:space="preserve">
+    <value>#TODO#_Ingyenes tételelhelyezés engedélyezése</value>
+  </data>
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
+    <value>#TODO#_Lehetővé teszi az elemek elhelyezését bárhol a rácson</value>
   </data>
   <data name="Arguments" xml:space="preserve">
     <value>Értékek</value>
@@ -147,6 +156,9 @@
   <data name="BackgroundTint" xml:space="preserve">
     <value>Háttér színezése</value>
   </data>
+  <data name="BackupAndRestore" xml:space="preserve">
+    <value>#TODO#_Mentés és visszaállítás</value>
+  </data>
   <data name="BlockFullscreen" xml:space="preserve">
     <value>WinLaunch blokkolása teljes képernyős programok futása alatt</value>
   </data>
@@ -158,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Frissítések keresése</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Ellenőrizze gyakran a frissítéseket</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Képernyő választása</value>
@@ -180,6 +195,9 @@
   <data name="Copied" xml:space="preserve">
     <value>Az átmásolás megtörtént</value>
   </data>
+  <data name="CreateBackup" xml:space="preserve">
+    <value>#TODO#_Készítsen biztonsági másolatot</value>
+  </data>
   <data name="CreatedBy" xml:space="preserve">
     <value>Készítette:</value>
   </data>
@@ -188,6 +206,12 @@
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Szerkesztés</value>
+  </data>
+  <data name="EnableAcrylic" xml:space="preserve">
+    <value>#TODO#_Az akril engedélyezése</value>
+  </data>
+  <data name="EnableAcrylicInfo" xml:space="preserve">
+    <value>#TODO#_Ha engedélyezve van, a Windows 10 új akril elmosását használja</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
     <value>Aero engedélyezése</value>
@@ -207,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     
   <value>Az Érintőképernyő módban az elemek csak három másodpercnyi érintés után válnak áthelyezhetővé, ekkor rezegni kezdenek.</value></data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Engedélyezze a Windows kulcs aktiválását</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Teljes képernyő kitöltése</value>
   </data>
@@ -218,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>Általános</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Késleltetés:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Gyors Sarkok</value>
@@ -239,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>Ikon szövegének árnyéka:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Felület</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Nyelv</value>
@@ -269,6 +302,9 @@
   </data>
   <data name="Open" xml:space="preserve">
     <value>Megnyitás</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>#TODO#_Nyissa meg rendszergazdaként</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>Mappák megnyitása létrehozáskor</value>
@@ -309,6 +345,9 @@
   <data name="RemoveItem" xml:space="preserve">
     <value>Biztosan el akarod távolítani ezt az elemet?</value>
   </data>
+  <data name="RestoreBackup" xml:space="preserve">
+    <value>#TODO#_Visszaállítás biztonsági másolatból</value>
+  </data>
   <data name="RestoreIcon" xml:space="preserve">
     <value>Ikon visszaállítása</value>
   </data>
@@ -326,6 +365,12 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Beállítások</value>
+  </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Kiterjesztés ikon megjelenítése</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Keresősáv megjelenítése</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Indítás a Windows-al együtt</value>
@@ -368,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Figyelem</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Windows kulcs aktiválása</value>
   </data>
 </root>

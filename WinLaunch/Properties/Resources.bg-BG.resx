@@ -185,6 +185,9 @@
     <value>Активиране</value>
 
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Добавяне на приложения по подразбиране</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
 
     <value>Добави файл</value>
@@ -259,6 +262,9 @@
 
     <value>Проверка за актуализации</value>
 
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Проверявайте често за актуализации</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
 
@@ -355,6 +361,9 @@
     <value>Режимът на сензорен екран ще позволи местене на елементи само след задържане за 3 сек. (те ще започнат да мърдат)</value>
 
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Разрешаване на активиране с ключ на Windows</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
 
     <value>Запълни целия екран</value>
@@ -374,6 +383,9 @@
 
     <value>Общо</value>
 
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Закъснение:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
 
@@ -409,6 +421,9 @@
 
     <value>Икона текст сянка:</value>
 
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Интерфейс</value>
   </data>
   <data name="Language" xml:space="preserve">
 
@@ -459,6 +474,9 @@
 
     <value>Отвори</value>
 
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>#TODO#_Отворете като администратор</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
 
@@ -560,6 +578,12 @@
     <value>Настройки</value>
 
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Показване на иконата на разширение</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Показване на лентата за търсене</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
 
     <value>Старт с Windows</value>
@@ -629,5 +653,8 @@
 
     <value>Внимание</value>
 
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Активиране на Windows ключ</value>
   </data>
 </root>

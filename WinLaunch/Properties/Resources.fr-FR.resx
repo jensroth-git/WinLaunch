@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>Activation</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Ajouter des applications par défaut</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>Ajouter un fichier</value>
   </data>
@@ -134,6 +137,12 @@
   </data>
   <data name="AeroSwitch" xml:space="preserve">
     <value>Pour activer Aero WinLaunch devra être redémarré, cela peut prendre quelques secondes. </value>
+  </data>
+  <data name="AllowFreePlacement" xml:space="preserve">
+    <value>#TODO#_Autoriser le placement d'objets gratuits</value>
+  </data>
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
+    <value>#TODO#_Permet aux éléments d'être placés n'importe où sur la grille</value>
   </data>
   <data name="Arguments" xml:space="preserve">
     <value>Arguments :</value>
@@ -147,6 +156,9 @@
   <data name="BackgroundTint" xml:space="preserve">
     <value>Fond d'écran pastel</value>
   </data>
+  <data name="BackupAndRestore" xml:space="preserve">
+    <value>#TODO#_Sauvegarde et restauration</value>
+  </data>
   <data name="BlockFullscreen" xml:space="preserve">
     <value>Empêcher l'affichage de Winlaunch lorsqu'une application est en plein écran (jeu, par exemple) </value>
   </data>
@@ -158,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Recherche de mises à jour</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Vérifiez fréquemment les mises à jour</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Choix de l'écran</value>
@@ -180,6 +195,9 @@
   <data name="Copied" xml:space="preserve">
     <value>Copié</value>
   </data>
+  <data name="CreateBackup" xml:space="preserve">
+    <value>#TODO#_Créer une sauvegarde</value>
+  </data>
   <data name="CreatedBy" xml:space="preserve">
     <value>Créé par</value>
   </data>
@@ -188,6 +206,12 @@
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edition</value>
+  </data>
+  <data name="EnableAcrylic" xml:space="preserve">
+    <value>#TODO#_Activer l'acrylique</value>
+  </data>
+  <data name="EnableAcrylicInfo" xml:space="preserve">
+    <value>#TODO#_Lorsqu'il est activé, le nouveau flou acrylique de Windows 10 sera utilisé</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
     <value>Activer Aero</value>
@@ -207,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Ce mode vous autorise à ne déplacer des objets que lors d'un appui prolongé de 3 secondes sur ceux-ci</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Activer l'activation de la clé Windows</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Plein écran</value>
   </data>
@@ -218,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>Général</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Retard:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Activation des coins sensitifs</value>
@@ -239,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>Icône ombrage du texte :</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Interface</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Langue</value>
@@ -269,6 +302,9 @@
   </data>
   <data name="Open" xml:space="preserve">
     <value>Ouvrir</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>#TODO#_Ouvrir en tant qu'administrateur</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>Ouvrir les répertoires après leur création</value>
@@ -309,6 +345,9 @@
   <data name="RemoveItem" xml:space="preserve">
     
   <value>Voulez-vous réellement supprimer cet objet ?</value></data>
+  <data name="RestoreBackup" xml:space="preserve">
+    <value>#TODO#_Restore depuis une sauvergarde</value>
+  </data>
   <data name="RestoreIcon" xml:space="preserve">
     <value>Restaure l'icône par défaut</value>
   </data>
@@ -326,6 +365,12 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Paramètres</value>
+  </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Afficher l'icône de l'extension</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Afficher la barre de recherche</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Démarrage avec Windows</value>
@@ -368,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Attention !</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Activation de la clé Windows</value>
   </data>
 </root>

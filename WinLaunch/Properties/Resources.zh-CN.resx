@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>激活</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_添加默认应用</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>添加程序</value>
   </data>
@@ -134,6 +137,12 @@
   </data>
   <data name="AeroSwitch" xml:space="preserve">
     <value>要启用 Aero WinLaunch 将必须重新启动，这可能需要几秒钟时间。</value>
+  </data>
+  <data name="AllowFreePlacement" xml:space="preserve">
+    <value>#TODO#_允许放置免费物品</value>
+  </data>
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
+    <value>#TODO#_允许将项目放置在网格上的任何位置</value>
   </data>
   <data name="Arguments" xml:space="preserve">
     <value>参数：</value>
@@ -147,6 +156,9 @@
   <data name="BackgroundTint" xml:space="preserve">
     <value>背景着色</value>
   </data>
+  <data name="BackupAndRestore" xml:space="preserve">
+    <value>#TODO#_备份还原</value>
+  </data>
   <data name="BlockFullscreen" xml:space="preserve">
     <value>运行全屏程序时禁用WinLaunch</value>
   </data>
@@ -158,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>检查更新</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_经常检查更新</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>选择显示器</value>
@@ -180,6 +195,9 @@
   <data name="Copied" xml:space="preserve">
     <value>已复制</value>
   </data>
+  <data name="CreateBackup" xml:space="preserve">
+    <value>#TODO#_创建备份</value>
+  </data>
   <data name="CreatedBy" xml:space="preserve">
     <value>作者</value>
   </data>
@@ -188,6 +206,12 @@
   </data>
   <data name="Edit" xml:space="preserve">
     <value>编辑</value>
+  </data>
+  <data name="EnableAcrylic" xml:space="preserve">
+    <value>#TODO#_启用亚克力</value>
+  </data>
+  <data name="EnableAcrylicInfo" xml:space="preserve">
+    <value>#TODO#_启用后将使用 Windows 10 新的丙烯酸模糊</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
     <value>启用Aero</value>
@@ -207,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>触摸模式允许你按住一个图标3秒后移动它(进入编辑模式)</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_启用 Windows 密钥激活</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>全屏</value>
   </data>
@@ -218,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>通用</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_延迟：</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>触发角激活</value>
@@ -239,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>图标文本阴影颜色：</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_界面</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>语言</value>
@@ -269,6 +302,9 @@
   </data>
   <data name="Open" xml:space="preserve">
     <value>打开</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>#TODO#_以管理员身份打开</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>创建文件夹后打开文件夹</value>
@@ -309,6 +345,9 @@
   <data name="RemoveItem" xml:space="preserve">
     <value>你确定要移除这个项目？</value>
   </data>
+  <data name="RestoreBackup" xml:space="preserve">
+    <value>#TODO#_从备份恢复</value>
+  </data>
   <data name="RestoreIcon" xml:space="preserve">
     <value>恢复图标</value>
   </data>
@@ -326,6 +365,12 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>偏好设置</value>
+  </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_显示扩展图标</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_显示搜索栏</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>随Windows启动</value>
@@ -368,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>警告</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Windows 密钥激活</value>
   </data>
 </root>

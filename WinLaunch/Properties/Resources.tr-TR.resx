@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>Aktivasyon</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Varsayılan uygulamalar ekle</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>Dosya ekle</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Güncellemeleri kontrol et</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Güncellemeleri sık sık kontrol edin</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Monitör seçin</value>
@@ -225,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Dokunmatik ekran modu, öğeleri yalnızca 3 saniye basılı tuttuktan sonra taşımanıza izin verir (simge kıpırdamaya başlar)</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Windows anahtar aktivasyonunu etkinleştir</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Tüm ekranı doldur</value>
   </data>
@@ -236,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>Genel</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Gecikme:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Sıcak Köşe aktivasyonu</value>
@@ -257,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>Simge metin gölgesi:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Arayüz</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Lisan</value>
@@ -351,6 +366,12 @@
   <data name="Settings" xml:space="preserve">
     <value>Ayarlar</value>
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Uzantı simgesini göster</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Arama çubuğunu göster</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Windows ile başlat</value>
   </data>
@@ -392,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Uyarı</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Windows anahtar aktivasyonu</value>
   </data>
 </root>

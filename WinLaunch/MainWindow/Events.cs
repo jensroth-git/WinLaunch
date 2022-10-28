@@ -33,6 +33,8 @@ namespace WinLaunch
             SBItem Item = ((e.Source as MenuItem).DataContext as SBItem);
 
             SBM.RemoveItem(Item, true);
+
+            PerformItemBackup();
         }
 
         private void miOpen_Click(object sender, RoutedEventArgs e)
@@ -108,6 +110,8 @@ namespace WinLaunch
                 {
                     AddFile(fileName);
                 }
+
+                PerformItemBackup();
             }
         }
 
@@ -118,6 +122,8 @@ namespace WinLaunch
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 AddFile(ofd.SelectedPath);
+
+                PerformItemBackup();
             }
         }
 
@@ -129,6 +135,8 @@ namespace WinLaunch
             if((bool)dialog.ShowDialog())
             {
                 AddFile(dialog.URL);
+
+                PerformItemBackup();
             }
         }
 
@@ -949,6 +957,8 @@ namespace WinLaunch
             {
                 AddFile(File);
             }
+
+            PerformItemBackup();
 
             if (!IsDesktopChild)
                 Keyboard.ClearFocus();

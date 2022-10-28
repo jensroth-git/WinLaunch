@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>アクティベーション</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_デフォルトのアプリを追加</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>ファイルの追加</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>更新の確認</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_アップデートを頻繁に確認する</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>モニターの選択</value>
@@ -225,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>タッチスクリーンモードでは、3秒間保持した後にのみアイテムを移動することができます（彼らはくねくねし始めます）</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Windows キーのアクティベーションを有効にする</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>画面全体を塗りつぶす</value>
   </data>
@@ -236,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>全般</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_遅れ：</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>HotCorner activation</value>
@@ -257,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>アイコン文字列の影:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_インターフェース</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>言語</value>
@@ -287,6 +302,9 @@
   </data>
   <data name="Open" xml:space="preserve">
     <value>開く</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>#TODO#_管理者として開く</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>フォルダ作成時に開く</value>
@@ -348,6 +366,12 @@
   <data name="Settings" xml:space="preserve">
     <value>設定</value>
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_拡張機能のアイコンを表示</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_検索バーを表示</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Windowsと同時に起動</value>
   </data>
@@ -389,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>警告</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Windows キーのアクティベーション</value>
   </data>
 </root>

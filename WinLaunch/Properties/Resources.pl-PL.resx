@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>Aktywacja</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Dodaj domyślne aplikacje</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>Dodaj plik</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Sprawdź aktualizacje</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Często sprawdzaj aktualizacje</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Wybierz monitor</value>
@@ -225,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Tryb ekranu dotykowego zezwoli Ci na przemieszczenie pozycji tylko po przytrzymaniu ich przez 3 sekundy (zaczną się poruszać)</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Włącz aktywację klawisza Windows</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Wypełnij cały ekran</value>
   </data>
@@ -236,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>Ogólne</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Opóźnienie:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Aktywacja za pomocą HotCorner</value>
@@ -257,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>Cień tekstu ikony:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Interfejs</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Język</value>
@@ -287,6 +302,9 @@
   </data>
   <data name="Open" xml:space="preserve">
     <value>Otwórz</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>#TODO#_Otwórz jako administrator</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
     <value>Otwórz foldery, kiedy zostają utworzone</value>
@@ -348,6 +366,12 @@
   <data name="Settings" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Pokaż ikonę rozszerzenia</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Pokaż pasek wyszukiwania</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Uruchom z Windows</value>
   </data>
@@ -389,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Ostrzeżenie</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Aktywacja klucza Windows</value>
   </data>
 </root>

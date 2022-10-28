@@ -123,6 +123,9 @@
   <data name="Activation" xml:space="preserve">
     <value>Aktivering</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Tilføj standardapps</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <value>Tilføj fil</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Tjek for opdateringer</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Tjek ofte efter opdateringer</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Vælg skærm</value>
@@ -225,6 +231,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Touchskærms måde vil kun tillade dig at rykke rundt på objekter efter at have holdt dem for 3 sekunder (de vil begynde at ryste)</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Aktiver Windows-nøgleaktivering</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Fyld hele skærmen</value>
   </data>
@@ -236,6 +245,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>Generelt</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Forsinke:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>Genvejs hjørner aktivering</value>
@@ -257,6 +269,9 @@
   </data>
   <data name="IconTextShadow" xml:space="preserve">
     <value>Ikon tekst skygge:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Interface</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Sprog</value>
@@ -351,6 +366,12 @@
   <data name="Settings" xml:space="preserve">
     <value>Indstillinger</value>
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Vis udvidelsesikon</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Vis søgelinjen</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start med Windows</value>
   </data>
@@ -392,5 +413,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Advarsel</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Windows-nøgleaktivering</value>
   </data>
 </root>

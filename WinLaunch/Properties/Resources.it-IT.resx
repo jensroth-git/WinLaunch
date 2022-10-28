@@ -66,6 +66,9 @@
     <!--Attivazione-->
     <value>Attivazione</value>
   </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>#TODO#_Aggiungi app predefinite</value>
+  </data>
   <data name="AddFile" xml:space="preserve">
     <!--Aggiungi File-->
     <value>Aggiungi File</value>
@@ -125,6 +128,9 @@
   <data name="CheckForUpdates" xml:space="preserve">
     <!--Controlla gli aggiornamenti-->
     <value>Controlla gli aggiornamenti</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>#TODO#_Controlla frequentemente gli aggiornamenti</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <!--Scegli monitor-->
@@ -202,6 +208,9 @@
     <!--La modalità touch screen ti consentirà di spostare gli oggetti solo dopo averli tenuti premuti per 3 secondi (inizieranno a oscillare)-->
     <value>La modalità Touch Screen ti consentirà di spostare gli oggetti solo dopo averli tenuti premuti per 3 secondi (inizieranno a oscillare)</value>
   </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>#TODO#_Abilita l'attivazione della chiave di Windows</value>
+  </data>
   <data name="FillScreen" xml:space="preserve">
     <!--Riempi l'intero schermo-->
     <value>Riempi l'intero schermo</value>
@@ -217,6 +226,9 @@
   <data name="General" xml:space="preserve">
     <!--Generale-->
     <value>Generale</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>#TODO#_Ritardo:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <!--Attivazione Hot Corner-->
@@ -245,6 +257,9 @@
   <data name="IconTextShadow" xml:space="preserve">
     <!--Ombreggiatura del testo dell'icona:-->
     <value>Ombreggiatura del testo dell'icona:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>#TODO#_Interfaccia</value>
   </data>
   <data name="Language" xml:space="preserve">
     <!--linguaggio-->
@@ -370,6 +385,12 @@
     <!--impostazioni-->
     <value>Impostazioni</value>
   </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>#TODO#_Mostra icona estensione</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>#TODO#_Mostra barra di ricerca</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <!--Inizia con Windows-->
     <value>Inizia con Windows</value>
@@ -425,5 +446,8 @@
   <data name="Warning" xml:space="preserve">
     <!--Avviso!-->
     <value>Avviso!</value>
+  </data>
+  <data name="WindowsKeyActivation" xml:space="preserve">
+    <value>#TODO#_Attivazione della chiave di Windows</value>
   </data>
 </root>

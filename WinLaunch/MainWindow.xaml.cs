@@ -202,11 +202,11 @@ namespace WinLaunch
             Settings.CurrentSettings = Settings.LoadSettings(Settings.CurrentSettingsPath);
 
             //disable desk mode
-            if(Settings.CurrentSettings.DeskMode)
-            {
-                Settings.CurrentSettings.DeskMode = false;
-                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
-            }
+            //if(Settings.CurrentSettings.DeskMode)
+            //{
+            //    Settings.CurrentSettings.DeskMode = false;
+            //    Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+            //}
 
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
@@ -229,18 +229,12 @@ namespace WinLaunch
                 Theme.SaveTheme(Theme.CurrentTheme);
             }
 
-            if (Settings.CurrentSettings.DeskMode)
+            
+            //enable if aero is in use and available
+            //if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
             {
-                //Disable for desk mode on all plattforms
-                this.AllowsTransparency = false;
-            }
-            else
-            {
-                //enable if aero is in use and available
-                if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
-                {
-                    this.AllowsTransparency = true;
-                }
+                //with the new desk mode we can enable this all the time
+                this.AllowsTransparency = true;
             }
         }
 

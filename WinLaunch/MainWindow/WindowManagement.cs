@@ -136,6 +136,16 @@ namespace WinLaunch
 
             }
 
+            if(Settings.CurrentSettings.DeskMode)
+            {
+                if (msg == WM_SETFOCUS)
+                {
+                    IntPtr hWnd = new WindowInteropHelper(this).Handle;
+                    SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE);
+                    handled = true;
+                }
+            }
+
             return IntPtr.Zero;
         }
 
@@ -287,6 +297,19 @@ namespace WinLaunch
         }
 
         #region DeskMode
+        const UInt32 SWP_NOSIZE = 0x0001;
+        const UInt32 SWP_NOMOVE = 0x0002;
+        const UInt32 SWP_NOACTIVATE = 0x0010;
+        const UInt32 SWP_NOZORDER = 0x0004;
+        const int WM_ACTIVATEAPP = 0x001C;
+        const int WM_ACTIVATE = 0x0006;
+        const int WM_SETFOCUS = 0x0007;
+        static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
+        const int WM_WINDOWPOSCHANGING = 0x0046;
+
+        [DllImport("user32.dll")]
+        static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X,
+           int Y, int cx, int cy, uint uFlags);
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr FindWindow(string lpWindowClass, string lpWindowName);
@@ -294,45 +317,25 @@ namespace WinLaunch
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
 
-        [DllImport("User32", CharSet = CharSet.Auto, ExactSpelling = true)]
-        internal static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndParent);
+        [DllImport("user32.dll")]
+        static extern IntPtr WindowFromPoint(System.Drawing.Point p);
 
-        [DllImport("user32.dll", ExactSpelling = true, CharSet = CharSet.Auto)]
-        public static extern IntPtr GetParent(IntPtr hWnd);
-
-        enum GetAncestorFlags
-        {
-            /// <summary>
-            /// Retrieves the parent window. This does not include the owner, as it does with the GetParent function.
-            /// </summary>
-            GetParent = 1,
-            /// <summary>
-            /// Retrieves the root window by walking the chain of parent windows.
-            /// </summary>
-            GetRoot = 2,
-            /// <summary>
-            /// Retrieves the owned root window by walking the chain of parent and owner windows returned by GetParent.
-            /// </summary>
-            GetRootOwner = 3
-        }
-
-
-        [DllImport("user32.dll", ExactSpelling = true)]
-        static extern IntPtr GetAncestor(IntPtr hwnd, GetAncestorFlags flags);
-
-        private IntPtr OriginalParentWindow = IntPtr.Zero;
         private bool IsDesktopChild = false;
 
-        IntPtr windowHandle;
         IntPtr DesktopWindow;
 
-        Thread tt;
+        Thread KeepWindowVisibleThread;
 
+        System.Drawing.Point topLeftCorner;
+
+        // Delegate to filter which windows to include 
+        public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        [DllImport("user32.dll")]
+        private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
 
         public void MakeDesktopChildWindow()
         {
-            return;
-
             if (IsDesktopChild)
                 return;
 
@@ -349,66 +352,67 @@ namespace WinLaunch
                 1.0
                 );
 
-            DesktopWindow = FindWindowEx(
-                FindWindowEx(
-                    FindWindow("Progman", "Program Manager"),
-                    IntPtr.Zero, "SHELLDLL_DefView", ""
-                ),
-                IntPtr.Zero, "SysListView32", "FolderView"
-            );
+            topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
 
-            IntPtr WorkerW = IntPtr.Zero;
-            while (DesktopWindow == IntPtr.Zero)
+            EnumWindows(delegate (IntPtr wnd, IntPtr param)
             {
-                WorkerW = FindWindowEx(IntPtr.Zero, WorkerW, "WorkerW", "");
-
-                if (WorkerW == IntPtr.Zero)
-                    break;
-
-                IntPtr ShellDll = FindWindowEx(WorkerW, IntPtr.Zero, "SHELLDLL_DefView", "");
+                IntPtr ShellDll = FindWindowEx(wnd, IntPtr.Zero, "SHELLDLL_DefView", "");
                 DesktopWindow = FindWindowEx(ShellDll, IntPtr.Zero, "SysListView32", "FolderView");
-            }
 
+                if (DesktopWindow != IntPtr.Zero)
+                {
+                    //found the desktop, stop iterating
+                    return false;
+                }
+
+                // return true here so that we iterate all windows
+                return true;
+            }, IntPtr.Zero);
 
             if (DesktopWindow == IntPtr.Zero)
             {
                 MessageBox.Show("failed to locate the desktop!", "Error");
             }
 
-            windowHandle = new WindowInteropHelper(this).Handle;
+            if (KeepWindowVisibleThread != null)
+                KeepWindowVisibleThread.Abort();
 
-            OriginalParentWindow = SetParent(windowHandle, DesktopWindow);
-
-            IsDesktopChild = true;
-            IsFullscreen = true;
-
-            tt = new Thread(new ThreadStart(new Action(() =>
+            KeepWindowVisibleThread = new Thread(new ThreadStart(new Action(() =>
             {
-                while (true)
+                while (IsDesktopChild)
                 {
+                    IntPtr window = WindowFromPoint(topLeftCorner);
 
-                    IntPtr t = GetAncestor(windowHandle, GetAncestorFlags.GetParent);
-
-                    if(t == IntPtr.Zero)
+                    if(window == DesktopWindow)
                     {
-                        MessageBox.Show("DeskMode has crashed, restarting");
+                        Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            //show desktop activated
+                            if (IsDesktopChild)
+                            {
+                                this.Topmost = true;
 
-                        MiscUtils.RestartApplication();
+                                this.Topmost = false;
+
+                                this.Activate();
+                                this.Focus();
+                            }                            
+                        }));
                     }
 
-                    Thread.Sleep(1000);
+                    //60 fps check
+                    Thread.Sleep(1000 / 60);
                 }
             })));
 
-            tt.Start();
+            KeepWindowVisibleThread.Start();
         }
 
         public void UnsetDesktopChild()
         {
             if (IsDesktopChild)
             {
-                IntPtr windowHandle = new WindowInteropHelper(this).Handle;
-                SetParent(windowHandle, OriginalParentWindow);
+                KeepWindowVisibleThread.Abort();
 
                 IsDesktopChild = false;
             }
@@ -432,6 +436,12 @@ namespace WinLaunch
                     //switch screens
                     Rect FullScreenRect = GetDeskModeRect();
 
+                    //stop the keep window thread until we are repositioned
+                    if(KeepWindowVisibleThread != null)
+                        KeepWindowVisibleThread.Abort();
+ 
+                    topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
+
                     //strange bug -> call twice
                     ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
                         FullScreenRect.Width,
@@ -439,15 +449,14 @@ namespace WinLaunch
                         1.0
                         );
 
-                    Debug.WriteLine(this.Left);
-
                     ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
                         FullScreenRect.Width,
                         FullScreenRect.Height,
                         1.0
                         );
 
-                    Debug.WriteLine(this.Left);
+                    if (KeepWindowVisibleThread != null)
+                        KeepWindowVisibleThread.Start();
                 }
             }
             else

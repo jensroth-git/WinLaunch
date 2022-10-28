@@ -178,6 +178,13 @@ namespace WinLaunch
             //    ToggleToolbar();
             //}
 
+            if (Settings.CurrentSettings.DeskMode)
+            {
+                //steal focus on mouse down so the keyboard works
+                this.Activate();
+                this.Focus();
+            }
+
             SBM.MouseDown(sender, e);
         }
 

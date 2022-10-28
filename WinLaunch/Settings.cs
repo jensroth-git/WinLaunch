@@ -165,7 +165,7 @@ namespace WinLaunch
             HotTopLeft = true;
             HotCornerDelay = 0.0;
 
-            WindowsKeyActivationEnabled = true;
+            WindowsKeyActivationEnabled = false;
 
             MiddleMouseActivation = MiddleMouseButtonAction.DoubleClicked;
         }

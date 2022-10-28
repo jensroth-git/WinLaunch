@@ -97,6 +97,15 @@ namespace WinLaunch
         private void InitDeskMode()
         {
             cbDeskMode.IsChecked = settings.DeskMode;
+
+            if(settings.DeskMode)
+            {
+                mainWindow.MakeDesktopChildWindow();
+            }
+            else
+            {
+                mainWindow.UnsetDesktopChild();
+            }
         }
 
         private void CbDeskMode_Checked(object sender, RoutedEventArgs e)
@@ -106,22 +115,10 @@ namespace WinLaunch
                 //no change 
                 return;
             }
-            
-            //we have to restart the application to switch deskmode
-            if (MessageBox.Show(TranslationSource.Instance["DeskModeSwitch"], "Switch DeskMode", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation) == MessageBoxResult.OK)
-            {
-                //save settings and restart 
-                Settings.CurrentSettings.DeskMode = (bool)cbDeskMode.IsChecked;
 
-                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+            Settings.CurrentSettings.DeskMode = (bool)cbDeskMode.IsChecked;
 
-                //restart
-                MiscUtils.RestartApplication();
-            }
-            else
-            {
-                InitDeskMode();
-            }
+            InitDeskMode();
         }
 
         void InstantSettings_Closing(object sender, System.ComponentModel.CancelEventArgs e)

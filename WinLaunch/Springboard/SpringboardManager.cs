@@ -23,6 +23,8 @@ namespace WinLaunch
         public GridManager GM { get; set; }
         public SpringPages SP;
 
+        public event EventHandler ItemsUpdated;
+
         //search 
         public bool SearchMode = false;
 
@@ -909,6 +911,8 @@ namespace WinLaunch
                     TargetItem = null;
                     HoldItem = null;
                     ActiveDropAction = DropAction.Nothing;
+
+                    ItemsUpdated(this, EventArgs.Empty);
                 }
             }
         }

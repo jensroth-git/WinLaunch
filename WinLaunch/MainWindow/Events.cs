@@ -147,7 +147,6 @@ namespace WinLaunch
                 MainWindow.WindowRef.Close();
                 Environment.Exit(0);
             }
-            
         }
 
         private void miTutorialClicked(object sender, RoutedEventArgs e)
@@ -409,6 +408,8 @@ namespace WinLaunch
             WPWatch.WallpaperChanged += new EventHandler(WPWatch_Changed);
             WPWatch.BackgroundColorChanged += WPWatch_BackgroundColorChanged;
             WPWatch.AccentColorChanged += WPWatch_AccentColorChanged;
+
+            SBM.ItemsUpdated += SBM_ItemsUpdated;
             #endregion hook up events
 
             //show if not hidden and on first ever startup
@@ -452,6 +453,11 @@ namespace WinLaunch
             Keyboard.Focus(tbSearch);
             
             e.Handled = true;
+        }
+
+        private void SBM_ItemsUpdated(object sender, EventArgs e)
+        {
+            PerformItemBackup();
         }
 
         private static void InitLocalization()
@@ -679,7 +685,8 @@ namespace WinLaunch
         //gets called whenever a backup should be performed
         public void PerformItemBackup()
         {
-            SBM.EndSearch();
+            if(SBM.SearchMode)
+                SBM.EndSearch();
 
             if (LoadingAssets)
                 return;

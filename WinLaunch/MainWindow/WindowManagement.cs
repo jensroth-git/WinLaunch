@@ -194,6 +194,8 @@ namespace WinLaunch
         //TODO: dpi
         private Rect GetDeskModeRect()
         {
+            double DPIscale = MiscUtils.GetDPIScale();
+
             List<ScreenRect> Bounds = new List<ScreenRect>();
 
             System.Windows.Forms.Screen[] screens = System.Windows.Forms.Screen.AllScreens;
@@ -203,10 +205,15 @@ namespace WinLaunch
                 Bounds.Add(new ScreenRect(screen.WorkingArea));
             }
 
-            return new Rect(Bounds[Settings.CurrentSettings.ScreenIndex].X,
-                            Bounds[Settings.CurrentSettings.ScreenIndex].Y,
-                            Bounds[Settings.CurrentSettings.ScreenIndex].Width,
-                            Bounds[Settings.CurrentSettings.ScreenIndex].Height);
+            if(Settings.CurrentSettings.ScreenIndex >= Bounds.Count)
+            {
+                Settings.CurrentSettings.ScreenIndex = 0;
+            }
+
+            return new Rect(Bounds[Settings.CurrentSettings.ScreenIndex].X / DPIscale,
+                            Bounds[Settings.CurrentSettings.ScreenIndex].Y / DPIscale,
+                            Bounds[Settings.CurrentSettings.ScreenIndex].Width / DPIscale,
+                            Bounds[Settings.CurrentSettings.ScreenIndex].Height / DPIscale);
         }
 
         private Rect GetFullscreenRect()
@@ -423,13 +430,6 @@ namespace WinLaunch
                         KeepWindowVisibleThread.Abort();
  
                     topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
-
-                    //strange bug -> call twice
-                    ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
-                        FullScreenRect.Width,
-                        FullScreenRect.Height,
-                        1.0
-                        );
 
                     ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
                         FullScreenRect.Width,

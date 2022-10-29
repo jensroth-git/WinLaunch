@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Interop;
 
 namespace WinLaunch
@@ -529,6 +530,7 @@ namespace WinLaunch
             IsHidden = false;
 
             //manage selection
+            Keyboard.Focus(tbSearch);
             SBM.UnselectItem();
 
             StartFlyInAnimation();

@@ -458,8 +458,6 @@ namespace WinLaunch
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             }
 
-            Keyboard.Focus(tbSearch);
-            
             e.Handled = true;
         }
 
@@ -486,6 +484,8 @@ namespace WinLaunch
         {
             Activate();
             Focus();
+
+            Keyboard.Focus(tbSearch);
         }
 
         private void MainWindow_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

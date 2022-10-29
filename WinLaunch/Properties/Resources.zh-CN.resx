@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>这不能被撤消</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>检查更新</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>选择路径</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>清除项目</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>是否确实要关闭 WinLaunch？</value>
@@ -272,6 +278,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>界面</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>项目</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>语言</value>
@@ -371,6 +380,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>显示搜索栏</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>按字母顺序对项目进行排序</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>随Windows启动</value>

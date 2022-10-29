@@ -214,6 +214,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This can not be undone.
+        /// </summary>
+        internal static string CantBeUndoneWarning {
+            get {
+                return ResourceManager.GetString("CantBeUndoneWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check for updates.
         /// </summary>
         internal static string CheckForUpdates {
@@ -246,6 +255,15 @@ namespace WinLaunch.Properties {
         internal static string ChoosePath {
             get {
                 return ResourceManager.GetString("ChoosePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear items.
+        /// </summary>
+        internal static string ClearItems {
+            get {
+                return ResourceManager.GetString("ClearItems", resourceCulture);
             }
         }
         
@@ -525,6 +543,15 @@ namespace WinLaunch.Properties {
         internal static string Interface {
             get {
                 return ResourceManager.GetString("Interface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Items.
+        /// </summary>
+        internal static string Items {
+            get {
+                return ResourceManager.GetString("Items", resourceCulture);
             }
         }
         
@@ -822,6 +849,15 @@ namespace WinLaunch.Properties {
         internal static string ShowSearchBar {
             get {
                 return ResourceManager.GetString("ShowSearchBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sort items alphabetically.
+        /// </summary>
+        internal static string SortItemsAlphabetically {
+            get {
+                return ResourceManager.GetString("SortItemsAlphabetically", resourceCulture);
             }
         }
         

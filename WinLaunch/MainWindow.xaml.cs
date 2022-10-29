@@ -20,12 +20,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
 
-//BUGS
-// folder items sometimes cut when added
-// crash when opening and saving in the settings while background thread is active
-
 // Plans
-//- auto add known programs
 //- gif image tutorials
 
 //- auto check for updates interval - done
@@ -45,9 +40,6 @@ using System.Windows.Media.Imaging;
 
 namespace WinLaunch
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
     partial class MainWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -100,8 +92,6 @@ namespace WinLaunch
         #endregion Properties
 
         #region Init
-
-
         #region Mutex
 
         private Mutex mutex;
@@ -338,9 +328,7 @@ namespace WinLaunch
 
         private void SetHomeDirectory()
         {
-            string path = Assembly.GetExecutingAssembly().Location;
-            path = System.IO.Path.GetDirectoryName(path);
-            System.IO.Directory.SetCurrentDirectory(path);
+            System.IO.Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
         }
 
         private void CleanMemory()

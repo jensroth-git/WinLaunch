@@ -180,6 +180,9 @@
   <data name="ChoosePath" xml:space="preserve">
     <value>Choose path</value>
   </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Clear items</value>
+  </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>Are you sure you want to close WinLaunch?</value>
   </data>
@@ -272,6 +275,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Interface</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Items</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
@@ -371,6 +377,12 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Show search bar</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>Sort items alphabetically</value>
+  </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>This can not be undone</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start with Windows</value>

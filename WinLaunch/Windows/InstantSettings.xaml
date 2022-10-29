@@ -166,6 +166,28 @@
                 </ScrollViewer>
             </TabItem>
 
+            <!-- Items -->
+            <TabItem Height="65">
+                <TabItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/items.png" />
+                        <TextBlock HorizontalAlignment="Center" Text="{my:Loc Items}" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <ScrollViewer>
+                    <StackPanel Margin="7,0,0,0">
+                        <GroupBox Header="Item Options">
+                            <StackPanel Margin="10" Orientation="Vertical">
+                                <Button x:Name="btnClearItems" Click="btnClearItems_Click" Content="{my:Loc ClearItems}" Height="30" Width="150" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+
+                                <CheckBox x:Name="cbSortAlphabetically" Content="{my:Loc SortItemsAlphabetically}" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            
             <!--  Multi monitors  -->
             <TabItem Height="65">
                 <TabItem.Header>

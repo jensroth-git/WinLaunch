@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Abandonner</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Ça ne peut pas être annulé</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Recherche de mises à jour</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>Choix du chemin</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Effacer les éléments</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>Êtes-vous sûr de que vouloir fermer WinLaunch ? !</value>
@@ -272,6 +278,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Interface</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Articles</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Langue</value>
@@ -371,6 +380,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Afficher la barre de recherche</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>Trier les éléments par ordre alphabétique</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Démarrage avec Windows</value>

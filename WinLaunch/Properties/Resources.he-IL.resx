@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>ביטול</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>אי אפשר לבטל את זה</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>בדוק אחר עדכונים</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>בחר נתיב</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>נקה פריטים</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>האם אתה בטוח שברצונך לסגור את WinLaunch?</value>
@@ -272,6 +278,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>מִמְשָׁק</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>פריטים</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>שפה</value>
@@ -371,6 +380,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>הצג את שורת החיפוש</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>מיין פריטים בסדר אלפביתי</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>הפעל בעת אתחול המחשב</value>

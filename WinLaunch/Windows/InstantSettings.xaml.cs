@@ -88,6 +88,9 @@ namespace WinLaunch
 
             cbCheckForUpdatesFrequently.Unchecked += CbCheckForUpdatesFrequently_Unchecked;
             cbCheckForUpdatesFrequently.Checked += CbCheckForUpdatesFrequently_Checked;
+
+            cbSortAlphabetically.Checked += CbSortAlphabetically_Checked;
+            cbSortAlphabetically.Unchecked += CbSortAlphabetically_Unchecked;
         }
 
         private void CbCheckForUpdatesFrequently_Checked(object sender, RoutedEventArgs e)
@@ -146,6 +149,7 @@ namespace WinLaunch
         void InitSettings()
         {
             InitLocalization();
+            InitSortAlphabetically();
             InitAutostart();
             InitScreenSelection();
             InitHotkey();
@@ -197,6 +201,37 @@ namespace WinLaunch
         {
             mainWindow.UpdateWindowPosition();
         }
+        #endregion
+
+        #region Items
+        private void btnClearItems_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show(TranslationSource.Instance["CantBeUndoneWarning"], TranslationSource.Instance["Warning"], MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                mainWindow.ClearAllItems();
+            }
+        }
+
+        void InitSortAlphabetically()
+        {
+            cbSortAlphabetically.IsChecked = Settings.CurrentSettings.SortItemsAlphabetically;
+        }
+
+        private void CbSortAlphabetically_Checked(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show(TranslationSource.Instance["CantBeUndoneWarning"], TranslationSource.Instance["Warning"], MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                mainWindow.SortItemsAlphabetically();
+
+                Settings.CurrentSettings.SortItemsAlphabetically = (bool)cbSortAlphabetically.IsChecked;
+            }
+        }
+
+        private void CbSortAlphabetically_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Settings.CurrentSettings.SortItemsAlphabetically = (bool)cbSortAlphabetically.IsChecked;
+        }
+
         #endregion
 
         #region Localization
@@ -512,7 +547,8 @@ namespace WinLaunch
                     }
                 }
             }
-        } 
+        }
         #endregion
+
     }
 }

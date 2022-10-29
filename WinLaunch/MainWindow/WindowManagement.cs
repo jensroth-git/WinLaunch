@@ -194,12 +194,6 @@ namespace WinLaunch
         //TODO: dpi
         private Rect GetDeskModeRect()
         {
-            double DPIscale = MiscUtils.GetDPIScale();
-
-            //desktop coordinate system always starts at 0, 0
-            //convert the (random) screen coordinates to desktop coordinates
-
-            //normalize desktop bounds
             List<ScreenRect> Bounds = new List<ScreenRect>();
 
             System.Windows.Forms.Screen[] screens = System.Windows.Forms.Screen.AllScreens;
@@ -207,30 +201,6 @@ namespace WinLaunch
             foreach (var screen in screens)
             {
                 Bounds.Add(new ScreenRect(screen.WorkingArea));
-            }
-
-            //normalize the screen
-            double minX = 0;
-            double minY = 0;
-
-            foreach (var screen in Bounds)
-            {
-                if (screen.X < minX)
-                {
-                    minX = screen.X;
-                }
-
-                if (screen.Y < minY)
-                {
-                    minY = screen.Y;
-                }
-            }
-
-            //transform screens to desktop space
-            for (int i = 0; i < Bounds.Count; i++)
-            {
-                Bounds[i].X -= minX;
-                Bounds[i].Y -= minY;
             }
 
             return new Rect(Bounds[Settings.CurrentSettings.ScreenIndex].X,

@@ -18,6 +18,8 @@ namespace WinLaunch
 
         public bool CheckForUpdatesFrequently { get; set; }
 
+        public bool SortItemsAlphabetically { get; set; }
+
         /// <summary>
         /// version information used to determine if the version changed (updates)
         /// </summary>
@@ -136,6 +138,7 @@ namespace WinLaunch
                 version = new Version("0.0.0.0");
             }
 
+            SortItemsAlphabetically = false;
             CheckForUpdatesFrequently = true;
 
             IconSize = 1.4;

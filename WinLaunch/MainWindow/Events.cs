@@ -26,6 +26,11 @@ namespace WinLaunch
             SBItem Item = ((e.Source as MenuItem).DataContext as SBItem);
 
             RunEditExtension(Item);
+
+            if(Settings.CurrentSettings.SortItemsAlphabetically)
+            {
+                SortItemsAlphabetically();
+            }
         }
 
         private void miRemove_Click(object sender, RoutedEventArgs e)
@@ -111,6 +116,11 @@ namespace WinLaunch
                     AddFile(fileName);
                 }
 
+                if (Settings.CurrentSettings.SortItemsAlphabetically)
+                {
+                    SortItemsAlphabetically();
+                }
+
                 PerformItemBackup();
             }
         }
@@ -122,6 +132,11 @@ namespace WinLaunch
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 AddFile(ofd.SelectedPath);
+
+                if (Settings.CurrentSettings.SortItemsAlphabetically)
+                {
+                    SortItemsAlphabetically();
+                }
 
                 PerformItemBackup();
             }
@@ -135,6 +150,11 @@ namespace WinLaunch
             if((bool)dialog.ShowDialog())
             {
                 AddFile(dialog.URL);
+
+                if (Settings.CurrentSettings.SortItemsAlphabetically)
+                {
+                    SortItemsAlphabetically();
+                }
 
                 PerformItemBackup();
             }
@@ -336,7 +356,7 @@ namespace WinLaunch
                 System.IO.Directory.CreateDirectory(appData);
             }
 
-            //if (!System.IO.File.Exists(ItemCollection.CurrentItemsPath))
+            if (!System.IO.File.Exists(ItemCollection.CurrentItemsPath))
             {
                 //Set autostart
                 Autostart.SetAutoStart("WinLaunch", Assembly.GetExecutingAssembly().Location, " -hide");
@@ -463,6 +483,11 @@ namespace WinLaunch
 
         private void SBM_ItemsUpdated(object sender, EventArgs e)
         {
+            if (Settings.CurrentSettings.SortItemsAlphabetically)
+            {
+                SortItemsAlphabetically();
+            }
+
             PerformItemBackup();
         }
 
@@ -788,6 +813,8 @@ namespace WinLaunch
 
         private void AddFile(string File)
         {
+            DeactivateSearch();
+
             var item = PrepareFile(File);
 
             if (item == null)
@@ -956,6 +983,11 @@ namespace WinLaunch
             foreach (string File in FileList)
             {
                 AddFile(File);
+            }
+
+            if (Settings.CurrentSettings.SortItemsAlphabetically)
+            {
+                SortItemsAlphabetically();
             }
 
             PerformItemBackup();

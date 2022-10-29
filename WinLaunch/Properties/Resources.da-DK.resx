@@ -180,6 +180,9 @@
   <data name="ChoosePath" xml:space="preserve">
     <value>Vælg sti</value>
   </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Ryd elementer</value>
+  </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>Er du sikker på du vil lukke WinLaunch?</value>
   </data>
@@ -272,6 +275,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Interface</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>genstande</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Sprog</value>
@@ -371,6 +377,12 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Vis søgelinjen</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>Sorter elementer alfabetisk</value>
+  </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Dette kan ikke fortrydes</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start med Windows</value>

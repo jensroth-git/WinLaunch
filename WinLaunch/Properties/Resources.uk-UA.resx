@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Скасувати</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Це не може бути скасовано</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Перевірити наявність оновлень</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>Виберіть шлях</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Очистити елементи</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>Ви впевнені, що хочете закрити WinLaunch?</value>
@@ -272,6 +278,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Інтерфейс</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Предмети</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Мова</value>
@@ -371,6 +380,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Показати панель пошуку</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>Сортуйте елементи за алфавітом</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Запускати з Windows</value>

@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Bu geri alınamaz</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Güncellemeleri kontrol et</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>Dosya yolu seçin</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Öğeleri temizle</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>WinLaunch'ı kapatmak istediğinden emin misin?</value>
@@ -272,6 +278,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Arayüz</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Öğeler</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Lisan</value>
@@ -371,6 +380,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Arama çubuğunu göster</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>Öğeleri alfabetik olarak sırala</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Windows ile başlat</value>

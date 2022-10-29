@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>これは、元に戻すことはできません</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>更新の確認</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>パスの選択</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>クリアアイテム</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>WinLaunchを終了しますか？</value>
@@ -272,6 +278,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>インターフェース</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>アイテム</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>言語</value>
@@ -371,6 +380,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>検索バーを表示</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>アイテムをアルファベット順に並べ替える</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Windowsと同時に起動</value>

@@ -179,6 +179,7 @@
     <Compile Include="Language\nsLoc.cs" />
     <Compile Include="MainWindow\Events.cs" />
     <Compile Include="MainWindow\Extensions.cs" />
+    <Compile Include="MainWindow\ItemManagement.cs" />
     <Compile Include="MainWindow\Rendering.cs" />
     <Compile Include="MainWindow\SettingsManagement.cs" />
     <Compile Include="MainWindow\WindowManagement.cs" />
@@ -516,6 +517,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\Settings\items.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

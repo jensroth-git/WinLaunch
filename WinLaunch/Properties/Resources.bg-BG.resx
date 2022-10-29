@@ -180,6 +180,9 @@
   <data name="ChoosePath" xml:space="preserve">
     <value>Избери път</value>
   </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Изчистване на елементи</value>
+  </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>Сигурни ли сте, че ще затворите WinLaunch?</value>
   </data>
@@ -272,6 +275,9 @@
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Интерфейс</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Предмети</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Език</value>
@@ -371,6 +377,12 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Показване на лентата за търсене</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>Сортирайте елементите по азбучен ред</value>
+  </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Това не може да бъде отменено</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Старт с Windows</value>

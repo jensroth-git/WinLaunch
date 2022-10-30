@@ -219,6 +219,8 @@ namespace WinLaunch
             }
 
             SBM.IC.Items.Clear();
+
+            PerformItemBackup();
         }
     }
 }

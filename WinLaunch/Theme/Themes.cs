@@ -12,17 +12,6 @@ namespace WinLaunch
     {
         private void BeginLoadTheme(Action continueWith)
         {
-            //if (JustUpdated)
-            //{
-            //    //TODO: remove for next version
-            //    //for 0.5.0.0 enable Aero to show it off 
-            //    if (!Settings.CurrentSettings.DeskMode)
-            //    {
-            //        Theme.CurrentTheme.UseAeroBlur = true;
-            //        Theme.SaveTheme(Theme.CurrentTheme);
-            //    }
-            //}
-
             Task.Factory.StartNew(() =>
             {
                 try
@@ -92,7 +81,7 @@ namespace WinLaunch
             //- sync wallpaper
             //- custom wallpaper
 
-            if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable() && AllowsTransparency && !Settings.CurrentSettings.DeskMode)
+            if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable() && AllowsTransparency)
             {
                 //setup aero theme
                 SetAeroBlurTheme();

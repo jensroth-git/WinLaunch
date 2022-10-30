@@ -361,7 +361,7 @@ namespace WinLaunch
         #region Background
         void InitAero()
         {
-            spAero.IsEnabled = GlassUtils.IsBlurBehindAvailable() && !settings.DeskMode;
+            spAero.IsEnabled = GlassUtils.IsBlurBehindAvailable();
 
             if (!spAero.IsEnabled)
             {

@@ -176,7 +176,7 @@ namespace WinLaunch
 
             //setup window
             this.AllowDrop = true;
-            this.Topmost = true;
+
             this.ShowInTaskbar = false;
 
             //load settings
@@ -191,12 +191,9 @@ namespace WinLaunch
             //load settings and setup deskmode / no deskmode
             Settings.CurrentSettings = Settings.LoadSettings(Settings.CurrentSettingsPath);
 
-            //disable desk mode
-            //if(Settings.CurrentSettings.DeskMode)
-            //{
-            //    Settings.CurrentSettings.DeskMode = false;
-            //    Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
-            //}
+
+            if (!Settings.CurrentSettings.DeskMode)
+                this.Topmost = true;
 
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
@@ -349,6 +346,7 @@ namespace WinLaunch
             SearchActive = true;
             
             tbSearch.CaretBrush = new SolidColorBrush(Colors.White);
+            imCancel.Visibility = Visibility.Visible;
 
             SBM.UnselectItem();
         }
@@ -360,7 +358,9 @@ namespace WinLaunch
             SearchActive = false;
 
             tbSearch.CaretBrush = new SolidColorBrush(Colors.Transparent);
-            
+            imCancel.Visibility = Visibility.Collapsed;
+
+
             SBM.EndSearch();
         }
 
@@ -385,6 +385,7 @@ namespace WinLaunch
                 Keyboard.Focus(FolderTitleEdit);
 
                 FolderTitleEdit.Text = FolderTitle.Text;
+                FolderTitleEdit.SelectAll();
             }
             else
             {
@@ -397,6 +398,7 @@ namespace WinLaunch
                 Keyboard.Focus(FolderTitleEditNew);
 
                 FolderTitleEditNew.Text = FolderTitleNew.Text;
+                FolderTitleEditNew.SelectAll();
             }
             
         }

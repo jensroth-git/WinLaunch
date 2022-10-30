@@ -27,7 +27,7 @@ namespace WinLaunch
 
             RunEditExtension(Item);
 
-            if(Settings.CurrentSettings.SortItemsAlphabetically)
+            if (Settings.CurrentSettings.SortItemsAlphabetically)
             {
                 SortItemsAlphabetically();
             }
@@ -96,7 +96,7 @@ namespace WinLaunch
         #region Main Context Menu
         private void miAddDefaultApps_Clicked(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Do you really want to add all default apps?", "Add default apps", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Do you really want to add all default apps?", "Add default apps", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 AddDefaultApps();
             }
@@ -108,7 +108,7 @@ namespace WinLaunch
             ofd.Multiselect = true;
             ofd.DereferenceLinks = false;
 
-            if((bool)ofd.ShowDialog())
+            if ((bool)ofd.ShowDialog())
             {
                 //add files 
                 foreach (string fileName in ofd.FileNames)
@@ -147,7 +147,7 @@ namespace WinLaunch
             AddLink dialog = new AddLink();
             dialog.Owner = this;
 
-            if((bool)dialog.ShowDialog())
+            if ((bool)dialog.ShowDialog())
             {
                 AddFile(dialog.URL);
 
@@ -274,7 +274,7 @@ namespace WinLaunch
 
                 SBItem Item = sender as SBItem;
 
-                if(Item == null)
+                if (Item == null)
                 {
                     return;
                 }
@@ -309,15 +309,15 @@ namespace WinLaunch
                                         startInfo.FileName = Item.ApplicationPath;
                                         startInfo.Arguments = Item.Arguments;
 
-                                        if(Item.RunAsAdmin || RunAsAdmin)
+                                        if (Item.RunAsAdmin || RunAsAdmin)
                                         {
                                             startInfo.Verb = "runas";
                                         }
-                                        
+
                                         startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(Item.ApplicationPath);
                                         Process.Start(startInfo);
                                     }
-                                    catch(Exception ex) { }
+                                    catch (Exception ex) { }
                                 })).Start();
                             }
                         }
@@ -510,7 +510,21 @@ namespace WinLaunch
             Activate();
             Focus();
 
-            Keyboard.Focus(tbSearch);
+            if(FolderRenamingActive)
+            {
+                if(Theme.CurrentTheme.UseVectorFolder)
+                {
+                    Keyboard.Focus(FolderTitleEdit);
+                }
+                else
+                {
+                    Keyboard.Focus(FolderTitleEditNew);
+                }
+            }
+            else
+            {
+                Keyboard.Focus(tbSearch);
+            }
         }
 
         private void MainWindow_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -555,7 +569,7 @@ namespace WinLaunch
                 hotCorner.Active = false;
             else
                 hotCorner.Active = true;
-                
+
             hotCorner.SetDelay(Settings.CurrentSettings.HotCornerDelay);
         }
 
@@ -718,7 +732,7 @@ namespace WinLaunch
         //gets called whenever a backup should be performed
         public void PerformItemBackup()
         {
-            if(SBM.SearchMode)
+            if (SBM.SearchMode)
                 SBM.EndSearch();
 
             if (LoadingAssets)
@@ -852,7 +866,7 @@ namespace WinLaunch
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(tbSearch.Text == "")
+            if (tbSearch.Text == "")
             {
                 SBM.EndSearch();
                 return;
@@ -888,6 +902,11 @@ namespace WinLaunch
             }
 
             ActivateSearch();
+        }
+
+        private void imCancel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DeactivateSearch();
         }
 
         private void MainWindow_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -937,7 +956,7 @@ namespace WinLaunch
                 return;
             }
 
-            if(e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Down || e.Key == Key.Up || e.Key == Key.Enter)
+            if (e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Down || e.Key == Key.Up || e.Key == Key.Enter)
             {
                 SBM.KeyDown(sender, e);
                 e.Handled = true;
@@ -978,7 +997,7 @@ namespace WinLaunch
         private void MainWindow_Drop(object sender, DragEventArgs e)
         {
             e.Handled = true;
-            
+
             string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, true);
             foreach (string File in FileList)
             {
@@ -1004,7 +1023,7 @@ namespace WinLaunch
         {
             Dispatcher.Invoke(new Action(() =>
             {
-                if(!Theme.CurrentTheme.UseAeroBlur && !Theme.CurrentTheme.UseCustomBackground)
+                if (!Theme.CurrentTheme.UseAeroBlur && !Theme.CurrentTheme.UseCustomBackground)
                 {
                     SetSyncedTheme();
                 }

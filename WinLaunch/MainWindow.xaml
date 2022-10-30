@@ -803,10 +803,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40"/>
                     <ColumnDefinition />
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
 
                 <Image Source="res/search.png" Grid.Column="0" Width="20" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
                 <TextBox x:Name="tbSearch" PreviewMouseDown="tbSearch_MouseDown" TextChanged="tbSearch_TextChanged" PreviewKeyDown="tbSearch_KeyDown" Foreground="White" Grid.Column="1" VerticalContentAlignment="Center" Background="#01000000" BorderThickness="0" SelectionBrush="#80ffffff" CaretBrush="Transparent"/>
+                <Image x:Name="imCancel" Visibility="Collapsed" Source="res/cancel.png" Cursor="Hand" MouseLeftButtonDown="imCancel_MouseLeftButtonDown"  Grid.Column="2" Width="20" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                
             </Grid>
         </Border>
 

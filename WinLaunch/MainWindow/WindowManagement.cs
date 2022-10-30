@@ -515,6 +515,11 @@ namespace WinLaunch
 
         public void ToggleLaunchpad()
         {
+            if(SearchActive)
+            {
+                DeactivateSearch();
+            }
+
             if (MainContextMenu.IsLoaded)
                 return;
 

@@ -77,6 +77,10 @@ namespace WinLaunch
         public List<BackupEntry> GetBackups()
         {
             List<BackupEntry> backups = new List<BackupEntry>();
+
+            if (!Directory.Exists(directory))
+                return backups;
+
             List<string> files = new List<string>(Directory.GetFiles(directory, "*.xml"));
 
             foreach (string file in files)

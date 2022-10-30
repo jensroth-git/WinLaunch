@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -167,6 +167,9 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Batal</value>
+  </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Ini tidak dapat dibatalkan</value>
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Periksa pembaruan</value>
@@ -378,11 +381,11 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Tampilkan bilah pencarian</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Urutkan folder terlebih dahulu</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Urutkan item sesuai abjad</value>
-  </data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
-    <value>Ini tidak dapat dibatalkan</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Mulai dengan Windows</value>

@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>A propos</value>
+    <value>À propos</value>
   </data>
   <data name="Activation" xml:space="preserve">
     <value>Activation</value>
   </data>
   <data name="AddDefaultApps" xml:space="preserve">
-    <value>Ajouter des applications par défaut</value>
+    <value>Ajouter les app. par défaut</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Ajouter un fichier</value>
@@ -139,7 +139,7 @@
     <value>Pour activer Aero WinLaunch devra être redémarré, cela peut prendre quelques secondes. </value>
   </data>
   <data name="AllowFreePlacement" xml:space="preserve">
-    <value>Autoriser le placement d'objets gratuits</value>
+    <value>Autoriser le placement libre d'élément</value>
   </data>
   <data name="AllowFreePlacementInfo" xml:space="preserve">
     <value>Permet aux éléments d'être placés n'importe où sur la grille</value>
@@ -148,34 +148,34 @@
     <value>Arguments :</value>
   </data>
   <data name="Background" xml:space="preserve">
-    <value>Fond d'écran</value>
+    <value>Arrière plan</value>
   </data>
   <data name="BackgroundBlur" xml:space="preserve">
-    <value>Fond d'écran flou</value>
+    <value>Flou de l'arrière plan</value>
   </data>
   <data name="BackgroundTint" xml:space="preserve">
-    <value>Fond d'écran pastel</value>
+    <value>Teinte de l'arrière plan</value>
   </data>
   <data name="BackupAndRestore" xml:space="preserve">
     <value>Sauvegarde et restauration</value>
   </data>
   <data name="BlockFullscreen" xml:space="preserve">
-    <value>Empêcher l'affichage de Winlaunch lorsqu'une application est en plein écran (jeu, par exemple) </value>
+    <value>Empêcher l'activation de Winlaunch lorsqu'une application est en plein écran</value>
   </data>
   <data name="BlockFullscreenInfo" xml:space="preserve">
-    <value>Quand cette otion est active, Winlaunch est désactivé du plein écran</value>
+    <value>Quand cette otion est active, Winlaunch ne s'activera pas si une application est en plein écran comme avec un jeu ou une vidéo par exemple</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Abandonner</value>
+    <value>Annuler</value>
   </data>
   <data name="CantBeUndoneWarning" xml:space="preserve">
-    <value>Ça ne peut pas être annulé</value>
+    <value>Cette action est irréversible</value>
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
-    <value>Recherche de mises à jour</value>
+    <value>Recherche les mises à jour</value>
   </data>
   <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>Vérifiez fréquemment les mises à jour</value>
+    <value>Vérifier les mises à jour réguliérement</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
     <value>Choix de l'écran</value>
@@ -184,10 +184,10 @@
     <value>Choix du chemin</value>
   </data>
   <data name="ClearItems" xml:space="preserve">
-    <value>Effacer les éléments</value>
+    <value>Effacer tous les éléments</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
-    <value>Êtes-vous sûr de que vouloir fermer WinLaunch ? !</value>
+    <value>Êtes-vous sûr de que vouloir fermer WinLaunch ?</value>
   </data>
   <data name="Columns" xml:space="preserve">
     <value>Colonnes</value>
@@ -202,22 +202,22 @@
     <value>Copié</value>
   </data>
   <data name="CreateBackup" xml:space="preserve">
-    <value>Créer une sauvegarde</value>
+    <value>Effectuer une sauvegarde</value>
   </data>
   <data name="CreatedBy" xml:space="preserve">
     <value>Créé par</value>
   </data>
   <data name="DeskModeSwitch" xml:space="preserve">
-    <value>Pour activer/désactiver DeskMode WinLaunch devra être redémarré, cela peut prendre quelques secondes. </value>
+    <value>Pour activer/désactiver le mode bureau, WinLaunch devra être redémarré, cela peut prendre quelques secondes.</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edition</value>
+    <value>Modifier</value>
   </data>
   <data name="EnableAcrylic" xml:space="preserve">
-    <value>Activer l'acrylique</value>
+    <value>Activer Acrylique</value>
   </data>
   <data name="EnableAcrylicInfo" xml:space="preserve">
-    <value>Lorsqu'il est activé, le nouveau flou acrylique de Windows 10 sera utilisé</value>
+    <value>Quand cette option est active, le nouveau flou acrylique de Windows 10 sera utilisé</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
     <value>Activer Aero</value>
@@ -226,37 +226,37 @@
     <value>Quand cette option est active, Aero est utilisé à la place du papier peint</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
-    <value>Active les coins sensitifs</value>
+    <value>Activer les coins intelligents</value>
   </data>
   <data name="EnableHotKey" xml:space="preserve">
-    <value>Active les raccourcis claviers</value>
+    <value>Activer les raccourcis claviers</value>
   </data>
   <data name="EnableTouchscreen" xml:space="preserve">
     <value>Mode écran tactile</value>
   </data>
   <data name="EnableTouchscreenInfo" xml:space="preserve">
-    <value>Ce mode vous autorise à ne déplacer des objets que lors d'un appui prolongé de 3 secondes sur ceux-ci</value>
+    <value>Dans ce mode vous devez effectuer un appui prolongé de 3 secondes sur un élément pour le déplacer (ils vont commencer à remuer)</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>Activer l'activation de la clé Windows</value>
+    <value>Activer l'affichage avec la touche Windows</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
-    <value>Plein écran</value>
+    <value>Utiliser tout l'écran</value>
   </data>
   <data name="FillScreenInfo" xml:space="preserve">
-    <value>Lorsque cette option est active, Winlaunch recouvre la totalité du bureau, barre de tâche incluse</value>
+    <value>Quand cette option est active, Winlaunch recouvre la totalité du bureau, barre de tâche incluse</value>
   </data>
   <data name="FolderColumns" xml:space="preserve">
-    <value>Colonne des répertoires</value>
+    <value>Colonnes des dossiers</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Général</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>Retard:</value>
+    <value>Délai :</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
-    <value>Activation des coins sensitifs</value>
+    <value>Activation des coins intelligents</value>
   </data>
   <data name="HotKeyActivation" xml:space="preserve">
     <value>Activation des raccourcis clavier</value>
@@ -265,28 +265,31 @@
     <value>Icônes</value>
   </data>
   <data name="IconShadowOpacity" xml:space="preserve">
-    <value>Icône ombrage</value>
+    <value>Ombrage des icônes</value>
   </data>
   <data name="IconSize" xml:space="preserve">
-    <value>Icône taille</value>
+    <value>Taille des icône</value>
   </data>
   <data name="IconText" xml:space="preserve">
-    <value>Icône texte :</value>
+    <value>Texte des icônes :</value>
   </data>
   <data name="IconTextShadow" xml:space="preserve">
-    <value>Icône ombrage du texte :</value>
+    <value>Ombrage du texte des icônes :</value>
   </data>
   <data name="Interface" xml:space="preserve">
     <value>Interface</value>
   </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>Options de l'article</value>
+  </data>
   <data name="Items" xml:space="preserve">
-    <value>Articles</value>
+    <value>Éléments</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Langue</value>
   </data>
   <data name="LanguageInfo" xml:space="preserve">
-    <value>Mettre à jour une traduction ou visiter le site</value>
+    <value>Pour mettre à jour une traduction ou en proposer une nouvelle aller sur le site</value>
   </data>
   <data name="LatestVersion" xml:space="preserve">
     <value>Vous possédez la version la plus récente</value>
@@ -295,16 +298,16 @@
     <value>Chargement...</value>
   </data>
   <data name="LoadWallpaper" xml:space="preserve">
-    <value>Charger le fond d'écran</value>
+    <value>Chargement du fond d'écran</value>
   </data>
   <data name="LookAndFeel" xml:space="preserve">
-    <value>Regardez &amp;t appréciez</value>
+    <value>Apparence</value>
   </data>
   <data name="MiddleMouseActivation" xml:space="preserve">
-    <value>Activatrion du bouton central de la souris</value>
+    <value>Activation avec le bouton milieu de la souris</value>
   </data>
   <data name="MultiMonitors" xml:space="preserve">
-    <value>Moniteurs multiples</value>
+    <value>Écrans multiples</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nom :</value>
@@ -319,13 +322,13 @@
     <value>Ouvrir les répertoires après leur création</value>
   </data>
   <data name="OpenLocation" xml:space="preserve">
-    <value>Ouvrir la cible</value>
+    <value>Ouvrir l'emplacement du fichier</value>
   </data>
   <data name="OpenOnActiveMonitor" xml:space="preserve">
-    <value>Toujours lancer Winlaunch sur le moniteur actif</value>
+    <value>Toujours lancer WinLaunch sur le moniteur actif</value>
   </data>
   <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
-    <value>Lorsque cette otion est activée, Winlaunch est lancé sur le moniteur où se situe le curseur de la souris</value>
+    <value>Quand cette option est active, WinLaunch est lancé sur le moniteur où se situe le curseur de la souris</value>
   </data>
   <data name="Options" xml:space="preserve">
     <value>Options</value>
@@ -334,10 +337,10 @@
     <value>Chemin :</value>
   </data>
   <data name="PinDesktop" xml:space="preserve">
-    <value>Epingler Winlaunch au Bureau</value>
+    <value>Epingler WinLaunch au Bureau</value>
   </data>
   <data name="PinDesktopInfo" xml:space="preserve">
-    <value>Lorsque cette otion est active, le Bureau remplace le papier peint</value>
+    <value>Quand cette option est active, WinLaunch remplacera le fond d'écran du bureau</value>
   </data>
   <data name="PressAKey" xml:space="preserve">
     <value>Appuyez sur un touche</value>
@@ -346,16 +349,16 @@
     <value>Quitter</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Enlever</value>
+    <value>Supprimer</value>
   </data>
   <data name="RemoveFolder" xml:space="preserve">
     <value>Supprimer ce répertoire supprime aussi tout son contenu</value>
   </data>
   <data name="RemoveItem" xml:space="preserve">
-    <value>Voulez-vous réellement supprimer cet objet ?</value>
+    <value>Voulez-vous réellement supprimer cet élément ?</value>
   </data>
   <data name="RestoreBackup" xml:space="preserve">
-    <value>Restore depuis une sauvergarde</value>
+    <value>Restaurer une sauvergarde</value>
   </data>
   <data name="RestoreIcon" xml:space="preserve">
     <value>Restaure l'icône par défaut</value>
@@ -382,25 +385,25 @@
     <value>Afficher la barre de recherche</value>
   </data>
   <data name="SortFoldersFirst" xml:space="preserve">
-    <value>Trier les dossiers en premier !</value>
+    <value>Trier les dossiers en premier</value>
   </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Trier les éléments par ordre alphabétique</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
-    <value>Démarrage avec Windows</value>
+    <value>Démarrer avec Windows</value>
   </data>
   <data name="StartWithWindowsInfo" xml:space="preserve">
-    <value>Lorsque cette option est active, Winlauch est automatiquement lancé au démarrage de Windows</value>
+    <value>Lorsque cette option est active, WinLaunch est automatiquement lancé au démarrage de Windows</value>
   </data>
   <data name="SyncWallpaper" xml:space="preserve">
-    <value>Synchronisation avec les papiers peints</value>
+    <value>Synchroniser les papiers peints</value>
   </data>
   <data name="SyncWallpaperInfo" xml:space="preserve">
-    <value>Quand cette otion est active, le fond d'écran est synchronisé avec le papier peint</value>
+    <value>Quand cette otion est active, l'arrière plan est synchronisé avec le papier peint du bureau</value>
   </data>
   <data name="TranslatedBy" xml:space="preserve">
-    <value>Traduction de Gihem</value>
+    <value>Traduction de Gihem et SebGTx</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
     <value>Tutoriel</value>
@@ -412,16 +415,16 @@
     <value>Mise à jour disponible</value>
   </data>
   <data name="UpdateAvailableInfo" xml:space="preserve">
-    <value>Une nouvelle version de Winlaunch est disponible, vouluez-vous appliquer cette mise à jour ?</value>
+    <value>Une nouvelle version de WinLaunch est disponible, voulez-vous appliquer cette mise à jour ?</value>
   </data>
   <data name="UpdateError" xml:space="preserve">
-    <value>Pas pu télécharger des informations sur la version.</value>
+    <value>Téléchargement des informations de la version impossible</value>
   </data>
   <data name="UseCustomBackground" xml:space="preserve">
-    <value>Utiliser arrière-plan personnalisé</value>
+    <value>Utiliser un arrière-plan personnalisé</value>
   </data>
   <data name="UseCustomBackgroundInfo" xml:space="preserve">
-    <value>Lorsque activé va charger une image d’arrière-plan personnalisée </value>
+    <value>Quand cette option est active, vous pourrez choisir une image d’arrière-plan personnalisée</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version : </value>
@@ -430,6 +433,6 @@
     <value>Attention !</value>
   </data>
   <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Activation de la clé Windows</value>
+    <value>Activation avec la touche Windows</value>
   </data>
 </root>

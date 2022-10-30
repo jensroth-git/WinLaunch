@@ -18,6 +18,7 @@ namespace WinLaunch
         private void LoadSettings()
         {
             //Check for updates
+            UpdateCheck.windowRef = this;
             UpdateCheck.RunThreaded();
 
             //show the welcome dialog if version is new

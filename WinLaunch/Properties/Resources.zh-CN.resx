@@ -279,6 +279,9 @@
   <data name="Interface" xml:space="preserve">
     <value>界面</value>
   </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>项目选项</value>
+  </data>
   <data name="Items" xml:space="preserve">
     <value>项目</value>
   </data>

@@ -279,6 +279,9 @@
   <data name="Interface" xml:space="preserve">
     <value>Arayüz</value>
   </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>Öğe Seçenekleri</value>
+  </data>
   <data name="Items" xml:space="preserve">
     <value>Öğeler</value>
   </data>

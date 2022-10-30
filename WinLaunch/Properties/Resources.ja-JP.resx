@@ -279,6 +279,9 @@
   <data name="Interface" xml:space="preserve">
     <value>インターフェース</value>
   </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>アイテムオプション</value>
+  </data>
   <data name="Items" xml:space="preserve">
     <value>アイテム</value>
   </data>

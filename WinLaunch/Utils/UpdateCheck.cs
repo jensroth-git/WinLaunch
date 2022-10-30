@@ -12,6 +12,7 @@ namespace WinLaunch
 {
     internal class UpdateCheck
     {
+        public static Window windowRef;
         private static Thread CheckThread;
         private static volatile bool running = false;
 
@@ -29,7 +30,10 @@ namespace WinLaunch
                 {
                     try
                     {
-                        Run();
+                        //if(!FullscreenAppDetector.Detected(windowRef))
+                        {
+                            Run();
+                        }
 
                         //only check once at the start for updates 
                         if(!Settings.CurrentSettings.CheckForUpdatesFrequently)

@@ -280,6 +280,9 @@
   <data name="Interface" xml:space="preserve">
     <value>Interface</value>
   </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>Item Options</value>
+  </data>
   <data name="Items" xml:space="preserve">
     <value>Items</value>
   </data>

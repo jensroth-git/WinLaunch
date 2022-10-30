@@ -547,6 +547,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item Options.
+        /// </summary>
+        internal static string ItemOptions {
+            get {
+                return ResourceManager.GetString("ItemOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Items.
         /// </summary>
         internal static string Items {

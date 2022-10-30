@@ -177,7 +177,7 @@
 
                 <ScrollViewer>
                     <StackPanel Margin="7,0,0,0">
-                        <GroupBox Header="Item Options">
+                        <GroupBox Header="{my:Loc ItemOptions}">
                             <StackPanel Margin="10" Orientation="Vertical">
                                 <Button x:Name="btnClearItems" Click="btnClearItems_Click" Height="24" HorizontalContentAlignment="Stretch" HorizontalAlignment="Left" Margin="0,0,0,10">
                                     <Grid>

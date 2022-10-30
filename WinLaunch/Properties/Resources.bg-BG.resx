@@ -279,6 +279,9 @@
   <data name="Interface" xml:space="preserve">
     <value>Интерфейс</value>
   </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>Опции на артикула</value>
+  </data>
   <data name="Items" xml:space="preserve">
     <value>Предмети</value>
   </data>

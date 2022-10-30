@@ -400,7 +400,6 @@ namespace WinLaunch
                 FolderTitleEditNew.Text = FolderTitleNew.Text;
                 FolderTitleEditNew.SelectAll();
             }
-            
         }
 
         private void DeactivateFolderRenaming()
@@ -428,6 +427,8 @@ namespace WinLaunch
                 FolderTitleNew.Text = ValidateFolderName(FolderTitleEditNew.Text);
                 SBM.ActiveFolder.Name = FolderTitleNew.Text;
             }
+
+            PerformItemBackup();
         }
 
         private void FolderTitle_MouseDown(object sender, MouseButtonEventArgs e)

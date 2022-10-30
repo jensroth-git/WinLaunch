@@ -226,7 +226,7 @@
     <value>Saat diaktifkan akan menggunakan Windows Aero sebagai pengganti wallpaper</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
-    <value>Aktifkan HotCorners</value>
+    <value>Aktifkan HotCorner</value>
   </data>
   <data name="EnableHotKey" xml:space="preserve">
     <value>Aktifkan Hotkey</value>
@@ -280,7 +280,7 @@
     <value>Antarmuka</value>
   </data>
   <data name="ItemOptions" xml:space="preserve">
-    <value>Pilihan Barang</value>
+    <value>Opsi Item</value>
   </data>
   <data name="Items" xml:space="preserve">
     <value>Item</value>

@@ -381,6 +381,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Arama çubuğunu göster</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Önce klasörleri sırala!</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Öğeleri alfabetik olarak sırala</value>
   </data>

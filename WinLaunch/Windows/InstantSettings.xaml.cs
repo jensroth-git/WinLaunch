@@ -91,7 +91,12 @@ namespace WinLaunch
 
             cbSortAlphabetically.Checked += CbSortAlphabetically_Checked;
             cbSortAlphabetically.Unchecked += CbSortAlphabetically_Unchecked;
+
+            cbSortFoldersFirst.Checked += CbSortFoldersFirst_Checked;
+            cbSortFoldersFirst.Unchecked += CbSortFoldersFirst_Unchecked;
         }
+
+        
 
         private void CbCheckForUpdatesFrequently_Checked(object sender, RoutedEventArgs e)
         {
@@ -230,6 +235,16 @@ namespace WinLaunch
         private void CbSortAlphabetically_Unchecked(object sender, RoutedEventArgs e)
         {
             Settings.CurrentSettings.SortItemsAlphabetically = (bool)cbSortAlphabetically.IsChecked;
+        }
+
+        private void CbSortFoldersFirst_Unchecked(object sender, RoutedEventArgs e)
+        {
+            mainWindow.SortItemsAlphabetically();
+        }
+
+        private void CbSortFoldersFirst_Checked(object sender, RoutedEventArgs e)
+        {
+            mainWindow.SortItemsAlphabetically();
         }
 
         #endregion

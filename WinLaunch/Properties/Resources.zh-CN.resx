@@ -381,6 +381,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>显示搜索栏</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>首先排序文件夹！</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>按字母顺序对项目进行排序</value>
   </data>

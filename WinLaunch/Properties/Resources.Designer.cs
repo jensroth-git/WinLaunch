@@ -853,6 +853,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sort folders first.
+        /// </summary>
+        internal static string SortFoldersFirst {
+            get {
+                return ResourceManager.GetString("SortFoldersFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sort items alphabetically.
         /// </summary>
         internal static string SortItemsAlphabetically {

@@ -165,6 +165,12 @@ namespace WinLaunch
             int ItemsPerPage = SBM.GM.XItems * SBM.GM.YItems;
             int GridIndex = 0;
             int Page = 0;
+
+            if (Settings.CurrentSettings.SortFoldersFirst)
+            {
+                InsertFolders(folders, ItemsPerPage, ref GridIndex, ref Page);
+            }
+
             foreach (var item in items)
             {
                 item.GridIndex = GridIndex;
@@ -179,6 +185,16 @@ namespace WinLaunch
                 }
             }
 
+            if (!Settings.CurrentSettings.SortFoldersFirst)
+            {
+                InsertFolders(folders, ItemsPerPage, ref GridIndex, ref Page);
+            }
+
+            PerformItemBackup();
+        }
+
+        private void InsertFolders(List<SBItem> folders, int ItemsPerPage, ref int GridIndex, ref int Page)
+        {
             //adjust grid indexes for folders
             foreach (var folder in folders)
             {

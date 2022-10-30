@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Отказ</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Това не може да бъде отменено</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Проверка за актуализации</value>
   </data>
@@ -378,11 +381,11 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Показване на лентата за търсене</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Първо сортирайте папките</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Сортирайте елементите по азбучен ред</value>
-  </data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
-    <value>Това не може да бъде отменено</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Старт с Windows</value>

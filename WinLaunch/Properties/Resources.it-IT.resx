@@ -381,6 +381,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Mostra barra di ricerca</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Ordina prima le cartelle!</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Ordina gli elementi in ordine alfabetico</value>
   </data>

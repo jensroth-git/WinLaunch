@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>This can not be undone</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Check for updates</value>
   </data>
@@ -378,11 +381,11 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Show search bar</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Sort folders first</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Sort items alphabetically</value>
-  </data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
-    <value>This can not be undone</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start with Windows</value>

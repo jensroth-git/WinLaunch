@@ -168,6 +168,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Annuller</value>
   </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>Dette kan ikke fortrydes</value>
+  </data>
   <data name="CheckForUpdates" xml:space="preserve">
     <value>Tjek for opdateringer</value>
   </data>
@@ -378,11 +381,11 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Vis søgelinjen</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Sorter mapper først</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Sorter elementer alfabetisk</value>
-  </data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
-    <value>Dette kan ikke fortrydes</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>Start med Windows</value>

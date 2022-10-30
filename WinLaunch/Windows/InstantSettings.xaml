@@ -199,7 +199,8 @@
                                     </Grid>
                                 </Button>
 
-                                <CheckBox x:Name="cbSortAlphabetically" Content="{my:Loc SortItemsAlphabetically}" />
+                                <CheckBox x:Name="cbSortAlphabetically" Content="{my:Loc SortItemsAlphabetically}" Margin="0,0,0,10"/>
+                                <CheckBox x:Name="cbSortFoldersFirst" Content="{my:Loc SortFoldersFirst}" IsEnabled="{Binding ElementName=cbSortAlphabetically ,Path=IsChecked}" IsChecked="{Binding settings.SortFoldersFirst}"/>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>

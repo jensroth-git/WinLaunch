@@ -381,6 +381,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Mostrar barra de pesquisa</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Classificar pastas primeiro!</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Classificar itens em ordem alfabética</value>
   </data>

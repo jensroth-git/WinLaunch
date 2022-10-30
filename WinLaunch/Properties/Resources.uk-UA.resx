@@ -381,6 +381,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Показати панель пошуку</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Спочатку сортуйте папки!</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Сортуйте елементи за алфавітом</value>
   </data>

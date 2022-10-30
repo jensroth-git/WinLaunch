@@ -19,6 +19,7 @@ namespace WinLaunch
         public bool CheckForUpdatesFrequently { get; set; }
 
         public bool SortItemsAlphabetically { get; set; }
+        public bool SortFoldersFirst { get; set; }
 
         /// <summary>
         /// version information used to determine if the version changed (updates)
@@ -139,6 +140,8 @@ namespace WinLaunch
             }
 
             SortItemsAlphabetically = false;
+            SortFoldersFirst = false;
+
             CheckForUpdatesFrequently = true;
 
             IconSize = 1.4;

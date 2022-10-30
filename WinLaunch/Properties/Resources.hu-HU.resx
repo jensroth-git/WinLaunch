@@ -381,6 +381,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Keresősáv megjelenítése</value>
   </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>Először rendezze a mappákat!</value>
+  </data>
   <data name="SortItemsAlphabetically" xml:space="preserve">
     <value>Az elemek rendezése ábécé szerint</value>
   </data>

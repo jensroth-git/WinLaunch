@@ -198,7 +198,7 @@ namespace WinLaunch
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
 
-            if(Theme.CurrentTheme.Rows != -1)
+            if (Theme.CurrentTheme.Rows != -1)
             {
                 //old style 
                 Settings.CurrentSettings.Columns = Theme.CurrentTheme.Columns;
@@ -216,7 +216,7 @@ namespace WinLaunch
                 Theme.SaveTheme(Theme.CurrentTheme);
             }
 
-            
+
             //enable if aero is in use and available
             //if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
             {
@@ -265,7 +265,7 @@ namespace WinLaunch
             try
             {
                 //do in parallel?
-                if(!File.Exists(ItemCollection.CurrentItemsPath) && backupManager.GetLatestBackup() != null || !SBM.IC.LoadFromXML(ItemCollection.CurrentItemsPath))
+                if (!File.Exists(ItemCollection.CurrentItemsPath) && backupManager.GetLatestBackup() != null || !SBM.IC.LoadFromXML(ItemCollection.CurrentItemsPath))
                 {
                     //item loading failed
                     //backup procedure
@@ -275,14 +275,14 @@ namespace WinLaunch
                     bool success = false;
                     for (int i = 0; i < backups.Count; i++)
                     {
-                        if(SBM.IC.LoadFromXML(backups[i].path))
+                        if (SBM.IC.LoadFromXML(backups[i].path))
                         {
                             success = true;
                             break;
                         }
                     }
 
-                    if(!success)
+                    if (!success)
                     {
                         //failed to load items or backups
                         CrashReporter.Report("Item loading failed, tried " + backups.Count + " backups");
@@ -344,7 +344,7 @@ namespace WinLaunch
                 return;
 
             SearchActive = true;
-            
+
             tbSearch.CaretBrush = new SolidColorBrush(Colors.White);
             imCancel.Visibility = Visibility.Visible;
 
@@ -374,7 +374,7 @@ namespace WinLaunch
         {
             FolderRenamingActive = true;
 
-            if(Theme.CurrentTheme.UseVectorFolder)
+            if (Theme.CurrentTheme.UseVectorFolder)
             {
                 FolderTitle.Visibility = System.Windows.Visibility.Collapsed;
                 FolderTitleShadow.Visibility = System.Windows.Visibility.Collapsed;
@@ -404,7 +404,11 @@ namespace WinLaunch
 
         private void DeactivateFolderRenaming()
         {
+            if (!FolderRenamingActive)
+                return;
+
             FolderRenamingActive = false;
+
             if (Theme.CurrentTheme.UseVectorFolder)
             {
                 FolderTitle.Visibility = System.Windows.Visibility.Visible;
@@ -414,6 +418,7 @@ namespace WinLaunch
 
                 //Set the edited text as new title
                 FolderTitle.Text = ValidateFolderName(FolderTitleEdit.Text);
+
                 SBM.ActiveFolder.Name = FolderTitle.Text;
             }
             else
@@ -425,6 +430,7 @@ namespace WinLaunch
 
                 //Set the edited text as new title
                 FolderTitleNew.Text = ValidateFolderName(FolderTitleEditNew.Text);
+
                 SBM.ActiveFolder.Name = FolderTitleNew.Text;
             }
 
@@ -448,7 +454,7 @@ namespace WinLaunch
         //Direct events sent by springboard manager
         public void FolderOpened()
         {
-            if(Theme.CurrentTheme.UseVectorFolder)
+            if (Theme.CurrentTheme.UseVectorFolder)
             {
                 //update Folder title UI text
                 FolderTitle.Text = SBM.ActiveFolder.Name;
@@ -490,7 +496,7 @@ namespace WinLaunch
             if (SBM.LockItems)
                 e.Handled = true;
 
-            if(Settings.CurrentSettings.TabletMode)
+            if (Settings.CurrentSettings.TabletMode)
                 e.Handled = true;
         }
     }

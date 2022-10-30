@@ -125,6 +125,10 @@ namespace WinLaunch
             {
                 SortItemsAlphabetically();
             }
+            else
+            {
+                PerformItemBackup();
+            }
         }
 
         public void SortItemsAlphabetically()

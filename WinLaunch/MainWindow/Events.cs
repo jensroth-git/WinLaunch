@@ -732,8 +732,7 @@ namespace WinLaunch
         //gets called whenever a backup should be performed
         public void PerformItemBackup()
         {
-            if (SBM.SearchMode)
-                SBM.EndSearch();
+            SBM.EndSearch();
 
             if (LoadingAssets)
                 return;

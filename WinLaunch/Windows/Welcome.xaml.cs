@@ -17,6 +17,7 @@ namespace WinLaunch
             "#Changelog 0.6.8.3",
             "---",
             "- updated french translation by Sébastien Gellet",
+            "- fixed bug where folder items were sometimes not shown",
             "",
             "#Changelog 0.6.8.2",
             "---",

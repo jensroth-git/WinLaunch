@@ -1983,13 +1983,15 @@ namespace WinLaunch
             {
                 item.Page = PagePositions[item].Page;
                 item.GridIndex = PagePositions[item].GridIndex;
-                
+                item.SetOffsetPosition(0, 0);
+
                 if (item.IsFolder)
                 {
                     foreach (var subItem in item.IC.Items)
                     {
                         subItem.Page = PagePositions[subItem].Page;
                         subItem.GridIndex = PagePositions[subItem].GridIndex;
+                        subItem.SetOffsetPosition(0, 0);
                     }
                 }
             }

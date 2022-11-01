@@ -19,6 +19,7 @@ namespace WinLaunch
             "- added 2 additional optional columns",
             "- fixed automatically sort after adjusting the columns / rows",
             "- fixed restore from backup not working sometimes",
+            "- updated the Indonesian translation by jovanzers",
             "",
             "#Changelog 0.6.8.4",
             "---",

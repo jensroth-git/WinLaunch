@@ -417,10 +417,10 @@
                                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc Columns}" />
                                         <Slider x:Name="slColumnsSlider"
                                                 IsSnapToTickEnabled="True"
-                                                Maximum="10"
+                                                Maximum="12"
                                                 Minimum="3"
                                                 TickPlacement="BottomRight"
-                                                Ticks="3, 4, 5, 6, 7, 8, 9, 10"
+                                                Ticks="3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
                                                 Value="{Binding mainWindow.SBM.GM.Columns}" />
 
                                         <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Text="{my:Loc Rows}" />
@@ -439,10 +439,10 @@
                                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc Columns}" />
                                         <Slider x:Name="slFolderColumnsSlider"
                                                 IsSnapToTickEnabled="True"
-                                                Maximum="10"
+                                                Maximum="12"
                                                 Minimum="3"
                                                 TickPlacement="BottomRight"
-                                                Ticks="3, 4, 5, 6, 7, 8, 9, 10"
+                                                Ticks="3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
                                                 Value="{Binding mainWindow.SBM.FolderGrid.Columns}" />
                                     </StackPanel>
                                 </GroupBox>

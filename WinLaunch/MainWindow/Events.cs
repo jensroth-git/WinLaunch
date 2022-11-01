@@ -536,11 +536,9 @@ namespace WinLaunch
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            try
-            {
-                hotCorner.Active = false;
-            }
-            catch { }
+            //avoid alt + f4
+            e.Cancel = true;
+            ToggleLaunchpad();
         }
 
         #endregion WindowEvents

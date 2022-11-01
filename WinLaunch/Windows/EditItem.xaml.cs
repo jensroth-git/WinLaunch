@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -255,6 +256,8 @@ namespace WinLaunch
 
         private void IconFrame_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
             //Load new Icon
             OpenFileDialog op = new OpenFileDialog();
             op.Title = TranslationSource.Instance["SelectIcon"];
@@ -274,6 +277,11 @@ namespace WinLaunch
 
                 //Set as IconPath
                 this.ActiveItem.IconPath = op.FileName;
+            }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.InnerException.Message);
             }
         }
 

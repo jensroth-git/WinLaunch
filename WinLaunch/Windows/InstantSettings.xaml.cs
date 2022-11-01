@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -71,6 +72,8 @@ namespace WinLaunch
             cpIconTextShadowColor.SelectedColorChanged += UpdateIconColors;
 
             //columns & rows
+            slColumnsSlider.ValueChanged += UpdateItems;
+            slRowsSlider.ValueChanged += UpdateItems;
             slFolderColumnsSlider.ValueChanged += UpdateFolders;
 
             //Background
@@ -96,8 +99,6 @@ namespace WinLaunch
             cbSortFoldersFirst.Unchecked += CbSortFoldersFirst_Unchecked;
         }
 
-        
-
         private void CbCheckForUpdatesFrequently_Checked(object sender, RoutedEventArgs e)
         {
             UpdateCheck.RunThreaded();
@@ -119,7 +120,7 @@ namespace WinLaunch
         {
             cbDeskMode.IsChecked = settings.DeskMode;
 
-            if(settings.DeskMode)
+            if (settings.DeskMode)
             {
                 mainWindow.MakeDesktopChildWindow();
             }
@@ -340,6 +341,14 @@ namespace WinLaunch
         #endregion
 
         #region Columns & rows
+        private void UpdateItems(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(settings.SortItemsAlphabetically)
+            {
+                mainWindow.SortItemsAlphabetically();
+            }
+        }
+
         void UpdateFolders(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             mainWindow.SBM.UpdateFolderPosition();
@@ -547,8 +556,16 @@ namespace WinLaunch
                 {
                     try
                     {
-                        //delete folder contents
-                        Directory.Delete(settingsDir, true);
+                        try
+                        {
+                            //delete folder contents
+                            Directory.Delete(settingsDir, true);
+                        }
+                        catch
+                        {
+                            //Process.Start(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/"));
+                            //throw new Exception("unable to delete some files, please do it manually (%appdata%/Roaming/WinLaunch/)");
+                        }
 
                         //unzip into it
                         ZipFile.ExtractToDirectory(ofd.FileName, settingsDir);

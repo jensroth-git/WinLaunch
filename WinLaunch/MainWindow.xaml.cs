@@ -191,7 +191,6 @@ namespace WinLaunch
             //load settings and setup deskmode / no deskmode
             Settings.CurrentSettings = Settings.LoadSettings(Settings.CurrentSettingsPath);
 
-
             if (!Settings.CurrentSettings.DeskMode)
                 this.Topmost = true;
 

@@ -233,66 +233,7 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
-
-            <!--  touchpad  -->
-            <!--<TabItem Height="65">
-                <TabItem.Header>
-                    <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/synaptics.png" />
-                        <TextBlock HorizontalAlignment="Center" Text="Touchpad" />
-                    </StackPanel>
-                </TabItem.Header>
-
-                <ScrollViewer>
-                    <StackPanel Margin="7,0,0,0">
-                        <GroupBox Header="Synaptics scrolling">
-                            <StackPanel Margin="10">
-                                <CheckBox Margin="0,0,0,2"
-                                          Content="Enable synaptics scrolling"
-                                          IsChecked="{Binding settings.UseSynapticsScrolling}" />
-                                <TextBlock Foreground="#FF646464" Text="When enabled you can scroll using 2 fingers on the touchpad" />
-                                <Rectangle Height="1"
-                                           Margin="0,10"
-                                           HorizontalAlignment="Stretch"
-                                           Fill="{StaticResource SeperatorBrush}" />
-
-                                <StackPanel>
-                                    <CheckBox Margin="0,0,0,2"
-                                              Content="Invert synaptics scrolling"
-                                              IsChecked="{Binding settings.InverseSynapticsScrolling}"
-                                              IsEnabled="{Binding settings.UseSynapticsScrolling}" />
-                                    <Rectangle Height="1"
-                                               Margin="0,10"
-                                               HorizontalAlignment="Stretch"
-                                               Fill="{StaticResource SeperatorBrush}" />
-                                </StackPanel>
-
-                                <StackPanel>
-                                    <Grid>
-                                        <TextBlock HorizontalAlignment="Left" Text="{my:LanguageBinding Slow}" />
-                                        <TextBlock HorizontalAlignment="Center"
-                                                   FontWeight="Bold"
-                                                   Text="{my:LanguageBinding SynapticsScrollingSpeed}" />
-                                        <TextBlock HorizontalAlignment="Right" Text="{my:LanguageBinding Fast}" />
-                                    </Grid>
-                                    <Slider x:Name="slSynScrollingSpeed"
-                                            Margin="0,5,0,0"
-                                            IsEnabled="{Binding settings.UseSynapticsScrolling}"
-                                            IsSnapToTickEnabled="True"
-                                            LargeChange="0.1"
-                                            Maximum="2.0"
-                                            Minimum="0.5"
-                                            SelectionEnd="0.7"
-                                            TickFrequency="0.05"
-                                            TickPlacement="BottomRight"
-                                            Value="1.0" />
-                                </StackPanel>
-                            </StackPanel>
-                        </GroupBox>
-                    </StackPanel>
-                </ScrollViewer>
-            </TabItem>-->
-
+            
             <!--  activation  -->
             <TabItem Height="65">
                 <TabItem.Header>
@@ -387,11 +328,12 @@
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox Header="{my:Loc WindowsKeyActivation}">
+                        <GroupBox Header="{my:Loc KeyActivation}">
                             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <StackPanel>
-                                    <CheckBox x:Name="cbEnableWindowsKeyActivation" Margin="8" Content="{my:Loc EnableWindowsKey}" IsChecked="{Binding settings.WindowsKeyActivationEnabled}" />
-
+                                    <CheckBox x:Name="cbEnableWindowsKeyActivation" Margin="8,8,0,8" Content="{my:Loc EnableWindowsKey}" IsChecked="{Binding settings.WindowsKeyActivationEnabled}" />
+                                    <CheckBox Margin="8,0,0,8" Content="{my:Loc EnableCtrlDoubleTap}" IsChecked="{Binding settings.DoubleTapCtrlActivationEnabled}" />
+                                    <CheckBox Margin="8,0,0,8" Content="{my:Loc EnableAltDoubleTap}" IsChecked="{Binding settings.DoubleTapAltActivationEnabled}" />
                                 </StackPanel>
                             </Grid>
                         </GroupBox>

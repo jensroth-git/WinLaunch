@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Когда включено, будет использоваться Aero вместо обоев</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Включить активацию Alt двойным нажатием</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Включить активацию двойного нажатия Ctrl</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Включить горячие углы</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Предметы</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Активация ключа</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Язык</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Внимание</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Активация виндовс ключом</value>
   </data>
 </root>

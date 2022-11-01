@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>有効にすると、壁紙の代わりにWindows Aeroを使用します。</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Alt ダブルタップ アクティベーションを有効にする</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Ctrl ダブルタップ アクティベーションを有効にする</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>ホットコーナーの有効化</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>アイテム</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>キーアクティベーション</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>言語</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>警告</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Windows キーのアクティベーション</value>
   </data>
 </root>

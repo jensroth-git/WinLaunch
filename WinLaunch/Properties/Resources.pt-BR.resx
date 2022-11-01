@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Quando ativado, usará o Windows Aero em vez de um papel de parede</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Ativar a ativação de toque duplo Alt</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Ativar ativação de toque duplo Ctrl</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Ativar Cantos Quentes</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Itens</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Ativação de chave</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Idioma</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Atenção</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Ativação de chave do Windows</value>
   </data>
 </root>

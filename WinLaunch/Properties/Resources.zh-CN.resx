@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>启用后将会使用Windows Aero替代壁纸</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>启用 Alt 双击激活</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>启用 Ctrl 双击激活</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>启用触发角</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>项目</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>密钥激活</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>语言</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>警告</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Windows 密钥激活</value>
   </data>
 </root>

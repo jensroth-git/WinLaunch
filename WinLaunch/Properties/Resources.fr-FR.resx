@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Quand cette option est active, Aero est utilisé à la place du papier peint</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Activer l'activation du double appui Alt</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Activer l'activation du double appui Ctrl</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Activer les coins intelligents</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Éléments</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Clé d'activation</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Langue</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Attention !</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Activation avec la touche Windows</value>
   </data>
 </root>

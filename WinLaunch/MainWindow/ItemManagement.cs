@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace WinLaunch
 {
@@ -24,7 +25,6 @@ namespace WinLaunch
 
             if (Directory.Exists(additionalStartMenuItems))
                 files.AddRange(Directory.GetFiles(additionalStartMenuItems));
-
 
             List<string> filesToAdd = new List<string>();
             List<string> dirsToAdd = new List<string>();
@@ -247,6 +247,113 @@ namespace WinLaunch
             SBM.SP.TotalPages = SBM.GM.GetUsedPages();
 
             PerformItemBackup();
+        }
+
+        //gets called whenever a backup should be performed
+        public void PerformItemBackup()
+        {
+            SBM.EndSearch();
+
+            if (LoadingAssets)
+                return;
+
+            try
+            {
+                SBM.IC.SaveToXML(ItemCollection.CurrentItemsPath);
+                backupManager.AddBackup(ItemCollection.CurrentItemsPath);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Could not save items" + e.Message);
+            }
+        }
+
+        private SBItem PrepareFile(string File)
+        {
+            try
+            {
+                BitmapSource bmps;
+                string Name;
+                string Path;
+
+                if (Uri.IsWellFormedUriString(File, UriKind.Absolute))
+                {
+                    //link
+                    Name = File;
+                    Path = File;
+
+                    if (Name == "")
+                        return null;
+
+                    bmps = MiscUtils.GetFileThumbnail(File);
+                }
+                else if ((System.IO.File.GetAttributes(File) & System.IO.FileAttributes.Directory) == System.IO.FileAttributes.Directory)
+                {
+                    //folder
+                    string folder = File;
+
+                    Name = folder.Substring(folder.LastIndexOf('\\') + 1);
+                    Path = folder;
+
+                    if (Name == "")
+                        return null;
+
+                    bmps = MiscUtils.GetFileThumbnail(folder);
+                }
+                else
+                {
+                    //file
+                    string file = File;
+                    string Extension = System.IO.Path.GetExtension(file).ToLower();
+
+                    Name = System.IO.Path.GetFileNameWithoutExtension(File);
+                    Path = file;
+
+                    //cache lnk files
+                    if (Extension == ".lnk")
+                    {
+                        string cacheDir = System.IO.Path.Combine(new string[] { Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch", "LinkCache" });
+
+                        if (!Directory.Exists(cacheDir))
+                        {
+                            Directory.CreateDirectory(cacheDir);
+                        }
+
+                        string guid = Guid.NewGuid().ToString();
+                        string cacheFile = System.IO.Path.Combine(cacheDir, guid + ".lnk");
+
+                        System.IO.File.Copy(file, cacheFile);
+
+                        Path = cacheFile;
+                    }
+
+                    if (Name == "")
+                        return null;
+
+                    bmps = MiscUtils.GetFileThumbnail(File);
+                }
+
+                return new SBItem(Name, Path, null, "", bmps);
+            }
+            catch (Exception ex)
+            {
+                CrashReporter.Report(ex);
+                MessageBox.Show(ex.Message);
+
+                return null;
+            }
+        }
+
+        private void AddFile(string File)
+        {
+            DeactivateSearch();
+
+            var item = PrepareFile(File);
+
+            if (item == null)
+                return;
+
+            SBM.AddItem(item, (int)SBM.SP.CurrentPage, -1);
         }
     }
 }

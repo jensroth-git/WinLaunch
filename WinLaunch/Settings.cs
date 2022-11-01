@@ -120,6 +120,9 @@ namespace WinLaunch
         /// </summary>
         public bool WindowsKeyActivationEnabled { get; set; }
 
+        public bool DoubleTapCtrlActivationEnabled { get; set; }
+        public bool DoubleTapAltActivationEnabled { get; set; }
+
         /// <summary>
         /// Middle mouse button settings
         /// </summary>
@@ -176,6 +179,8 @@ namespace WinLaunch
             HotCornerDelay = 0.0;
 
             WindowsKeyActivationEnabled = false;
+            DoubleTapCtrlActivationEnabled = false;
+            DoubleTapAltActivationEnabled = false;
 
             MiddleMouseActivation = MiddleMouseButtonAction.DoubleClicked;
         }

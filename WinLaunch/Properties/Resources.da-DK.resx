@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Når slået til bruges Windows Aero i stedet for Baggrund</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Aktiver Alt dobbelttryk-aktivering</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Aktiver Ctrl-dobbelttryk-aktivering</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Slå Genvejs hjørner til</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>genstande</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Nøgleaktivering</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Sprog</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Advarsel</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Windows-nøgleaktivering</value>
   </data>
 </root>

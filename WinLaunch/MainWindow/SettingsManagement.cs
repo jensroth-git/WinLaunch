@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
@@ -58,6 +59,7 @@ namespace WinLaunch
                 InitHotKey();
                 InitMiddleMouseButtonActivator();
                 InitWindowsKeyActivation();
+                InitDoubleKeytapActivation();
 
                 UpdateGridSettings();
 
@@ -92,6 +94,7 @@ namespace WinLaunch
             UpdateHotCornerSettings();
             UpdateMiddleMouseButtonActivator();
             UpdateWindowsKeyActivation();
+            UpdateDoubleKeytapActivation();
 
             UpdateGridSettings();
 
@@ -176,6 +179,29 @@ namespace WinLaunch
             else
             {
                 wka.StopListening();
+            }
+        }
+
+        private void UpdateDoubleKeytapActivation()
+        {
+            if(Settings.CurrentSettings.DoubleTapCtrlActivationEnabled || 
+                Settings.CurrentSettings.DoubleTapAltActivationEnabled)
+            {
+                if (Settings.CurrentSettings.DoubleTapCtrlActivationEnabled)
+                    dka.CtrlActivated = true;
+                else
+                    dka.CtrlActivated = false;
+
+                if (Settings.CurrentSettings.DoubleTapAltActivationEnabled)
+                    dka.AltActivated = true;
+                else
+                    dka.AltActivated = false;
+
+                dka.StartListening();
+            }
+            else
+            {
+                dka.StopListening();
             }
         }
 

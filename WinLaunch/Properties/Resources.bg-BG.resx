@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Когато е активирано, ще използвате Windows Aero вместо тапет</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Активиране на Alt двойно докосване активиране</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Активиране на активиране с двойно натискане на Ctrl</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Активирай HotCorners</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Предмети</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Активиране на ключ</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Език</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Внимание</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Активиране на Windows ключ</value>
   </data>
 </root>

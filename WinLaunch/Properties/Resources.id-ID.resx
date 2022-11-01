@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Saat diaktifkan akan menggunakan Windows Aero sebagai pengganti wallpaper</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Aktifkan aktivasi ketuk dua kali Alt</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Aktifkan aktivasi ketuk dua kali Ctrl</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Aktifkan HotCorner</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Item</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Aktivasi kunci</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Bahasa</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Peringatan</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Aktivasi tombol Windows</value>
   </data>
 </root>

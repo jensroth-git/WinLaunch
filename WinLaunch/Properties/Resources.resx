@@ -226,6 +226,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>When enabled will use Windows Aero instead of a wallpaper</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Enable Alt double tap activation</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Enable Ctrl double tap activation</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Enable HotCorners</value>
   </data>
@@ -285,6 +291,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Items</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Key activation</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
@@ -432,8 +441,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Windows key activation</value>
   </data>
 </root>

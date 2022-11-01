@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using WinLaunch.ActivationMethods;
 
 namespace WinLaunch
 {
@@ -583,6 +583,39 @@ namespace WinLaunch
         }
         #endregion HotCornerActivator
 
+        #region DoubleKeytapActivation
+        DoubleKeytapActivation dka = new DoubleKeytapActivation();
+
+        private void InitDoubleKeytapActivation()
+        {
+            dka.Activated += Dka_Activated;
+
+            if (Settings.CurrentSettings.DoubleTapCtrlActivationEnabled ||
+                Settings.CurrentSettings.DoubleTapAltActivationEnabled)
+            {
+                if (Settings.CurrentSettings.DoubleTapCtrlActivationEnabled)
+                    dka.CtrlActivated = true;
+                else
+                    dka.CtrlActivated = false;
+
+                if (Settings.CurrentSettings.DoubleTapAltActivationEnabled)
+                    dka.AltActivated = true;
+                else
+                    dka.AltActivated = false;
+
+                dka.StartListening();
+            }
+        }
+
+        private void Dka_Activated(object sender, EventArgs e)
+        {
+            if (!ActivatorsEnabled)
+                return;
+
+            ToggleLaunchpad();
+        }
+        #endregion
+
         #region WindowsKeyActivation
         WindowsKeyActivation wka = new WindowsKeyActivation();
 
@@ -708,13 +741,6 @@ namespace WinLaunch
             }
         }
 
-        private void PanicHotKeyDown(object sender, HotKeyEventArgs e)
-        {
-            //panic hotkey always shows the window
-            RevealWindow();
-            MakeDesktopWindow();
-        }
-
         private void HotKeyDown(object sender, HotKeyEventArgs e)
         {
             if (!ActivatorsEnabled)
@@ -722,119 +748,9 @@ namespace WinLaunch
 
             ToggleLaunchpad();
         }
+
         #endregion Hotkey
-
         #endregion Activators
-
-        #region Utils
-        //gets called whenever a backup should be performed
-        public void PerformItemBackup()
-        {
-            SBM.EndSearch();
-
-            if (LoadingAssets)
-                return;
-
-            try
-            {
-                SBM.IC.SaveToXML(ItemCollection.CurrentItemsPath);
-                backupManager.AddBackup(ItemCollection.CurrentItemsPath);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Could not save items" + e.Message);
-            }
-        }
-
-        private SBItem PrepareFile(string File)
-        {
-            try
-            {
-                BitmapSource bmps;
-                string Name;
-                string Path;
-
-                if (Uri.IsWellFormedUriString(File, UriKind.Absolute))
-                {
-                    //link
-                    Name = File;
-                    Path = File;
-
-                    if (Name == "")
-                        return null;
-
-                    bmps = MiscUtils.GetFileThumbnail(File);
-                }
-                else if ((System.IO.File.GetAttributes(File) & System.IO.FileAttributes.Directory) == System.IO.FileAttributes.Directory)
-                {
-                    //folder
-                    string folder = File;
-
-                    Name = folder.Substring(folder.LastIndexOf('\\') + 1);
-                    Path = folder;
-
-                    if (Name == "")
-                        return null;
-
-                    bmps = MiscUtils.GetFileThumbnail(folder);
-                }
-                else
-                {
-                    //file
-                    string file = File;
-                    string Extension = System.IO.Path.GetExtension(file).ToLower();
-
-                    Name = System.IO.Path.GetFileNameWithoutExtension(File);
-                    Path = file;
-
-                    //cache lnk files
-                    if (Extension == ".lnk")
-                    {
-                        string cacheDir = System.IO.Path.Combine(new string[] { Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch", "LinkCache" });
-
-                        if (!Directory.Exists(cacheDir))
-                        {
-                            Directory.CreateDirectory(cacheDir);
-                        }
-
-                        string guid = Guid.NewGuid().ToString();
-                        string cacheFile = System.IO.Path.Combine(cacheDir, guid + ".lnk");
-
-                        System.IO.File.Copy(file, cacheFile);
-
-                        Path = cacheFile;
-                    }
-
-                    if (Name == "")
-                        return null;
-
-                    bmps = MiscUtils.GetFileThumbnail(File);
-                }
-
-                return new SBItem(Name, Path, null, "", bmps);
-            }
-            catch (Exception ex)
-            {
-                CrashReporter.Report(ex);
-                MessageBox.Show(ex.Message);
-
-                return null;
-            }
-        }
-
-        private void AddFile(string File)
-        {
-            DeactivateSearch();
-
-            var item = PrepareFile(File);
-
-            if (item == null)
-                return;
-
-            SBM.AddItem(item, (int)SBM.SP.CurrentPage, -1);
-        }
-
-        #endregion Utils
 
         #region Input
 

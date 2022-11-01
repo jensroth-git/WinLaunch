@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>כאשר אפשרות זו פעילה, רקע WinLaunch יהפוך שקוף</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>הפעל את הפעלת הקשה כפולה Alt</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>אפשר הפעלה של Ctrl עם הקשה כפולה</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>אפשר פינות חמות</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>פריטים</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>הפעלת מפתח</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>שפה</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>אזהרה</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>הפעלת מפתח Windows</value>
   </data>
 </root>

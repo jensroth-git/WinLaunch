@@ -169,6 +169,7 @@
     <Compile Include="ActivationMethods\HotCorners.cs" />
     <Compile Include="ActivationMethods\MiddleMouseActivation.cs" />
     <Compile Include="ActivationMethods\ShortcutActivation.cs" />
+    <Compile Include="ActivationMethods\DoubleKeytapActivation.cs" />
     <Compile Include="ActivationMethods\WindowsKeyActivation.cs" />
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Darkening.cs">

@@ -225,6 +225,12 @@
   <data name="EnableAeroInfo" xml:space="preserve">
     <value>Engedélyezés esetén a hátérkép helyett a Windows Aero-t használja a program.</value>
   </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>Engedélyezze az Alt dupla koppintással történő aktiválást</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>Engedélyezze a Ctrl dupla koppintással történő aktiválást</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Gyors Sarkok bekapcsolása</value>
   </data>
@@ -284,6 +290,9 @@
   </data>
   <data name="Items" xml:space="preserve">
     <value>Tételek</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>Kulcs aktiválása</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Nyelv</value>
@@ -431,8 +440,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Figyelem</value>
-  </data>
-  <data name="WindowsKeyActivation" xml:space="preserve">
-    <value>Windows kulcs aktiválása</value>
   </data>
 </root>

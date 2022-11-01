@@ -385,6 +385,24 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable Alt double tap activation.
+        /// </summary>
+        internal static string EnableAltDoubleTap {
+            get {
+                return ResourceManager.GetString("EnableAltDoubleTap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable Ctrl double tap activation.
+        /// </summary>
+        internal static string EnableCtrlDoubleTap {
+            get {
+                return ResourceManager.GetString("EnableCtrlDoubleTap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable HotCorners.
         /// </summary>
         internal static string EnableHotCorner {
@@ -561,6 +579,15 @@ namespace WinLaunch.Properties {
         internal static string Items {
             get {
                 return ResourceManager.GetString("Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key activation.
+        /// </summary>
+        internal static string KeyActivation {
+            get {
+                return ResourceManager.GetString("KeyActivation", resourceCulture);
             }
         }
         
@@ -1002,15 +1029,6 @@ namespace WinLaunch.Properties {
         internal static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Windows key activation.
-        /// </summary>
-        internal static string WindowsKeyActivation {
-            get {
-                return ResourceManager.GetString("WindowsKeyActivation", resourceCulture);
             }
         }
     }

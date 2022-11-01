@@ -47,7 +47,7 @@ namespace WinLaunch
                     Activated(this, EventArgs.Empty);
 
                     //suppress key
-                    e.Handled = true;
+                    //e.Handled = true;
                 }
             }
             else if (AltActivated && e.KeyboardData.Flags == 0x20 && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkAlt)
@@ -57,7 +57,7 @@ namespace WinLaunch
                     Activated(this, EventArgs.Empty);
 
                     //suppress key
-                    e.Handled = true;
+                    //e.Handled = true;
                 }
             }
         }

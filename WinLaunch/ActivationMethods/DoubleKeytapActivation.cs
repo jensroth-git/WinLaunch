@@ -50,7 +50,7 @@ namespace WinLaunch
                     //e.Handled = true;
                 }
             }
-            else if (AltActivated && e.KeyboardData.Flags == 0x20 && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkAlt)
+            else if (AltActivated && e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyUp && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkAlt)
             {
                 if (doubleClickAlt.Click())
                 {

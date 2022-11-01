@@ -23,9 +23,6 @@ using System.Windows.Threading;
 
 namespace WinLaunch
 {
-    /// <summary>
-    /// Interaktionslogik für InstantSettings.xaml
-    /// </summary>
     public partial class InstantSettings : Window
     {
         public MainWindow mainWindow { get; set; }

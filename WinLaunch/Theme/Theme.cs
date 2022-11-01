@@ -83,7 +83,8 @@ namespace WinLaunch
         #region Folder styling
         public Color FolderTitleShadowColor = Color.FromArgb(0x99, 0, 0, 0);
         public Color FolderTitleColor = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
-        public bool UseVectorFolder { get; set; } 
+        public bool UseVectorFolder { get; set; }
+        public bool StretchFolderBackground { get; set; }
         #endregion Folder styling
 
         #region BackgroundEffects
@@ -370,6 +371,7 @@ namespace WinLaunch
             FolderRows = -1;
 
             UseVectorFolder = false;
+            StretchFolderBackground = false;
 
             UseAeroBlur = true;
             UseAcrylic = false;

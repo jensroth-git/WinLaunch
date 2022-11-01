@@ -59,14 +59,14 @@ namespace WinLaunch
             {
                 FolderBackgroundTileBrush.ImageSource = Theme.CurrentTheme.center;
 
-                //if (Theme.CurrentTheme.StretchFolderBG)
-                //{
-                //    double ratio = (double)Theme.CurrentTheme.FolderBackgroundTile.PixelWidth / (double)Theme.CurrentTheme.FolderBackgroundTile.PixelHeight;
-                //    Rect screen = GetFullscreenRect();
+                if (Theme.CurrentTheme.StretchFolderBackground)
+                {
+                    double ratio = (double)Theme.CurrentTheme.center.PixelWidth / (double)Theme.CurrentTheme.center.PixelHeight;
+                    Rect screen = GetFullscreenRect();
 
-                //    FolderBackgroundTileBrush.Viewport = new Rect(0, 0, screen.Width, screen.Width / ratio);
-                //}
-                //else
+                    FolderBackgroundTileBrush.Viewport = new Rect(0, 0, screen.Width, screen.Width / ratio);
+                }
+                else
                 {
                     FolderBackgroundTileBrush.Viewport = new Rect(0, 0, Theme.CurrentTheme.center.PixelWidth, Theme.CurrentTheme.center.PixelHeight);
                 }

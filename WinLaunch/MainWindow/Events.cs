@@ -172,6 +172,8 @@ namespace WinLaunch
             {
                 PerformItemBackup();
 
+                hotCorner.Active = false;
+
                 MainWindow.WindowRef.Close();
                 Environment.Exit(0);
             }
@@ -791,6 +793,12 @@ namespace WinLaunch
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
         {
+            if(e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl || e.Key == Key.LeftAlt || e.Key == Key.RightAlt)
+            {
+                e.Handled = true;
+                return;
+            }
+
             if (e.Key == Key.Escape)
             {
                 if (SearchActive)

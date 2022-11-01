@@ -40,7 +40,7 @@ namespace WinLaunch
 
         private void Hook_KeyboardPressed(object sender, GlobalKeyboardHookEventArgs e)
         {
-            if(CtrlActivated && e.KeyboardData.Flags == 0x00 && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkControl)
+            if(CtrlActivated && e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyUp && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkControl)
             {
                 if(doubleClickCtrl.Click())
                 {
@@ -48,7 +48,7 @@ namespace WinLaunch
 
                     //suppress key
                     e.Handled = true;
-                }                
+                }
             }
             else if (AltActivated && e.KeyboardData.Flags == 0x20 && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkAlt)
             {

@@ -231,6 +231,10 @@ namespace WinLaunch
 
                 Settings.CurrentSettings.SortItemsAlphabetically = (bool)cbSortAlphabetically.IsChecked;
             }
+            else
+            {
+                cbSortAlphabetically.IsChecked = false;
+            }
         }
 
         private void CbSortAlphabetically_Unchecked(object sender, RoutedEventArgs e)

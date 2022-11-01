@@ -194,6 +194,9 @@ namespace WinLaunch
                 InsertFolders(folders, ItemsPerPage, ref GridIndex, ref Page);
             }
 
+            //update page count
+            SBM.SP.TotalPages = SBM.GM.GetUsedPages();
+
             PerformItemBackup();
         }
 
@@ -239,6 +242,9 @@ namespace WinLaunch
             }
 
             SBM.IC.Items.Clear();
+
+            //update page count
+            SBM.SP.TotalPages = SBM.GM.GetUsedPages();
 
             PerformItemBackup();
         }

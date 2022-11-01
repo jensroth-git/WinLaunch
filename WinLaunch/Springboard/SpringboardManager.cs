@@ -361,6 +361,9 @@ namespace WinLaunch
 
             RemoveItemPending = false;
 
+            //update page count
+            SP.TotalPages = GM.GetUsedPages();
+
             ItemsUpdated(this, EventArgs.Empty);
         }
 
@@ -373,6 +376,9 @@ namespace WinLaunch
             //remove reference from Host container
             if (container.Contains(Item.ContentRef))
                 container.Remove(Item.ContentRef);
+
+            //update page count
+            SP.TotalPages = GM.GetUsedPages();
 
             Item.ContentRef.UpdateLayout();
             Host.UpdateLayout();

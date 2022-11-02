@@ -783,11 +783,11 @@ namespace WinLaunch
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl || e.Key == Key.LeftAlt || e.Key == Key.RightAlt)
-            {
-                e.Handled = true;
-                return;
-            }
+            //if(e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl || e.Key == Key.System)
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
 
             if (e.Key == Key.Escape)
             {

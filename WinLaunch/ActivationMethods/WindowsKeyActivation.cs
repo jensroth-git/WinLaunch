@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,38 +14,65 @@ namespace WinLaunch
 {
     internal class WindowsKeyActivation
     {
-        private GlobalKeyboardHook hook = null;
+        #region Interop
+        int WH_GETMESSAGE = 3;
 
-        public event EventHandler Activated;
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr SetWindowsHookEx(int hookType, IntPtr lpfn, IntPtr hMod, uint dwThreadId);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool UnhookWindowsHookEx(IntPtr hhk);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(String sClassName, String sAppName);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, IntPtr lpszWindow);
+
+        [DllImport("User32.dll")]
+        private static extern uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr lpdwProcessId);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern IntPtr GetModuleHandle([MarshalAs(UnmanagedType.LPWStr)] string lpModuleName);
+
+        [DllImport("kernel32", SetLastError = true, CharSet = CharSet.Ansi)]
+        static extern IntPtr LoadLibrary([MarshalAs(UnmanagedType.LPStr)] string lpFileName);
+
+        [DllImport("kernel32", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+        static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
+        #endregion
+
+        IntPtr module = IntPtr.Zero;
+        IntPtr hHookModule = IntPtr.Zero;
+        IntPtr progmanHook = IntPtr.Zero;
 
         public void StartListening()
         {
-            if (hook != null)
+            if (progmanHook != IntPtr.Zero)
                 return;
 
-            hook = new GlobalKeyboardHook();
-            hook.KeyboardPressed += Hook_KeyboardPressed; ;
-        }
+            if(module == IntPtr.Zero)
+                module = LoadLibrary("HookWindowsKey.dll");
+    
+            if(hHookModule == IntPtr.Zero)
+                hHookModule = GetModuleHandle("HookWindowsKey.dll");
 
-        private void Hook_KeyboardPressed(object sender, GlobalKeyboardHookEventArgs e)
-        {
-            if(e.KeyboardData.Flags == 1 && e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkLwin ||
-                e.KeyboardData.VirtualCode == GlobalKeyboardHook.VkRwin)
-            {
-                Activated(this, EventArgs.Empty);
+            IntPtr fn = GetProcAddress(hHookModule, "HookProgManThread");
 
-                //suppress key
-                e.Handled = true;
-            }
+            IntPtr progmanWindow = FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Progman", IntPtr.Zero);
+            uint progmanThread = GetWindowThreadProcessId(progmanWindow, IntPtr.Zero);
+
+            //inject dll into progman
+            progmanHook = SetWindowsHookEx(WH_GETMESSAGE, fn, hHookModule, progmanThread);
         }
 
         public void StopListening()
         {
-            if (hook == null)
-                return;
-
-            hook.Dispose();
-            hook = null;
+            if (progmanHook != IntPtr.Zero)
+            {
+                UnhookWindowsHookEx(progmanHook);
+                progmanHook = IntPtr.Zero;
+            }
         }
     }
 }

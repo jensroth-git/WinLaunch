@@ -623,20 +623,10 @@ namespace WinLaunch
 
         private void InitWindowsKeyActivation()
         {
-            wka.Activated += Wka_Activated;
-
-            if (Settings.CurrentSettings.WindowsKeyActivationEnabled)
+            if (Settings.CurrentSettings.WindowsKeyActivationEnabled && !Settings.CurrentSettings.DeskMode)
             {
                 wka.StartListening();
             }
-        }
-
-        private void Wka_Activated(object sender, EventArgs e)
-        {
-            if (!ActivatorsEnabled)
-                return;
-
-            ToggleLaunchpad();
         }
 
         #endregion WindowsKeyActivation

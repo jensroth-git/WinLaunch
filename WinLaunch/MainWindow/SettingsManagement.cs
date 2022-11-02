@@ -172,7 +172,7 @@ namespace WinLaunch
 
         private void UpdateWindowsKeyActivation()
         {
-            if (Settings.CurrentSettings.WindowsKeyActivationEnabled)
+            if (Settings.CurrentSettings.WindowsKeyActivationEnabled && !Settings.CurrentSettings.DeskMode)
             {
                 wka.StartListening();
             }

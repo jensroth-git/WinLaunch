@@ -20,6 +20,7 @@ namespace WinLaunch
             "- added double tap Alt activation",
             "- fixed pages not updating sometimes",
             "- fixed sort checkbox being checked when not activated",
+            "- updated the german translation by a lovely discord user",
             "",
             "#Changelog 0.6.8.5",
             "---",

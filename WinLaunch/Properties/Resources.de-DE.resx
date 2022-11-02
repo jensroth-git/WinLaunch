@@ -139,10 +139,10 @@
     <value>Um Aero zu aktivieren muss WinLaunch neu gestartet werden, dies kann einige Sekunden dauern.</value>
   </data>
   <data name="AllowFreePlacement" xml:space="preserve">
-    <value>Freie Item positionierung</value>
+    <value>Freie Elemente positionierung</value>
   </data>
   <data name="AllowFreePlacementInfo" xml:space="preserve">
-    <value>Wenn aktiviert erlaubt das positionieren von Items auf dem Raster</value>
+    <value>Wenn aktiviert erlaubt es das freie positionieren von Items auf dem Raster</value>
   </data>
   <data name="Arguments" xml:space="preserve">
     <value>Argumente:</value>
@@ -157,13 +157,13 @@
     <value>Hintergrund Farbe</value>
   </data>
   <data name="BackupAndRestore" xml:space="preserve">
-    <value>Sichern und Zurücksetzen</value>
+    <value>Sichern und Wiederherstellen</value>
   </data>
   <data name="BlockFullscreen" xml:space="preserve">
-    <value>Blockiere WinLaunch wenn Vollbild Anwendungen aktiv sind</value>
+    <value>Blockiere WinLaunch bei Vollbild Anwendungen</value>
   </data>
   <data name="BlockFullscreenInfo" xml:space="preserve">
-    <value>Wenn aktiviert blockiert WinLaunch während Spielen, Videos, etc.</value>
+    <value>Wenn aktiviert wird WinLaunch während Spielen, Videos, etc. Stummgeschalten</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
@@ -178,22 +178,22 @@
     <value>Suche regelmäßig nach Updates</value>
   </data>
   <data name="ChooseMonitor" xml:space="preserve">
-    <value>Wähle Monitor</value>
+    <value>Auswahl Bildschirm</value>
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>Wähle Pfad</value>
   </data>
   <data name="ClearItems" xml:space="preserve">
-    <value>Artikel löschen</value>
+    <value>Elemente löschen</value>
   </data>
   <data name="CloseWarning" xml:space="preserve">
-    <value>Wirklich schliessen?</value>
+    <value>Winlaunch wirklich beenden?</value>
   </data>
   <data name="Columns" xml:space="preserve">
     <value>Spalten</value>
   </data>
   <data name="ColumnsAndRows" xml:space="preserve">
-    <value>Spalten &amp; Reihen</value>
+    <value>Spalten &amp; Zeilen</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Bestätige</value>
@@ -217,19 +217,19 @@
     <value>Benutze Acrylic</value>
   </data>
   <data name="EnableAcrylicInfo" xml:space="preserve">
-    <value>Wenn aktiviert verwendet Windows 10 Acrylic</value>
+    <value>Wenn aktiviert wird Acrylic (Windows 10) verwendet</value>
   </data>
   <data name="EnableAero" xml:space="preserve">
     <value>Benutze Aero</value>
   </data>
   <data name="EnableAeroInfo" xml:space="preserve">
-    <value>Wenn aktiviert verwendet Aero anstelle eines Hintergrundbildes</value>
+    <value>Wenn aktiviert wird Aero anstelle eines Hintergrundbildes verwendet</value>
   </data>
   <data name="EnableAltDoubleTap" xml:space="preserve">
-    <value>Aktiviere Alt doppeltipp Aktivierung</value>
+    <value>Aktivierung mit Alt-Doppelklick</value>
   </data>
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
-    <value>Aktiviere Strg doppeltipp Aktivierung</value>
+    <value>Aktivierung mit Strg-Doppelklick</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Aktiviere HotCorners</value>
@@ -241,25 +241,25 @@
     <value>Aktiviere Touchscreen Modus</value>
   </data>
   <data name="EnableTouchscreenInfo" xml:space="preserve">
-    <value>Im Touchscreen Modus können Items erst nach 3 Sekunden verschoben werden  </value>
+    <value>Im Touchscreen Modus können Elemente erst nach 3 Sekunden verschoben werden</value>
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
-    <value>Aktiviere Windows Taste aktivierung</value>
+    <value>Aktivierung mit Windows Taste</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
-    <value>Fülle den gesamten Bildschirm</value>
+    <value>Fülle den gesamten Bildschirm aus</value>
   </data>
   <data name="FillScreenInfo" xml:space="preserve">
-    <value>Wenn aktiviert füllt den gesamten Bildschirm inklusive der Taskleiste</value>
+    <value>Wenn aktiviert füllt den Winlaunch den gesamten Bildschirm inklusive der Taskleiste aus</value>
   </data>
   <data name="FolderColumns" xml:space="preserve">
-    <value>Ordner Spalten</value>
+    <value>Spalten für Ordner</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Allgemein</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
-    <value>Verzögerung: </value>
+    <value>Verzögerungszeit für Hotcorner Aktivierung:</value>
   </data>
   <data name="HotCornersActivation" xml:space="preserve">
     <value>HotCorner Aktivierung</value>
@@ -271,7 +271,7 @@
     <value>Icons</value>
   </data>
   <data name="IconShadowOpacity" xml:space="preserve">
-    <value>Icon Schatten Transparenz</value>
+    <value>Icon Schatten-Deckkraft</value>
   </data>
   <data name="IconSize" xml:space="preserve">
     <value>Icon Größe</value>
@@ -280,19 +280,19 @@
     <value>Icon Text</value>
   </data>
   <data name="IconTextShadow" xml:space="preserve">
-    <value>Icon Text Schatten</value>
+    <value>Icon Schatten-Text</value>
   </data>
   <data name="Interface" xml:space="preserve">
-    <value>Interface</value>
+    <value>Benutzeroberfläche</value>
   </data>
   <data name="ItemOptions" xml:space="preserve">
-    <value>Artikeloptionen</value>
+    <value>Element Einstellungen</value>
   </data>
   <data name="Items" xml:space="preserve">
-    <value>Artikel</value>
+    <value>Elemente</value>
   </data>
   <data name="KeyActivation" xml:space="preserve">
-    <value>Tasten Aktivierung</value>
+    <value>Tastatur Aktivierung</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Sprache</value>
@@ -313,7 +313,7 @@
     <value>Erscheinungsbild</value>
   </data>
   <data name="MiddleMouseActivation" xml:space="preserve">
-    <value>Mittlere Maus Taste Aktivierung</value>
+    <value>Aktivierung über Mittlere-Maus Taste</value>
   </data>
   <data name="MultiMonitors" xml:space="preserve">
     <value>Mehrere Bildschirme</value>
@@ -328,16 +328,16 @@
     <value>Öffne als Administrator</value>
   </data>
   <data name="OpenFolders" xml:space="preserve">
-    <value>Öffne Ordner wenn sie erstellt werden</value>
+    <value>Ordner öffnen wenn sie erstellt wurden</value>
   </data>
   <data name="OpenLocation" xml:space="preserve">
-    <value>Öffne im explorer</value>
+    <value>Dateipfad öffnen</value>
   </data>
   <data name="OpenOnActiveMonitor" xml:space="preserve">
-    <value>Öffne Winlaunch auf dem aktiven Monitor</value>
+    <value>Winlaunch auf dem aktiven Monitor anzeigen lassen</value>
   </data>
   <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
-    <value>Wenn aktiviert öffnet WinLaunch auf dem selben Monitor wie der Maus Cursor</value>
+    <value>Wenn aktiviert öffnet sich WinLaunch auf dem selben Monitor wie der Maus Cursor</value>
   </data>
   <data name="Options" xml:space="preserve">
     <value>Optionen</value>
@@ -352,7 +352,7 @@
     <value>Wenn aktiviert ersetzt WinLaunch den Desktop Hintergrund</value>
   </data>
   <data name="PressAKey" xml:space="preserve">
-    <value>Drücke eine Taste</value>
+    <value>Drücken sie eine Taste</value>
   </data>
   <data name="Quit" xml:space="preserve">
     <value>Beenden</value>
@@ -364,7 +364,7 @@
     <value>Durch das Entfernen dieses Orders werden alle Inhalte gelöscht</value>
   </data>
   <data name="RemoveItem" xml:space="preserve">
-    <value>Willst du dieses Item wirklich löschen</value>
+    <value>Willst du dieses Element wirklich löschen</value>
   </data>
   <data name="RestoreBackup" xml:space="preserve">
     <value>Backup wiederherstellen</value>
@@ -373,22 +373,22 @@
     <value>Icon Wiederherstellen</value>
   </data>
   <data name="Rows" xml:space="preserve">
-    <value>Reihe</value>
+    <value>Zeilen</value>
   </data>
   <data name="Screen" xml:space="preserve">
     <value>Bildschirm</value>
   </data>
   <data name="SelectBackground" xml:space="preserve">
-    <value>Wähle Hintergrundbild</value>
+    <value>Wähle ein Hintergrundbild</value>
   </data>
   <data name="SelectIcon" xml:space="preserve">
-    <value>Wähle Icon</value>
+    <value>Wähle ein Icon</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>Zeige das extension icon</value>
+    <value>Zeige das Icon für die Toolbar</value>
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Zeige die Suchleiste</value>
@@ -400,10 +400,10 @@
     <value>Elemente alphabetisch sortieren</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
-    <value>Starte mit Windows</value>
+    <value>Mit Windows starten</value>
   </data>
   <data name="StartWithWindowsInfo" xml:space="preserve">
-    <value>Wenn aktiviert wird WinLaunch mit Windows Autogestartet</value>
+    <value>Wenn aktiviert wird WinLaunch automatisch mit Windows gestartet</value>
   </data>
   <data name="SyncWallpaper" xml:space="preserve">
     <value>Synchronisiere das Hintergrundbild</value>

@@ -51,7 +51,8 @@ namespace WinLaunch
             if (progmanHook != IntPtr.Zero)
                 return;
 
-            if(module == IntPtr.Zero)
+            //load our hook library (https://github.com/MrC0rrupted/HookWindowsKey)
+            if (module == IntPtr.Zero)
                 module = LoadLibrary("HookWindowsKey.dll");
     
             if(hHookModule == IntPtr.Zero)
@@ -63,6 +64,7 @@ namespace WinLaunch
             uint progmanThread = GetWindowThreadProcessId(progmanWindow, IntPtr.Zero);
 
             //inject dll into progman
+            //our dll will send a window message back to us once it detects the windows key being pressed
             progmanHook = SetWindowsHookEx(WH_GETMESSAGE, fn, hHookModule, progmanThread);
         }
 

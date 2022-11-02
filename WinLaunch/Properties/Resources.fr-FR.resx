@@ -226,10 +226,10 @@
     <value>Quand cette option est active, Aero est utilisé à la place du papier peint</value>
   </data>
   <data name="EnableAltDoubleTap" xml:space="preserve">
-    <value>Activer l'activation du double appui Alt</value>
+    <value>Activer l'affichage en appuyant deux fois sur ALT</value>
   </data>
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
-    <value>Activer l'activation du double appui Ctrl</value>
+    <value>Activer l'affichage en appuyant deux fois sur CTRL</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Activer les coins intelligents</value>

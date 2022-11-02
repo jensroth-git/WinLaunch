@@ -139,7 +139,17 @@ namespace WinLaunch
         private void UpdateHotKeySettings()
         {
             if (!Settings.CurrentSettings.HotKeyEnabled)
+            {
+                if (hotkey != null)
+                {
+                    hotkey.UpdateHwndSource((HwndSource)HwndSource.FromVisual(this));
+                    hotkey.Dispose();
+                    hotkey = null;
+                }
+
                 return;
+            }
+                
 
             try
             {

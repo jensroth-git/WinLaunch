@@ -564,8 +564,8 @@ namespace WinLaunch
                         }
                         catch
                         {
-                            //Process.Start(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/"));
-                            //throw new Exception("unable to delete some files, please do it manually (%appdata%/Roaming/WinLaunch/)");
+                            Process.Start(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/"));
+                            throw new Exception("unable to delete some files, please do it manually (%appdata%/Roaming/WinLaunch/)");
                         }
 
                         //unzip into it

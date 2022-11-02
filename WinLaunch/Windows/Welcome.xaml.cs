@@ -17,6 +17,7 @@ namespace WinLaunch
             "#Changelog 0.7.0.0",
             "---",
             "- fixed windows key activation blocking shortcuts",
+            "- updated the Indonesian translation by jovanzers",
             "",
             "#Changelog 0.6.9.0",
             "---",

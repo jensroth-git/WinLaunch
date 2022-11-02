@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -226,10 +226,10 @@
     <value>Saat diaktifkan akan menggunakan Windows Aero sebagai pengganti wallpaper</value>
   </data>
   <data name="EnableAltDoubleTap" xml:space="preserve">
-    <value>Aktifkan aktivasi ketuk dua kali Alt</value>
+    <value>Aktivasi dengan menekan tombol Alt dua kali</value>
   </data>
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
-    <value>Aktifkan aktivasi ketuk dua kali Ctrl</value>
+    <value>Aktivasi dengan menekan tombol Ctrl dua kali</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Aktifkan HotCorner</value>
@@ -292,7 +292,7 @@
     <value>Item</value>
   </data>
   <data name="KeyActivation" xml:space="preserve">
-    <value>Aktivasi kunci</value>
+    <value>Aktivasi via tombol</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Bahasa</value>

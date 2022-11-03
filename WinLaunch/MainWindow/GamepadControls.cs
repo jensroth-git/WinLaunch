@@ -31,6 +31,8 @@ namespace WinLaunch
             public DispatcherTimer delayTimer = new DispatcherTimer();
             public DispatcherTimer repeatTimer = new DispatcherTimer();
 
+            public DispatcherTimer aPressTimer = new DispatcherTimer();
+
             public GamePadInputState()
             {
                 delayTimer.Interval = TimeSpan.FromMilliseconds(800);
@@ -38,6 +40,14 @@ namespace WinLaunch
 
                 repeatTimer.Interval = TimeSpan.FromMilliseconds(100);
                 repeatTimer.Tick += ResetTimer_Tick;
+
+                aPressTimer.Interval = TimeSpan.FromMilliseconds(300);
+                aPressTimer.Tick += APressTimer_Tick;
+            }
+
+            private void APressTimer_Tick(object sender, EventArgs e)
+            {
+                aPressTimer.Stop();
             }
 
             private void RepeatTimer_Tick(object sender, EventArgs e)
@@ -91,8 +101,9 @@ namespace WinLaunch
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
                             ToggleLaunchpad();
-                            inputStates[index].gamepadToggleLaunchpadSent = true;
                         }));
+
+                        inputStates[index].gamepadToggleLaunchpadSent = true;
                     }
                 }
                 else
@@ -133,7 +144,10 @@ namespace WinLaunch
 
                 if (state.Buttons.A == ButtonState.Pressed)
                 {
-                    SendGamepadInput(Key.Enter, index);
+                    if(!inputStates[index].aPressTimer.IsEnabled)
+                    {
+                        SendGamepadInput(Key.Enter, index);
+                    }
                 }
                 else if (state.Buttons.A == ButtonState.Released)
                 {
@@ -174,6 +188,7 @@ namespace WinLaunch
                         if (key == Key.Enter)
                         {
                             inputStates[index].gamepadEnterInputSent = true;
+                            inputStates[index].aPressTimer.Start();
                         }
                         else
                         {

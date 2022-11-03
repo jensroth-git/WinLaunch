@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Ctrl çift dokunma aktivasyonunu etkinleştir</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Gamepad üzerindeki başlat düğmesini kullanarak WinLaunch'ı etkinleştirmeyi etkinleştirin</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Sıcak Köşeleri Etkinleştir</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Klasör sütunları</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Oyun kumandası aktivasyonu</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Genel</value>

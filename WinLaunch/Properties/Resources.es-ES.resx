@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Habilitar la activación de doble toque de Ctrl</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Habilite la activación de WinLaunch usando el botón de inicio en un gamepad</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Activar HotCorners</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Columnas de carpetas</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Activación del mando</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>General</value>

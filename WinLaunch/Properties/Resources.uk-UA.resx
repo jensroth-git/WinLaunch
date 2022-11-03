@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Увімкніть активацію подвійним дотиком Ctrl</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Увімкніть активацію WinLaunch за допомогою кнопки запуску на геймпаді</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Увімкнути функцію "Гарячі кути"</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Стовпці папок</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Активація геймпада</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Загальні</value>

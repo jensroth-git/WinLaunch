@@ -128,6 +128,8 @@ namespace WinLaunch
         /// </summary>
         public MiddleMouseButtonAction MiddleMouseActivation { get; set; }
 
+        public bool GamepadActivation { get; set; }
+
         /// <summary>
         /// Construct a new Settings object
         /// </summary>
@@ -164,7 +166,6 @@ namespace WinLaunch
             FillScreen = false;
             FreeItemPlacement = false;
             DeskMode = false;
-
             ScreenIndex = 0;
             
             SelectedLanguage = "en-US";
@@ -184,6 +185,8 @@ namespace WinLaunch
             DoubleTapAltActivationEnabled = false;
 
             MiddleMouseActivation = MiddleMouseButtonAction.DoubleClicked;
+
+            GamepadActivation = false;
         }
 
         /// <summary>

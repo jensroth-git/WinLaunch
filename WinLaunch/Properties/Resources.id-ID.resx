@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Aktivasi dengan menekan tombol Ctrl dua kali</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Aktifkan aktivasi WinLaunch menggunakan tombol mulai pada gamepad</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Aktifkan HotCorner</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Kolom folder</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Aktivasi gamepad</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Umum</value>

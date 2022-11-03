@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Aktivierung mit Strg-Doppelklick</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Aktivierung mit Start Button auf Controller</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Aktiviere HotCorners</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Spalten für Ordner</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Controller Aktivierung</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Allgemein</value>

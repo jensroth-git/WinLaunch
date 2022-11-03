@@ -403,6 +403,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable activating WinLaunch using the start button on a gamepad.
+        /// </summary>
+        internal static string EnableGamepadActivation {
+            get {
+                return ResourceManager.GetString("EnableGamepadActivation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable HotCorners.
         /// </summary>
         internal static string EnableHotCorner {
@@ -471,6 +480,15 @@ namespace WinLaunch.Properties {
         internal static string FolderColumns {
             get {
                 return ResourceManager.GetString("FolderColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gamepad activation.
+        /// </summary>
+        internal static string GamepadActivation {
+            get {
+                return ResourceManager.GetString("GamepadActivation", resourceCulture);
             }
         }
         

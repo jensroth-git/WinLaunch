@@ -364,6 +364,10 @@ namespace WinLaunch
                 Autostart.SetAutoStart("WinLaunch", Assembly.GetExecutingAssembly().Location, " -hide");
             }
 
+            //init gamepad
+            InitGamepadInput();
+            StartGamepadInput();
+
             //Load files
             LoadSettings();
 

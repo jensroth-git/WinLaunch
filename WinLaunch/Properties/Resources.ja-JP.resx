@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Ctrl ダブルタップ アクティベーションを有効にする</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>ゲームパッドのスタート ボタンを使用して WinLaunch をアクティブ化できるようにする</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>ホットコーナーの有効化</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>フォルダの列</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>ゲームパッドのアクティベーション</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>全般</value>

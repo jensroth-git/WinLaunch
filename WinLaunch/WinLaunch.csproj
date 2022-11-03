@@ -160,6 +160,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>.\XInputDotNetPure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -180,6 +183,7 @@
     <Compile Include="Language\nsLoc.cs" />
     <Compile Include="MainWindow\Events.cs" />
     <Compile Include="MainWindow\Extensions.cs" />
+    <Compile Include="MainWindow\GamepadControls.cs" />
     <Compile Include="MainWindow\ItemManagement.cs" />
     <Compile Include="MainWindow\Rendering.cs" />
     <Compile Include="MainWindow\SettingsManagement.cs" />

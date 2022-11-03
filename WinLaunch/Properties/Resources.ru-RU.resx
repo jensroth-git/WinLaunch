@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Включить активацию двойного нажатия Ctrl</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Включить активацию WinLaunch с помощью кнопки запуска на геймпаде</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Включить горячие углы</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Колонки папок</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Активация геймпада</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Основные</value>

@@ -337,6 +337,17 @@
                                 </StackPanel>
                             </Grid>
                         </GroupBox>
+
+                        <GroupBox Header="{my:Loc GamepadActivation}">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <CheckBox Margin="8" IsChecked="{Binding settings.GamepadActivation}" >
+                                    <TextBlock>
+                                        <AccessText TextWrapping="Wrap"  
+                                                    Text="{my:Loc EnableGamepadActivation}"/>
+                                    </TextBlock>
+                                </CheckBox>
+                            </Grid>
+                        </GroupBox>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

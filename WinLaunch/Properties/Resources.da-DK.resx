@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Aktiver Ctrl-dobbelttryk-aktivering</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Aktiver aktivering af WinLaunch ved hjælp af startknappen på en gamepad</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Slå Genvejs hjørner til</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Mappe kolonner</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Aktivering af gamepad</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Generelt</value>

@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>Engedélyezze a Ctrl dupla koppintással történő aktiválást</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>Engedélyezze a WinLaunch aktiválását a játékvezérlő Start gombjával</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Gyors Sarkok bekapcsolása</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>Mappa oszlopai</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>Gamepad aktiválása</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>Általános</value>

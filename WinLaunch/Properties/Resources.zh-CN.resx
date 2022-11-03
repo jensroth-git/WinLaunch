@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>启用 Ctrl 双击激活</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>使用游戏手柄上的开始按钮启用激活 WinLaunch</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>启用触发角</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>文件夹列数</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>游戏手柄激活</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>通用</value>

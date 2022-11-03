@@ -231,6 +231,9 @@
   <data name="EnableCtrlDoubleTap" xml:space="preserve">
     <value>אפשר הפעלה של Ctrl עם הקשה כפולה</value>
   </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>אפשר הפעלת WinLaunch באמצעות כפתור ההתחלה ב-gamepad</value>
+  </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>אפשר פינות חמות</value>
   </data>
@@ -254,6 +257,9 @@
   </data>
   <data name="FolderColumns" xml:space="preserve">
     <value>עמודות תיקיה</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>הפעלת גיימפד</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>כללי</value>

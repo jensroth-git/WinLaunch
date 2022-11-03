@@ -146,6 +146,7 @@ namespace WinLaunch
             SortFoldersFirst = false;
 
             CheckForUpdatesFrequently = true;
+            CheckForUpdates = true;
 
             IconSize = 1.4;
             ExtensionIconVisible = true;
@@ -165,7 +166,7 @@ namespace WinLaunch
             DeskMode = false;
 
             ScreenIndex = 0;
-            CheckForUpdates = true;
+            
             SelectedLanguage = "en-US";
             BlockOnFullscreen = true;
             OpenOnActiveDesktop = true;

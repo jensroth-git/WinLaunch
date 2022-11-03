@@ -24,6 +24,11 @@ namespace WinLaunch
 
         public static void RunThreaded()
         {
+            if(!Settings.CurrentSettings.CheckForUpdates)
+            {
+                return;
+            }
+
             CheckThread = new Thread(new ThreadStart(() =>
             {
                 while (true)

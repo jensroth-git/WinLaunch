@@ -343,7 +343,7 @@ namespace WinLaunch
 
                 //remove the item
                 IC.Items.Remove(Item);
-                GM.RemoveGridCell(GridIndex, Page);
+                GM.RemoveGridCell(GridIndex, Page, Settings.CurrentSettings.FreeItemPlacement);
 
                 //remove reference from Host container
                 if (container.Contains(Item.ContentRef))

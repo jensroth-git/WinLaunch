@@ -540,7 +540,7 @@ namespace WinLaunch
         {
             //avoid alt + f4
             e.Cancel = true;
-            ToggleLaunchpad();
+            //ToggleLaunchpad();
         }
 
         #endregion WindowEvents

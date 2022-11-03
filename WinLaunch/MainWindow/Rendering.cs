@@ -411,6 +411,7 @@ namespace WinLaunch
             if (!CanvasOpacityAnim.Step())
             {
                 //animation not done or just finished
+                this.bdSearch.Opacity = CanvasOpacityAnim.Value;
                 this.Wallpaperbottom.Opacity = CanvasOpacityAnim.Value;
                 this.PageCounter.Opacity = CanvasOpacityAnim.Value;
                 this.MainCanvas.Opacity = CanvasOpacityAnim.Value;

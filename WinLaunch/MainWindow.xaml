@@ -797,8 +797,8 @@
             </StackPanel>
         </Border>
 
-        <Border Width="300" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" CornerRadius="20" Background="#33000000"
-                Visibility="{Binding Path=settings.SearchBarVisible, Converter={StaticResource BoolToVis}}">
+        <Border x:Name="bdSearch" Width="300" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" CornerRadius="20" Background="#33000000"
+                Visibility="{Binding Path=settings.SearchBarVisible, Converter={StaticResource BoolToVis}}" Opacity="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40"/>

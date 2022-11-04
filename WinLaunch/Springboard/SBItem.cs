@@ -418,7 +418,15 @@ namespace WinLaunch
                 if (this.IconPath == null && this.Icon != SBItem.FolderIcon)
                     this.Icon = SBItem.FolderIcon;
 
-                this.FolderMiniatures = SBItem.RenderFolderMiniatureIcons(this);
+                //only render the miniatures if we dont use a custom icon
+                if(this.IconPath != null)
+                {
+                    this.FolderMiniatures = null;
+                }
+                else
+                {
+                    this.FolderMiniatures = SBItem.RenderFolderMiniatureIcons(this);
+                }
 
                 //Animate text opacity
                 double SetTextOpacity = (double)(TextVisible ? 1.0 : 0.0);

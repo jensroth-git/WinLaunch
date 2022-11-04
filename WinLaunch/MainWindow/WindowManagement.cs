@@ -107,6 +107,18 @@ namespace WinLaunch
 
         private const int WM_SHOWWINDOW = 0x00000018;
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct WINDOWPOS
+        {
+            public IntPtr hwnd;
+            public IntPtr hwndInsertAfter;
+            public int x;
+            public int y;
+            public int cx;
+            public int cy;
+            public uint flags;
+        }
+
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);
@@ -139,11 +151,15 @@ namespace WinLaunch
 
             if(Settings.CurrentSettings.DeskMode)
             {
-                if (msg == WM_SETFOCUS)
+                if (msg == WM_WINDOWPOSCHANGING)
                 {
-                    IntPtr hWnd = new WindowInteropHelper(this).Handle;
-                    SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE);
+                    var ver = (WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(WINDOWPOS));
+
+                    ver.hwndInsertAfter = DesktopWindow;
+                    ver.flags &= ~SWP_NOZORDER;
                     handled = true;
+
+                    Marshal.StructureToPtr(ver, lParam, false);
                 }
             }
 
@@ -271,8 +287,21 @@ namespace WinLaunch
         #region DeskMode
         const UInt32 SWP_NOSIZE = 0x0001;
         const UInt32 SWP_NOMOVE = 0x0002;
-        const UInt32 SWP_NOACTIVATE = 0x0010;
         const UInt32 SWP_NOZORDER = 0x0004;
+        const UInt32 SWP_NOREDRAW = 0x0008;
+        const UInt32 SWP_NOACTIVATE = 0x0010;
+        const UInt32 SWP_FRAMECHANGED = 0x0020;
+        const UInt32 SWP_SHOWWINDOW = 0x0040;
+        const UInt32 SWP_HIDEWINDOW = 0x0080;
+        const UInt32 SWP_NOCOPYBITS = 0x0100;
+        const UInt32 SWP_NOOWNERZORDER = 0x0200;
+        const UInt32 SWP_NOSENDCHANGING = 0x0400;
+        const UInt32 SWP_DRAWFRAME = SWP_FRAMECHANGED;
+        const UInt32 SWP_NOREPOSITION = SWP_NOOWNERZORDER;
+
+        const UInt32 SWP_DEFERERASE = 0x2000;
+        const UInt32 SWP_ASYNCWINDOWPOS = 0x4000;
+
         const int WM_ACTIVATEAPP = 0x001C;
         const int WM_ACTIVATE = 0x0006;
         const int WM_SETFOCUS = 0x0007;
@@ -324,9 +353,8 @@ namespace WinLaunch
                             //show desktop activated
                             if (IsDesktopChild)
                             {
-                                this.Topmost = true;
-
-                                this.Topmost = false;
+                                IntPtr hWnd = new WindowInteropHelper(this).Handle;
+                                SetWindowPos(hWnd, IntPtr.Zero, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOSENDCHANGING);
 
                                 this.Activate();
                                 this.Focus();

@@ -247,9 +247,17 @@ namespace WinLaunch
 
         private void ResetIconButton_Click(object sender, RoutedEventArgs e)
         {
+            //restore item path
+            this.ActiveItem.IconPath = null;
+
             if (this.ActiveItem.IsFolder)
             {
                 this.ActiveItem.Icon = SBItem.FolderIcon;
+
+                if (this.ActiveItem.IsFolder)
+                {
+                    this.ActiveItem.UpdateFolderIcon();
+                }
             }
             else
             {
@@ -263,9 +271,6 @@ namespace WinLaunch
             }
 
             IconFrame.Source = this.ActiveItem.Icon;
-
-            //restore item path
-            this.ActiveItem.IconPath = null;
         }
 
         private void IconFrame_MouseDown(object sender, MouseButtonEventArgs e)
@@ -291,6 +296,11 @@ namespace WinLaunch
 
                 //Set as IconPath
                 this.ActiveItem.IconPath = op.FileName;
+
+                if(this.ActiveItem.IsFolder)
+                {
+                    this.ActiveItem.UpdateFolderIcon();
+                }
             }
             }
             catch(Exception ex)

@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
 using XInputDotNetPure;
-using static System.Windows.Forms.AxHost;
 using ButtonState = XInputDotNetPure.ButtonState;
-using Timer = System.Threading.Timer;
 
 namespace WinLaunch
 {
-
     partial class MainWindow : Window
     {
         Thread gamepadInputThread;

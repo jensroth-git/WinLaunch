@@ -1764,16 +1764,19 @@ namespace WinLaunch
                     {
                         var selectItem = GM.GetItemFromIndex(SelItemInd, SP.CurrentPage);
 
-                        if (selectItem.IsFolder)
+                        if(selectItem != null)
                         {
-                            //select the first item in the folder by setting this to something other than -1
-                            SelItemIndFolder = 0;
+                            if (selectItem.IsFolder)
+                            {
+                                //select the first item in the folder by setting this to something other than -1
+                                SelItemIndFolder = 0;
 
-                            OpenFolder(selectItem);
-                        }
-                        else
-                        {
-                            ParentWindow.ItemActivated(selectItem, EventArgs.Empty);
+                                OpenFolder(selectItem);
+                            }
+                            else
+                            {
+                                ParentWindow.ItemActivated(selectItem, EventArgs.Empty);
+                            }
                         }
                     }
 

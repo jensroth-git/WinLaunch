@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using MessageBox = System.Windows.MessageBox;
 
 namespace WinLaunch
 {
@@ -854,7 +855,7 @@ namespace WinLaunch
                     "\nVersion: " + Environment.Version.ToString() +
                     "\nWorkingSet: " + Environment.WorkingSet;
 
-                string url = "http://WinLaunch.org/reports/crashreport.php";
+                string url = "https://WinLaunch.org/reports/crashreport.php";
                 string version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
                 string info = "environment:\n" + environment + "\n\nsource:\n" + sourceFilePath + " (" + sourceLineNo + ") " + sourceMemberName + "\n\nexception:\n" + ex.ToString() + "\n\ninnerexception:\n" + ((object)innerException ?? "null").ToString();
 

@@ -666,6 +666,14 @@ namespace WinLaunch
 
         public void GetClosestItemOnNextPage(int Page, int currentIndex, out int page, out int index)
         {
+            if(IC.Items.Count == 0)
+            {
+                page = 0;
+                index = -1;
+
+                return;
+            }
+
             int row = currentIndex / XItems;
             int column = 0;
 

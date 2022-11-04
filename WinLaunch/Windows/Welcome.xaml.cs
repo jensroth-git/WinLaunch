@@ -17,7 +17,7 @@ namespace WinLaunch
             "#Changelog 0.7.1.1",
             "---",
             "- removed miniature icons from folders with custom icons",
-            "- fix desk mode",
+            "- fixed desk mode",
             "",
             "#Changelog 0.7.1.0",
             "---",

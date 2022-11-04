@@ -786,6 +786,9 @@ namespace WinLaunch
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (FolderRenamingActive)
+                return;
+
             if (tbSearch.Text == "")
             {
                 SBM.EndSearch();

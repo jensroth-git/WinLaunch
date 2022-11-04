@@ -98,35 +98,35 @@ namespace WinLaunch
 
     public static class CompositionTargetEx
     {
-        private static TimeSpan _last = TimeSpan.Zero; 
-        private static event EventHandler<RenderingEventArgs> _FrameUpdating; 
-        public static event EventHandler<RenderingEventArgs> FrameUpdating 
-        { 
-            add 
-            { 
-                if (_FrameUpdating == null)                 
-                    CompositionTarget.Rendering += CompositionTarget_Rendering; 
-                
-                _FrameUpdating += value; 
-            } 
-            
-            remove 
-            { 
-                _FrameUpdating -= value; 
-                if (_FrameUpdating == null)                
-                    CompositionTarget.Rendering -= CompositionTarget_Rendering; 
-            } 
+        private static TimeSpan _last = TimeSpan.Zero;
+        private static event EventHandler<RenderingEventArgs> _FrameUpdating;
+        public static event EventHandler<RenderingEventArgs> FrameUpdating
+        {
+            add
+            {
+                if (_FrameUpdating == null)
+                    CompositionTarget.Rendering += CompositionTarget_Rendering;
+
+                _FrameUpdating += value;
+            }
+
+            remove
+            {
+                _FrameUpdating -= value;
+                if (_FrameUpdating == null)
+                    CompositionTarget.Rendering -= CompositionTarget_Rendering;
+            }
         }
 
         private static void CompositionTarget_Rendering(object sender, EventArgs e)
         {
-            RenderingEventArgs args = (RenderingEventArgs)e; 
-            
-            if (args.RenderingTime == _last) 
-                return; 
-            
-            _last = args.RenderingTime; 
-            
+            RenderingEventArgs args = (RenderingEventArgs)e;
+
+            if (args.RenderingTime == _last)
+                return;
+
+            _last = args.RenderingTime;
+
             _FrameUpdating(sender, args);
         }
     }
@@ -179,19 +179,23 @@ namespace WinLaunch
 
         public static string GetShortcutTargetFile(string shortcutFilename)
         {
-            string pathOnly = System.IO.Path.GetDirectoryName(shortcutFilename);
-            string filenameOnly = System.IO.Path.GetFileName(shortcutFilename);
-
-            Shell shell = new Shell();
-            Shell32.Folder folder = shell.NameSpace(pathOnly);
-            FolderItem folderItem = folder.ParseName(filenameOnly);
-            if (folderItem != null)
+            try
             {
-                Shell32.ShellLinkObject link = (Shell32.ShellLinkObject)folderItem.GetLink;
-                return link.Path;
-            }
+                string pathOnly = System.IO.Path.GetDirectoryName(shortcutFilename);
+                string filenameOnly = System.IO.Path.GetFileName(shortcutFilename);
 
-            return string.Empty;
+                Shell shell = new Shell();
+                Shell32.Folder folder = shell.NameSpace(pathOnly);
+                FolderItem folderItem = folder.ParseName(filenameOnly);
+                if (folderItem != null)
+                {
+                    Shell32.ShellLinkObject link = (Shell32.ShellLinkObject)folderItem.GetLink;
+                    return link.Path;
+                }
+            }
+            catch { }
+
+            return null;
         }
 
         public static void RestartApplication()
@@ -308,9 +312,9 @@ namespace WinLaunch
         {
             //check for url
             //TODO: load favicon?
-            if(Uri.IsWellFormedUriString(file, UriKind.Absolute))
+            if (Uri.IsWellFormedUriString(file, UriKind.Absolute))
             {
-                return new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/web.png")); 
+                return new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/web.png"));
             }
 
             string Extension = System.IO.Path.GetExtension(file).ToLower();
@@ -824,9 +828,9 @@ namespace WinLaunch
         public static bool Enabled = true;
 
         public static void Report(object ex,
-                    [CallerMemberName]string sourceMemberName = "",
-                    [CallerFilePath]string sourceFilePath = "",
-                    [CallerLineNumber]int sourceLineNo = 0)
+                    [CallerMemberName] string sourceMemberName = "",
+                    [CallerFilePath] string sourceFilePath = "",
+                    [CallerLineNumber] int sourceLineNo = 0)
         {
             if (!Enabled)
                 return;

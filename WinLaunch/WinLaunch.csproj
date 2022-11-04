@@ -297,7 +297,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.bg-BG.resx" />
+    <EmbeddedResource Include="Properties\Resources.bg-BG.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.da-DK.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

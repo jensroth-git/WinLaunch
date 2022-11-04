@@ -27,7 +27,7 @@ namespace WinLaunch
 
             public bool gamepadStickInputSent = false;
             public bool gamepadEnterInputSent = false;
-            
+
             public DispatcherTimer delayTimer = new DispatcherTimer();
             public DispatcherTimer repeatTimer = new DispatcherTimer();
 
@@ -92,11 +92,11 @@ namespace WinLaunch
             if (!state.IsConnected)
                 return;
 
-            if(Settings.CurrentSettings.GamepadActivation)
+            if (Settings.CurrentSettings.GamepadActivation)
             {
                 if (state.Buttons.Start == ButtonState.Pressed && ActivatorsEnabled)
                 {
-                    if(!inputStates[index].gamepadToggleLaunchpadSent)
+                    if (!inputStates[index].gamepadToggleLaunchpadSent)
                     {
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
@@ -144,7 +144,7 @@ namespace WinLaunch
 
                 if (state.Buttons.A == ButtonState.Pressed)
                 {
-                    if(!inputStates[index].aPressTimer.IsEnabled)
+                    if (!inputStates[index].aPressTimer.IsEnabled)
                     {
                         SendGamepadInput(Key.Enter, index);
                     }
@@ -173,34 +173,39 @@ namespace WinLaunch
         {
             Dispatcher.BeginInvoke(new Action(() =>
             {
-                if (key != Key.Enter && inputStates[index].gamepadStickInputSent)
-                    return;
-
-                if (key == Key.Enter && inputStates[index].gamepadEnterInputSent)
-                    return;
-
-                if (Keyboard.PrimaryDevice != null)
+                try
                 {
-                    if (Keyboard.PrimaryDevice.ActiveSource != null)
+                    if (key != Key.Enter && inputStates[index].gamepadStickInputSent)
+                        return;
+
+                    if (key == Key.Enter && inputStates[index].gamepadEnterInputSent)
+                        return;
+
+                    if (Keyboard.PrimaryDevice != null)
                     {
-                        SBM.KeyDown(this, new System.Windows.Input.KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, key) { RoutedEvent = Keyboard.KeyDownEvent });
-
-                        if (key == Key.Enter)
+                        if (Keyboard.PrimaryDevice.ActiveSource != null)
                         {
-                            inputStates[index].gamepadEnterInputSent = true;
-                            inputStates[index].aPressTimer.Start();
-                        }
-                        else
-                        {
-                            inputStates[index].gamepadStickInputSent = true;
+                            if(SBM != null)
+                                SBM.KeyDown(this, new System.Windows.Input.KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, key) { RoutedEvent = Keyboard.KeyDownEvent });
 
-                            if(!inputStates[index].repeatTimer.IsEnabled)
+                            if (key == Key.Enter)
                             {
-                                inputStates[index].delayTimer.Start();
+                                inputStates[index].gamepadEnterInputSent = true;
+                                inputStates[index].aPressTimer.Start();
+                            }
+                            else
+                            {
+                                inputStates[index].gamepadStickInputSent = true;
+
+                                if (!inputStates[index].repeatTimer.IsEnabled)
+                                {
+                                    inputStates[index].delayTimer.Start();
+                                }
                             }
                         }
                     }
                 }
+                catch { }
             }));
         }
     }

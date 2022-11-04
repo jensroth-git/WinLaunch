@@ -139,9 +139,6 @@
                                     <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
                                 </StackPanel>
 
-                                <CheckBox Content="{my:Loc OpenFolders}" IsChecked="{Binding settings.OpenFolderWhenCreated}" />
-                                <Rectangle Height="1" Margin="0,10" HorizontalAlignment="Stretch" Fill="{StaticResource SeperatorBrush}" />
-
                                 <StackPanel>
                                     <CheckBox x:Name="cbFillScreen" Margin="0,0,0,2" Content="{my:Loc FillScreen}" IsChecked="{Binding settings.FillScreen}" />
                                     <TextBlock Foreground="#FF646464" Text="{my:Loc FillScreenInfo}" TextWrapping="WrapWithOverflow" />

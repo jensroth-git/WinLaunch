@@ -45,11 +45,6 @@ namespace WinLaunch
         public bool TabletMode { get; set; }
 
         /// <summary>
-        /// specifies wheter or not folders are opened when they are first created
-        /// </summary>
-        public bool OpenFolderWhenCreated { get; set; }
-
-        /// <summary>
         /// When enabled WinLaunch will fill the entire screen instead of only the WorkArea
         /// </summary>
         public bool FillScreen { get; set; }
@@ -64,6 +59,7 @@ namespace WinLaunch
         /// disabled all activation methods
         /// </summary>
         public bool DeskMode { get; set; }
+        public bool LegacyDeskMode { get; set; }
 
         /// <summary>
         /// specifies the selected screen index
@@ -162,10 +158,10 @@ namespace WinLaunch
             FolderRows = 5;
 
             TabletMode = false;
-            OpenFolderWhenCreated = true;
             FillScreen = false;
             FreeItemPlacement = false;
             DeskMode = false;
+            LegacyDeskMode = false;
             ScreenIndex = 0;
             
             SelectedLanguage = "en-US";

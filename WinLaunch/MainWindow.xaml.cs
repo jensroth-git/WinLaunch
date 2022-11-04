@@ -215,9 +215,14 @@ namespace WinLaunch
                 Theme.SaveTheme(Theme.CurrentTheme);
             }
 
-
             //enable if aero is in use and available
             //if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
+            if(Settings.CurrentSettings.DeskMode && Settings.CurrentSettings.LegacyDeskMode)
+            {
+                //disable on legacy desk mode
+                this.AllowsTransparency = false;
+            }
+            else
             {
                 //with the new desk mode we can enable this all the time
                 this.AllowsTransparency = true;

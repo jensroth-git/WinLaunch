@@ -573,10 +573,7 @@ namespace WinLaunch
             Folder.ScaleAnim.Value = 1.2;
             Folder.ScaleAnim.ValueTo = 1.0;
 
-            if (Settings.CurrentSettings.OpenFolderWhenCreated)
-            {
-                OpenFolder(Folder);
-            }
+            OpenFolder(Folder);
         }
 
         public void UpdateFolderItemClip()

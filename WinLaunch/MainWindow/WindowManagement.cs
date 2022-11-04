@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms.VisualStyles;
 using System.Windows.Input;
 using System.Windows.Interop;
 
@@ -146,10 +148,9 @@ namespace WinLaunch
 
                 exStyle |= (int)ExtendedWindowStyles.WS_EX_TOOLWINDOW;
                 SetWindowLong(hwnd, (int)GetWindowLongFields.GWL_EXSTYLE, (IntPtr)exStyle);
-
             }
 
-            if(Settings.CurrentSettings.DeskMode)
+            if (Settings.CurrentSettings.DeskMode && !Settings.CurrentSettings.LegacyDeskMode)
             {
                 if (msg == WM_WINDOWPOSCHANGING)
                 {
@@ -207,7 +208,53 @@ namespace WinLaunch
             this.CanvasScale.ScaleY = scale;
         }
 
-        //TODO: dpi
+        private Rect GetDeskModeRectLegacy()
+        {
+            double DPIscale = MiscUtils.GetDPIScale();
+
+            //desktop coordinate system always starts at 0, 0
+            //convert the (random) screen coordinates to desktop coordinates
+
+            //normalize desktop bounds
+            List<ScreenRect> Bounds = new List<ScreenRect>();
+
+            System.Windows.Forms.Screen[] screens = System.Windows.Forms.Screen.AllScreens;
+
+            foreach (var screen in screens)
+            {
+                Bounds.Add(new ScreenRect(screen.WorkingArea));
+            }
+
+            //normalize the screen
+            double minX = 0;
+            double minY = 0;
+
+            foreach (var screen in Bounds)
+            {
+                if (screen.X < minX)
+                {
+                    minX = screen.X;
+                }
+
+                if (screen.Y < minY)
+                {
+                    minY = screen.Y;
+                }
+            }
+
+            //transform screens to desktop space
+            for (int i = 0; i < Bounds.Count; i++)
+            {
+                Bounds[i].X -= minX;
+                Bounds[i].Y -= minY;
+            }
+
+            return new Rect(Bounds[Settings.CurrentSettings.ScreenIndex].X,
+                            Bounds[Settings.CurrentSettings.ScreenIndex].Y,
+                            Bounds[Settings.CurrentSettings.ScreenIndex].Width,
+                            Bounds[Settings.CurrentSettings.ScreenIndex].Height);
+        }
+
         private Rect GetDeskModeRect()
         {
             double DPIscale = MiscUtils.GetDPIScale();
@@ -221,15 +268,15 @@ namespace WinLaunch
                 Bounds.Add(new ScreenRect(screen.WorkingArea));
             }
 
-            if(Settings.CurrentSettings.ScreenIndex >= Bounds.Count)
+            if (Settings.CurrentSettings.ScreenIndex >= Bounds.Count)
             {
                 Settings.CurrentSettings.ScreenIndex = 0;
             }
 
             return new Rect(Bounds[Settings.CurrentSettings.ScreenIndex].X / DPIscale,
-                            Bounds[Settings.CurrentSettings.ScreenIndex].Y / DPIscale,
-                            Bounds[Settings.CurrentSettings.ScreenIndex].Width / DPIscale,
-                            Bounds[Settings.CurrentSettings.ScreenIndex].Height / DPIscale);
+                        Bounds[Settings.CurrentSettings.ScreenIndex].Y / DPIscale,
+                        Bounds[Settings.CurrentSettings.ScreenIndex].Width / DPIscale,
+                        Bounds[Settings.CurrentSettings.ScreenIndex].Height / DPIscale);
         }
 
         private Rect GetFullscreenRect()
@@ -318,12 +365,16 @@ namespace WinLaunch
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
 
+        [DllImport("User32", CharSet = CharSet.Auto, ExactSpelling = true)]
+        internal static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndParent);
+
         [DllImport("user32.dll")]
         static extern IntPtr WindowFromPoint(System.Drawing.Point p);
 
         private bool IsDesktopChild = false;
 
         IntPtr DesktopWindow;
+        IntPtr OriginalParentWindow;
 
         Thread KeepWindowVisibleThread;
 
@@ -411,22 +462,43 @@ namespace WinLaunch
                 return;
             }
 
-            if (KeepWindowVisibleThread != null)
-                KeepWindowVisibleThread.Abort();
+            if (Settings.CurrentSettings.LegacyDeskMode)
+            {
+                IntPtr windowHandle = new WindowInteropHelper(this).Handle;
+                OriginalParentWindow = SetParent(windowHandle, DesktopWindow);
+            }
+            else
+            {
+                if (KeepWindowVisibleThread != null)
+                    KeepWindowVisibleThread.Abort();
 
 
-            IsDesktopChild = true;
+                IsDesktopChild = true;
 
-            StartKeepWindowVisibleThread();
+                StartKeepWindowVisibleThread();
+            }
         }
 
         public void UnsetDesktopChild()
         {
-            if (IsDesktopChild)
+            if (Settings.CurrentSettings.LegacyDeskMode)
             {
-                KeepWindowVisibleThread.Abort();
+                if (IsDesktopChild)
+                {
+                    IntPtr windowHandle = new WindowInteropHelper(this).Handle;
+                    SetParent(windowHandle, OriginalParentWindow);
 
-                IsDesktopChild = false;
+                    IsDesktopChild = false;
+                }
+            }
+            else
+            {
+                if (IsDesktopChild)
+                {
+                    KeepWindowVisibleThread.Abort();
+
+                    IsDesktopChild = false;
+                }
             }
         }
 
@@ -445,22 +517,44 @@ namespace WinLaunch
                 }
                 else
                 {
-                    //switch screens
-                    Rect FullScreenRect = GetDeskModeRect();
+                    if (Settings.CurrentSettings.LegacyDeskMode)
+                    {
+                        //switch screens
+                        Rect FullScreenRect = GetDeskModeRectLegacy();
 
-                    //stop the keep window thread until we are repositioned
-                    if(KeepWindowVisibleThread != null)
-                        KeepWindowVisibleThread.Abort();
- 
-                    topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
+                        //strange bug -> call twice
+                        ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
+                            FullScreenRect.Width,
+                            FullScreenRect.Height,
+                            1.0
+                            );
 
-                    ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
-                        FullScreenRect.Width,
-                        FullScreenRect.Height,
-                        1.0
-                        );
+                        ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
+                            FullScreenRect.Width,
+                            FullScreenRect.Height,
+                            1.0
+                            );
 
-                    StartKeepWindowVisibleThread();
+                    }
+                    else
+                    {
+                        //switch screens
+                        Rect FullScreenRect = GetDeskModeRect();
+
+                        //stop the keep window thread until we are repositioned
+                        if (KeepWindowVisibleThread != null)
+                            KeepWindowVisibleThread.Abort();
+
+                        topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
+
+                        ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
+                            FullScreenRect.Width,
+                            FullScreenRect.Height,
+                            1.0
+                            );
+
+                        StartKeepWindowVisibleThread();
+                    }
                 }
             }
             else
@@ -489,7 +583,7 @@ namespace WinLaunch
             this.ResizeMode = System.Windows.ResizeMode.NoResize;
             IsFullscreen = true;
 
-            if(!Settings.CurrentSettings.DeskMode)
+            if (!Settings.CurrentSettings.DeskMode)
             {
                 if (!this.Topmost)
                     this.Topmost = true;
@@ -541,7 +635,7 @@ namespace WinLaunch
 
         public void ToggleLaunchpad()
         {
-            if(SearchActive)
+            if (SearchActive)
             {
                 DeactivateSearch();
             }

@@ -232,7 +232,7 @@
     <value>Aktivasi dengan menekan tombol Ctrl dua kali</value>
   </data>
   <data name="EnableGamepadActivation" xml:space="preserve">
-    <value>Aktifkan aktivasi WinLaunch menggunakan tombol mulai pada gamepad</value>
+    <value>Aktivasi WinLaunch menggunakan tombol start pada gamepad</value>
   </data>
   <data name="EnableHotCorner" xml:space="preserve">
     <value>Aktifkan HotCorner</value>

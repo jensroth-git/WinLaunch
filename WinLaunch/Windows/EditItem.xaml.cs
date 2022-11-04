@@ -180,7 +180,21 @@ namespace WinLaunch
             }
 
             this.NameBox.Text = Item.Name;
-            this.PathBox.Text = Item.ApplicationPath;
+
+            string filepath = Item.ApplicationPath;
+
+            if (filepath.EndsWith(".lnk"))
+            {
+                //get actual path if its a link
+                filepath = MiscUtils.GetShortcutTargetFile(filepath);
+
+                if (string.IsNullOrEmpty(filepath))
+                {
+                    filepath = Item.ApplicationPath;
+                }
+            }
+
+            this.PathBox.Text = filepath;
             this.ArgumentsBox.Text = Item.Arguments;
             this.cbAdmin.IsChecked = Item.RunAsAdmin;
 

@@ -248,12 +248,6 @@ namespace WinLaunch
 
             System.Windows.Forms.Screen Screen = System.Windows.Forms.Screen.AllScreens[ScreenIndex];
 
-            //select primary screen for desk mode for now
-            if (Settings.CurrentSettings.DeskMode)
-            {
-                Screen = System.Windows.Forms.Screen.PrimaryScreen;
-            }
-
             if (Settings.CurrentSettings.FillScreen && !Settings.CurrentSettings.DeskMode)
             {
                 Left = (double)Screen.Bounds.Left;
@@ -386,6 +380,7 @@ namespace WinLaunch
             if (DesktopWindow == IntPtr.Zero)
             {
                 MessageBox.Show("failed to locate the desktop!", "Error");
+                return;
             }
 
             if (KeepWindowVisibleThread != null)
@@ -466,8 +461,11 @@ namespace WinLaunch
             this.ResizeMode = System.Windows.ResizeMode.NoResize;
             IsFullscreen = true;
 
-            if (!this.Topmost)
-                this.Topmost = true;
+            if(!Settings.CurrentSettings.DeskMode)
+            {
+                if (!this.Topmost)
+                    this.Topmost = true;
+            }
         }
 
         private void MakeDesktopWindow()

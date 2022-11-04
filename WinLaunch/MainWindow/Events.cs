@@ -85,6 +85,17 @@ namespace WinLaunch
 
             string filepath = Item.ApplicationPath;
 
+            if (filepath.EndsWith(".lnk"))
+            {
+                //get actual path if its a link
+                filepath = MiscUtils.GetShortcutTargetFile(filepath);
+
+                if(string.IsNullOrEmpty(filepath))
+                {
+                    filepath = Item.ApplicationPath;
+                }
+            }
+
             //open explorer and highlight the file 
             Process ExplorerProc = new Process();
             ExplorerProc.StartInfo.FileName = "explorer.exe";

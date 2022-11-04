@@ -157,7 +157,7 @@ namespace WinLaunch
                             //load bitmap and resize it to 128px width
                             bmps = MiscUtils.LoadBitmapImage(item.IconPath, 128);
                         }
-                        catch
+                        catch(Exception ex)
                         {
                             bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
                         }

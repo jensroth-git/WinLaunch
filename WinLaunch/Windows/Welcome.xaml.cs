@@ -20,6 +20,7 @@ namespace WinLaunch
             "- added gamepad support for activating WinLaunch",
             "- fix open location on .lnk files",
             "- fix crash when hitting enter while no search results were found",
+            "- update crash reporter to use SSL",
             "- updated the Indonesian translation by jovanzers",
             "",
             "#Changelog 0.7.0.2",

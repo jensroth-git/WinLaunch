@@ -133,6 +133,8 @@ namespace WinLaunch
             }
         }
 
+        bool ShowDesktopActivated = false;
+
         private IntPtr hwndSourceHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             if (msg == WM_SHOWWINDOW)
@@ -152,11 +154,15 @@ namespace WinLaunch
 
             if (Settings.CurrentSettings.DeskMode && !Settings.CurrentSettings.LegacyDeskMode)
             {
-                if (msg == WM_WINDOWPOSCHANGING)
+                if (msg == WM_WINDOWPOSCHANGING && !ShowDesktopActivated)
                 {
                     var ver = (WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(WINDOWPOS));
-
-                    ver.hwndInsertAfter = DesktopWindow;
+                    
+                    if(DesktopWindow == IntPtr.Zero)
+                        ver.hwndInsertAfter = HWND_BOTTOM;
+                    else
+                        ver.hwndInsertAfter = DesktopWindow;
+    
                     ver.flags &= ~SWP_NOZORDER;
                     handled = true;
 
@@ -404,11 +410,16 @@ namespace WinLaunch
                             //show desktop activated
                             if (IsDesktopChild)
                             {
-                                IntPtr hWnd = new WindowInteropHelper(this).Handle;
-                                SetWindowPos(hWnd, IntPtr.Zero, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOSENDCHANGING);
+                                ShowDesktopActivated = true;
+                                this.Topmost = true;
+                                this.Topmost = false;
+
+                                //IntPtr hWnd = new WindowInteropHelper(this).Handle;
+                                //SetWindowPos(hWnd, IntPtr.Zero, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE | SWP_NOSENDCHANGING);
 
                                 this.Activate();
                                 this.Focus();
+                                ShowDesktopActivated = false;
                             }
                         }));
                     }
@@ -441,6 +452,11 @@ namespace WinLaunch
 
             topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
 
+            //force window in the background
+            DesktopWindow = IntPtr.Zero;
+            IntPtr hWnd = new WindowInteropHelper(this).Handle;
+            SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+
             EnumWindows(delegate (IntPtr wnd, IntPtr param)
             {
                 IntPtr ShellDll = FindWindowEx(wnd, IntPtr.Zero, "SHELLDLL_DefView", "");
@@ -471,7 +487,6 @@ namespace WinLaunch
             {
                 if (KeepWindowVisibleThread != null)
                     KeepWindowVisibleThread.Abort();
-
 
                 IsDesktopChild = true;
 

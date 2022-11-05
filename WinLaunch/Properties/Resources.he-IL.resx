@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>הצג את סמל הרחבה</value>
   </data>
+  <data name="ShowPageIndicators" xml:space="preserve">
+    <value>הצג מחווני עמודים</value>
+  </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>הצג את שורת החיפוש</value>
   </data>

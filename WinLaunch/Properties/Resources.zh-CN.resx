@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>显示扩展图标</value>
   </data>
+  <data name="ShowPageIndicators" xml:space="preserve">
+    <value>显示页面指示器</value>
+  </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>显示搜索栏</value>
   </data>

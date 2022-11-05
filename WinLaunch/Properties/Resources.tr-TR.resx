@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Uzantı simgesini göster</value>
   </data>
+  <data name="ShowPageIndicators" xml:space="preserve">
+    <value>Sayfa göstergelerini göster</value>
+  </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Arama çubuğunu göster</value>
   </data>

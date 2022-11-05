@@ -38,6 +38,7 @@ namespace WinLaunch
 
         public bool ExtensionIconVisible { get; set; }
         public bool SearchBarVisible { get; set; }
+        public bool PageIndicatorsVisible { get; set; }
 
         /// <summary>
         /// When enabled will only allow movement of items while in wiggle mode (after holding an item for 2s)
@@ -149,6 +150,7 @@ namespace WinLaunch
             IconSize = 1.4;
             ExtensionIconVisible = true;
             SearchBarVisible = true;
+            PageIndicatorsVisible = true;
 
             //set default settings
             Columns = 8;

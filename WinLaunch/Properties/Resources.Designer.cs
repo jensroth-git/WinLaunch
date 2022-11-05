@@ -898,6 +898,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show page indicators.
+        /// </summary>
+        internal static string ShowPageIndicators {
+            get {
+                return ResourceManager.GetString("ShowPageIndicators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show search bar.
         /// </summary>
         internal static string ShowSearchBar {

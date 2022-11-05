@@ -6,20 +6,12 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Net;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace WinLaunch
 {
@@ -116,28 +108,11 @@ namespace WinLaunch
         private void InitDeskMode()
         {
             cbDeskMode.IsChecked = settings.DeskMode;
-
-            if (settings.DeskMode)
-            {
-                mainWindow.MakeDesktopChildWindow();
-            }
-            else
-            {
-                mainWindow.UnsetDesktopChild();
-            }
         }
 
         private void CbDeskMode_Checked(object sender, RoutedEventArgs e)
         {
-            if (Settings.CurrentSettings.DeskMode == (bool)cbDeskMode.IsChecked)
-            {
-                //no change 
-                return;
-            }
-
-            Settings.CurrentSettings.DeskMode = (bool)cbDeskMode.IsChecked;
-
-            InitDeskMode();
+            settings.DeskMode = (bool)cbDeskMode.IsChecked;
         }
 
         void InstantSettings_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -166,6 +141,19 @@ namespace WinLaunch
         {
             ApplyAutostart();
             ApplyColumnsSetting();
+            ApplyDeskMode();
+        }
+
+        private void ApplyDeskMode()
+        {
+            if (settings.DeskMode)
+            {
+                mainWindow.MakeDesktopChildWindow();
+            }
+            else
+            {
+                mainWindow.UnsetDesktopChild();
+            }
         }
 
         #region General

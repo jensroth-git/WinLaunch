@@ -544,7 +544,8 @@
                     Margin="0,0,0,45"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    Visibility="{Binding Path=settings.PageIndicatorsVisible, Converter={StaticResource BoolToVis}}">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Ellipse}">
                     <Setter Property="Width" Value="8" />

@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Afficher l'icône de l'extension</value>
   </data>
+  <data name="ShowPageIndicators" xml:space="preserve">
+    <value>Afficher les indicateurs de page</value>
+  </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Afficher la barre de recherche</value>
   </data>

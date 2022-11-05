@@ -514,7 +514,9 @@
 
                                         <CheckBox x:Name="cbShowExtensionIcon" Margin="0,0,0,10" Content="{my:Loc ShowExtensionIcon}" IsChecked="{Binding settings.ExtensionIconVisible}" />
 
-                                        <CheckBox x:Name="cbShowSearchBar" Margin="0,0,0,0" Content="{my:Loc ShowSearchBar}" IsChecked="{Binding settings.SearchBarVisible}" />
+                                        <CheckBox x:Name="cbShowSearchBar" Margin="0,0,0,10" Content="{my:Loc ShowSearchBar}" IsChecked="{Binding settings.SearchBarVisible}" />
+
+                                        <CheckBox x:Name="cbShowPageIndicators" Margin="0,0,0,0" Content="{my:Loc ShowPageIndicators}" IsChecked="{Binding settings.PageIndicatorsVisible}" />
 
                                     </StackPanel>
                                 </GroupBox>

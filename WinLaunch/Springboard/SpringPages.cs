@@ -6,6 +6,7 @@ namespace WinLaunch
     public class SpringPages
     {
         public Rect DisplayRect = new Rect(0, 0, 1080, 1920);
+        public event EventHandler PagesFlipped;
 
         public double XOffset = 0.0;
         public int CurrentPage = 0;
@@ -83,6 +84,8 @@ namespace WinLaunch
 
             //update animation target
             TotalXOffsetAnimation.ValueTo = CurrentPage + XOffset;
+
+            PagesFlipped(this, EventArgs.Empty);
         }
 
         public void FlipPageLeft()
@@ -98,6 +101,8 @@ namespace WinLaunch
 
             //update animation target
             TotalXOffsetAnimation.ValueTo = CurrentPage + XOffset;
+
+            PagesFlipped(this, EventArgs.Empty);
         }
 
         public bool SetPage(int Page)
@@ -112,6 +117,9 @@ namespace WinLaunch
 
             //update animation target
             TotalXOffsetAnimation.ValueTo = CurrentPage + XOffset;
+
+            PagesFlipped(this, EventArgs.Empty);
+
             return true;
         }
 

@@ -940,6 +940,39 @@ namespace WinLaunch
             return closest.GridIndex;
         }
 
+        public int GetFirstItemOnPage(int Page)
+        {
+            bool found = false;
+            int currentIndex = 0;
+            while (true)
+            {
+                found = false;
+                foreach (SBItem item in IC.Items)
+                {
+                    if (item.Page == Page && item.GridIndex == currentIndex)
+                    {
+                        found = true;
+                    }
+                }
+
+                if (found)
+                {
+                    return currentIndex;
+                }
+                else
+                {
+                    if (currentIndex == (XItems * YItems) - 1)
+                    {
+                        //no more items on this page
+                        return -1;
+                    }
+
+                    //look to the next index
+                    currentIndex++;
+                }
+            }
+        }
+
         public void GetItemLeft(int Page, int currentIndex, out int page, out int index)
         {
             //search item to the left 
@@ -969,7 +1002,7 @@ namespace WinLaunch
 
         public void GetItemRight(int Page, int currentIndex, out int page, out int index)
         {
-            //search item to the left 
+            //search item to the right 
             int rightIndex = FindItemRightOnPage(Page, currentIndex);
 
             if (rightIndex == -1)
@@ -1005,7 +1038,7 @@ namespace WinLaunch
 
         public void GetItemUp(int Page, int currentIndex, out int index)
         {
-            //find the closest item downwards from the currentIndex
+            //find the closest item upwards from the currentIndex
             int newIndex = FindItemUp(Page, currentIndex);
 
             index = newIndex;

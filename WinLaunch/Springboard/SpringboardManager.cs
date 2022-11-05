@@ -149,6 +149,15 @@ namespace WinLaunch
             FolderGrid = new GridManager();
             FolderGrid.DisplayRect = new Rect();
             InitFolderAnimations();
+
+            //setup pages 
+            SP.PagesFlipped += SP_PagesFlipped;
+        }
+
+        private void SP_PagesFlipped(object sender, EventArgs e)
+        {
+            //reset the current selected item once pages are flipped 
+            SelItemInd = -1;
         }
 
         ~SpringboardManager()
@@ -1712,11 +1721,20 @@ namespace WinLaunch
                     int newPage = -1;
                     int newIndex = -1;
 
-                    GM.GetItemRight(SP.CurrentPage, SelItemInd, out newPage, out newIndex);
-
-                    if (newPage > SP.CurrentPage)
+                    if (SelItemInd == -1)
                     {
-                        SP.FlipPageRight();
+                        //get first item on page
+                        newIndex = GM.GetFirstItemOnPage(SP.CurrentPage);
+                        newPage = SP.CurrentPage;
+                    }
+                    else
+                    {
+                        GM.GetItemRight(SP.CurrentPage, SelItemInd, out newPage, out newIndex);
+
+                        if (newPage > SP.CurrentPage)
+                        {
+                            SP.FlipPageRight();
+                        }
                     }
 
                     var selectItem = GM.GetItemFromIndex(newIndex, newPage);
@@ -1746,7 +1764,16 @@ namespace WinLaunch
                 if (e.Key == Key.Down)
                 {
                     int newIndex = -1;
-                    GM.GetItemDown(SP.CurrentPage, SelItemInd, out newIndex);
+
+                    if (SelItemInd == -1)
+                    {
+                        //get first item on page
+                        newIndex = GM.GetFirstItemOnPage(SP.CurrentPage);
+                    }
+                    else
+                    {
+                        GM.GetItemDown(SP.CurrentPage, SelItemInd, out newIndex);
+                    }
 
                     var selectItem = GM.GetItemFromIndex(newIndex, SP.CurrentPage);
 

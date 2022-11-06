@@ -18,7 +18,7 @@ namespace WinLaunch
             "---",
             "- removed miniature icons from folders with custom icons",
             "- added an option to hide page indicators",
-            "- update desk mode",
+            "- updated desk mode",
             "- fix selection not working sometimes",
             "",
             "#Changelog 0.7.1.0",

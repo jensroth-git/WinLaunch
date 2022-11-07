@@ -19,25 +19,6 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 
-
-// Plans
-//- gif image tutorials
-
-//- auto check for updates interval - done
-//- animation callbacks
-//- double keytap activation
-//- maybe lock single options?
-//- named pages
-//- add in drives
-//- auto reactivate aero
-//- dock support
-//- icon caches
-//- custom layouts
-//- continues paging
-//- live folders
-//- integrated browser
-//- bug
-
 namespace WinLaunch
 {
     partial class MainWindow : Window, INotifyPropertyChanged

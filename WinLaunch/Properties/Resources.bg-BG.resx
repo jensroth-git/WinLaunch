@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Показване на иконата на разширение</value>
   </data>
+  <data name="ShowMiniatures" xml:space="preserve">
+    <value>Показване на миниатюрни икони</value>
+  </data>
   <data name="ShowPageIndicators" xml:space="preserve">
     <value>Показване на индикатори за страници</value>
   </data>

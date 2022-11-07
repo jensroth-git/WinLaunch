@@ -29,6 +29,7 @@ namespace WinLaunch
         private string IconPathBackup;
         private string ArgumentsBackup;
         private bool RunAsAdminBackup;
+        private bool ShowMiniaturesBackup;
 
         private void PerformBackup(SBItem Item)
         {
@@ -38,6 +39,7 @@ namespace WinLaunch
             IconPathBackup = Item.IconPath;
             ArgumentsBackup = Item.Arguments;
             RunAsAdminBackup = Item.RunAsAdmin;
+            ShowMiniaturesBackup = Item.ShowMiniatures;
         }
 
         private void RestoreBackup(SBItem Item)
@@ -48,6 +50,7 @@ namespace WinLaunch
             Item.IconPath = IconPathBackup;
             Item.Arguments = ArgumentsBackup;
             Item.RunAsAdmin = RunAsAdminBackup;
+            Item.ShowMiniatures = ShowMiniaturesBackup;
 
             Item.UpdateIcon();
         }
@@ -177,6 +180,12 @@ namespace WinLaunch
                 PathGrid.IsEnabled = false;
                 ArgumentsGrid.IsEnabled = false;
                 this.cbAdmin.IsEnabled = false;
+                this.cbAdmin.Visibility = Visibility.Collapsed;
+                this.cbShowMiniatures.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.cbShowMiniatures.Visibility = Visibility.Collapsed;
             }
 
             this.NameBox.Text = Item.Name;
@@ -197,6 +206,7 @@ namespace WinLaunch
             this.PathBox.Text = filepath;
             this.ArgumentsBox.Text = Item.Arguments;
             this.cbAdmin.IsChecked = Item.RunAsAdmin;
+            this.cbShowMiniatures.IsChecked = Item.ShowMiniatures;
 
             this.ActiveItem = Item;
             this.ClientWindow = MainWindow;
@@ -220,11 +230,21 @@ namespace WinLaunch
                 this.Close();
         }
 
+        private void cbShowMiniatures_Checked(object sender, RoutedEventArgs e)
+        {
+            if(this.ActiveItem != null)
+            {
+                this.ActiveItem.ShowMiniatures = (bool)cbShowMiniatures.IsChecked;
+                this.ActiveItem.UpdateFolderIcon();
+            }
+        }
+
         private void ConfirmClicked(object sender, RoutedEventArgs e)
         {
             if (this.ActiveItem.IsFolder)
             {
                 this.ActiveItem.Name = NameBox.Text;
+                this.ShowMiniaturesBackup = (bool)cbShowMiniatures.IsChecked;
             }
             else
             {
@@ -235,6 +255,11 @@ namespace WinLaunch
             }
 
             this.ActiveItem.UpdateIcon();
+
+            if(this.ActiveItem.IsFolder)
+            {
+                this.ActiveItem.UpdateFolderIcon();
+            }
 
             this.Close();
         }
@@ -364,5 +389,7 @@ namespace WinLaunch
                 }
             }
         }
+
+        
     }
 }

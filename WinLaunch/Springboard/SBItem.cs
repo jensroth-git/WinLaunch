@@ -29,7 +29,9 @@ namespace WinLaunch
         //Item Properties
         public ItemCollection IC;
 
-        public bool IsFolder;
+        public bool IsFolder { get; set; }
+
+        public bool ShowMiniatures { get; set; }
 
         public string Name { get; set; }
 
@@ -418,8 +420,7 @@ namespace WinLaunch
                 if (this.IconPath == null && this.Icon != SBItem.FolderIcon)
                     this.Icon = SBItem.FolderIcon;
 
-                //only render the miniatures if we dont use a custom icon
-                if(this.IconPath != null)
+                if(!ShowMiniatures)
                 {
                     this.FolderMiniatures = null;
                 }

@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Zeige das Icon für die Toolbar</value>
   </data>
+  <data name="ShowMiniatures" xml:space="preserve">
+    <value>Zeige miniatur Icons</value>
+  </data>
   <data name="ShowPageIndicators" xml:space="preserve">
     <value>Zeige Seiten Indikatoren</value>
   </data>

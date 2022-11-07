@@ -265,7 +265,7 @@ namespace WinLaunch
 
             foreach (SBItem item in Items)
             {
-                ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Arguments, item.RunAsAdmin, item.IsFolder);
+                ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Arguments, item.RunAsAdmin, item.IsFolder, item.ShowMiniatures);
                 ItemList.Add(NewItem);
 
                 if (item.IC.Items.Count != 0)
@@ -290,6 +290,7 @@ namespace WinLaunch
                     {
                         SBitem = new SBItem(item.Name, item.Application, item.IconPath, item.Arguments, SBItem.FolderIcon);
                         SBitem.IsFolder = item.IsFolder;
+                        SBitem.ShowMiniatures = item.ShowMiniatures;
                     }
                     else
                     {
@@ -335,13 +336,14 @@ namespace WinLaunch
         public string Arguments = "";
         public bool RunAsAdmin = false;
         public string IconPath = null;
+        public bool ShowMiniatures = true;
 
         public ICItem()
         {
             Items = new List<ICItem>();
         }
 
-        public ICItem(int GridIndex, int Page, string App, string IconPath, string Name, string Arguments, bool RunAsAdmin, bool IsFolder)
+        public ICItem(int GridIndex, int Page, string App, string IconPath, string Name, string Arguments, bool RunAsAdmin, bool IsFolder, bool showMiniatures)
         {
             Items = new List<ICItem>();
             this.GridIndex = GridIndex;
@@ -352,6 +354,7 @@ namespace WinLaunch
             this.Arguments = Arguments;
             this.RunAsAdmin = RunAsAdmin;
             this.IsFolder = IsFolder;
+            this.ShowMiniatures = showMiniatures;
         }
     }
 }

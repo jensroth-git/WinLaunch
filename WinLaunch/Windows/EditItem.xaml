@@ -40,7 +40,7 @@
     <Grid
         x:Name="MainGrid"
         Width="600"
-        Height="239">
+        Height="264">
         <!--  Height="146" Width="382">  -->
         <Grid.RenderTransform>
             <ScaleTransform
@@ -79,20 +79,20 @@
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
-                                        <LineSegment Point="477,181" />
+                                        <LineSegment Point="477,200" />
                                         <ArcSegment
                                             IsLargeArc="False"
-                                            Point="472,186"
+                                            Point="472,205"
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
-                                        <LineSegment x:Name="PointerRightBottom" Point="120,186" />
-                                        <LineSegment x:Name="PointerCenterBottom" Point="110,196" />
-                                        <LineSegment x:Name="PointerLeftBottom" Point="100,186" />
-                                        <LineSegment Point="10,186" />
+                                        <LineSegment x:Name="PointerRightBottom" Point="120,205" />
+                                        <LineSegment x:Name="PointerCenterBottom" Point="110,215" />
+                                        <LineSegment x:Name="PointerLeftBottom" Point="100,205" />
+                                        <LineSegment Point="10,205" />
                                         <ArcSegment
                                             IsLargeArc="False"
-                                            Point="5,181"
+                                            Point="5,200"
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
@@ -114,7 +114,7 @@
             </Path.Effect>
         </Path>
 
-        <Grid MaxWidth="470" MaxHeight="155">
+        <Grid MaxWidth="470" MaxHeight="180">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="141" />
                 <ColumnDefinition Width="329*" />
@@ -220,14 +220,16 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top" />
                 </Grid>
-                <CheckBox x:Name="cbAdmin" Content="{my:Loc OpenAsAdmin}" />
+
+                <CheckBox x:Name="cbAdmin" Content="{my:Loc OpenAsAdmin}" Margin="0,0,0,5"/>
+                <CheckBox x:Name="cbShowMiniatures" Content="{my:Loc ShowMiniatures}" Checked="cbShowMiniatures_Checked" Unchecked="cbShowMiniatures_Checked" />
             </StackPanel>
 
             <Button
                 Grid.Column="1"
                 Width="89"
                 Height="24"
-                Margin="229,125,0,0"
+                Margin="229,146,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="CancelClicked"
@@ -236,7 +238,7 @@
                 Grid.Column="1"
                 Width="89"
                 Height="24"
-                Margin="137,125,0,0"
+                Margin="137,146,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="ConfirmClicked"

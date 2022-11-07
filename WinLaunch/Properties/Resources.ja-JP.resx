@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>拡張機能のアイコンを表示</value>
   </data>
+  <data name="ShowMiniatures" xml:space="preserve">
+    <value>ミニチュアアイコンを表示</value>
+  </data>
   <data name="ShowPageIndicators" xml:space="preserve">
     <value>ページ インジケーターを表示する</value>
   </data>

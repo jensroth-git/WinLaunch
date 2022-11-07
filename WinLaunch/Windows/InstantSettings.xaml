@@ -155,8 +155,6 @@
                                     <CheckBox Margin="0,0,0,2" Content="{my:Loc BlockFullscreen}" IsChecked="{Binding settings.BlockOnFullscreen}" />
                                     <TextBlock Foreground="#FF646464" Text="{my:Loc BlockFullscreenInfo}" TextWrapping="WrapWithOverflow" />
                                 </StackPanel>
-
-
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>

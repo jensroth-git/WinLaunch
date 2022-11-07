@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Показати значок розширення</value>
   </data>
+  <data name="ShowMiniatures" xml:space="preserve">
+    <value>Показати мініатюрні значки</value>
+  </data>
   <data name="ShowPageIndicators" xml:space="preserve">
     <value>Показати індикатори сторінок</value>
   </data>

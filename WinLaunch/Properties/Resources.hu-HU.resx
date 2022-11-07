@@ -396,6 +396,9 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Kiterjesztés ikon megjelenítése</value>
   </data>
+  <data name="ShowMiniatures" xml:space="preserve">
+    <value>Miniatűr ikonok megjelenítése</value>
+  </data>
   <data name="ShowPageIndicators" xml:space="preserve">
     <value>Oldaljelzők megjelenítése</value>
   </data>

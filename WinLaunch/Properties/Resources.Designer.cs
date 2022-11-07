@@ -898,6 +898,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show miniature icons.
+        /// </summary>
+        internal static string ShowMiniatures {
+            get {
+                return ResourceManager.GetString("ShowMiniatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show page indicators.
         /// </summary>
         internal static string ShowPageIndicators {

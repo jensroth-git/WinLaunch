@@ -17,6 +17,7 @@ namespace WinLaunch
             "#Changelog 0.7.1.2",
             "---",
             "- added an option to hide miniature icons from folders",
+            "- fixed overflow issue in theme loading",
             "",
             "#Changelog 0.7.1.1",
             "---",

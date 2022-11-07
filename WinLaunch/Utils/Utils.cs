@@ -391,6 +391,7 @@ namespace WinLaunch
 
                 BitmapImage src = new BitmapImage();
                 src.BeginInit();
+                src.CreateOptions = BitmapCreateOptions.IgnoreColorProfile;
 
                 if (DecodePixelWidth != -1)
                     src.DecodePixelWidth = DecodePixelWidth;

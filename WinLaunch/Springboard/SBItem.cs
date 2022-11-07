@@ -31,7 +31,7 @@ namespace WinLaunch
 
         public bool IsFolder { get; set; }
 
-        public bool ShowMiniatures { get; set; }
+        public bool ShowMiniatures { get; set; } = true;
 
         public string Name { get; set; }
 

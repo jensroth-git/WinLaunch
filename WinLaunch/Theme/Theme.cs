@@ -187,7 +187,7 @@ namespace WinLaunch
                 catch { }
             #endregion
 
-            if(center != null && arrow == null)
+            if (center != null && arrow == null)
             {
                 shouldUseVectorFolder = true;
             }
@@ -199,60 +199,75 @@ namespace WinLaunch
 
             #region folder images app
             if (leftTop == null)
-                leftTop = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftTop.png"));
+                try { leftTop = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftTop.png")); }
+                catch { }
 
             if (leftCenter == null)
-                leftCenter = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftCenter.png"));
+                try { leftCenter = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftCenter.png")); }
+                catch { }
 
             if (leftBottomShadow == null)
-                leftBottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftBottomShadow.png"));
+                try { leftBottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftBottomShadow.png")); }
+                catch { }
 
             if (leftBottomBorder == null)
-                leftBottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftBottomBorder.png"));
+                try { leftBottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftBottomBorder.png")); }
+                catch { }
 
 
             if (topRim == null)
-                topRim = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/topRim.png"));
+                try { topRim = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/topRim.png")); }
+                catch { }
 
             if (center == null)
-                center = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/center.png"));
+                try { center = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/center.png")); }
+                catch { }
 
             if (bottomShadow == null)
-                bottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/bottomShadow.png"));
+                try { bottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/bottomShadow.png")); }
+                catch { }
 
             if (bottomBorder == null)
-                bottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/bottomBorder.png"));
+                try { bottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/bottomBorder.png")); }
+                catch { }
 
 
             if (arrow == null)
-                arrow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/arrow.png"));
+                try { arrow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/arrow.png")); }
+                catch { }
 
 
             if (rightTop == null)
-                rightTop = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightTop.png"));
+                try { rightTop = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightTop.png")); }
+                catch { }
 
             if (rightCenter == null)
-                rightCenter = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightCenter.png"));
+                try { rightCenter = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightCenter.png")); }
+                catch { }
 
             if (rightBottomShadow == null)
-                rightBottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightBottomShadow.png"));
+                try { rightBottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightBottomShadow.png")); }
+                catch { }
 
             if (rightBottomBorder == null)
-                rightBottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightBottomBorder.png"));
+                try { rightBottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightBottomBorder.png")); }
+                catch { }
             #endregion
 
+            if (CloseBox == null)
+                try { CloseBox = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/closebox.png")); }
+                catch { }
+
+            if (FolderIcon == null)
+                try { FolderIcon = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder_icon_transparent.png")); }
+                catch { }
+
+            if (ExtensionsToggle == null)
+                try { ExtensionsToggle = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/extensions.png")); }
+                catch { }
 
             if (Background == null)
                 Background = MiscUtils.GetCurrentWallpaper();
-
-            if (CloseBox == null)
-                CloseBox = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/closebox.png"));
-
-            if (FolderIcon == null)
-                FolderIcon = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder_icon_transparent.png"));
-
-            if (ExtensionsToggle == null)
-                ExtensionsToggle = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/extensions.png"));
 
             FreezeImages();
         }
@@ -430,7 +445,7 @@ namespace WinLaunch
                         ser.Serialize(write, theme);
                     }
                 }
-                
+
                 return true;
             }
             catch (Exception ex)

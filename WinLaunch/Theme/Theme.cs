@@ -388,7 +388,7 @@ namespace WinLaunch
             UseVectorFolder = false;
             StretchFolderBackground = false;
 
-            UseAeroBlur = true;
+            UseAeroBlur = false;
             UseAcrylic = false;
             BackgroundBlurRadius = 0.5;
             BackgroundTransparency = 0.8;

@@ -35,6 +35,8 @@ namespace WinLaunch
 
         public string Name { get; set; }
 
+        public string Keywords { get; set; }
+
         public string ApplicationPath { get; set; }
 
         public string IconPath { get; set; }
@@ -61,10 +63,11 @@ namespace WinLaunch
             ShowClose = false;
         }
 
-        public SBItem(string Name, string ApplicationPath, string IconPath, string Arguments, BitmapSource Icon, double XPos = 0.0, double YPos = 0.0)
+        public SBItem(string Name, string Keywords, string ApplicationPath, string IconPath, string Arguments, BitmapSource Icon, double XPos = 0.0, double YPos = 0.0)
         {
             this.IC = new ItemCollection();
             this.Name = Name;
+            this.Keywords = Keywords;
             this.ApplicationPath = ApplicationPath;
             this.IconPath = IconPath;
             this.Arguments = Arguments;

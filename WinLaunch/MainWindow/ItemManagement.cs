@@ -98,7 +98,7 @@ namespace WinLaunch
                 var directoryFiles = Directory.GetFiles(directory);
 
                 //create a folder and add all items
-                SBItem Folder = new SBItem(Path.GetFileName(directory), "Folder", null, "", SBItem.FolderIcon);
+                SBItem Folder = new SBItem(Path.GetFileName(directory), "", "Folder", null, "", SBItem.FolderIcon);
                 Folder.IsFolder = true;
 
                 int GridIndex = 0;
@@ -333,7 +333,7 @@ namespace WinLaunch
                     bmps = MiscUtils.GetFileThumbnail(File);
                 }
 
-                return new SBItem(Name, Path, null, "", bmps);
+                return new SBItem(Name, "", Path, null, "", bmps);
             }
             catch (Exception ex)
             {

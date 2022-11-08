@@ -212,12 +212,6 @@ namespace WinLaunch
             if (FadingOut)
                 return;
 
-            //if (e.MiddleButton == MouseButtonState.Pressed && Settings.CurrentSettings.MiddleMouseActivation == MiddleMouseButtonAction.Nothing)
-            //{
-            //    //show / hide toolbar
-            //    ToggleToolbar();
-            //}
-
             if (Settings.CurrentSettings.DeskMode)
             {
                 //steal focus on mouse down so the keyboard works

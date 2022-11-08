@@ -265,7 +265,7 @@ namespace WinLaunch
 
             foreach (SBItem item in Items)
             {
-                ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Arguments, item.RunAsAdmin, item.IsFolder, item.ShowMiniatures);
+                ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Keywords, item.Arguments, item.RunAsAdmin, item.IsFolder, item.ShowMiniatures);
                 ItemList.Add(NewItem);
 
                 if (item.IC.Items.Count != 0)
@@ -288,7 +288,7 @@ namespace WinLaunch
                     SBItem SBitem;
                     if (item.IsFolder)
                     {
-                        SBitem = new SBItem(item.Name, item.Application, item.IconPath, item.Arguments, SBItem.FolderIcon);
+                        SBitem = new SBItem(item.Name, item.Keywords, item.Application, item.IconPath, item.Arguments, SBItem.FolderIcon);
                         SBitem.IsFolder = item.IsFolder;
                         SBitem.ShowMiniatures = item.ShowMiniatures;
                     }
@@ -296,7 +296,7 @@ namespace WinLaunch
                     {
                         //use Loading image first
                         BitmapSource bmps = SBItem.LoadingImage;
-                        SBitem = new SBItem(item.Name, item.Application, item.IconPath, item.Arguments, bmps);
+                        SBitem = new SBItem(item.Name, item.Keywords, item.Application, item.IconPath, item.Arguments, bmps);
                         SBitem.RunAsAdmin = item.RunAsAdmin;
                     }
 
@@ -332,6 +332,7 @@ namespace WinLaunch
         public int Page = 0;
 
         public string Name = "";
+        public string Keywords = "";
         public string Application = "";
         public string Arguments = "";
         public bool RunAsAdmin = false;
@@ -343,7 +344,7 @@ namespace WinLaunch
             Items = new List<ICItem>();
         }
 
-        public ICItem(int GridIndex, int Page, string App, string IconPath, string Name, string Arguments, bool RunAsAdmin, bool IsFolder, bool showMiniatures)
+        public ICItem(int GridIndex, int Page, string App, string IconPath, string Name, string Keywords, string Arguments, bool RunAsAdmin, bool IsFolder, bool showMiniatures)
         {
             Items = new List<ICItem>();
             this.GridIndex = GridIndex;
@@ -351,6 +352,7 @@ namespace WinLaunch
             this.Application = App;
             this.IconPath = IconPath;
             this.Name = Name;
+            this.Keywords = Keywords;
             this.Arguments = Arguments;
             this.RunAsAdmin = RunAsAdmin;
             this.IsFolder = IsFolder;

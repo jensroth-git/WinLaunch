@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Xceed.Wpf.Toolkit.Primitives;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using Point = System.Windows.Point;
 
 namespace WinLaunch
@@ -1155,7 +1156,7 @@ namespace WinLaunch
 
         #endregion Item event handling
 
-    #region Input handling
+        #region Input handling
 
         //mouse stuff
         private MouseDevice MouseDev = null;
@@ -1865,6 +1866,7 @@ namespace WinLaunch
             return results;
         }
 
+        //search by name and keywords
         public List<SBItem> FindItemsByName(string name)
         {
             List<SBItem> results = new List<SBItem>();
@@ -1875,7 +1877,8 @@ namespace WinLaunch
                 {
                     foreach (var subItem in item.IC.Items)
                     {
-                        if (subItem.Name.ToLower().Contains(name.ToLower()))
+                        if (subItem.Name.ToLower().Contains(name.ToLower()) || 
+                            subItem.Keywords.ToLower().Contains(name.ToLower()))
                         {
                             results.Add(subItem);
                         }
@@ -1883,7 +1886,8 @@ namespace WinLaunch
                 }
                 else
                 {
-                    if (item.Name.ToLower().Contains(name.ToLower()))
+                    if (item.Name.ToLower().Contains(name.ToLower()) ||
+                        item.Keywords.ToLower().Contains(name.ToLower()))
                     {
                         results.Add(item);
                     }

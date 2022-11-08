@@ -384,6 +384,9 @@
   <data name="Screen" xml:space="preserve">
     <value>Tela</value>
   </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>Procure palavras-chave:</value>
+  </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>Selecione uma imagem para papel de parede</value>
   </data>

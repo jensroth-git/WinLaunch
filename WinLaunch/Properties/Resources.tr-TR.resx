@@ -384,6 +384,9 @@
   <data name="Screen" xml:space="preserve">
     <value>Ekran</value>
   </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>Arama Kelimeleri:</value>
+  </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>Arka plan resmi seç</value>
   </data>

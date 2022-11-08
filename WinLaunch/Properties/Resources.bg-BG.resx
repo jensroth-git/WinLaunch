@@ -384,6 +384,9 @@
   <data name="Screen" xml:space="preserve">
     <value>Екран</value>
   </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>Ключови думи за търсене:</value>
+  </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>Избери фоново изображение</value>
   </data>

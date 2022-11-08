@@ -384,6 +384,9 @@
   <data name="Screen" xml:space="preserve">
     <value>מסך</value>
   </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>חיפוש מילות מפתח:</value>
+  </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>בחר תמונת רקע</value>
   </data>

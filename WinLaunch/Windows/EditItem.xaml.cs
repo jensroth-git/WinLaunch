@@ -26,6 +26,7 @@ namespace WinLaunch
         private BitmapSource IconBackup;
         private string ApplicationPathBackup;
         private string NameBackup;
+        private string KeywordsBackup;
         private string IconPathBackup;
         private string ArgumentsBackup;
         private bool RunAsAdminBackup;
@@ -36,6 +37,7 @@ namespace WinLaunch
             IconBackup = Item.Icon;
             ApplicationPathBackup = Item.ApplicationPath;
             NameBackup = Item.Name;
+            KeywordsBackup = Item.Keywords;
             IconPathBackup = Item.IconPath;
             ArgumentsBackup = Item.Arguments;
             RunAsAdminBackup = Item.RunAsAdmin;
@@ -47,6 +49,7 @@ namespace WinLaunch
             Item.Icon = IconBackup;
             Item.ApplicationPath = ApplicationPathBackup;
             Item.Name = NameBackup;
+            Item.Keywords = KeywordsBackup;
             Item.IconPath = IconPathBackup;
             Item.Arguments = ArgumentsBackup;
             Item.RunAsAdmin = RunAsAdminBackup;
@@ -182,6 +185,7 @@ namespace WinLaunch
                 this.cbAdmin.IsEnabled = false;
                 this.cbAdmin.Visibility = Visibility.Collapsed;
                 this.cbShowMiniatures.Visibility = Visibility.Visible;
+                this.gdKeywords.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -189,6 +193,7 @@ namespace WinLaunch
             }
 
             this.NameBox.Text = Item.Name;
+            this.KeywordsBox.Text = Item.Keywords;
 
             string filepath = Item.ApplicationPath;
 
@@ -249,6 +254,7 @@ namespace WinLaunch
             else
             {
                 this.ActiveItem.Name = NameBox.Text;
+                this.ActiveItem.Keywords = KeywordsBox.Text;
                 this.ActiveItem.ApplicationPath = PathBox.Text;
                 this.ActiveItem.Arguments = ArgumentsBox.Text;
                 this.ActiveItem.RunAsAdmin = (bool)cbAdmin.IsChecked;

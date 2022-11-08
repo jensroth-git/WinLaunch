@@ -384,6 +384,9 @@
   <data name="Screen" xml:space="preserve">
     <value>Képernyő</value>
   </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>Keresési kulcsszavak:</value>
+  </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>Háttérkép választása</value>
   </data>

@@ -481,8 +481,8 @@ namespace WinLaunch
             if (SBM.LockItems)
                 e.Handled = true;
 
-            if (Settings.CurrentSettings.TabletMode)
-                e.Handled = true;
+            //if (Settings.CurrentSettings.TabletMode)
+            //    e.Handled = true;
         }
     }
 }

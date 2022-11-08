@@ -385,6 +385,9 @@
   <data name="Screen" xml:space="preserve">
     <value>Screen</value>
   </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>Search keywords:</value>
+  </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>Select background image</value>
   </data>

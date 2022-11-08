@@ -40,7 +40,7 @@
     <Grid
         x:Name="MainGrid"
         Width="600"
-        Height="264">
+        Height="290">
         <!--  Height="146" Width="382">  -->
         <Grid.RenderTransform>
             <ScaleTransform
@@ -79,20 +79,20 @@
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
-                                        <LineSegment Point="477,200" />
+                                        <LineSegment Point="477,220" />
                                         <ArcSegment
                                             IsLargeArc="False"
-                                            Point="472,205"
+                                            Point="472,225"
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
-                                        <LineSegment x:Name="PointerRightBottom" Point="120,205" />
-                                        <LineSegment x:Name="PointerCenterBottom" Point="110,215" />
-                                        <LineSegment x:Name="PointerLeftBottom" Point="100,205" />
-                                        <LineSegment Point="10,205" />
+                                        <LineSegment x:Name="PointerRightBottom" Point="120,225" />
+                                        <LineSegment x:Name="PointerCenterBottom" Point="110,235" />
+                                        <LineSegment x:Name="PointerLeftBottom" Point="100,225" />
+                                        <LineSegment Point="10,225" />
                                         <ArcSegment
                                             IsLargeArc="False"
-                                            Point="5,200"
+                                            Point="5,220"
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
@@ -114,7 +114,7 @@
             </Path.Effect>
         </Path>
 
-        <Grid MaxWidth="470" MaxHeight="180">
+        <Grid MaxWidth="470" MaxHeight="230" Margin="0,40,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="141" />
                 <ColumnDefinition Width="329*" />
@@ -149,6 +149,29 @@
                         Text="{my:Loc Name}" />
                     <TextBox
                         x:Name="NameBox"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="1"
+                        Height="25"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+                <Grid Height="23" Margin="0,0,0,5" x:Name="gdKeywords">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MinWidth="{Binding Path=ActualWidth, ElementName=tblSearchKeywords }"/>
+                        <ColumnDefinition Width="274*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        x:Name="tblSearchKeywords"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="1"
+                        Padding="0,0,10,0"
+                        Height="23"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="{my:Loc SearchKeywords}" />
+                    <TextBox
+                        x:Name="KeywordsBox"
                         Grid.Column="1"
                         Grid.ColumnSpan="1"
                         Height="25"

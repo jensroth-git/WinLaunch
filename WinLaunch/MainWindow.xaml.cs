@@ -115,8 +115,6 @@ namespace WinLaunch
 
         public static List<string> AddFiles = null;
 
-        //private Stopwatch startupTime = new Stopwatch();
-
         BackupManager backupManager;
         public Theme theme { get; set; }
         public Settings settings { get; set; }
@@ -128,7 +126,6 @@ namespace WinLaunch
 
             Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
 
-            //startupTime.Start();
             //setup backup manager
             string ItemPath = Path.GetDirectoryName(ItemCollection.CurrentItemsPath);
             string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
@@ -475,14 +472,5 @@ namespace WinLaunch
         }
 
         #endregion Folder Title Renaming
-
-        private void Grid_ContextMenuOpening(object sender, ContextMenuEventArgs e)
-        {
-            if (SBM.LockItems)
-                e.Handled = true;
-
-            //if (Settings.CurrentSettings.TabletMode)
-            //    e.Handled = true;
-        }
     }
 }

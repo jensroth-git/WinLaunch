@@ -3,19 +3,24 @@ using Microsoft.Win32;
 using Shell32;
 using System;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using WinLaunch.Properties;
 using MessageBox = System.Windows.MessageBox;
 
 namespace WinLaunch
@@ -159,6 +164,46 @@ namespace WinLaunch
         }
     }
 
+    public class LocalizedDescriptionAttribute : DescriptionAttribute
+    {
+        private readonly string _resourceKey;
+        public LocalizedDescriptionAttribute(string resourceKey)
+        {
+            _resourceKey = resourceKey;
+        }
+
+        public override string Description
+        {
+            get
+            {
+                string displayName = TranslationSource.Instance[_resourceKey];
+
+                return string.IsNullOrEmpty(displayName)
+                    ? string.Format("[[{0}]]", _resourceKey)
+                    : displayName;
+            }
+        }
+    }
+
+    public static class EnumExtensions
+    {
+        public static string GetDescription(this Enum enumValue)
+        {
+            FieldInfo fi = enumValue.GetType().GetField(enumValue.ToString());
+
+            DescriptionAttribute[] attributes =
+                (DescriptionAttribute[])fi.GetCustomAttributes(
+                typeof(DescriptionAttribute),
+                false);
+
+            if (attributes != null &&
+                attributes.Length > 0)
+                return attributes[0].Description;
+            else
+                return enumValue.ToString();
+        }
+    }
+
     public static class MiscUtils
     {
         private static double DPIScale = -1.0;
@@ -269,7 +314,7 @@ namespace WinLaunch
 
         public static int GetActiveScreenIndex()
         {
-            int activeIndex = GetScreenIndexFromPoint(Cursor.Position);
+            int activeIndex = GetScreenIndexFromPoint(System.Windows.Forms.Cursor.Position);
 
             if (activeIndex == -1)
                 return 0;

@@ -92,9 +92,6 @@ namespace System.Windows.Input
                         //if function fails result is 0
                         if (result == 0)
                         {
-                            //fuck this shit
-                            return;
-
                             int error = System.Runtime.InteropServices.Marshal.GetLastWin32Error();
                             if (error != 0)
                                 throw new System.ComponentModel.Win32Exception(error);

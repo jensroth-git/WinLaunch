@@ -795,12 +795,6 @@ namespace WinLaunch
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            //if(e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl || e.Key == Key.System)
-            //{
-            //    e.Handled = true;
-            //    return;
-            //}
-
             if (e.Key == Key.Escape)
             {
                 if (SearchActive)
@@ -939,6 +933,12 @@ namespace WinLaunch
         }
 
         #endregion
+
+        private void Grid_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            if (SBM.LockItems)
+                e.Handled = true;
+        }
 
         #region Background Theme Events
 

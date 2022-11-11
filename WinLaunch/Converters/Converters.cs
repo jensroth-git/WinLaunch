@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,27 @@ namespace WinLaunch
         }
 
         #endregion
+    }
+
+    [ValueConversion(typeof(Enum), typeof(string))]
+    public class EnumValueConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            //convert from enum to string
+            var enumValue = value as Enum;
+            if (enumValue != null)
+            {
+                return enumValue.GetDescription();
+            }
+            
+            return string.Format("{0}", value);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
     }
 
     public class EnumConverter : BaseConverter, IValueConverter

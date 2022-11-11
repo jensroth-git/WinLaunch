@@ -7,6 +7,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -258,6 +259,12 @@ namespace WinLaunch
             //update language settings
             settings.SelectedLanguage = cultures[cbbLanguages.SelectedIndex].Name;
             TranslationSource.Instance.CurrentCulture = cultures[cbbLanguages.SelectedIndex];
+
+            //refresh combobox
+            int selectedIndex = cbbMiddleMouseActivation.SelectedIndex;
+            cbbMiddleMouseActivation.SelectedIndex = -1;
+            cbbMiddleMouseActivation.SelectedIndex = selectedIndex;
+            cbbMiddleMouseActivation.Items.Refresh();
         }
         #endregion
 
@@ -318,7 +325,10 @@ namespace WinLaunch
 
         private void btnHotKey_KeyDown(object sender, KeyEventArgs e)
         {
-            if (waitingForHotkey)
+            if (waitingForHotkey && e.Key != Key.LWin && e.Key != Key.RWin && 
+                e.Key != Key.System && 
+                e.Key != Key.LeftShift && e.Key != Key.RightShift && 
+                e.Key != Key.LeftCtrl && e.Key != Key.RightCtrl)
             {
                 e.Handled = true;
 
@@ -570,6 +580,7 @@ namespace WinLaunch
             }
         }
         #endregion
+
 
     }
 }

@@ -187,6 +187,9 @@
   <data name="ClearItems" xml:space="preserve">
     <value>Clear items</value>
   </data>
+  <data name="Clicked" xml:space="preserve">
+    <value>Single click</value>
+  </data>
   <data name="CloseWarning" xml:space="preserve">
     <value>Are you sure you want to close WinLaunch?</value>
   </data>
@@ -210,6 +213,9 @@
   </data>
   <data name="DeskModeSwitch" xml:space="preserve">
     <value>To toggle DeskMode WinLaunch will have to be restarted, this might take a few seconds.</value>
+  </data>
+  <data name="DoubleClicked" xml:space="preserve">
+    <value>Double click</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
@@ -327,6 +333,9 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name:</value>
+  </data>
+  <data name="Nothing" xml:space="preserve">
+    <value>Nothing</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>Open</value>

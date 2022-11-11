@@ -28,6 +28,9 @@
 
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
 
+            <my:EnumValueConverter x:Key="EnumValueConverter" />
+            <my:EnumConverter x:Key="EnumValueConverter2" />
+            
             <ObjectDataProvider x:Key="MiddleMouseButtonActionEnum" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
                 <ObjectDataProvider.MethodParameters>
                     <x:Type TypeName="my:MiddleMouseButtonAction" />
@@ -318,7 +321,14 @@
                                               HorizontalAlignment="Stretch"
                                               VerticalAlignment="Top"
                                               ItemsSource="{Binding Source={StaticResource MiddleMouseButtonActionEnum}}"
-                                              SelectedIndex="{Binding settings.MiddleMouseActivation, Converter={my:EnumConverter}}" />
+                                              SelectedIndex="{Binding settings.MiddleMouseActivation, Converter={ my:EnumConverter}}" >
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Converter={StaticResource EnumValueConverter}}"/>
+                                            </DataTemplate>
+                                              
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
                                 </StackPanel>
                             </Grid>
                         </GroupBox>

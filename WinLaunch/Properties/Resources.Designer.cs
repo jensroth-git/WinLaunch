@@ -268,6 +268,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Single click.
+        /// </summary>
+        internal static string Clicked {
+            get {
+                return ResourceManager.GetString("Clicked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to close WinLaunch?.
         /// </summary>
         internal static string CloseWarning {
@@ -336,6 +345,15 @@ namespace WinLaunch.Properties {
         internal static string DeskModeSwitch {
             get {
                 return ResourceManager.GetString("DeskModeSwitch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Double click.
+        /// </summary>
+        internal static string DoubleClicked {
+            get {
+                return ResourceManager.GetString("DoubleClicked", resourceCulture);
             }
         }
         
@@ -687,6 +705,15 @@ namespace WinLaunch.Properties {
         internal static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing.
+        /// </summary>
+        internal static string Nothing {
+            get {
+                return ResourceManager.GetString("Nothing", resourceCulture);
             }
         }
         

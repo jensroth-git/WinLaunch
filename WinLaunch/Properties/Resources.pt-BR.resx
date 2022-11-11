@@ -1,64 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
+  
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -117,343 +59,353 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>Sobre</value>
-  </data>
-  <data name="Activation" xml:space="preserve">
-    <value>Ativação</value>
-  </data>
-  <data name="AddDefaultApps" xml:space="preserve">
-    <value>Adicionar aplicativos padrão</value>
-  </data>
-  <data name="AddFile" xml:space="preserve">
-    <value>Adicionar Arquivos</value>
-  </data>
-  <data name="AddFolder" xml:space="preserve">
-    <value>Adicionar Pasta</value>
-  </data>
-  <data name="AddLink" xml:space="preserve">
-    <value>Adicionar link</value>
-  </data>
-  <data name="AeroSwitch" xml:space="preserve">
-    <value>Para ativar o Aero WinLaunch deverá reiniciar o computador, isso pode demorar alguns segundos.</value>
-  </data>
-  <data name="AllowFreePlacement" xml:space="preserve">
-    <value>Permitir a colocação gratuita de itens</value>
-  </data>
-  <data name="AllowFreePlacementInfo" xml:space="preserve">
-    <value>Permite que os itens sejam colocados em qualquer lugar na grade</value>
-  </data>
-  <data name="Arguments" xml:space="preserve">
-    <value>Argumentos:</value>
-  </data>
-  <data name="Background" xml:space="preserve">
-    <value>Fundo</value>
-  </data>
-  <data name="BackgroundBlur" xml:space="preserve">
-    <value>Fundo Desfocado</value>
-  </data>
-  <data name="BackgroundTint" xml:space="preserve">
-    <value>Cor do fundo</value>
-  </data>
-  <data name="BackupAndRestore" xml:space="preserve">
-    <value>Backup e restauração</value>
-  </data>
-  <data name="BlockFullscreen" xml:space="preserve">
-    <value>Bloquear o WinLaunch de abrir quando os aplicativos de tecla cheia estiverem ativos.</value>
-  </data>
-  <data name="BlockFullscreenInfo" xml:space="preserve">
-    <value>Quando ativado, bloqueará o WinLaunch quando os aplicativos de tela cheia forem detectados. Ao jogar jogos ou assistir a vídeos.</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
-    <value>Isto não pode ser desfeito</value>
-  </data>
-  <data name="CheckForUpdates" xml:space="preserve">
-    <value>Verificar Atualizações</value>
-  </data>
-  <data name="CheckForUpdatesFrequently" xml:space="preserve">
-    <value>Verifique as atualizações com frequência</value>
-  </data>
-  <data name="ChooseMonitor" xml:space="preserve">
-    <value>Escolher Monitor</value>
-  </data>
-  <data name="ChoosePath" xml:space="preserve">
-    <value>Escolher caminho</value>
-  </data>
-  <data name="ClearItems" xml:space="preserve">
-    <value>Limpar itens</value>
-  </data>
-  <data name="CloseWarning" xml:space="preserve">
-    <value>Você tem certeza que deseja fechar o WinLaunch?</value>
-  </data>
-  <data name="Columns" xml:space="preserve">
-    <value>Colunas</value>
-  </data>
-  <data name="ColumnsAndRows" xml:space="preserve">
-    <value>Colunas e Linhas</value>
-  </data>
-  <data name="Confirm" xml:space="preserve">
-    <value>Confirmar</value>
-  </data>
-  <data name="Copied" xml:space="preserve">
-    <value>Copiado</value>
-  </data>
-  <data name="CreateBackup" xml:space="preserve">
-    <value>Criar backup</value>
-  </data>
-  <data name="CreatedBy" xml:space="preserve">
-    <value>Creado por</value>
-  </data>
-  <data name="DeskModeSwitch" xml:space="preserve">
-    <value>Para alterar o DeskMode, o WinLaunch terá que ser reiniciado, isso pode levar alguns segundos.</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Editar</value>
-  </data>
-  <data name="EnableAcrylic" xml:space="preserve">
-    <value>Ativar acrílico</value>
-  </data>
-  <data name="EnableAcrylicInfo" xml:space="preserve">
-    <value>Quando ativado, usará o novo desfoque acrílico do Windows 10</value>
-  </data>
-  <data name="EnableAero" xml:space="preserve">
-    <value>Ativar Aero</value>
-  </data>
-  <data name="EnableAeroInfo" xml:space="preserve">
-    <value>Quando ativado, usará o Windows Aero em vez de um papel de parede</value>
-  </data>
-  <data name="EnableAltDoubleTap" xml:space="preserve">
-    <value>Ativar a ativação de toque duplo Alt</value>
-  </data>
-  <data name="EnableCtrlDoubleTap" xml:space="preserve">
-    <value>Ativar ativação de toque duplo Ctrl</value>
-  </data>
-  <data name="EnableGamepadActivation" xml:space="preserve">
-    <value>Habilite a ativação do WinLaunch usando o botão iniciar em um gamepad</value>
-  </data>
-  <data name="EnableHotCorner" xml:space="preserve">
-    <value>Ativar Cantos Quentes</value>
-  </data>
-  <data name="EnableHotKey" xml:space="preserve">
-    <value>Ativar teclas de atalho</value>
-  </data>
-  <data name="EnableTouchscreen" xml:space="preserve">
-    <value>Ativar o modo touchscreen</value>
-  </data>
-  <data name="EnableTouchscreenInfo" xml:space="preserve">
-    <value>O modo de tela sensível ao toque permitirá que você mova itens apenas depois de segurá-los por 3 segundos (eles começarão a mexer)</value>
-  </data>
-  <data name="EnableWindowsKey" xml:space="preserve">
-    <value>Ativar a ativação da chave do Windows</value>
-  </data>
-  <data name="FillScreen" xml:space="preserve">
-    <value>Preencher a tela inteira</value>
-  </data>
-  <data name="FillScreenInfo" xml:space="preserve">
-    <value>Quando habilitado, o WinLaunch cobrirá a tela inteira, incluindo a barra de tarefas</value>
-  </data>
-  <data name="FolderColumns" xml:space="preserve">
-    <value>Colunas de pastas</value>
-  </data>
-  <data name="GamepadActivation" xml:space="preserve">
-    <value>Ativação do gamepad</value>
-  </data>
-  <data name="General" xml:space="preserve">
-    <value>Geral</value>
-  </data>
-  <data name="HotCornerDelay" xml:space="preserve">
-    <value>Atraso:</value>
-  </data>
-  <data name="HotCornersActivation" xml:space="preserve">
-    <value>Ativação de cantos quentes</value>
-  </data>
-  <data name="HotKeyActivation" xml:space="preserve">
-    <value>Ativação de teclas de atalho</value>
-  </data>
-  <data name="Icons" xml:space="preserve">
-    <value>Icones</value>
-  </data>
-  <data name="IconShadowOpacity" xml:space="preserve">
-    <value>Opacidade de sombras nos icones</value>
-  </data>
-  <data name="IconSize" xml:space="preserve">
-    <value>Tamanho dos ícones</value>
-  </data>
-  <data name="IconText" xml:space="preserve">
-    <value>Texto dos ícones:</value>
-  </data>
-  <data name="IconTextShadow" xml:space="preserve">
-    <value>Sombra dos textos:</value>
-  </data>
-  <data name="Interface" xml:space="preserve">
-    <value>Interface</value>
-  </data>
-  <data name="ItemOptions" xml:space="preserve">
-    <value>Opções de itens</value>
-  </data>
-  <data name="Items" xml:space="preserve">
-    <value>Itens</value>
-  </data>
-  <data name="KeyActivation" xml:space="preserve">
-    <value>Ativação de chave</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="LanguageInfo" xml:space="preserve">
-    <value>Para atualizar uma tradução ou fornecer uma nova visita</value>
-  </data>
-  <data name="LatestVersion" xml:space="preserve">
-    <value>Você está executando a versão mais recente.</value>
-  </data>
-  <data name="Loading" xml:space="preserve">
-    <value>Carregando...</value>
-  </data>
-  <data name="LoadWallpaper" xml:space="preserve">
-    <value>Carregar papel de parede</value>
-  </data>
-  <data name="LookAndFeel" xml:space="preserve">
-    <value>Aparências</value>
-  </data>
-  <data name="MiddleMouseActivation" xml:space="preserve">
-    <value>Ativação por mouse do meio</value>
-  </data>
-  <data name="MultiMonitors" xml:space="preserve">
-    <value>Multi monitores</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Nome:</value>
-  </data>
-  <data name="Open" xml:space="preserve">
-    <value>Abrir</value>
-  </data>
-  <data name="OpenAsAdmin" xml:space="preserve">
-    <value>Abrir como administrador</value>
-  </data>
-  <data name="OpenFolders" xml:space="preserve">
-    <value>Abrir pastas quando elas são criadas</value>
-  </data>
-  <data name="OpenLocation" xml:space="preserve">
-    <value>Abrir localização</value>
-  </data>
-  <data name="OpenOnActiveMonitor" xml:space="preserve">
-    <value>Sempre abrir no monitor que estiver ativo</value>
-  </data>
-  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
-    <value>Quando ativado, ativará automaticamente o WinLaunch no monitor em que o mouse está no momento</value>
-  </data>
-  <data name="Options" xml:space="preserve">
-    <value>Opções</value>
-  </data>
-  <data name="Path" xml:space="preserve">
-    <value>Caminho:</value>
-  </data>
-  <data name="PinDesktop" xml:space="preserve">
-    <value>Fixar o WinLaunch no Desktop</value>
-  </data>
-  <data name="PinDesktopInfo" xml:space="preserve">
-    <value>Quando habilitado, o WinLaunch será fixado no desktop substituindo o papel de parede</value>
-  </data>
-  <data name="PressAKey" xml:space="preserve">
-    <value>Pressione uma tecla</value>
-  </data>
-  <data name="Quit" xml:space="preserve">
-    <value>Sair</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Remover</value>
-  </data>
-  <data name="RemoveFolder" xml:space="preserve">
-    <value>Removendo essa pasta irá remover todos os itens dentro dela</value>
-  </data>
-  <data name="RemoveItem" xml:space="preserve">
-    <value>Você tem certeza que quer remover esse item?</value>
-  </data>
-  <data name="RestoreBackup" xml:space="preserve">
-    <value>Restaurar do backup</value>
-  </data>
-  <data name="RestoreIcon" xml:space="preserve">
-    <value>Restaurar icone</value>
-  </data>
-  <data name="Rows" xml:space="preserve">
-    <value>Linhas</value>
-  </data>
-  <data name="Screen" xml:space="preserve">
-    <value>Tela</value>
-  </data>
-  <data name="SearchKeywords" xml:space="preserve">
-    <value>Procure palavras-chave:</value>
-  </data>
-  <data name="SelectBackground" xml:space="preserve">
-    <value>Selecione uma imagem para papel de parede</value>
-  </data>
-  <data name="SelectIcon" xml:space="preserve">
-    <value>Selecione o ícone</value>
-  </data>
-  <data name="Settings" xml:space="preserve">
-    <value>Configurações</value>
-  </data>
-  <data name="ShowExtensionIcon" xml:space="preserve">
-    <value>Mostrar ícone de extensão</value>
-  </data>
-  <data name="ShowMiniatures" xml:space="preserve">
-    <value>Mostrar ícones em miniatura</value>
-  </data>
-  <data name="ShowPageIndicators" xml:space="preserve">
-    <value>Mostrar indicadores de página</value>
-  </data>
-  <data name="ShowSearchBar" xml:space="preserve">
-    <value>Mostrar barra de pesquisa</value>
-  </data>
-  <data name="SortFoldersFirst" xml:space="preserve">
-    <value>Classificar pastas primeiro!</value>
-  </data>
-  <data name="SortItemsAlphabetically" xml:space="preserve">
-    <value>Classificar itens em ordem alfabética</value>
-  </data>
-  <data name="StartWithWindows" xml:space="preserve">
-    <value>Iniciar com Windows</value>
-  </data>
-  <data name="StartWithWindowsInfo" xml:space="preserve">
-    <value>Quando ativado o WinLaunch vai iniciar com o sistema.</value>
-  </data>
-  <data name="SyncWallpaper" xml:space="preserve">
-    <value>Sincronizar o Papel de parede</value>
-  </data>
-  <data name="SyncWallpaperInfo" xml:space="preserve">
-    <value>Quando ativado, sincronizará o papel de parede com o papel de parede atual</value>
-  </data>
-  <data name="TranslatedBy" xml:space="preserve">
-    <value>Traduzido por JKLIMA</value>
-  </data>
-  <data name="Tutorial" xml:space="preserve">
-    <value>Tutorial</value>
-  </data>
-  <data name="Update" xml:space="preserve">
-    <value>Atualização</value>
-  </data>
-  <data name="UpdateAvailable" xml:space="preserve">
-    <value>Atualização disponível</value>
-  </data>
-  <data name="UpdateAvailableInfo" xml:space="preserve">
-    <value>Uma nova versão do WinLaunch está disponível, você gostaria de atualizar?</value>
-  </data>
-  <data name="UpdateError" xml:space="preserve">
-    <value>Não foi possível baixar as informações da versão</value>
-  </data>
-  <data name="UseCustomBackground" xml:space="preserve">
-    <value>Usar plano de fundo personalizado</value>
-  </data>
-  <data name="UseCustomBackgroundInfo" xml:space="preserve">
-    <value>Quando ativado, carregará uma imagem de plano de fundo personalizada</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>Versão:</value>
-  </data>
-  <data name="Warning" xml:space="preserve">
-    <value>Atenção</value>
-  </data>
+  	<data name="About" xml:space="preserve">
+		<value>Sobre</value>
+	</data>
+	<data name="Activation" xml:space="preserve">
+		<value>Ativação</value>
+	</data>
+	<data name="AddDefaultApps" xml:space="preserve">
+		<value>Adicionar aplicativos padrão</value>
+	</data>
+	<data name="AddFile" xml:space="preserve">
+		<value>Adicionar Arquivos</value>
+	</data>
+	<data name="AddFolder" xml:space="preserve">
+		<value>Adicionar Pasta</value>
+	</data>
+	<data name="AddLink" xml:space="preserve">
+		<value>Adicionar link</value>
+	</data>
+	<data name="AeroSwitch" xml:space="preserve">
+		<value>Para ativar o Aero WinLaunch deverá reiniciar o computador, isso pode demorar alguns segundos.</value>
+	</data>
+	<data name="AllowFreePlacement" xml:space="preserve">
+		<value>Permitir a colocação gratuita de itens</value>
+	</data>
+	<data name="AllowFreePlacementInfo" xml:space="preserve">
+		<value>Permite que os itens sejam colocados em qualquer lugar na grade</value>
+	</data>
+	<data name="Arguments" xml:space="preserve">
+		<value>Argumentos:</value>
+	</data>
+	<data name="Background" xml:space="preserve">
+		<value>Fundo</value>
+	</data>
+	<data name="BackgroundBlur" xml:space="preserve">
+		<value>Fundo Desfocado</value>
+	</data>
+	<data name="BackgroundTint" xml:space="preserve">
+		<value>Cor do fundo</value>
+	</data>
+	<data name="BackupAndRestore" xml:space="preserve">
+		<value>Backup e restauração</value>
+	</data>
+	<data name="BlockFullscreen" xml:space="preserve">
+		<value>Bloquear o WinLaunch de abrir quando os aplicativos de tecla cheia estiverem ativos.</value>
+	</data>
+	<data name="BlockFullscreenInfo" xml:space="preserve">
+		<value>Quando ativado, bloqueará o WinLaunch quando os aplicativos de tela cheia forem detectados. Ao jogar jogos ou assistir a vídeos.</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Cancelar</value>
+	</data>
+	<data name="CantBeUndoneWarning" xml:space="preserve">
+		<value>Isto não pode ser desfeito</value>
+	</data>
+	<data name="CheckForUpdates" xml:space="preserve">
+		<value>Verificar Atualizações</value>
+	</data>
+	<data name="CheckForUpdatesFrequently" xml:space="preserve">
+		<value>Verifique as atualizações com frequência</value>
+	</data>
+	<data name="ChooseMonitor" xml:space="preserve">
+		<value>Escolher Monitor</value>
+	</data>
+	<data name="ChoosePath" xml:space="preserve">
+		<value>Escolher caminho</value>
+	</data>
+	<data name="ClearItems" xml:space="preserve">
+		<value>Limpar itens</value>
+	</data>
+	<data name="Clicked" xml:space="preserve">
+		<value>Clique único</value>
+	</data>
+	<data name="CloseWarning" xml:space="preserve">
+		<value>Você tem certeza que deseja fechar o WinLaunch?</value>
+	</data>
+	<data name="Columns" xml:space="preserve">
+		<value>Colunas</value>
+	</data>
+	<data name="ColumnsAndRows" xml:space="preserve">
+		<value>Colunas e Linhas</value>
+	</data>
+	<data name="Confirm" xml:space="preserve">
+		<value>Confirmar</value>
+	</data>
+	<data name="Copied" xml:space="preserve">
+		<value>Copiado</value>
+	</data>
+	<data name="CreateBackup" xml:space="preserve">
+		<value>Criar backup</value>
+	</data>
+	<data name="CreatedBy" xml:space="preserve">
+		<value>Creado por</value>
+	</data>
+	<data name="DeskModeSwitch" xml:space="preserve">
+		<value>Para alterar o DeskMode, o WinLaunch terá que ser reiniciado, isso pode levar alguns segundos.</value>
+	</data>
+	<data name="DoubleClicked" xml:space="preserve">
+		<value>Duplo click</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+		<value>Editar</value>
+	</data>
+	<data name="EnableAcrylic" xml:space="preserve">
+		<value>Ativar acrílico</value>
+	</data>
+	<data name="EnableAcrylicInfo" xml:space="preserve">
+		<value>Quando ativado, usará o novo desfoque acrílico do Windows 10</value>
+	</data>
+	<data name="EnableAero" xml:space="preserve">
+		<value>Ativar Aero</value>
+	</data>
+	<data name="EnableAeroInfo" xml:space="preserve">
+		<value>Quando ativado, usará o Windows Aero em vez de um papel de parede</value>
+	</data>
+	<data name="EnableAltDoubleTap" xml:space="preserve">
+		<value>Ativar a ativação de toque duplo Alt</value>
+	</data>
+	<data name="EnableCtrlDoubleTap" xml:space="preserve">
+		<value>Ativar ativação de toque duplo Ctrl</value>
+	</data>
+	<data name="EnableGamepadActivation" xml:space="preserve">
+		<value>Habilite a ativação do WinLaunch usando o botão iniciar em um gamepad</value>
+	</data>
+	<data name="EnableHotCorner" xml:space="preserve">
+		<value>Ativar Cantos Quentes</value>
+	</data>
+	<data name="EnableHotKey" xml:space="preserve">
+		<value>Ativar teclas de atalho</value>
+	</data>
+	<data name="EnableTouchscreen" xml:space="preserve">
+		<value>Ativar o modo touchscreen</value>
+	</data>
+	<data name="EnableTouchscreenInfo" xml:space="preserve">
+		<value>O modo de tela sensível ao toque permitirá que você mova itens apenas depois de segurá-los por 3 segundos (eles começarão a mexer)</value>
+	</data>
+	<data name="EnableWindowsKey" xml:space="preserve">
+		<value>Ativar a ativação da chave do Windows</value>
+	</data>
+	<data name="FillScreen" xml:space="preserve">
+		<value>Preencher a tela inteira</value>
+	</data>
+	<data name="FillScreenInfo" xml:space="preserve">
+		<value>Quando habilitado, o WinLaunch cobrirá a tela inteira, incluindo a barra de tarefas</value>
+	</data>
+	<data name="FolderColumns" xml:space="preserve">
+		<value>Colunas de pastas</value>
+	</data>
+	<data name="GamepadActivation" xml:space="preserve">
+		<value>Ativação do gamepad</value>
+	</data>
+	<data name="General" xml:space="preserve">
+		<value>Geral</value>
+	</data>
+	<data name="HotCornerDelay" xml:space="preserve">
+		<value>Atraso:</value>
+	</data>
+	<data name="HotCornersActivation" xml:space="preserve">
+		<value>Ativação de cantos quentes</value>
+	</data>
+	<data name="HotKeyActivation" xml:space="preserve">
+		<value>Ativação de teclas de atalho</value>
+	</data>
+	<data name="Icons" xml:space="preserve">
+		<value>Icones</value>
+	</data>
+	<data name="IconShadowOpacity" xml:space="preserve">
+		<value>Opacidade de sombras nos icones</value>
+	</data>
+	<data name="IconSize" xml:space="preserve">
+		<value>Tamanho dos ícones</value>
+	</data>
+	<data name="IconText" xml:space="preserve">
+		<value>Texto dos ícones:</value>
+	</data>
+	<data name="IconTextShadow" xml:space="preserve">
+		<value>Sombra dos textos:</value>
+	</data>
+	<data name="Interface" xml:space="preserve">
+		<value>Interface</value>
+	</data>
+	<data name="ItemOptions" xml:space="preserve">
+		<value>Opções de itens</value>
+	</data>
+	<data name="Items" xml:space="preserve">
+		<value>Itens</value>
+	</data>
+	<data name="KeyActivation" xml:space="preserve">
+		<value>Ativação de chave</value>
+	</data>
+	<data name="Language" xml:space="preserve">
+		<value>Idioma</value>
+	</data>
+	<data name="LanguageInfo" xml:space="preserve">
+		<value>Para atualizar uma tradução ou fornecer uma nova visita</value>
+	</data>
+	<data name="LatestVersion" xml:space="preserve">
+		<value>Você está executando a versão mais recente.</value>
+	</data>
+	<data name="Loading" xml:space="preserve">
+		<value>Carregando...</value>
+	</data>
+	<data name="LoadWallpaper" xml:space="preserve">
+		<value>Carregar papel de parede</value>
+	</data>
+	<data name="LookAndFeel" xml:space="preserve">
+		<value>Aparências</value>
+	</data>
+	<data name="MiddleMouseActivation" xml:space="preserve">
+		<value>Ativação por mouse do meio</value>
+	</data>
+	<data name="MultiMonitors" xml:space="preserve">
+		<value>Multi monitores</value>
+	</data>
+	<data name="Name" xml:space="preserve">
+		<value>Nome:</value>
+	</data>
+	<data name="Nothing" xml:space="preserve">
+		<value>Nada</value>
+	</data>
+	<data name="Open" xml:space="preserve">
+		<value>Abrir</value>
+	</data>
+	<data name="OpenAsAdmin" xml:space="preserve">
+		<value>Abrir como administrador</value>
+	</data>
+	<data name="OpenFolders" xml:space="preserve">
+		<value>Abrir pastas quando elas são criadas</value>
+	</data>
+	<data name="OpenLocation" xml:space="preserve">
+		<value>Abrir localização</value>
+	</data>
+	<data name="OpenOnActiveMonitor" xml:space="preserve">
+		<value>Sempre abrir no monitor que estiver ativo</value>
+	</data>
+	<data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+		<value>Quando ativado, ativará automaticamente o WinLaunch no monitor em que o mouse está no momento</value>
+	</data>
+	<data name="Options" xml:space="preserve">
+		<value>Opções</value>
+	</data>
+	<data name="Path" xml:space="preserve">
+		<value>Caminho:</value>
+	</data>
+	<data name="PinDesktop" xml:space="preserve">
+		<value>Fixar o WinLaunch no Desktop</value>
+	</data>
+	<data name="PinDesktopInfo" xml:space="preserve">
+		<value>Quando habilitado, o WinLaunch será fixado no desktop substituindo o papel de parede</value>
+	</data>
+	<data name="PressAKey" xml:space="preserve">
+		<value>Pressione uma tecla</value>
+	</data>
+	<data name="Quit" xml:space="preserve">
+		<value>Sair</value>
+	</data>
+	<data name="Remove" xml:space="preserve">
+		<value>Remover</value>
+	</data>
+	<data name="RemoveFolder" xml:space="preserve">
+		<value>Removendo essa pasta irá remover todos os itens dentro dela</value>
+	</data>
+	<data name="RemoveItem" xml:space="preserve">
+		<value>Você tem certeza que quer remover esse item?</value>
+	</data>
+	<data name="RestoreBackup" xml:space="preserve">
+		<value>Restaurar do backup</value>
+	</data>
+	<data name="RestoreIcon" xml:space="preserve">
+		<value>Restaurar icone</value>
+	</data>
+	<data name="Rows" xml:space="preserve">
+		<value>Linhas</value>
+	</data>
+	<data name="Screen" xml:space="preserve">
+		<value>Tela</value>
+	</data>
+	<data name="SearchKeywords" xml:space="preserve">
+		<value>Procure palavras-chave:</value>
+	</data>
+	<data name="SelectBackground" xml:space="preserve">
+		<value>Selecione uma imagem para papel de parede</value>
+	</data>
+	<data name="SelectIcon" xml:space="preserve">
+		<value>Selecione o ícone</value>
+	</data>
+	<data name="Settings" xml:space="preserve">
+		<value>Configurações</value>
+	</data>
+	<data name="ShowExtensionIcon" xml:space="preserve">
+		<value>Mostrar ícone de extensão</value>
+	</data>
+	<data name="ShowMiniatures" xml:space="preserve">
+		<value>Mostrar ícones em miniatura</value>
+	</data>
+	<data name="ShowPageIndicators" xml:space="preserve">
+		<value>Mostrar indicadores de página</value>
+	</data>
+	<data name="ShowSearchBar" xml:space="preserve">
+		<value>Mostrar barra de pesquisa</value>
+	</data>
+	<data name="SortFoldersFirst" xml:space="preserve">
+		<value>Classificar pastas primeiro!</value>
+	</data>
+	<data name="SortItemsAlphabetically" xml:space="preserve">
+		<value>Classificar itens em ordem alfabética</value>
+	</data>
+	<data name="StartWithWindows" xml:space="preserve">
+		<value>Iniciar com Windows</value>
+	</data>
+	<data name="StartWithWindowsInfo" xml:space="preserve">
+		<value>Quando ativado o WinLaunch vai iniciar com o sistema.</value>
+	</data>
+	<data name="SyncWallpaper" xml:space="preserve">
+		<value>Sincronizar o Papel de parede</value>
+	</data>
+	<data name="SyncWallpaperInfo" xml:space="preserve">
+		<value>Quando ativado, sincronizará o papel de parede com o papel de parede atual</value>
+	</data>
+	<data name="TranslatedBy" xml:space="preserve">
+		<value>Traduzido por JKLIMA</value>
+	</data>
+	<data name="Tutorial" xml:space="preserve">
+		<value>Tutorial</value>
+	</data>
+	<data name="Update" xml:space="preserve">
+		<value>Atualização</value>
+	</data>
+	<data name="UpdateAvailable" xml:space="preserve">
+		<value>Atualização disponível</value>
+	</data>
+	<data name="UpdateAvailableInfo" xml:space="preserve">
+		<value>Uma nova versão do WinLaunch está disponível, você gostaria de atualizar?</value>
+	</data>
+	<data name="UpdateError" xml:space="preserve">
+		<value>Não foi possível baixar as informações da versão</value>
+	</data>
+	<data name="UseCustomBackground" xml:space="preserve">
+		<value>Usar plano de fundo personalizado</value>
+	</data>
+	<data name="UseCustomBackgroundInfo" xml:space="preserve">
+		<value>Quando ativado, carregará uma imagem de plano de fundo personalizada</value>
+	</data>
+	<data name="Version" xml:space="preserve">
+		<value>Versão:</value>
+	</data>
+	<data name="Warning" xml:space="preserve">
+		<value>Atenção</value>
+	</data>
+
 </root>

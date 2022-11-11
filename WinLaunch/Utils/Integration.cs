@@ -212,8 +212,13 @@ namespace WinLaunch
 
     public enum MiddleMouseButtonAction
     {
+        [LocalizedDescription("Nothing")]
         Nothing = 0,
+
+        [LocalizedDescription("Clicked")]
         Clicked = 1,
+
+        [LocalizedDescription("DoubleClicked")]
         DoubleClicked = 2
     }
 

@@ -313,6 +313,9 @@
   <data name="Quit" xml:space="preserve">
 		<value>Beenden</value>
 	</data>
+  <data name="ReallyAddDefaultApps" xml:space="preserve">
+    <value>Möchten Sie wirklich alle Standard-Apps hinzufügen?</value>
+  </data>
   <data name="Remove" xml:space="preserve">
 		<value>Entfernen</value>
 	</data>

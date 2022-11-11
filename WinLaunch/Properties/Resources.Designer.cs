@@ -826,6 +826,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you really want to add all default apps ?.
+        /// </summary>
+        internal static string ReallyAddDefaultApps {
+            get {
+                return ResourceManager.GetString("ReallyAddDefaultApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         internal static string Remove {

@@ -373,6 +373,9 @@
   <data name="Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
+  <data name="ReallyAddDefaultApps" xml:space="preserve">
+    <value>Do you really want to add all default apps ?</value>
+  </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
   </data>

@@ -107,7 +107,7 @@ namespace WinLaunch
         #region Main Context Menu
         private void miAddDefaultApps_Clicked(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Do you really want to add all default apps?", "Add default apps", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show(TranslationSource.Instance["ReallyAddDefaultApps"], TranslationSource.Instance["AddDefaultApps"], MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 AddDefaultApps();
             }

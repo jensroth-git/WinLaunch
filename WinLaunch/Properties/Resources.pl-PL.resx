@@ -59,7 +59,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  		<data name="About" xml:space="preserve">
 		<value>O programie</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -314,6 +314,9 @@
 	<data name="Quit" xml:space="preserve">
 		<value>Wyjdź</value>
 	</data>
+	<data name="ReallyAddDefaultApps" xml:space="preserve">
+		<value>Czy na pewno chcesz dodać wszystkie domyślne aplikacje?</value>
+	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>Usuń</value>
 	</data>
@@ -407,5 +410,6 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Ostrzeżenie</value>
 	</data>
+
 
 </root>

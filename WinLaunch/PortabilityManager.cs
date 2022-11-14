@@ -84,6 +84,31 @@ namespace WinLaunch
             IsPortable = Directory.Exists(PortableDirectory);
         }
 
+        public static void MakeInstalled()
+        {
+            IsPortable = false;
+
+            //copy all files from appdata to data
+            if (!MiscUtils.CopyDirectoryOverwrite(
+                PortableDirectory,
+                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch"),
+                true))
+            {
+                MessageBox.Show("error while copying files from " + Path.GetFullPath(PortableDirectory));
+                IsPortable = true;
+                return;
+            }
+
+            try
+            {
+                Directory.Delete(PortableDirectory, true);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error while removing portable directory " + Path.GetFullPath(PortableDirectory) + " please delete it manually");
+            }
+        }
+
         public static void MakePortable(ItemCollection Items)
         {
             IsPortable = true;
@@ -104,13 +129,13 @@ namespace WinLaunch
                 //make the icon paths relative
                 foreach (var item in Items.Items)
                 {
-                    ReplaceIcon(item);
+                    MoveToIconCache(item);
 
                     if (item.IsFolder)
                     {
                         foreach (var subItem in item.IC.Items)
                         {
-                            ReplaceIcon(subItem);
+                            MoveToIconCache(subItem);
                         }
                     }
                 }
@@ -124,31 +149,27 @@ namespace WinLaunch
             }
         }
 
-        private static void ReplaceIcon(SBItem item)
+        private static void MoveToIconCache(SBItem item)
         {
             if (item.IconPath != null)
             {
-                string dirName = new DirectoryInfo(Path.GetDirectoryName(item.IconPath)).Name;
-
-                if (dirName != "IconCache")
+                if(!ItemCollection.IsIconInCache(item.IconPath))
                 {
+                    //not a cached icon
                     //copy file over to the new cache
                     string extension = Path.GetExtension(item.IconPath);
                     string guid = Guid.NewGuid().ToString();
 
-                    string iconPath = Path.Combine(PortabilityManager.IconCachePath, guid + extension);
+                    string newIconPath = guid + extension;
 
-                    File.Copy(item.IconPath, iconPath);
+                    File.Copy(item.IconPath, Path.Combine(PortabilityManager.IconCachePath, newIconPath));
 
-                    item.IconPath = iconPath;
+                    item.IconPath = newIconPath;
                     return;
                 }
-
-                string filename = Path.GetFileName(item.IconPath);
-                string newPath = Path.Combine(IconCachePath, filename);
-
-                item.IconPath = newPath;
             }
         }
+
+
     }
 }

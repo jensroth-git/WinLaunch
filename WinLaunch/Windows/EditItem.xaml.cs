@@ -339,7 +339,7 @@ namespace WinLaunch
                         string extension = Path.GetExtension(op.FileName);
                         string guid = Guid.NewGuid().ToString();
 
-                        string iconPath = Path.Combine(PortabilityManager.IconCachePath, guid + extension);
+                        string iconPath = guid + extension;
 
                         //Set as IconPath
                         this.ActiveItem.IconPath = iconPath;
@@ -347,7 +347,7 @@ namespace WinLaunch
                         if(!Directory.Exists(PortabilityManager.IconCachePath))
                             Directory.CreateDirectory(PortabilityManager.IconCachePath);
 
-                        MiscUtils.SaveBitmapImage(this.ActiveItem.Icon, iconPath);
+                        MiscUtils.SaveBitmapImage(this.ActiveItem.Icon, Path.Combine(PortabilityManager.IconCachePath, iconPath));
                     }
                     catch { }
 

@@ -545,7 +545,15 @@ namespace WinLaunch
         #region Backup and Restore
         private void btnSaveBackup_Click(object sender, RoutedEventArgs e)
         {
-            string settingsDir = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch");
+            string settingsDir = "";
+            if (PortabilityManager.IsPortable)
+            {
+                settingsDir = PortabilityManager.PortableDirectory;
+            }
+            else
+            {
+                settingsDir = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch");
+            }
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "WinLaunch Backup|*.WLbackup";
@@ -578,7 +586,15 @@ namespace WinLaunch
 
         private void btnLoadBackup_Click(object sender, RoutedEventArgs e)
         {
-            string settingsDir = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch");
+            string settingsDir = "";
+            if (PortabilityManager.IsPortable)
+            {
+                settingsDir = PortabilityManager.PortableDirectory;
+            }
+            else
+            {
+                settingsDir = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch");
+            }
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "WinLaunch Backup|*.WLbackup";
@@ -596,8 +612,8 @@ namespace WinLaunch
                         }
                         catch
                         {
-                            Process.Start(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/"));
-                            throw new Exception("unable to delete some files, please do it manually (%appdata%/Roaming/WinLaunch/)");
+                            Process.Start(settingsDir);
+                            throw new Exception("unable to delete some files, please do it manually " + settingsDir);
                         }
 
                         //unzip into it

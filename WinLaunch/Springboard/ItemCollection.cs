@@ -72,51 +72,22 @@ namespace WinLaunch
 
         #region Image Loading
 
-        private void LoadIcon(SBItem item)
+        public static bool IsIconInCache(string IconPath)
         {
-            if (item.IsFolder)
+            string filename = Path.GetFileNameWithoutExtension(IconPath);
+            Guid id;
+
+            if (!Guid.TryParse(filename, out id))
             {
-                if (item.IconPath != null)
-                {
-                    BitmapSource bmps = null;
-
-                    try
-                    {
-                        bmps = MiscUtils.LoadBitmapImage(item.IconPath, 128);
-                        item.Icon = bmps;
-                    }
-                    catch { }
-                }
+                return false;
             }
-            else
+
+            if (string.IsNullOrEmpty(Path.GetDirectoryName(IconPath)))
             {
-                //only try to load icon if item exists otherwise crash / hang
-                if (File.Exists(item.ApplicationPath) || Directory.Exists(item.ApplicationPath) || Uri.IsWellFormedUriString(item.ApplicationPath, UriKind.Absolute))
-                {
-                    BitmapSource bmps = null;
-
-                    if (item.IconPath != null)
-                    {
-                        //special icon set, try loading and default to file icon
-                        try
-                        {
-                            //load bitmap and resize it to 128px width
-                            bmps = MiscUtils.LoadBitmapImage(item.IconPath, 128);
-                        }
-                        catch
-                        {
-                            bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
-                        }
-                    }
-                    else
-                    {
-                        
-                        bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
-                    }
-
-                    item.Icon = bmps;
-                }
+                return true;
             }
+
+            return false;
         }
 
         private void LoadIconInBackground(SBItem item, Dispatcher disp)
@@ -130,7 +101,28 @@ namespace WinLaunch
 
                     try
                     {
-                        bmps = MiscUtils.LoadBitmapImage(item.IconPath, 128);
+                        string fullPath = "";
+
+                        if (IsIconInCache(item.IconPath))
+                        {
+                            fullPath = Path.Combine(PortabilityManager.IconCachePath, item.IconPath);
+                        }
+                        else
+                        {
+                            //legacy support
+                            fullPath = item.IconPath;
+                        }
+
+                        try
+                        {
+                            bmps = MiscUtils.LoadBitmapImage(fullPath, 128);
+                        }
+                        catch { }
+
+                        if (bmps == null)
+                        {
+                            throw new Exception("error loading image");
+                        }
 
                         disp.BeginInvoke(new Action(() =>
                         {
@@ -153,23 +145,55 @@ namespace WinLaunch
                     {
                         try
                         {
-                            //load bitmap and resize it to 128px width
-                            bmps = MiscUtils.LoadBitmapImage(item.IconPath, 128);
+                            string fullPath = "";
+
+                            if (IsIconInCache(item.IconPath))
+                            {
+                                fullPath = Path.Combine(PortabilityManager.IconCachePath, item.IconPath);
+                            }
+                            else
+                            {
+                                //legacy support
+                                fullPath = item.IconPath;
+                            }
+
+                            try
+                            {
+                                //load bitmap and resize it to 128px width
+                                bmps = MiscUtils.LoadBitmapImage(fullPath, 128);
+                            }
+                            catch { }
+
+                            if (bmps == null)
+                            {
+                                throw new Exception("error loading image");
+                            }
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
-                            bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
+                            try
+                            {
+                                bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
+                            }
+                            catch { }
                         }
                     }
                     else
                     {
-                        bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
+                        try
+                        {
+                            bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
+                        }
+                        catch { }
                     }
 
-                    disp.BeginInvoke(new Action(() =>
+                    if (bmps != null)
                     {
-                        item.Icon = bmps;
-                    }));
+                        disp.BeginInvoke(new Action(() =>
+                        {
+                            item.Icon = bmps;
+                        }));
+                    }
                 }
             }
         }
@@ -196,16 +220,16 @@ namespace WinLaunch
                     }
 
                     //rerender all folders
-                    foreach (SBItem item in Items)
+                    disp.BeginInvoke(new Action(() =>
                     {
-                        if (item.IsFolder)
+                        foreach (SBItem item in Items)
                         {
-                            disp.BeginInvoke(new Action(() =>
+                            if (item.IsFolder)
                             {
                                 item.UpdateFolderIcon();
-                            }));
+                            }
                         }
-                    }
+                    }));
                 }
                 catch (Exception ex)
                 {
@@ -218,39 +242,6 @@ namespace WinLaunch
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
-        public void LoadIcons()
-        {
-            try
-            {
-                //Load all items
-                foreach (SBItem item in Items)
-                {
-                    if (item.IsFolder)
-                    {
-                        //load items in the folder
-                        foreach (SBItem folderitem in item.IC.Items)
-                        {
-                            LoadIcon(folderitem);
-                        }
-                    }
-
-                    LoadIcon(item);
-                }
-
-                //rerender all folders
-                foreach (SBItem item in Items)
-                {
-                    if (item.IsFolder)
-                    {
-                        item.UpdateFolderIcon();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not load Items" + ex.Message, "Winlaunch Error");
-            }
-        }
 
         #endregion Image Loading
 
@@ -267,7 +258,7 @@ namespace WinLaunch
                 ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Keywords, item.Arguments, item.RunAsAdmin, item.IsFolder, item.ShowMiniatures);
                 ItemList.Add(NewItem);
 
-                if (item.IC.Items.Count != 0)
+                if (item.IsFolder)
                 {
                     item.IC.TranslateToSerializableFormat(NewItem.Items);
                 }

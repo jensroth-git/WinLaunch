@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -59,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  	<data name="About" xml:space="preserve">
 		<value>About</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -245,6 +244,9 @@
 	<data name="Items" xml:space="preserve">
 		<value>Items</value>
 	</data>
+	<data name="JoinUsOnDiscord" xml:space="preserve">
+		<value>Join us on Discord</value>
+	</data>
 	<data name="KeyActivation" xml:space="preserve">
 		<value>Key activation</value>
 	</data>
@@ -380,6 +382,9 @@
 	<data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>When enabled will synchronize the background with the current wallpaper</value>
 	</data>
+	<data name="Themes" xml:space="preserve">
+		<value>Themes</value>
+	</data>
 	<data name="TranslatedBy" xml:space="preserve">
 		<value>Translated by C0rrupted</value>
 	</data>
@@ -410,6 +415,5 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Warning</value>
 	</data>
-
 
 </root>

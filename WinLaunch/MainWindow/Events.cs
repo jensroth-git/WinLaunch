@@ -363,7 +363,7 @@ namespace WinLaunch
                 System.IO.Directory.CreateDirectory(appData);
             }
 
-            if (!System.IO.File.Exists(ItemCollection.CurrentItemsPath))
+            if (!System.IO.File.Exists(PortabilityManager.ItemsPath))
             {
                 //Set autostart
                 Autostart.SetAutoStart("WinLaunch", Assembly.GetExecutingAssembly().Location, " -hide");
@@ -452,7 +452,7 @@ namespace WinLaunch
             #endregion hook up events
 
             //show if not hidden and on first ever startup
-            if (!System.IO.File.Exists(ItemCollection.CurrentItemsPath) || !StartHidden)
+            if (!System.IO.File.Exists(PortabilityManager.ItemsPath) || !StartHidden)
             {
                 //show window
                 if (!Settings.CurrentSettings.DeskMode)

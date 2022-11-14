@@ -7,7 +7,7 @@
         xmlns:my="clr-namespace:WinLaunch"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="{my:Loc Settings}"
-        Width="500"
+        Width="600"
         Height="721"
         FlowDirection="{my:LocFlow}"
         Icon="/WinLaunch;component/res/Settings.png"
@@ -22,6 +22,7 @@
                 <ResourceDictionary Source="../OSXTabControl.xaml" />
                 <ResourceDictionary Source="../ThinScrollBar.xaml" />
                 <ResourceDictionary Source="../OSXTabBar.xaml" />
+                <ResourceDictionary Source="../DiscordButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="SeperatorBrush" Color="#FFE0E0E0" />
@@ -408,6 +409,19 @@
                         </ScrollViewer>
                     </TabItem>
 
+
+                    <TabItem Header="{my:Loc Themes}" Style="{StaticResource OSXTabBarItemCenter}">
+                        <ScrollViewer>
+                            <StackPanel Margin="7,0,0,0">
+                                <GroupBox Header="{my:Loc Themes}">
+                                    <StackPanel Margin="10">
+                                        <TextBlock x:Name="tblThemes" TextDecorations="Underline" Cursor="Hand" Text="Support WinLaunch on Patreon to get access to custom themes and other benefits" MouseLeftButtonDown="tblThemes_MouseLeftButtonDown"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </TabItem>
+
                     <TabItem Header="{my:Loc Icons}" Style="{StaticResource OSXTabBarItemCenter}">
                         <ScrollViewer>
                             <StackPanel Margin="7,0,0,0">
@@ -571,6 +585,13 @@
                                 </StackPanel>
 
                                 <TextBlock Text="{my:Loc TranslatedBy}" />
+
+                                <Button x:Name="btnDiscord" HorizontalAlignment="Left" Margin="0,10,0,0" Style="{StaticResource DiscordButton}" Click="btnDiscord_Click">
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <Image Source="/WinLaunch;component/res/Settings/discord.png" Height="20" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        <TextBlock Text="{my:Loc JoinUsOnDiscord}" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                                    </StackPanel>
+                                </Button>
                             </StackPanel>
                         </GroupBox>
 
@@ -608,6 +629,16 @@
                                                    Text="{my:Loc CheckForUpdates}" />
                                     </Grid>
                                 </Button>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="Patrons">
+                            <StackPanel Margin="10">
+                                <TextBlock>
+                                    <Run Text="Shoutout to the people supporting WinLaunch on" />
+                                    <Run x:Name="runPatreon" TextDecorations="Underline" Cursor="Hand" Text="Patreon" MouseLeftButtonDown="runPatreon_MouseLeftButtonDown"/>
+                                </TextBlock>
+                                <TextBlock x:Name="tblPatrons" Margin="0,10,0,0" FontSize="16" />
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>

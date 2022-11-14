@@ -619,6 +619,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Join us on Discord.
+        /// </summary>
+        internal static string JoinUsOnDiscord {
+            get {
+                return ResourceManager.GetString("JoinUsOnDiscord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key activation.
         /// </summary>
         internal static string KeyActivation {
@@ -1020,6 +1029,15 @@ namespace WinLaunch.Properties {
         internal static string SyncWallpaperInfo {
             get {
                 return ResourceManager.GetString("SyncWallpaperInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Themes.
+        /// </summary>
+        internal static string Themes {
+            get {
+                return ResourceManager.GetString("Themes", resourceCulture);
             }
         }
         

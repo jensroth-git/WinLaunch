@@ -33,7 +33,7 @@ namespace WinLaunch
                 }
 
                 Settings.CurrentSettings.version = Assembly.GetExecutingAssembly().GetName().Version;
-                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+                Settings.SaveSettings(PortabilityManager.SettingsPath, Settings.CurrentSettings);
 
                 Welcome welcome = new Welcome();
                 welcome.ShowDialog();

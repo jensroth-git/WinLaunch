@@ -14,8 +14,6 @@ namespace WinLaunch
         [System.Xml.Serialization.XmlIgnore]
         public Version version = null;
 
-        public static string CurrentSettingsPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/Settings.xml");
-
         public bool CheckForUpdatesFrequently { get; set; }
 
         public bool SortItemsAlphabetically { get; set; }

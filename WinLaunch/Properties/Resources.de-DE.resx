@@ -244,6 +244,9 @@
   <data name="Items" xml:space="preserve">
 		<value>Elemente</value>
 	</data>
+  <data name="JoinUsOnDiscord" xml:space="preserve">
+    <value>Schließe dich uns auf Discord an</value>
+  </data>
   <data name="KeyActivation" xml:space="preserve">
 		<value>Tastatur Aktivierung</value>
 	</data>
@@ -356,7 +359,7 @@
 		<value>Miniatursymbole anzeigen</value>
 	</data>
   <data name="ShowPageIndicators" xml:space="preserve">
-		<value>Zeige Seiten Indikatoren</value>
+		<value>Zeige die Seiten Indikatoren</value>
 	</data>
   <data name="ShowSearchBar" xml:space="preserve">
 		<value>Zeige die Suchleiste</value>
@@ -379,6 +382,9 @@
   <data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Wenn aktiviert wird das Hintergrundbild vom Desktop Synchronisiert</value>
 	</data>
+  <data name="Themes" xml:space="preserve">
+    <value>Themes</value>
+  </data>
   <data name="TranslatedBy" xml:space="preserve">
 		<value>Übersetzt von Mark</value>
 	</data>

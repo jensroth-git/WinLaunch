@@ -304,6 +304,9 @@
   <data name="Items" xml:space="preserve">
     <value>Items</value>
   </data>
+  <data name="JoinUsOnDiscord" xml:space="preserve">
+    <value>Join us on Discord</value>
+  </data>
   <data name="KeyActivation" xml:space="preserve">
     <value>Key activation</value>
   </data>
@@ -438,6 +441,9 @@
   </data>
   <data name="SyncWallpaperInfo" xml:space="preserve">
     <value>When enabled will synchronize the background with the current wallpaper</value>
+  </data>
+  <data name="Themes" xml:space="preserve">
+    <value>Themes</value>
   </data>
   <data name="TranslatedBy" xml:space="preserve">
     <value>Translated by C0rrupted</value>

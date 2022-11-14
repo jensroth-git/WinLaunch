@@ -259,8 +259,8 @@ namespace WinLaunch
 
             try
             {
-                SBM.IC.SaveToXML(ItemCollection.CurrentItemsPath);
-                backupManager.AddBackup(ItemCollection.CurrentItemsPath);
+                SBM.IC.SaveToXML(PortabilityManager.ItemsPath);
+                backupManager.AddBackup(PortabilityManager.ItemsPath);
             }
             catch (Exception e)
             {
@@ -312,7 +312,7 @@ namespace WinLaunch
                     //cache lnk files
                     if (Extension == ".lnk")
                     {
-                        string cacheDir = System.IO.Path.Combine(new string[] { Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch", "LinkCache" });
+                        string cacheDir = PortabilityManager.LinkCachePath;
 
                         if (!Directory.Exists(cacheDir))
                         {

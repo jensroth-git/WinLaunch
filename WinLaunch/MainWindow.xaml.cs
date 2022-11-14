@@ -121,13 +121,18 @@ namespace WinLaunch
 
         public MainWindow()
         {
+            //when autostarted path is screwed up (c:/windows/system32/)
+            SetHomeDirectory();
+
+            PortabilityManager.Init();
+
             //show eula
             Eula.ShowEULA();
 
             Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
 
             //setup backup manager
-            string ItemPath = Path.GetDirectoryName(ItemCollection.CurrentItemsPath);
+            string ItemPath = Path.GetDirectoryName(PortabilityManager.ItemsPath);
             string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
             backupManager = new BackupManager(ItemBackupPath, 20);
 
@@ -137,10 +142,7 @@ namespace WinLaunch
                 //wake main instance of WinLaunch then exit
                 Environment.Exit(-1);
             }
-
-            //when autostarted path is screwed up (c:/windows/system32/)
-            SetHomeDirectory();
-
+            
             InitializeComponent();
 
             CanvasOpacityAnim = new AnimationHelper(0.0, 1.0);
@@ -167,7 +169,7 @@ namespace WinLaunch
             this.Height = 0;
 
             //load settings and setup deskmode / no deskmode
-            Settings.CurrentSettings = Settings.LoadSettings(Settings.CurrentSettingsPath);
+            Settings.CurrentSettings = Settings.LoadSettings(PortabilityManager.SettingsPath);
 
             if (!Settings.CurrentSettings.DeskMode)
                 this.Topmost = true;
@@ -183,7 +185,7 @@ namespace WinLaunch
                 Settings.CurrentSettings.FolderColumns = Theme.CurrentTheme.FolderColumns;
                 Settings.CurrentSettings.FolderRows = Theme.CurrentTheme.FolderRows;
 
-                Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+                Settings.SaveSettings(PortabilityManager.SettingsPath, Settings.CurrentSettings);
 
                 Theme.CurrentTheme.Columns = -1;
                 Theme.CurrentTheme.Rows = -1;
@@ -247,7 +249,7 @@ namespace WinLaunch
             try
             {
                 //do in parallel?
-                if (!File.Exists(ItemCollection.CurrentItemsPath) && backupManager.GetLatestBackup() != null || !SBM.IC.LoadFromXML(ItemCollection.CurrentItemsPath))
+                if (!File.Exists(PortabilityManager.ItemsPath) && backupManager.GetLatestBackup() != null || !SBM.IC.LoadFromXML(PortabilityManager.ItemsPath))
                 {
                     //item loading failed
                     //backup procedure

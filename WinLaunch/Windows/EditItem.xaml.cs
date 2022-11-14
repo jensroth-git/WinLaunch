@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
@@ -89,7 +90,7 @@ namespace WinLaunch
             System.Drawing.Rectangle s;
             int screenIndex = MiscUtils.GetScreenIndexFromPoint(new System.Drawing.Point((int)ItemOnScreen.X, (int)ItemOnScreen.Y));
 
-            if(screenIndex == -1)
+            if (screenIndex == -1)
             {
                 //center on active screen
                 //center window and hide pointer
@@ -103,7 +104,7 @@ namespace WinLaunch
                 //check if we are in bounds
                 System.Drawing.Rectangle sDPI = System.Windows.Forms.Screen.AllScreens[screenIndex].Bounds;
 
-                s = new System.Drawing.Rectangle((int)(sDPI.Left / MiscUtils.GetDPIScale()),(int)(sDPI.Top / MiscUtils.GetDPIScale()), (int)(sDPI.Width / MiscUtils.GetDPIScale()), (int)(sDPI.Height / MiscUtils.GetDPIScale()));
+                s = new System.Drawing.Rectangle((int)(sDPI.Left / MiscUtils.GetDPIScale()), (int)(sDPI.Top / MiscUtils.GetDPIScale()), (int)(sDPI.Width / MiscUtils.GetDPIScale()), (int)(sDPI.Height / MiscUtils.GetDPIScale()));
 
                 if (!s.Contains((int)ItemOnScreen.X, (int)ItemOnScreen.Y))
                 {
@@ -232,12 +233,15 @@ namespace WinLaunch
         private void EditItem_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
+            {
+                RestoreBackup(this.ActiveItem);
                 this.Close();
+            }
         }
 
         private void cbShowMiniatures_Checked(object sender, RoutedEventArgs e)
         {
-            if(this.ActiveItem != null)
+            if (this.ActiveItem != null)
             {
                 this.ActiveItem.ShowMiniatures = (bool)cbShowMiniatures.IsChecked;
                 this.ActiveItem.UpdateFolderIcon();
@@ -262,7 +266,7 @@ namespace WinLaunch
 
             this.ActiveItem.UpdateIcon();
 
-            if(this.ActiveItem.IsFolder)
+            if (this.ActiveItem.IsFolder)
             {
                 this.ActiveItem.UpdateFolderIcon();
             }
@@ -278,7 +282,17 @@ namespace WinLaunch
 
         private void ResetIconButton_Click(object sender, RoutedEventArgs e)
         {
-            //restore item path
+            //delete icon from cache
+            if (Path.GetDirectoryName(this.ActiveItem.IconPath) == "IconCache")
+            {
+                try
+                {
+                    File.Delete(this.ActiveItem.IconPath);
+                }
+                catch { }
+            }
+
+            //restore icon path
             this.ActiveItem.IconPath = null;
 
             if (this.ActiveItem.IsFolder)
@@ -308,33 +322,44 @@ namespace WinLaunch
         {
             try
             {
-            //Load new Icon
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = TranslationSource.Instance["SelectIcon"];
-            op.Filter = "Image files (*.png)|*.png|Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
-            if (op.ShowDialog() == true)
-            {
-                this.ActiveItem.Icon = SBItem.LoadingImage;
-
-                //try to load the replacement icon
-                try
+                //Load new Icon
+                OpenFileDialog op = new OpenFileDialog();
+                op.Title = TranslationSource.Instance["SelectIcon"];
+                op.Filter = "Image files (*.png)|*.png|Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
+                if (op.ShowDialog() == true)
                 {
-                    this.ActiveItem.Icon = MiscUtils.LoadBitmapImage(op.FileName, 128);
-                }
-                catch { }
+                    this.ActiveItem.Icon = SBItem.LoadingImage;
 
-                IconFrame.Source = this.ActiveItem.Icon;
+                    //try to load the replacement icon
+                    try
+                    {
+                        this.ActiveItem.Icon = MiscUtils.LoadBitmapImage(op.FileName, 128);
 
-                //Set as IconPath
-                this.ActiveItem.IconPath = op.FileName;
+                        //save icon to cache
+                        string extension = Path.GetExtension(op.FileName);
+                        string guid = Guid.NewGuid().ToString();
 
-                if(this.ActiveItem.IsFolder)
-                {
-                    this.ActiveItem.UpdateFolderIcon();
+                        string iconPath = Path.Combine(PortabilityManager.IconCachePath, guid + extension);
+
+                        //Set as IconPath
+                        this.ActiveItem.IconPath = iconPath;
+
+                        if(!Directory.Exists(PortabilityManager.IconCachePath))
+                            Directory.CreateDirectory(PortabilityManager.IconCachePath);
+
+                        MiscUtils.SaveBitmapImage(this.ActiveItem.Icon, iconPath);
+                    }
+                    catch { }
+
+                    IconFrame.Source = this.ActiveItem.Icon;
+
+                    if (this.ActiveItem.IsFolder)
+                    {
+                        this.ActiveItem.UpdateFolderIcon();
+                    }
                 }
             }
-            }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.InnerException.Message);
             }
@@ -396,6 +421,6 @@ namespace WinLaunch
             }
         }
 
-        
+
     }
 }

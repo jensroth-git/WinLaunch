@@ -351,6 +351,45 @@ namespace WinLaunch
             return ret;
         }
 
+        public static bool CopyDirectoryOverwrite(string SourcePath, string DestinationPath, bool OverwriteExisting)
+        {
+            bool ret = false;
+            try
+            {
+                SourcePath = SourcePath.EndsWith(@"\") ? SourcePath : SourcePath + @"\";
+                DestinationPath = DestinationPath.EndsWith(@"\") ? DestinationPath : DestinationPath + @"\";
+
+                if (Directory.Exists(SourcePath))
+                {
+                    if (Directory.Exists(DestinationPath) == false)
+                        Directory.CreateDirectory(DestinationPath);
+
+                    foreach (string fls in Directory.GetFiles(SourcePath))
+                    {
+                        try
+                        {
+                            FileInfo flinfo = new FileInfo(fls);
+                            flinfo.CopyTo(DestinationPath + flinfo.Name, OverwriteExisting);
+                        }
+                        catch { }
+                    }
+
+                    foreach (string drs in Directory.GetDirectories(SourcePath))
+                    {
+                        DirectoryInfo drinfo = new DirectoryInfo(drs);
+                        if (CopyDirectoryOverwrite(drs, DestinationPath + drinfo.Name, OverwriteExisting) == false)
+                            ret = false;
+                    }
+                }
+                ret = true;
+            }
+            catch (Exception ex)
+            {
+                ret = false;
+            }
+            return ret;
+        }
+
         #region Images
 
         public static BitmapSource GetFileThumbnail(string file)

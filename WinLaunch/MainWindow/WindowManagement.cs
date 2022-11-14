@@ -157,12 +157,12 @@ namespace WinLaunch
                 if (msg == WM_WINDOWPOSCHANGING && !ShowDesktopActivated)
                 {
                     var ver = (WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(WINDOWPOS));
-                    
-                    if(DesktopWindow == IntPtr.Zero)
+
+                    if (DesktopWindow == IntPtr.Zero)
                         ver.hwndInsertAfter = HWND_BOTTOM;
                     else
                         ver.hwndInsertAfter = DesktopWindow;
-    
+
                     ver.flags &= ~SWP_NOZORDER;
                     handled = true;
 
@@ -496,24 +496,23 @@ namespace WinLaunch
 
         public void UnsetDesktopChild()
         {
+            if (!IsDesktopChild)
+            {
+                return;
+            }
+
             if (Settings.CurrentSettings.LegacyDeskMode)
             {
-                if (IsDesktopChild)
-                {
-                    IntPtr windowHandle = new WindowInteropHelper(this).Handle;
-                    SetParent(windowHandle, OriginalParentWindow);
+                IntPtr windowHandle = new WindowInteropHelper(this).Handle;
+                SetParent(windowHandle, OriginalParentWindow);
 
-                    IsDesktopChild = false;
-                }
+                IsDesktopChild = false;
             }
             else
             {
-                if (IsDesktopChild)
-                {
-                    KeepWindowVisibleThread.Abort();
+                KeepWindowVisibleThread.Abort();
 
-                    IsDesktopChild = false;
-                }
+                IsDesktopChild = false;
             }
         }
 
@@ -713,7 +712,7 @@ namespace WinLaunch
         }
 
         //should be called after the window is invisible
-        private void HideWinLaunch()
+        public void HideWinLaunch()
         {
             //TODO: better tutorial
             //show tutorial when winlaunch closes for the first time

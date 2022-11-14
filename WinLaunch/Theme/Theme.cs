@@ -10,7 +10,6 @@ namespace WinLaunch
 {
     public class Theme
     {
-        public static string CurrentThemePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/CurrentTheme");
         public static Theme CurrentTheme = null;
 
         //obsolete
@@ -109,81 +108,81 @@ namespace WinLaunch
         {
             //load all images (prefreezed)
             if (CloseBox == null)
-                try { CloseBox = MiscUtils.LoadBitmapImage(CurrentThemePath + "/closebox.png"); }
+                try { CloseBox = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/closebox.png"); }
                 catch { }
 
             if (FolderIcon == null)
-                try { FolderIcon = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder_icon.png", 128); }
+                try { FolderIcon = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder_icon.png", 128); }
                 catch { }
 
             if (Background == null)
-                try { Background = MiscUtils.LoadBitmapImage(CurrentThemePath + "/bg.png"); }
+                try { Background = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/bg.png"); }
                 catch { }
 
             if (BlurredBackground == null)
-                try { BlurredBackground = MiscUtils.LoadBitmapImage(CurrentThemePath + "/blurred_bg.png"); }
+                try { BlurredBackground = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/blurred_bg.png"); }
                 catch { }
 
             if (ExtensionsToggle == null)
-                try { ExtensionsToggle = MiscUtils.LoadBitmapImage(CurrentThemePath + "/extensions.png"); }
+                try { ExtensionsToggle = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/extensions.png"); }
                 catch { }
 
 
             //folder
             #region folder images disk
             if (leftTop == null)
-                try { leftTop = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/leftTop.png"); }
+                try { leftTop = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftTop.png"); }
                 catch { }
 
             if (leftCenter == null)
-                try { leftCenter = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/leftCenter.png"); }
+                try { leftCenter = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftCenter.png"); }
                 catch { }
 
             if (leftBottomShadow == null)
-                try { leftBottomShadow = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/leftBottomShadow.png"); }
+                try { leftBottomShadow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftBottomShadow.png"); }
                 catch { }
 
             if (leftBottomBorder == null)
-                try { leftBottomBorder = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/leftBottomBorder.png"); }
+                try { leftBottomBorder = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftBottomBorder.png"); }
                 catch { }
 
 
             if (topRim == null)
-                try { topRim = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/topRim.png"); }
+                try { topRim = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/topRim.png"); }
                 catch { }
 
             if (center == null)
-                try { center = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/center.png"); }
+                try { center = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/center.png"); }
                 catch { }
 
             if (bottomShadow == null)
-                try { bottomShadow = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/bottomShadow.png"); }
+                try { bottomShadow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/bottomShadow.png"); }
                 catch { }
 
             if (bottomBorder == null)
-                try { bottomBorder = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/bottomBorder.png"); }
+                try { bottomBorder = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/bottomBorder.png"); }
                 catch { }
 
 
             if (arrow == null)
-                try { arrow = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/arrow.png"); }
+                try { arrow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/arrow.png"); }
                 catch { }
 
 
             if (rightTop == null)
-                try { rightTop = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/rightTop.png"); }
+                try { rightTop = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightTop.png"); }
                 catch { }
 
             if (rightCenter == null)
-                try { rightCenter = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/rightCenter.png"); }
+                try { rightCenter = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightCenter.png"); }
                 catch { }
 
             if (rightBottomShadow == null)
-                try { rightBottomShadow = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/rightBottomShadow.png"); }
+                try { rightBottomShadow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightBottomShadow.png"); }
                 catch { }
 
             if (rightBottomBorder == null)
-                try { rightBottomBorder = MiscUtils.LoadBitmapImage(CurrentThemePath + "/folder/rightBottomBorder.png"); }
+                try { rightBottomBorder = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightBottomBorder.png"); }
                 catch { }
             #endregion
 
@@ -337,39 +336,39 @@ namespace WinLaunch
         #region Save Images
         public void SaveBlurredBackground()
         {
-            if (!Directory.Exists(CurrentThemePath))
-                Directory.CreateDirectory(CurrentThemePath);
+            if (!Directory.Exists(PortabilityManager.ThemePath))
+                Directory.CreateDirectory(PortabilityManager.ThemePath);
 
             if (BlurredBackground != null)
-                MiscUtils.SaveBitmapImage(BlurredBackground, CurrentThemePath + "/blurred_bg.png");
+                MiscUtils.SaveBitmapImage(BlurredBackground, PortabilityManager.ThemePath + "/blurred_bg.png");
         }
 
         public void SaveBackground()
         {
-            if (!Directory.Exists(CurrentThemePath))
-                Directory.CreateDirectory(CurrentThemePath);
+            if (!Directory.Exists(PortabilityManager.ThemePath))
+                Directory.CreateDirectory(PortabilityManager.ThemePath);
 
             if (Background != null)
-                MiscUtils.SaveBitmapImage(Background, CurrentThemePath + "/bg.png");
+                MiscUtils.SaveBitmapImage(Background, PortabilityManager.ThemePath + "/bg.png");
         }
 
         public void SaveClosebox()
         {
-            if (!Directory.Exists(CurrentThemePath))
-                Directory.CreateDirectory(CurrentThemePath);
+            if (!Directory.Exists(PortabilityManager.ThemePath))
+                Directory.CreateDirectory(PortabilityManager.ThemePath);
 
             if (CloseBox != null)
-                MiscUtils.SaveBitmapImage(CloseBox, CurrentThemePath + "/closebox.png");
+                MiscUtils.SaveBitmapImage(CloseBox, PortabilityManager.ThemePath + "/closebox.png");
         }
 
 
         public void SaveFolderIcon()
         {
-            if (!Directory.Exists(CurrentThemePath))
-                Directory.CreateDirectory(CurrentThemePath);
+            if (!Directory.Exists(PortabilityManager.ThemePath))
+                Directory.CreateDirectory(PortabilityManager.ThemePath);
 
             if (FolderIcon != null)
-                MiscUtils.SaveBitmapImage(FolderIcon, CurrentThemePath + "/folder_icon.png");
+                MiscUtils.SaveBitmapImage(FolderIcon, PortabilityManager.ThemePath + "/folder_icon.png");
         }
         #endregion
 
@@ -408,12 +407,12 @@ namespace WinLaunch
         {
             Theme theme = null;
 
-            if (!System.IO.Directory.Exists(CurrentThemePath))
+            if (!System.IO.Directory.Exists(PortabilityManager.ThemePath))
                 return new Theme();
 
             try
             {
-                using (FileStream fs = new FileStream(CurrentThemePath + "/theme.xml", FileMode.Open))
+                using (FileStream fs = new FileStream(PortabilityManager.ThemePath + "/theme.xml", FileMode.Open))
                 {
                     using (XmlReader read = XmlReader.Create(fs))
                     {
@@ -434,10 +433,10 @@ namespace WinLaunch
         {
             try
             {
-                if (!System.IO.Directory.Exists(CurrentThemePath))
-                    System.IO.Directory.CreateDirectory(CurrentThemePath);
+                if (!System.IO.Directory.Exists(PortabilityManager.ThemePath))
+                    System.IO.Directory.CreateDirectory(PortabilityManager.ThemePath);
 
-                using (FileStream fs = new FileStream(CurrentThemePath + "/theme.xml", FileMode.Create))
+                using (FileStream fs = new FileStream(PortabilityManager.ThemePath + "/theme.xml", FileMode.Create))
                 {
                     using (XmlWriter write = XmlWriter.Create(fs))
                     {

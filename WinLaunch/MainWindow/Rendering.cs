@@ -447,7 +447,7 @@ namespace WinLaunch
 
         }
 
-        private void StartFlyInAnimation()
+        public void StartFlyInAnimation()
         {
             FadingOut = false;
 
@@ -463,7 +463,7 @@ namespace WinLaunch
             SetBackgroundPosition();
         }
 
-        private void StartFlyOutAnimation()
+        public void StartFlyOutAnimation()
         {
             FadingOut = true;
 

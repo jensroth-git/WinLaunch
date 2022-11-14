@@ -12,7 +12,6 @@ namespace WinLaunch
 {
     public class ItemCollection
     {
-        public static string CurrentItemsPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch/Items.xml");
         public List<SBItem> Items;
 
         public ItemCollection()

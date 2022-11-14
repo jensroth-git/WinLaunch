@@ -244,6 +244,9 @@
   <data name="Items" xml:space="preserve">
 		<value>genstande</value>
 	</data>
+  <data name="JoinUsOnDiscord" xml:space="preserve">
+    <value>Slut dig til os på Discord</value>
+  </data>
   <data name="KeyActivation" xml:space="preserve">
 		<value>Nøgleaktivering</value>
 	</data>
@@ -379,6 +382,9 @@
   <data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Når denne slåes til vil baggrundsbilledet synkroniseres med den nuværende skrivebordsbaggrund</value>
 	</data>
+  <data name="Themes" xml:space="preserve">
+    <value>Temaer</value>
+  </data>
   <data name="TranslatedBy" xml:space="preserve">
 		<value>Oversat af Malthe Falkenstjerne og Claus Ilkjær</value>
 	</data>

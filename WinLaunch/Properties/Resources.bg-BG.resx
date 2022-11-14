@@ -244,6 +244,9 @@
   <data name="Items" xml:space="preserve">
 		<value>Предмети</value>
 	</data>
+  <data name="JoinUsOnDiscord" xml:space="preserve">
+    <value>Присъединете се към нас в Discord</value>
+  </data>
   <data name="KeyActivation" xml:space="preserve">
 		<value>Активиране на ключ</value>
 	</data>
@@ -379,6 +382,9 @@
   <data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Когато е активирано, ще синхронизира фона с текущия тапет</value>
 	</data>
+  <data name="Themes" xml:space="preserve">
+    <value>Теми</value>
+  </data>
   <data name="TranslatedBy" xml:space="preserve">
 		<value>Преведено от C0rrupted</value>
 	</data>

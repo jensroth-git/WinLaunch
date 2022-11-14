@@ -121,7 +121,7 @@ namespace WinLaunch
             ApplySettings();
 
             //save settings
-            Settings.SaveSettings(Settings.CurrentSettingsPath, Settings.CurrentSettings);
+            Settings.SaveSettings(PortabilityManager.SettingsPath, Settings.CurrentSettings);
             Theme.SaveTheme(Theme.CurrentTheme);
         }
 
@@ -134,6 +134,7 @@ namespace WinLaunch
             InitHotkey();
             InitDeskMode();
             InitAero();
+            InitPatrons();
 
             tbVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
@@ -361,6 +362,16 @@ namespace WinLaunch
         }
         #endregion
 
+        #region Themes
+        private void tblThemes_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+            mainWindow.StartFlyOutAnimation();
+
+            MiscUtils.OpenURL("https://winlaunch.org/themes.php");
+        }
+        #endregion
+
         #region Icons
         private void UpdateIconSize(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -506,6 +517,29 @@ namespace WinLaunch
                 MessageBox.Show(TranslationSource.Instance["UpdateError"], "Winlaunch Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btnDiscord_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            mainWindow.StartFlyOutAnimation();
+
+            MiscUtils.OpenURL("https://bit.ly/winlaunchDiscord");
+        }
+        #endregion
+
+        #region Patreon
+        private void InitPatrons()
+        {
+            tblPatrons.Text = "Marc Castonguay\r\nkotzfresse\r\nMichael Shanahan\r\nDerek\r\nTowiWakka";
+        }
+
+        private void runPatreon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+            mainWindow.StartFlyOutAnimation();
+
+            MiscUtils.OpenURL("https://bit.ly/winlaunchpatreon");
+        }
         #endregion
 
         #region Backup and Restore
@@ -523,7 +557,7 @@ namespace WinLaunch
                 try
                 {
                     //save current settings
-                    Settings.SaveSettings(Settings.CurrentSettingsPath, settings);
+                    Settings.SaveSettings(PortabilityManager.SettingsPath, settings);
 
                     if (File.Exists(sfd.FileName))
                     {
@@ -579,8 +613,10 @@ namespace WinLaunch
                 }
             }
         }
+
+
         #endregion
 
-
+        
     }
 }

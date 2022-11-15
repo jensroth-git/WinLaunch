@@ -691,6 +691,24 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Make portable.
+        /// </summary>
+        internal static string MakePortable {
+            get {
+                return ResourceManager.GetString("MakePortable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When enabled will make WinLaunch load from the Data directory in the folder it is installed in instead of appdata.
+        /// </summary>
+        internal static string MakePortableInfo {
+            get {
+                return ResourceManager.GetString("MakePortableInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Middle mouse activation.
         /// </summary>
         internal static string MiddleMouseActivation {
@@ -1092,6 +1110,15 @@ namespace WinLaunch.Properties {
         internal static string UpdateError {
             get {
                 return ResourceManager.GetString("UpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update silently.
+        /// </summary>
+        internal static string UpdateSilently {
+            get {
+                return ResourceManager.GetString("UpdateSilently", resourceCulture);
             }
         }
         

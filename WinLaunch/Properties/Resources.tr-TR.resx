@@ -58,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  			<data name="About" xml:space="preserve">
 		<value>Hakkında</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -268,6 +268,12 @@
 	<data name="LookAndFeel" xml:space="preserve">
 		<value>Görünüm &amp; His</value>
 	</data>
+	<data name="MakePortable" xml:space="preserve">
+		<value>taşınabilir yap</value>
+	</data>
+	<data name="MakePortableInfo" xml:space="preserve">
+		<value>Etkinleştirildiğinde, WinLaunch'ın yüklendiği klasördeki appdata yerine Veri dizininden yüklenmesini sağlar</value>
+	</data>
 	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Fare orta tuş aktivasyonu</value>
 	</data>
@@ -403,6 +409,9 @@
 	<data name="UpdateError" xml:space="preserve">
 		<value>Sürüm bilgisi indirilemedi</value>
 	</data>
+	<data name="UpdateSilently" xml:space="preserve">
+		<value>Sessizce güncelle</value>
+	</data>
 	<data name="UseCustomBackground" xml:space="preserve">
 		<value>Özel arka plan kullan</value>
 	</data>
@@ -415,5 +424,7 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Uyarı</value>
 	</data>
+
+
 
 </root>

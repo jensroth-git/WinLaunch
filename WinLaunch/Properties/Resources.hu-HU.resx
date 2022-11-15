@@ -58,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  			<data name="About" xml:space="preserve">
 		<value>Névjegy</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -268,6 +268,12 @@
 	<data name="LookAndFeel" xml:space="preserve">
 		<value>Megjelenés</value>
 	</data>
+	<data name="MakePortable" xml:space="preserve">
+		<value>Legyen hordozható</value>
+	</data>
+	<data name="MakePortableInfo" xml:space="preserve">
+		<value>Ha engedélyezve van, a WinLaunch az appdata helyett annak a mappának a Data könyvtárából töltődik be, amelybe telepítve van</value>
+	</data>
 	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Aktiválás a középső egérgombbal</value>
 	</data>
@@ -403,6 +409,9 @@
 	<data name="UpdateError" xml:space="preserve">
 		<value>Nem sikerült letölteni a változat értesít!</value>
 	</data>
+	<data name="UpdateSilently" xml:space="preserve">
+		<value>Csendes frissítés</value>
+	</data>
 	<data name="UseCustomBackground" xml:space="preserve">
 		<value>Egyéni Háttér</value>
 	</data>
@@ -415,5 +424,7 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Figyelem</value>
 	</data>
+
+
 
 </root>

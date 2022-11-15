@@ -110,7 +110,7 @@ namespace WinLaunch
             {
                 MainWindow.WindowRef.Dispatcher.Invoke(new Action(() =>
                 {
-                    if (MessageBox.Show(MainWindow.WindowRef, "Version " + updateVersion.ToString() + " " + TranslationSource.Instance["UpdateAvailableInfo"], TranslationSource.Instance["UpdateAvailable"], MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.Yes)
+                    if (Settings.CurrentSettings.UpdateSilently || MessageBox.Show(MainWindow.WindowRef, "Version " + updateVersion.ToString() + " " + TranslationSource.Instance["UpdateAvailableInfo"], TranslationSource.Instance["UpdateAvailable"], MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.Yes)
                     {
                         try
                         {
@@ -118,6 +118,10 @@ namespace WinLaunch
                             ProcessStartInfo startInfo = new ProcessStartInfo();
                             startInfo.UseShellExecute = true;
                             startInfo.FileName = "Update.exe";
+
+                            if(Settings.CurrentSettings.UpdateSilently)
+                                startInfo.Arguments = "-silent";
+
                             Process.Start(startInfo);
 
                             MainWindow.WindowRef.Close();

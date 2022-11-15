@@ -268,6 +268,12 @@
   <data name="LookAndFeel" xml:space="preserve">
 		<value>Erscheinungsbild</value>
 	</data>
+  <data name="MakePortable" xml:space="preserve">
+    <value>Portable machen</value>
+  </data>
+  <data name="MakePortableInfo" xml:space="preserve">
+    <value>Wenn diese Option aktiviert ist, lädt WinLaunch aus dem Data-Verzeichnis in dem Ordner, in dem es installiert ist, anstelle von AppData</value>
+  </data>
   <data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Aktivierung über Mittlere-Maus Taste</value>
 	</data>
@@ -403,6 +409,9 @@
   <data name="UpdateError" xml:space="preserve">
 		<value>Versions-Info konnte nicht heruntergeladen werden</value>
 	</data>
+  <data name="UpdateSilently" xml:space="preserve">
+    <value>Im Hintergrund aktualisieren</value>
+  </data>
   <data name="UseCustomBackground" xml:space="preserve">
 		<value>Benutzerdefinierten Hintergrund benutzen</value>
 	</data>

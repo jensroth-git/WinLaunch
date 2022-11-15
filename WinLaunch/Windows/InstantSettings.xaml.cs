@@ -130,6 +130,7 @@ namespace WinLaunch
             InitLocalization();
             InitSortAlphabetically();
             InitAutostart();
+            InitPortability();
             InitScreenSelection();
             InitHotkey();
             InitDeskMode();
@@ -139,11 +140,31 @@ namespace WinLaunch
             tbVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
+        private void InitPortability()
+        {
+            cbMakePortable.IsChecked = PortabilityManager.IsPortable;
+        }
+
         void ApplySettings()
         {
             ApplyAutostart();
             ApplyColumnsSetting();
             ApplyDeskMode();
+            ApplyPortability();
+        }
+
+        private void ApplyPortability()
+        {
+            if ((bool)cbMakePortable.IsChecked && !PortabilityManager.IsPortable)
+            {
+                //make portable 
+                PortabilityManager.MakePortable(mainWindow.SBM.IC);
+            }
+            else if (!(bool)cbMakePortable.IsChecked && PortabilityManager.IsPortable)
+            {
+                //make installed
+                PortabilityManager.MakeInstalled();
+            }
         }
 
         private void ApplyDeskMode()
@@ -326,9 +347,9 @@ namespace WinLaunch
 
         private void btnHotKey_KeyDown(object sender, KeyEventArgs e)
         {
-            if (waitingForHotkey && e.Key != Key.LWin && e.Key != Key.RWin && 
-                e.Key != Key.System && 
-                e.Key != Key.LeftShift && e.Key != Key.RightShift && 
+            if (waitingForHotkey && e.Key != Key.LWin && e.Key != Key.RWin &&
+                e.Key != Key.System &&
+                e.Key != Key.LeftShift && e.Key != Key.RightShift &&
                 e.Key != Key.LeftCtrl && e.Key != Key.RightCtrl)
             {
                 e.Handled = true;
@@ -343,7 +364,7 @@ namespace WinLaunch
         #region Columns & rows
         private void UpdateItems(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if(settings.SortItemsAlphabetically)
+            if (settings.SortItemsAlphabetically)
             {
                 mainWindow.SortItemsAlphabetically();
             }
@@ -525,6 +546,12 @@ namespace WinLaunch
 
             MiscUtils.OpenURL("https://bit.ly/winlaunchDiscord");
         }
+
+        private void btnWelcome_Click(object sender, RoutedEventArgs e)
+        {
+            Welcome welcome = new Welcome();
+            welcome.ShowDialog();
+        }
         #endregion
 
         #region Patreon
@@ -631,8 +658,7 @@ namespace WinLaunch
         }
 
 
-        #endregion
 
-        
+        #endregion
     }
 }

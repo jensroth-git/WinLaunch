@@ -132,9 +132,7 @@ namespace WinLaunch
             Application.Current.DispatcherUnhandledException += Current_DispatcherUnhandledException;
 
             //setup backup manager
-            string ItemPath = Path.GetDirectoryName(PortabilityManager.ItemsPath);
-            string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
-            backupManager = new BackupManager(ItemBackupPath, 20);
+            backupManager = new BackupManager(20);
 
             if (PerformMutexCheck())
             {

@@ -11,14 +11,12 @@ namespace WinLaunch
     {
         private string[] changelog = new string[]{
             "#Welcome to WinLaunch",
-            "---",
-            "Close this window to start WinLaunch",
-            "",
             "#Changelog 0.7.2.0",
             "---",
             "- updated the settings",
             "- added option to make WinLaunch portable",
             "- updated icon loading and made it more robust",
+            "- added option to update silently",
             "- updated the Spanish translation by Damián Roig",
             "",
             "#Changelog 0.7.1.2",

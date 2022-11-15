@@ -58,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  			<data name="About" xml:space="preserve">
 		<value>אודות</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -268,6 +268,12 @@
 	<data name="LookAndFeel" xml:space="preserve">
 		<value>תצוגה</value>
 	</data>
+	<data name="MakePortable" xml:space="preserve">
+		<value>הפוך לנייד</value>
+	</data>
+	<data name="MakePortableInfo" xml:space="preserve">
+		<value>כאשר מופעל יגרום ל-WinLaunch להיטען מספריית הנתונים בתיקייה בה היא מותקנת במקום appdata</value>
+	</data>
 	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>פעולות לחצן עכבר אמצעי</value>
 	</data>
@@ -403,6 +409,9 @@
 	<data name="UpdateError" xml:space="preserve">
 		<value>לא ניתן להוריד את פרטי הגירסה</value>
 	</data>
+	<data name="UpdateSilently" xml:space="preserve">
+		<value>עדכן בשקט</value>
+	</data>
 	<data name="UseCustomBackground" xml:space="preserve">
 		<value>השתמש ברקע מותאם אישית</value>
 	</data>
@@ -415,5 +424,7 @@
 	<data name="Warning" xml:space="preserve">
 		<value>אזהרה</value>
 	</data>
+
+
 
 </root>

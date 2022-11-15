@@ -268,6 +268,12 @@
   <data name="LookAndFeel" xml:space="preserve">
 		<value>Udseende og følelse</value>
 	</data>
+  <data name="MakePortable" xml:space="preserve">
+    <value>Gør bærbar</value>
+  </data>
+  <data name="MakePortableInfo" xml:space="preserve">
+    <value>Når den er aktiveret, vil WinLaunch blive indlæst fra datamappen i den mappe, den er installeret i i stedet for appdata</value>
+  </data>
   <data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Midterste museknap aktivering</value>
 	</data>
@@ -403,6 +409,9 @@
   <data name="UpdateError" xml:space="preserve">
 		<value>Kunne ikke hente version info!</value>
 	</data>
+  <data name="UpdateSilently" xml:space="preserve">
+    <value>Opdater lydløst</value>
+  </data>
   <data name="UseCustomBackground" xml:space="preserve">
 		<value>Brug brugerdefineret baggrund!</value>
 	</data>

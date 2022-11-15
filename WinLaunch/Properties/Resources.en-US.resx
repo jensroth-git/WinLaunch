@@ -58,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  			<data name="About" xml:space="preserve">
 		<value>About</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -268,6 +268,12 @@
 	<data name="LookAndFeel" xml:space="preserve">
 		<value>Look &amp; Feel</value>
 	</data>
+	<data name="MakePortable" xml:space="preserve">
+		<value>Make portable</value>
+	</data>
+	<data name="MakePortableInfo" xml:space="preserve">
+		<value>When enabled will make WinLaunch load from the Data directory in the folder it is installed in instead of appdata</value>
+	</data>
 	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Middle mouse activation</value>
 	</data>
@@ -403,6 +409,9 @@
 	<data name="UpdateError" xml:space="preserve">
 		<value>Could not download version info</value>
 	</data>
+	<data name="UpdateSilently" xml:space="preserve">
+		<value>Update silently</value>
+	</data>
 	<data name="UseCustomBackground" xml:space="preserve">
 		<value>Use custom background</value>
 	</data>
@@ -415,5 +424,7 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Warning</value>
 	</data>
+
+
 
 </root>

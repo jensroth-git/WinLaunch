@@ -15,6 +15,7 @@ namespace WinLaunch
         public Version version = null;
 
         public bool CheckForUpdatesFrequently { get; set; }
+        public bool UpdateSilently { get; set; }
 
         public bool SortItemsAlphabetically { get; set; }
         public bool SortFoldersFirst { get; set; }
@@ -144,6 +145,7 @@ namespace WinLaunch
 
             CheckForUpdatesFrequently = true;
             CheckForUpdates = true;
+            UpdateSilently = false;
 
             IconSize = 1.4;
             ExtensionIconVisible = true;

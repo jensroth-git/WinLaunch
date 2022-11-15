@@ -58,7 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  			<data name="About" xml:space="preserve">
 		<value>Про</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
@@ -268,6 +268,12 @@
 	<data name="LookAndFeel" xml:space="preserve">
 		<value>Вигляд</value>
 	</data>
+	<data name="MakePortable" xml:space="preserve">
+		<value>Зробити портативним</value>
+	</data>
+	<data name="MakePortableInfo" xml:space="preserve">
+		<value>Якщо ввімкнено, WinLaunch завантажуватиметься з каталогу даних у папці, у якій його встановлено, замість appdata</value>
+	</data>
 	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Активація середньою кнопкою миші</value>
 	</data>
@@ -403,6 +409,9 @@
 	<data name="UpdateError" xml:space="preserve">
 		<value>Не вдалося завантажити інформацію про версію</value>
 	</data>
+	<data name="UpdateSilently" xml:space="preserve">
+		<value>Оновлення без звуку</value>
+	</data>
 	<data name="UseCustomBackground" xml:space="preserve">
 		<value>Використати власний фон</value>
 	</data>
@@ -415,5 +424,7 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Увага</value>
 	</data>
+
+
 
 </root>

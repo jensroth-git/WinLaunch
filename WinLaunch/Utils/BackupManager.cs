@@ -18,21 +18,22 @@ namespace WinLaunch
     public class BackupManager
     {
         int numBackups = 20;
-        string directory;
 
-        public BackupManager(string BackupDirectory, int num)
+        public BackupManager(int num)
         {
             numBackups = num;
-            directory = BackupDirectory;
         }
 
         public void AddBackup(string file)
         {
             try
             {
-                if (!Directory.Exists(directory))
+                string ItemPath = Path.GetDirectoryName(PortabilityManager.ItemsPath);
+                string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
+
+                if (!Directory.Exists(ItemBackupPath))
                 {
-                    Directory.CreateDirectory(directory);
+                    Directory.CreateDirectory(ItemBackupPath);
                 }
 
                 if (!File.Exists(file))
@@ -45,7 +46,7 @@ namespace WinLaunch
                 string extension = Path.GetExtension(file);
                 long time = DateTime.Now.Ticks;
 
-                string backupPath = Path.Combine(directory, name + "." + time + extension);
+                string backupPath = Path.Combine(ItemBackupPath, name + "." + time + extension);
                 File.Copy(file, backupPath);
 
                 //cleanup old backups
@@ -78,10 +79,13 @@ namespace WinLaunch
         {
             List<BackupEntry> backups = new List<BackupEntry>();
 
-            if (!Directory.Exists(directory))
+            string ItemPath = Path.GetDirectoryName(PortabilityManager.ItemsPath);
+            string ItemBackupPath = Path.Combine(ItemPath, "ICBackup");
+
+            if (!Directory.Exists(ItemBackupPath))
                 return backups;
 
-            List<string> files = new List<string>(Directory.GetFiles(directory, "*.xml"));
+            List<string> files = new List<string>(Directory.GetFiles(ItemBackupPath, "*.xml"));
 
             foreach (string file in files)
             {

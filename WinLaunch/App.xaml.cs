@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace WinLaunch
 {
-    /// <summary>
-    /// Interaktionslogik für "App.xaml"
-    /// </summary>
     partial class App : Application
     {
         public App()

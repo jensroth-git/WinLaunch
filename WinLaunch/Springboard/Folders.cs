@@ -32,8 +32,6 @@ namespace WinLaunch
         //folder layout properties
         public double FolderArrowOffset = 0;
 
-        public string FolderTitle = "";
-
         #endregion Folder Properties
 
         #region Animations
@@ -320,9 +318,6 @@ namespace WinLaunch
 
             //calculate and set folder and Item positions
             PositionFolderAndItems(true);
-
-            //set folder title
-            FolderTitle = ActiveFolder.Name;
 
             //Rerender Folder Icon
             ActiveFolder.UpdateFolderIcon(false, true);

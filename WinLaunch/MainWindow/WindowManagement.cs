@@ -663,6 +663,7 @@ namespace WinLaunch
                 return;
             }
 
+            SBM.UnselectItem();
 
             CleanMemory();
 

@@ -292,7 +292,7 @@ namespace WinLaunch
                     //folder
                     string folder = File;
 
-                    Name = folder.Substring(folder.LastIndexOf('\\') + 1);
+                    Name = new DirectoryInfo(folder).Name; // folder.Substring(folder.LastIndexOf('\\') + 1);
                     Path = folder;
 
                     if (Name == "")
@@ -324,7 +324,7 @@ namespace WinLaunch
 
                         System.IO.File.Copy(file, cacheFile);
 
-                        Path = cacheFile;
+                        Path = guid + ".lnk";
                     }
 
                     if (Name == "")

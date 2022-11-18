@@ -87,8 +87,15 @@ namespace WinLaunch
 
             if (filepath.EndsWith(".lnk"))
             {
+                string path = Item.ApplicationPath;
+
+                if (Path.GetExtension(path).ToLower() == ".lnk" && ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                {
+                    path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                }
+
                 //get actual path if its a link
-                filepath = MiscUtils.GetShortcutTargetFile(filepath);
+                filepath = MiscUtils.GetShortcutTargetFile(path);
 
                 if(string.IsNullOrEmpty(filepath))
                 {
@@ -297,7 +304,14 @@ namespace WinLaunch
                     {
                         try
                         {
-                            if (System.IO.File.Exists(Item.ApplicationPath) || System.IO.Directory.Exists(Item.ApplicationPath) || Uri.IsWellFormedUriString(Item.ApplicationPath, UriKind.Absolute))
+                            string path = Item.ApplicationPath;
+
+                            if (Path.GetExtension(path).ToLower() == ".lnk" && ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                            {
+                                path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                            }
+
+                            if (System.IO.File.Exists(path) || System.IO.Directory.Exists(path) || Uri.IsWellFormedUriString(path, UriKind.Absolute))
                             {
                                 CleanMemory();
 
@@ -313,7 +327,7 @@ namespace WinLaunch
                                     {
                                         ProcessStartInfo startInfo = new ProcessStartInfo();
                                         startInfo.UseShellExecute = true;
-                                        startInfo.FileName = Item.ApplicationPath;
+                                        startInfo.FileName = path;
                                         startInfo.Arguments = Item.Arguments;
 
                                         if (Item.RunAsAdmin || RunAsAdmin)
@@ -321,7 +335,7 @@ namespace WinLaunch
                                             startInfo.Verb = "runas";
                                         }
 
-                                        startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(Item.ApplicationPath);
+                                        //startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(Item.ApplicationPath);
                                         Process.Start(startInfo);
                                     }
                                     catch (Exception ex) { }
@@ -589,6 +603,8 @@ namespace WinLaunch
                 if (!ActivatorsEnabled)
                     return;
 
+                DebugLog.WriteToLogFile("HotCorner activated");
+
                 ToggleLaunchpad();
             }));
         }
@@ -622,6 +638,8 @@ namespace WinLaunch
         {
             if (!ActivatorsEnabled)
                 return;
+
+            DebugLog.WriteToLogFile("DoubleKey activated");
 
             ToggleLaunchpad();
         }
@@ -681,6 +699,8 @@ namespace WinLaunch
 
             Dispatcher.BeginInvoke(new Action(() =>
             {
+                DebugLog.WriteToLogFile("MiddleMouse activated");
+
                 ToggleLaunchpad();
             }));
         }
@@ -689,6 +709,8 @@ namespace WinLaunch
         {
             Dispatcher.BeginInvoke(new Action(() =>
             {
+                DebugLog.WriteToLogFile("MiddleMouseDoubleClick activated");
+
                 ToggleLaunchpad();
             }));
         }
@@ -709,6 +731,8 @@ namespace WinLaunch
         {
             if (!ActivatorsEnabled)
                 return;
+
+            DebugLog.WriteToLogFile("shortcut activated");
 
             ToggleLaunchpad();
         }
@@ -746,6 +770,8 @@ namespace WinLaunch
         {
             if (!ActivatorsEnabled)
                 return;
+
+            DebugLog.WriteToLogFile("HotKey activated");
 
             ToggleLaunchpad();
         }

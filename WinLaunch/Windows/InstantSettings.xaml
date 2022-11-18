@@ -421,7 +421,7 @@
                             <StackPanel Margin="7,0,0,0">
                                 <GroupBox Header="{my:Loc Themes}">
                                     <StackPanel Margin="10">
-                                        <TextBlock x:Name="tblThemes" TextDecorations="Underline" Cursor="Hand" Text="Support WinLaunch on Patreon to get access to custom themes and other benefits" MouseLeftButtonDown="tblThemes_MouseLeftButtonDown"/>
+                                        <TextBlock x:Name="tblThemes" TextDecorations="Underline" Cursor="Hand" Text="{my:Loc CustomThemes}" MouseLeftButtonDown="tblThemes_MouseLeftButtonDown"/>
                                     </StackPanel>
                                 </GroupBox>
                             </StackPanel>
@@ -602,7 +602,7 @@
                                     <Button x:Name="btnWelcome" Height="30" Margin="10,0,0,0" Click="btnWelcome_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <Image Source="/WinLaunch;component/res/Settings/welcome.png" RenderOptions.BitmapScalingMode="HighQuality"/>
-                                            <TextBlock Text="Show welcome dialog" Margin="10,0,5,0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{my:Loc ShowWelcomeDialog}" Margin="10,0,5,0" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
@@ -649,10 +649,7 @@
 
                         <GroupBox Header="Patrons">
                             <StackPanel Margin="10">
-                                <TextBlock>
-                                    <Run Text="Shoutout to the people supporting WinLaunch on" />
-                                    <Run x:Name="runPatreon" TextDecorations="Underline" Cursor="Hand" Text="Patreon" MouseLeftButtonDown="runPatreon_MouseLeftButtonDown"/>
-                                </TextBlock>
+                                <TextBlock Text="{my:Loc ShoutoutPatreon}" TextDecorations="Underline" Cursor="Hand" MouseLeftButtonDown="runPatreon_MouseLeftButtonDown" />
                                 <TextBlock x:Name="tblPatrons" Margin="0,10,0,0" FontSize="16" />
                             </StackPanel>
                         </GroupBox>

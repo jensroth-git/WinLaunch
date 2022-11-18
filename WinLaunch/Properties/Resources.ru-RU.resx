@@ -58,373 +58,379 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  			<data name="About" xml:space="preserve">
+  <data name="About" xml:space="preserve">
 		<value>О программе</value>
 	</data>
-	<data name="Activation" xml:space="preserve">
+  <data name="Activation" xml:space="preserve">
 		<value>Горячие клавиши</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
+  <data name="AddDefaultApps" xml:space="preserve">
 		<value>Добавить приложения по умолчанию</value>
 	</data>
-	<data name="AddFile" xml:space="preserve">
+  <data name="AddFile" xml:space="preserve">
 		<value>Добавить файл</value>
 	</data>
-	<data name="AddFolder" xml:space="preserve">
+  <data name="AddFolder" xml:space="preserve">
 		<value>Добавить папку</value>
 	</data>
-	<data name="AddLink" xml:space="preserve">
+  <data name="AddLink" xml:space="preserve">
 		<value>Добавить ссылк</value>
 	</data>
-	<data name="AeroSwitch" xml:space="preserve">
+  <data name="AeroSwitch" xml:space="preserve">
 		<value>Включение Aero. WinLaunch будет перезапущен. Может потребоваться несколько секунд.</value>
 	</data>
-	<data name="AllowFreePlacement" xml:space="preserve">
+  <data name="AllowFreePlacement" xml:space="preserve">
 		<value>Разрешить свободное перемещение элементов</value>
 	</data>
-	<data name="AllowFreePlacementInfo" xml:space="preserve">
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
 		<value>Позволяет размещать элементы в любом месте на сетке</value>
 	</data>
-	<data name="Arguments" xml:space="preserve">
+  <data name="Arguments" xml:space="preserve">
 		<value>Аргументы:</value>
 	</data>
-	<data name="Background" xml:space="preserve">
+  <data name="Background" xml:space="preserve">
 		<value>Фон</value>
 	</data>
-	<data name="BackgroundBlur" xml:space="preserve">
+  <data name="BackgroundBlur" xml:space="preserve">
 		<value>Размытие фона</value>
 	</data>
-	<data name="BackgroundTint" xml:space="preserve">
+  <data name="BackgroundTint" xml:space="preserve">
 		<value>Насыщеность фона</value>
 	</data>
-	<data name="BackupAndRestore" xml:space="preserve">
+  <data name="BackupAndRestore" xml:space="preserve">
 		<value>Бэкап и восстановление</value>
 	</data>
-	<data name="BlockFullscreen" xml:space="preserve">
+  <data name="BlockFullscreen" xml:space="preserve">
 		<value>Блокировать WinLaunch в полноэкранных приложениях.</value>
 	</data>
-	<data name="BlockFullscreenInfo" xml:space="preserve">
+  <data name="BlockFullscreenInfo" xml:space="preserve">
 		<value>Когда включено, WinLaunch будет заблокирован при обнаружении полноэкранных приложений, например во время игры или просмотра видео.</value>
 	</data>
-	<data name="Cancel" xml:space="preserve">
+  <data name="Cancel" xml:space="preserve">
 		<value>Отмена</value>
 	</data>
-	<data name="CantBeUndoneWarning" xml:space="preserve">
+  <data name="CantBeUndoneWarning" xml:space="preserve">
 		<value>Это не может быть отменено</value>
 	</data>
-	<data name="CheckForUpdates" xml:space="preserve">
+  <data name="CheckForUpdates" xml:space="preserve">
 		<value>Проверка обновлений</value>
 	</data>
-	<data name="CheckForUpdatesFrequently" xml:space="preserve">
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
 		<value>Чаще проверяйте наличие обновлений</value>
 	</data>
-	<data name="ChooseMonitor" xml:space="preserve">
+  <data name="ChooseMonitor" xml:space="preserve">
 		<value>Выбрать монитор</value>
 	</data>
-	<data name="ChoosePath" xml:space="preserve">
+  <data name="ChoosePath" xml:space="preserve">
 		<value>Выбрать путь</value>
 	</data>
-	<data name="ClearItems" xml:space="preserve">
+  <data name="ClearItems" xml:space="preserve">
 		<value>Очистить элементы</value>
 	</data>
-	<data name="Clicked" xml:space="preserve">
+  <data name="Clicked" xml:space="preserve">
 		<value>Один щелчок</value>
 	</data>
-	<data name="CloseWarning" xml:space="preserve">
+  <data name="CloseWarning" xml:space="preserve">
 		<value>Вы действительно хотите закрыть WinLaunch?</value>
 	</data>
-	<data name="Columns" xml:space="preserve">
+  <data name="Columns" xml:space="preserve">
 		<value>Столбцы</value>
 	</data>
-	<data name="ColumnsAndRows" xml:space="preserve">
+  <data name="ColumnsAndRows" xml:space="preserve">
 		<value>Столбцы и ряды</value>
 	</data>
-	<data name="Confirm" xml:space="preserve">
+  <data name="Confirm" xml:space="preserve">
 		<value>Подтвердить</value>
 	</data>
-	<data name="Copied" xml:space="preserve">
+  <data name="Copied" xml:space="preserve">
 		<value>Скопировано</value>
 	</data>
-	<data name="CreateBackup" xml:space="preserve">
+  <data name="CreateBackup" xml:space="preserve">
 		<value>Создать бэкап</value>
 	</data>
-	<data name="CreatedBy" xml:space="preserve">
+  <data name="CreatedBy" xml:space="preserve">
 		<value>Создатель</value>
 	</data>
-	<data name="DeskModeSwitch" xml:space="preserve">
+  <data name="CustomThemes" xml:space="preserve">
+    <value>Поддержите WinLaunch на Patreon, чтобы получить доступ к пользовательским темам и другим преимуществам.</value>
+  </data>
+  <data name="DeskModeSwitch" xml:space="preserve">
 		<value>Для переключения WinLaunch в режим рабочего стола требуется перезагрузка, это может занять несколько секунд.</value>
 	</data>
-	<data name="DoubleClicked" xml:space="preserve">
+  <data name="DoubleClicked" xml:space="preserve">
 		<value>Двойной щелчок</value>
 	</data>
-	<data name="Edit" xml:space="preserve">
+  <data name="Edit" xml:space="preserve">
 		<value>Редактировать</value>
 	</data>
-	<data name="EnableAcrylic" xml:space="preserve">
+  <data name="EnableAcrylic" xml:space="preserve">
 		<value>Включить акрил</value>
 	</data>
-	<data name="EnableAcrylicInfo" xml:space="preserve">
+  <data name="EnableAcrylicInfo" xml:space="preserve">
 		<value>При включении будет использоваться новое акриловое размытие Windows 10.</value>
 	</data>
-	<data name="EnableAero" xml:space="preserve">
+  <data name="EnableAero" xml:space="preserve">
 		<value>Включить Aero</value>
 	</data>
-	<data name="EnableAeroInfo" xml:space="preserve">
+  <data name="EnableAeroInfo" xml:space="preserve">
 		<value>Когда включено, будет использоваться Aero вместо обоев</value>
 	</data>
-	<data name="EnableAltDoubleTap" xml:space="preserve">
+  <data name="EnableAltDoubleTap" xml:space="preserve">
 		<value>Включить активацию Alt двойным нажатием</value>
 	</data>
-	<data name="EnableCtrlDoubleTap" xml:space="preserve">
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
 		<value>Включить активацию двойного нажатия Ctrl</value>
 	</data>
-	<data name="EnableGamepadActivation" xml:space="preserve">
+  <data name="EnableGamepadActivation" xml:space="preserve">
 		<value>Включить активацию WinLaunch с помощью кнопки запуска на геймпаде</value>
 	</data>
-	<data name="EnableHotCorner" xml:space="preserve">
+  <data name="EnableHotCorner" xml:space="preserve">
 		<value>Включить горячие углы</value>
 	</data>
-	<data name="EnableHotKey" xml:space="preserve">
+  <data name="EnableHotKey" xml:space="preserve">
 		<value>Включить горячие клавишы</value>
 	</data>
-	<data name="EnableTouchscreen" xml:space="preserve">
+  <data name="EnableTouchscreen" xml:space="preserve">
 		<value>Включить режим сенсорного экрана</value>
 	</data>
-	<data name="EnableTouchscreenInfo" xml:space="preserve">
+  <data name="EnableTouchscreenInfo" xml:space="preserve">
 		<value>Сенсорный режим позволит вам перемещать объекты только после того, как вы удерживали их в течение 3 секунд (они начнут покачиваться)</value>
 	</data>
-	<data name="EnableWindowsKey" xml:space="preserve">
+  <data name="EnableWindowsKey" xml:space="preserve">
 		<value>Включить активацию ключа Windows</value>
 	</data>
-	<data name="FillScreen" xml:space="preserve">
+  <data name="FillScreen" xml:space="preserve">
 		<value>Заполнить весь экран</value>
 	</data>
-	<data name="FillScreenInfo" xml:space="preserve">
+  <data name="FillScreenInfo" xml:space="preserve">
 		<value>Когда включено, WinLaunch будет охватывать весь экран, включая панель задач.</value>
 	</data>
-	<data name="FolderColumns" xml:space="preserve">
+  <data name="FolderColumns" xml:space="preserve">
 		<value>Колонки папок</value>
 	</data>
-	<data name="GamepadActivation" xml:space="preserve">
+  <data name="GamepadActivation" xml:space="preserve">
 		<value>Активация геймпада</value>
 	</data>
-	<data name="General" xml:space="preserve">
+  <data name="General" xml:space="preserve">
 		<value>Основные</value>
 	</data>
-	<data name="HotCornerDelay" xml:space="preserve">
+  <data name="HotCornerDelay" xml:space="preserve">
 		<value>Задерживать:</value>
 	</data>
-	<data name="HotCornersActivation" xml:space="preserve">
+  <data name="HotCornersActivation" xml:space="preserve">
 		<value>Активация горячих углов</value>
 	</data>
-	<data name="HotKeyActivation" xml:space="preserve">
+  <data name="HotKeyActivation" xml:space="preserve">
 		<value>Активация горячих клавиш</value>
 	</data>
-	<data name="Icons" xml:space="preserve">
+  <data name="Icons" xml:space="preserve">
 		<value>Иконки</value>
 	</data>
-	<data name="IconShadowOpacity" xml:space="preserve">
+  <data name="IconShadowOpacity" xml:space="preserve">
 		<value>Непрозрачность тени иконок</value>
 	</data>
-	<data name="IconSize" xml:space="preserve">
+  <data name="IconSize" xml:space="preserve">
 		<value>Размер иконок</value>
 	</data>
-	<data name="IconText" xml:space="preserve">
+  <data name="IconText" xml:space="preserve">
 		<value>Текст иконки:</value>
 	</data>
-	<data name="IconTextShadow" xml:space="preserve">
+  <data name="IconTextShadow" xml:space="preserve">
 		<value>Тень текста иконки:</value>
 	</data>
-	<data name="Interface" xml:space="preserve">
+  <data name="Interface" xml:space="preserve">
 		<value>Интерфейс</value>
 	</data>
-	<data name="ItemOptions" xml:space="preserve">
+  <data name="ItemOptions" xml:space="preserve">
 		<value>Опции элемента</value>
 	</data>
-	<data name="Items" xml:space="preserve">
+  <data name="Items" xml:space="preserve">
 		<value>Предметы</value>
 	</data>
-	<data name="JoinUsOnDiscord" xml:space="preserve">
+  <data name="JoinUsOnDiscord" xml:space="preserve">
 		<value>Присоединяйтесь к нам в Дискорде</value>
 	</data>
-	<data name="KeyActivation" xml:space="preserve">
+  <data name="KeyActivation" xml:space="preserve">
 		<value>Активация ключа</value>
 	</data>
-	<data name="Language" xml:space="preserve">
+  <data name="Language" xml:space="preserve">
 		<value>Язык</value>
 	</data>
-	<data name="LanguageInfo" xml:space="preserve">
+  <data name="LanguageInfo" xml:space="preserve">
 		<value>Для предоставления нового перевода посетите сайт:</value>
 	</data>
-	<data name="LatestVersion" xml:space="preserve">
+  <data name="LatestVersion" xml:space="preserve">
 		<value>У вас загружена самая новаая версия</value>
 	</data>
-	<data name="Loading" xml:space="preserve">
+  <data name="Loading" xml:space="preserve">
 		<value>Загрузка...</value>
 	</data>
-	<data name="LoadWallpaper" xml:space="preserve">
+  <data name="LoadWallpaper" xml:space="preserve">
 		<value>Загрузка обоев</value>
 	</data>
-	<data name="LookAndFeel" xml:space="preserve">
+  <data name="LookAndFeel" xml:space="preserve">
 		<value>Оформление</value>
 	</data>
-	<data name="MakePortable" xml:space="preserve">
+  <data name="MakePortable" xml:space="preserve">
 		<value>Сделать портативным</value>
 	</data>
-	<data name="MakePortableInfo" xml:space="preserve">
+  <data name="MakePortableInfo" xml:space="preserve">
 		<value>Если этот параметр включен, WinLaunch будет загружаться из каталога Data в папке, в которой он установлен, а не из appdata.</value>
 	</data>
-	<data name="MiddleMouseActivation" xml:space="preserve">
+  <data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Активация средней кнопкой мыши</value>
 	</data>
-	<data name="MultiMonitors" xml:space="preserve">
+  <data name="MultiMonitors" xml:space="preserve">
 		<value>Несколько мониторов</value>
 	</data>
-	<data name="Name" xml:space="preserve">
+  <data name="Name" xml:space="preserve">
 		<value>Имя:</value>
 	</data>
-	<data name="Nothing" xml:space="preserve">
+  <data name="Nothing" xml:space="preserve">
 		<value>Ничего такого</value>
 	</data>
-	<data name="Open" xml:space="preserve">
+  <data name="Open" xml:space="preserve">
 		<value>Открыть</value>
 	</data>
-	<data name="OpenAsAdmin" xml:space="preserve">
+  <data name="OpenAsAdmin" xml:space="preserve">
 		<value>Открыть как администратор</value>
 	</data>
-	<data name="OpenFolders" xml:space="preserve">
+  <data name="OpenFolders" xml:space="preserve">
 		<value>Открывать папки при их создании</value>
 	</data>
-	<data name="OpenLocation" xml:space="preserve">
+  <data name="OpenLocation" xml:space="preserve">
 		<value>Открыть расположение</value>
 	</data>
-	<data name="OpenOnActiveMonitor" xml:space="preserve">
+  <data name="OpenOnActiveMonitor" xml:space="preserve">
 		<value>Всегда открывать WinLaunch на активном мониторе</value>
 	</data>
-	<data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
 		<value>Когда включено, WinLaunch автоматически активируется на мониторе, на котором в данный момент находится мышь</value>
 	</data>
-	<data name="Options" xml:space="preserve">
+  <data name="Options" xml:space="preserve">
 		<value>Опции</value>
 	</data>
-	<data name="Path" xml:space="preserve">
+  <data name="Path" xml:space="preserve">
 		<value>Путь:</value>
 	</data>
-	<data name="PinDesktop" xml:space="preserve">
+  <data name="PinDesktop" xml:space="preserve">
 		<value>Закрепить WinLaunch на рабочем столе</value>
 	</data>
-	<data name="PinDesktopInfo" xml:space="preserve">
+  <data name="PinDesktopInfo" xml:space="preserve">
 		<value>Когда включено, WinLaunch будет закреплён на рабочем столе, заменяя обои</value>
 	</data>
-	<data name="PressAKey" xml:space="preserve">
+  <data name="PressAKey" xml:space="preserve">
 		<value>Нажмите клавишу</value>
 	</data>
-	<data name="Quit" xml:space="preserve">
+  <data name="Quit" xml:space="preserve">
 		<value>Выход</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
+  <data name="ReallyAddDefaultApps" xml:space="preserve">
 		<value>Вы действительно хотите добавить все приложения по умолчанию?</value>
 	</data>
-	<data name="Remove" xml:space="preserve">
+  <data name="Remove" xml:space="preserve">
 		<value>Удалить</value>
 	</data>
-	<data name="RemoveFolder" xml:space="preserve">
+  <data name="RemoveFolder" xml:space="preserve">
 		<value>Удаление этой папки также удалит все элементы внутри</value>
 	</data>
-	<data name="RemoveItem" xml:space="preserve">
+  <data name="RemoveItem" xml:space="preserve">
 		<value>Вы действительно хотите удалить этот элемент?</value>
 	</data>
-	<data name="RestoreBackup" xml:space="preserve">
+  <data name="RestoreBackup" xml:space="preserve">
 		<value>Восстановление из бэкапа</value>
 	</data>
-	<data name="RestoreIcon" xml:space="preserve">
+  <data name="RestoreIcon" xml:space="preserve">
 		<value>Восстановить значок</value>
 	</data>
-	<data name="Rows" xml:space="preserve">
+  <data name="Rows" xml:space="preserve">
 		<value>Ряды</value>
 	</data>
-	<data name="Screen" xml:space="preserve">
+  <data name="Screen" xml:space="preserve">
 		<value>Экран</value>
 	</data>
-	<data name="SearchKeywords" xml:space="preserve">
+  <data name="SearchKeywords" xml:space="preserve">
 		<value>Ключевые слова для поиска:</value>
 	</data>
-	<data name="SelectBackground" xml:space="preserve">
+  <data name="SelectBackground" xml:space="preserve">
 		<value>Выбрать фоновое изображение</value>
 	</data>
-	<data name="SelectIcon" xml:space="preserve">
+  <data name="SelectIcon" xml:space="preserve">
 		<value>Выбрать иконку</value>
 	</data>
-	<data name="Settings" xml:space="preserve">
+  <data name="Settings" xml:space="preserve">
 		<value>Настройки</value>
 	</data>
-	<data name="ShowExtensionIcon" xml:space="preserve">
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>Приветствую людей, поддерживающих WinLaunch на Patreon</value>
+  </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Показать значок расширения</value>
 	</data>
-	<data name="ShowMiniatures" xml:space="preserve">
+  <data name="ShowMiniatures" xml:space="preserve">
 		<value>Показать миниатюрные значки</value>
 	</data>
-	<data name="ShowPageIndicators" xml:space="preserve">
+  <data name="ShowPageIndicators" xml:space="preserve">
 		<value>Показать индикаторы страницы</value>
 	</data>
-	<data name="ShowSearchBar" xml:space="preserve">
+  <data name="ShowSearchBar" xml:space="preserve">
 		<value>Показать панель поиска</value>
 	</data>
-	<data name="SortFoldersFirst" xml:space="preserve">
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+		<value>Показать диалоговое окно приветствия</value>
+	</data>
+  <data name="SortFoldersFirst" xml:space="preserve">
 		<value>Сначала сортируйте папки!</value>
 	</data>
-	<data name="SortItemsAlphabetically" xml:space="preserve">
+  <data name="SortItemsAlphabetically" xml:space="preserve">
 		<value>Сортировать элементы по алфавиту</value>
 	</data>
-	<data name="StartWithWindows" xml:space="preserve">
+  <data name="StartWithWindows" xml:space="preserve">
 		<value>Запускать вместе с Windows</value>
 	</data>
-	<data name="StartWithWindowsInfo" xml:space="preserve">
+  <data name="StartWithWindowsInfo" xml:space="preserve">
 		<value>WinLaunch будет запущен автоматически при старте системы</value>
 	</data>
-	<data name="SyncWallpaper" xml:space="preserve">
+  <data name="SyncWallpaper" xml:space="preserve">
 		<value>Синхронизация обоев</value>
 	</data>
-	<data name="SyncWallpaperInfo" xml:space="preserve">
+  <data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Когда включено, фон синхронизируется с текущими обоями</value>
 	</data>
-	<data name="Themes" xml:space="preserve">
+  <data name="Themes" xml:space="preserve">
 		<value>Темы</value>
 	</data>
-	<data name="TranslatedBy" xml:space="preserve">
+  <data name="TranslatedBy" xml:space="preserve">
 		<value>Перевод на русский язык: Абляев Евгений</value>
 	</data>
-	<data name="Tutorial" xml:space="preserve">
+  <data name="Tutorial" xml:space="preserve">
 		<value>Руководство</value>
 	</data>
-	<data name="Update" xml:space="preserve">
+  <data name="Update" xml:space="preserve">
 		<value>Обновление</value>
 	</data>
-	<data name="UpdateAvailable" xml:space="preserve">
+  <data name="UpdateAvailable" xml:space="preserve">
 		<value>Доступно обновление</value>
 	</data>
-	<data name="UpdateAvailableInfo" xml:space="preserve">
+  <data name="UpdateAvailableInfo" xml:space="preserve">
 		<value>Доступно новое обновление WinLaunch, желаете установить его?</value>
 	</data>
-	<data name="UpdateError" xml:space="preserve">
+  <data name="UpdateError" xml:space="preserve">
 		<value>Не удалось скачать информацию о версии</value>
 	</data>
-	<data name="UpdateSilently" xml:space="preserve">
+  <data name="UpdateSilently" xml:space="preserve">
 		<value>Обновить молча</value>
 	</data>
-	<data name="UseCustomBackground" xml:space="preserve">
+  <data name="UseCustomBackground" xml:space="preserve">
 		<value>Использовать свой фон</value>
 	</data>
-	<data name="UseCustomBackgroundInfo" xml:space="preserve">
+  <data name="UseCustomBackgroundInfo" xml:space="preserve">
 		<value>Вы можете выбрать своё изображение в качестве фона.</value>
 	</data>
-	<data name="Version" xml:space="preserve">
+  <data name="Version" xml:space="preserve">
 		<value>Версия:</value>
 	</data>
-	<data name="Warning" xml:space="preserve">
+  <data name="Warning" xml:space="preserve">
 		<value>Внимание</value>
 	</data>
-
-
-
 </root>

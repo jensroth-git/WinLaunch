@@ -151,6 +151,9 @@
   <data name="CreatedBy" xml:space="preserve">
 		<value>Създадено от</value>
 	</data>
+  <data name="CustomThemes" xml:space="preserve">
+    <value>Подкрепете WinLaunch в Patreon, за да получите достъп до персонализирани теми и други предимства</value>
+  </data>
   <data name="DeskModeSwitch" xml:space="preserve">
 		<value>За превключване на DeskMode WinLaunch трябва да се рестартира, това ще отнеме няколко секунди.</value>
 	</data>
@@ -358,6 +361,9 @@
   <data name="Settings" xml:space="preserve">
 		<value>Настройки</value>
 	</data>
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>Поздрав към хората, подкрепящи WinLaunch в Patreon</value>
+  </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Показване на иконата на разширение</value>
 	</data>
@@ -370,6 +376,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
 		<value>Показване на лентата за търсене</value>
 	</data>
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+    <value>Показване на диалогов прозорец за добре дошли</value>
+  </data>
   <data name="SortFoldersFirst" xml:space="preserve">
 		<value>Първо сортирайте папките</value>
 	</data>

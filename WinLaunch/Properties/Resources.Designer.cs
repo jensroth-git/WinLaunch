@@ -340,6 +340,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Support WinLaunch on Patreon to get access to custom themes and other benefits.
+        /// </summary>
+        internal static string CustomThemes {
+            get {
+                return ResourceManager.GetString("CustomThemes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To toggle DeskMode WinLaunch will have to be restarted, this might take a few seconds..
         /// </summary>
         internal static string DeskModeSwitch {
@@ -961,6 +970,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shoutout to the people supporting WinLaunch on Patreon.
+        /// </summary>
+        internal static string ShoutoutPatreon {
+            get {
+                return ResourceManager.GetString("ShoutoutPatreon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show extension icon.
         /// </summary>
         internal static string ShowExtensionIcon {
@@ -993,6 +1011,15 @@ namespace WinLaunch.Properties {
         internal static string ShowSearchBar {
             get {
                 return ResourceManager.GetString("ShowSearchBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show welcome dialog.
+        /// </summary>
+        internal static string ShowWelcomeDialog {
+            get {
+                return ResourceManager.GetString("ShowWelcomeDialog", resourceCulture);
             }
         }
         

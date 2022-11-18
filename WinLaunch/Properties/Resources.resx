@@ -211,6 +211,9 @@
   <data name="CreatedBy" xml:space="preserve">
     <value>Created by</value>
   </data>
+  <data name="CustomThemes" xml:space="preserve">
+    <value>Support WinLaunch on Patreon to get access to custom themes and other benefits</value>
+  </data>
   <data name="DeskModeSwitch" xml:space="preserve">
     <value>To toggle DeskMode WinLaunch will have to be restarted, this might take a few seconds.</value>
   </data>
@@ -418,6 +421,9 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>Shoutout to the people supporting WinLaunch on Patreon</value>
+  </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Show extension icon</value>
   </data>
@@ -429,6 +435,9 @@
   </data>
   <data name="ShowSearchBar" xml:space="preserve">
     <value>Show search bar</value>
+  </data>
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+    <value>Show welcome dialog</value>
   </data>
   <data name="SortFoldersFirst" xml:space="preserve">
     <value>Sort folders first</value>

@@ -90,6 +90,24 @@ namespace WinLaunch
             return false;
         }
 
+        public static bool IsLnkInCache(string lnkPath)
+        {
+            string filename = Path.GetFileNameWithoutExtension(lnkPath);
+            Guid id;
+
+            if (!Guid.TryParse(filename, out id))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(Path.GetDirectoryName(lnkPath)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         private void LoadIconInBackground(SBItem item, Dispatcher disp)
         {
             if (item.IsFolder)
@@ -134,9 +152,16 @@ namespace WinLaunch
             }
             else
             {
+                string path = item.ApplicationPath;
+
+                if (Path.GetExtension(path).ToLower() == ".lnk" && IsLnkInCache(item.ApplicationPath))
+                {
+                    path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                }
+
                 //load file icon
                 //only try to load icon if item exists otherwise crash / hang
-                if (File.Exists(item.ApplicationPath) || Directory.Exists(item.ApplicationPath) || Uri.IsWellFormedUriString(item.ApplicationPath, UriKind.Absolute))
+                if (File.Exists(path) || Directory.Exists(path) || Uri.IsWellFormedUriString(path, UriKind.Absolute))
                 {
                     BitmapSource bmps = null;
 
@@ -173,7 +198,7 @@ namespace WinLaunch
                         {
                             try
                             {
-                                bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
+                                bmps = MiscUtils.GetFileThumbnail(path);
                             }
                             catch { }
                         }
@@ -182,7 +207,7 @@ namespace WinLaunch
                     {
                         try
                         {
-                            bmps = MiscUtils.GetFileThumbnail(item.ApplicationPath);
+                            bmps = MiscUtils.GetFileThumbnail(path);
                         }
                         catch { }
                     }

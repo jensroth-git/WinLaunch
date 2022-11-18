@@ -151,6 +151,9 @@
   <data name="CreatedBy" xml:space="preserve">
 		<value>Erstellt von</value>
 	</data>
+  <data name="CustomThemes" xml:space="preserve">
+    <value>Unterstütze WinLaunch auf Patreon, um Zugang zu benutzerdefinierten Designs und anderen Vorteilen zu erhalten</value>
+  </data>
   <data name="DeskModeSwitch" xml:space="preserve">
 		<value>DeskMode WinLaunch umschalten müssen neu gestartet werden, dies kann einige Sekunden dauern.</value>
 	</data>
@@ -269,7 +272,7 @@
 		<value>Erscheinungsbild</value>
 	</data>
   <data name="MakePortable" xml:space="preserve">
-    <value>Portable machen</value>
+    <value>Portabel machen</value>
   </data>
   <data name="MakePortableInfo" xml:space="preserve">
     <value>Wenn diese Option aktiviert ist, lädt WinLaunch aus dem Data-Verzeichnis in dem Ordner, in dem es installiert ist, anstelle von AppData</value>
@@ -358,6 +361,9 @@
   <data name="Settings" xml:space="preserve">
 		<value>Einstellungen</value>
 	</data>
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>Shoutout an die Leute, die WinLaunch auf Patreon unterstützen</value>
+  </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Zeige das Icon für die Toolbar</value>
 	</data>
@@ -370,6 +376,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
 		<value>Zeige die Suchleiste</value>
 	</data>
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+    <value>Begrüßungsdialog anzeigen</value>
+  </data>
   <data name="SortFoldersFirst" xml:space="preserve">
 		<value>Ordner zuerst sortieren</value>
 	</data>

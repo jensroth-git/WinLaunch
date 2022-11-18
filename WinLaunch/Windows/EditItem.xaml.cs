@@ -200,6 +200,11 @@ namespace WinLaunch
 
             if (filepath.EndsWith(".lnk"))
             {
+                if (ItemCollection.IsLnkInCache(filepath))
+                {
+                    filepath = Path.Combine(PortabilityManager.LinkCachePath, filepath);
+                }
+
                 //get actual path if its a link
                 filepath = MiscUtils.GetShortcutTargetFile(filepath);
 
@@ -270,6 +275,8 @@ namespace WinLaunch
             {
                 this.ActiveItem.UpdateFolderIcon();
             }
+
+           
 
             this.Close();
         }

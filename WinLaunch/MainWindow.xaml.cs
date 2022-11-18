@@ -167,7 +167,7 @@ namespace WinLaunch
             this.Height = 0;
 
             //load settings and setup deskmode / no deskmode
-            Settings.CurrentSettings = Settings.LoadSettings(PortabilityManager.SettingsPath);
+            Settings.CurrentSettings = Settings.LoadSettings();
 
             if (!Settings.CurrentSettings.DeskMode)
                 this.Topmost = true;
@@ -183,7 +183,7 @@ namespace WinLaunch
                 Settings.CurrentSettings.FolderColumns = Theme.CurrentTheme.FolderColumns;
                 Settings.CurrentSettings.FolderRows = Theme.CurrentTheme.FolderRows;
 
-                Settings.SaveSettings(PortabilityManager.SettingsPath, Settings.CurrentSettings);
+                Settings.SaveSettings(Settings.CurrentSettings);
 
                 Theme.CurrentTheme.Columns = -1;
                 Theme.CurrentTheme.Rows = -1;

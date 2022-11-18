@@ -58,373 +58,379 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  			<data name="About" xml:space="preserve">
+  <data name="About" xml:space="preserve">
 		<value>Tentang</value>
 	</data>
-	<data name="Activation" xml:space="preserve">
+  <data name="Activation" xml:space="preserve">
 		<value>Aktivasi</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
+  <data name="AddDefaultApps" xml:space="preserve">
 		<value>Tambah aplikasi default</value>
 	</data>
-	<data name="AddFile" xml:space="preserve">
+  <data name="AddFile" xml:space="preserve">
 		<value>Tambah file</value>
 	</data>
-	<data name="AddFolder" xml:space="preserve">
+  <data name="AddFolder" xml:space="preserve">
 		<value>Tambah folder</value>
 	</data>
-	<data name="AddLink" xml:space="preserve">
+  <data name="AddLink" xml:space="preserve">
 		<value>Tambah tautan</value>
 	</data>
-	<data name="AeroSwitch" xml:space="preserve">
+  <data name="AeroSwitch" xml:space="preserve">
 		<value>Untuk mengaktifkan Aero, WinLaunch perlu dimulai ulang, ini mungkin memakan waktu beberapa detik.</value>
 	</data>
-	<data name="AllowFreePlacement" xml:space="preserve">
+  <data name="AllowFreePlacement" xml:space="preserve">
 		<value>Izinkan penempatan item secara bebas</value>
 	</data>
-	<data name="AllowFreePlacementInfo" xml:space="preserve">
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
 		<value>Memungkinkan item untuk ditempatkan di mana saja</value>
 	</data>
-	<data name="Arguments" xml:space="preserve">
+  <data name="Arguments" xml:space="preserve">
 		<value>Argumen:</value>
 	</data>
-	<data name="Background" xml:space="preserve">
+  <data name="Background" xml:space="preserve">
 		<value>Latar belakang</value>
 	</data>
-	<data name="BackgroundBlur" xml:space="preserve">
+  <data name="BackgroundBlur" xml:space="preserve">
 		<value>Latar belakang blur</value>
 	</data>
-	<data name="BackgroundTint" xml:space="preserve">
+  <data name="BackgroundTint" xml:space="preserve">
 		<value>Warna latar belakang</value>
 	</data>
-	<data name="BackupAndRestore" xml:space="preserve">
+  <data name="BackupAndRestore" xml:space="preserve">
 		<value>Cadangkan dan Pulihkan</value>
 	</data>
-	<data name="BlockFullscreen" xml:space="preserve">
+  <data name="BlockFullscreen" xml:space="preserve">
 		<value>Blokir aktivasi WinLaunch saat aplikasi lain dalam mode layar penuh</value>
 	</data>
-	<data name="BlockFullscreenInfo" xml:space="preserve">
+  <data name="BlockFullscreenInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan memblokir WinLaunch ketika aplikasi layar penuh terdeteksi mis. Saat bermain game atau menonton video.</value>
 	</data>
-	<data name="Cancel" xml:space="preserve">
+  <data name="Cancel" xml:space="preserve">
 		<value>Batal</value>
 	</data>
-	<data name="CantBeUndoneWarning" xml:space="preserve">
+  <data name="CantBeUndoneWarning" xml:space="preserve">
 		<value>Ini tidak dapat dibatalkan</value>
 	</data>
-	<data name="CheckForUpdates" xml:space="preserve">
+  <data name="CheckForUpdates" xml:space="preserve">
 		<value>Periksa pembaruan</value>
 	</data>
-	<data name="CheckForUpdatesFrequently" xml:space="preserve">
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
 		<value>Periksa pembaruan sesering mungkin</value>
 	</data>
-	<data name="ChooseMonitor" xml:space="preserve">
+  <data name="ChooseMonitor" xml:space="preserve">
 		<value>Pilih monitor</value>
 	</data>
-	<data name="ChoosePath" xml:space="preserve">
+  <data name="ChoosePath" xml:space="preserve">
 		<value>Pilih jalur</value>
 	</data>
-	<data name="ClearItems" xml:space="preserve">
+  <data name="ClearItems" xml:space="preserve">
 		<value>Hapus semua item</value>
 	</data>
-	<data name="Clicked" xml:space="preserve">
+  <data name="Clicked" xml:space="preserve">
 		<value>Satu klik</value>
 	</data>
-	<data name="CloseWarning" xml:space="preserve">
+  <data name="CloseWarning" xml:space="preserve">
 		<value>Apakah Anda yakin ingin menutup WinLaunch?</value>
 	</data>
-	<data name="Columns" xml:space="preserve">
+  <data name="Columns" xml:space="preserve">
 		<value>Kolom</value>
 	</data>
-	<data name="ColumnsAndRows" xml:space="preserve">
+  <data name="ColumnsAndRows" xml:space="preserve">
 		<value>Kolom &amp; Baris</value>
 	</data>
-	<data name="Confirm" xml:space="preserve">
+  <data name="Confirm" xml:space="preserve">
 		<value>Konfirmasi</value>
 	</data>
-	<data name="Copied" xml:space="preserve">
+  <data name="Copied" xml:space="preserve">
 		<value>Disalin</value>
 	</data>
-	<data name="CreateBackup" xml:space="preserve">
+  <data name="CreateBackup" xml:space="preserve">
 		<value>Buat cadangan</value>
 	</data>
-	<data name="CreatedBy" xml:space="preserve">
+  <data name="CreatedBy" xml:space="preserve">
 		<value>Dibuat oleh</value>
 	</data>
-	<data name="DeskModeSwitch" xml:space="preserve">
+  <data name="CustomThemes" xml:space="preserve">
+    <value>Dukung WinLaunch di Patreon untuk mendapatkan akses ke tema khusus dan manfaat lainnya</value>
+  </data>
+  <data name="DeskModeSwitch" xml:space="preserve">
 		<value>Untuk mengaktifkan DeskMode, WinLaunch perlu dimulai ulang, ini mungkin memakan waktu beberapa detik.</value>
 	</data>
-	<data name="DoubleClicked" xml:space="preserve">
+  <data name="DoubleClicked" xml:space="preserve">
 		<value>Klik dua kali</value>
 	</data>
-	<data name="Edit" xml:space="preserve">
+  <data name="Edit" xml:space="preserve">
 		<value>Edit</value>
 	</data>
-	<data name="EnableAcrylic" xml:space="preserve">
+  <data name="EnableAcrylic" xml:space="preserve">
 		<value>Aktifkan Acrylic</value>
 	</data>
-	<data name="EnableAcrylicInfo" xml:space="preserve">
+  <data name="EnableAcrylicInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan menggunakan Windows 10 acrylic blur yang baru</value>
 	</data>
-	<data name="EnableAero" xml:space="preserve">
+  <data name="EnableAero" xml:space="preserve">
 		<value>Aktifkan Aero</value>
 	</data>
-	<data name="EnableAeroInfo" xml:space="preserve">
+  <data name="EnableAeroInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan menggunakan Windows Aero sebagai pengganti wallpaper</value>
 	</data>
-	<data name="EnableAltDoubleTap" xml:space="preserve">
+  <data name="EnableAltDoubleTap" xml:space="preserve">
 		<value>Aktivasi dengan menekan tombol Alt dua kali</value>
 	</data>
-	<data name="EnableCtrlDoubleTap" xml:space="preserve">
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
 		<value>Aktivasi dengan menekan tombol Ctrl dua kali</value>
 	</data>
-	<data name="EnableGamepadActivation" xml:space="preserve">
+  <data name="EnableGamepadActivation" xml:space="preserve">
 		<value>Aktivasi WinLaunch menggunakan tombol start pada gamepad</value>
 	</data>
-	<data name="EnableHotCorner" xml:space="preserve">
+  <data name="EnableHotCorner" xml:space="preserve">
 		<value>Aktifkan HotCorner</value>
 	</data>
-	<data name="EnableHotKey" xml:space="preserve">
+  <data name="EnableHotKey" xml:space="preserve">
 		<value>Aktifkan Hotkey</value>
 	</data>
-	<data name="EnableTouchscreen" xml:space="preserve">
+  <data name="EnableTouchscreen" xml:space="preserve">
 		<value>Aktifkan mode layar sentuh</value>
 	</data>
-	<data name="EnableTouchscreenInfo" xml:space="preserve">
+  <data name="EnableTouchscreenInfo" xml:space="preserve">
 		<value>Mode layar sentuh akan memungkinkan Anda untuk hanya memindahkan item setelah Anda menahannya selama 3 detik (mereka akan mulai bergoyang)</value>
 	</data>
-	<data name="EnableWindowsKey" xml:space="preserve">
+  <data name="EnableWindowsKey" xml:space="preserve">
 		<value>Aktivasi menggunakan tombol Windows</value>
 	</data>
-	<data name="FillScreen" xml:space="preserve">
+  <data name="FillScreen" xml:space="preserve">
 		<value>Penuhi seluruh layar</value>
 	</data>
-	<data name="FillScreenInfo" xml:space="preserve">
+  <data name="FillScreenInfo" xml:space="preserve">
 		<value>Saat diaktifkan, WinLaunch akan menutupi seluruh layar termasuk taskbar</value>
 	</data>
-	<data name="FolderColumns" xml:space="preserve">
+  <data name="FolderColumns" xml:space="preserve">
 		<value>Kolom folder</value>
 	</data>
-	<data name="GamepadActivation" xml:space="preserve">
+  <data name="GamepadActivation" xml:space="preserve">
 		<value>Aktivasi gamepad</value>
 	</data>
-	<data name="General" xml:space="preserve">
+  <data name="General" xml:space="preserve">
 		<value>Umum</value>
 	</data>
-	<data name="HotCornerDelay" xml:space="preserve">
+  <data name="HotCornerDelay" xml:space="preserve">
 		<value>Jeda: </value>
 	</data>
-	<data name="HotCornersActivation" xml:space="preserve">
+  <data name="HotCornersActivation" xml:space="preserve">
 		<value>Aktivasi HotCorner</value>
 	</data>
-	<data name="HotKeyActivation" xml:space="preserve">
+  <data name="HotKeyActivation" xml:space="preserve">
 		<value>Aktivasi Hotkey</value>
 	</data>
-	<data name="Icons" xml:space="preserve">
+  <data name="Icons" xml:space="preserve">
 		<value>Ikon</value>
 	</data>
-	<data name="IconShadowOpacity" xml:space="preserve">
+  <data name="IconShadowOpacity" xml:space="preserve">
 		<value>Opasitas bayangan ikon</value>
 	</data>
-	<data name="IconSize" xml:space="preserve">
+  <data name="IconSize" xml:space="preserve">
 		<value>Ukuran ikon</value>
 	</data>
-	<data name="IconText" xml:space="preserve">
+  <data name="IconText" xml:space="preserve">
 		<value>Teks ikon:</value>
 	</data>
-	<data name="IconTextShadow" xml:space="preserve">
+  <data name="IconTextShadow" xml:space="preserve">
 		<value>Bayangan teks ikon:</value>
 	</data>
-	<data name="Interface" xml:space="preserve">
+  <data name="Interface" xml:space="preserve">
 		<value>Antarmuka</value>
 	</data>
-	<data name="ItemOptions" xml:space="preserve">
+  <data name="ItemOptions" xml:space="preserve">
 		<value>Opsi Item</value>
 	</data>
-	<data name="Items" xml:space="preserve">
+  <data name="Items" xml:space="preserve">
 		<value>Item</value>
 	</data>
-	<data name="JoinUsOnDiscord" xml:space="preserve">
+  <data name="JoinUsOnDiscord" xml:space="preserve">
 		<value>Bergabunglah dengan kami di Discord</value>
 	</data>
-	<data name="KeyActivation" xml:space="preserve">
+  <data name="KeyActivation" xml:space="preserve">
 		<value>Aktivasi via tombol</value>
 	</data>
-	<data name="Language" xml:space="preserve">
+  <data name="Language" xml:space="preserve">
 		<value>Bahasa</value>
 	</data>
-	<data name="LanguageInfo" xml:space="preserve">
+  <data name="LanguageInfo" xml:space="preserve">
 		<value>Untuk memperbarui atau membuat terjemahan baru kunjungi</value>
 	</data>
-	<data name="LatestVersion" xml:space="preserve">
+  <data name="LatestVersion" xml:space="preserve">
 		<value>Anda menjalankan versi terbaru</value>
 	</data>
-	<data name="Loading" xml:space="preserve">
+  <data name="Loading" xml:space="preserve">
 		<value>Memuat...</value>
 	</data>
-	<data name="LoadWallpaper" xml:space="preserve">
+  <data name="LoadWallpaper" xml:space="preserve">
 		<value>Muat wallpaper</value>
 	</data>
-	<data name="LookAndFeel" xml:space="preserve">
+  <data name="LookAndFeel" xml:space="preserve">
 		<value>Tampilan</value>
 	</data>
-	<data name="MakePortable" xml:space="preserve">
+  <data name="MakePortable" xml:space="preserve">
 		<value>Jadikan portabel</value>
 	</data>
-	<data name="MakePortableInfo" xml:space="preserve">
+  <data name="MakePortableInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan membuat WinLaunch memuat dari direktori Data di folder tempat ia diinstal alih-alih appdata</value>
 	</data>
-	<data name="MiddleMouseActivation" xml:space="preserve">
+  <data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Aktivasi tombol mouse tengah</value>
 	</data>
-	<data name="MultiMonitors" xml:space="preserve">
+  <data name="MultiMonitors" xml:space="preserve">
 		<value>Multi monitor</value>
 	</data>
-	<data name="Name" xml:space="preserve">
+  <data name="Name" xml:space="preserve">
 		<value>Nama:</value>
 	</data>
-	<data name="Nothing" xml:space="preserve">
+  <data name="Nothing" xml:space="preserve">
 		<value>Tidak ada apa-apa</value>
 	</data>
-	<data name="Open" xml:space="preserve">
+  <data name="Open" xml:space="preserve">
 		<value>Buka</value>
 	</data>
-	<data name="OpenAsAdmin" xml:space="preserve">
+  <data name="OpenAsAdmin" xml:space="preserve">
 		<value>Jalankan sebagai administrator</value>
 	</data>
-	<data name="OpenFolders" xml:space="preserve">
+  <data name="OpenFolders" xml:space="preserve">
 		<value>Buka folder setelah dibuat</value>
 	</data>
-	<data name="OpenLocation" xml:space="preserve">
+  <data name="OpenLocation" xml:space="preserve">
 		<value>Buka lokasi</value>
 	</data>
-	<data name="OpenOnActiveMonitor" xml:space="preserve">
+  <data name="OpenOnActiveMonitor" xml:space="preserve">
 		<value>Selalu buka WinLaunch pada monitor yang aktif</value>
 	</data>
-	<data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan secara otomatis mengaktifkan WinLaunch di monitor tempat mouse aktif</value>
 	</data>
-	<data name="Options" xml:space="preserve">
+  <data name="Options" xml:space="preserve">
 		<value>Opsi</value>
 	</data>
-	<data name="Path" xml:space="preserve">
+  <data name="Path" xml:space="preserve">
 		<value>Jalur:</value>
 	</data>
-	<data name="PinDesktop" xml:space="preserve">
+  <data name="PinDesktop" xml:space="preserve">
 		<value>Sematkan WinLaunch ke desktop</value>
 	</data>
-	<data name="PinDesktopInfo" xml:space="preserve">
+  <data name="PinDesktopInfo" xml:space="preserve">
 		<value>Saat diaktifkan, WinLaunch akan disematkan ke desktop menggantikan wallpaper</value>
 	</data>
-	<data name="PressAKey" xml:space="preserve">
+  <data name="PressAKey" xml:space="preserve">
 		<value>Tekan tombol</value>
 	</data>
-	<data name="Quit" xml:space="preserve">
+  <data name="Quit" xml:space="preserve">
 		<value>Keluar</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
+  <data name="ReallyAddDefaultApps" xml:space="preserve">
 		<value>Apakah Anda benar-benar ingin menambahkan semua aplikasi default?</value>
 	</data>
-	<data name="Remove" xml:space="preserve">
+  <data name="Remove" xml:space="preserve">
 		<value>Hapus</value>
 	</data>
-	<data name="RemoveFolder" xml:space="preserve">
+  <data name="RemoveFolder" xml:space="preserve">
 		<value>Menghapus folder ini akan menghapus semua item di dalamnya juga</value>
 	</data>
-	<data name="RemoveItem" xml:space="preserve">
+  <data name="RemoveItem" xml:space="preserve">
 		<value>Apakah Anda yakin ingin menghapus item ini?</value>
 	</data>
-	<data name="RestoreBackup" xml:space="preserve">
+  <data name="RestoreBackup" xml:space="preserve">
 		<value>Pulihkan dari cadangan</value>
 	</data>
-	<data name="RestoreIcon" xml:space="preserve">
+  <data name="RestoreIcon" xml:space="preserve">
 		<value>Pulihkan ikon</value>
 	</data>
-	<data name="Rows" xml:space="preserve">
+  <data name="Rows" xml:space="preserve">
 		<value>Baris</value>
 	</data>
-	<data name="Screen" xml:space="preserve">
+  <data name="Screen" xml:space="preserve">
 		<value>Layar</value>
 	</data>
-	<data name="SearchKeywords" xml:space="preserve">
+  <data name="SearchKeywords" xml:space="preserve">
 		<value>Mencari kata kunci:</value>
 	</data>
-	<data name="SelectBackground" xml:space="preserve">
+  <data name="SelectBackground" xml:space="preserve">
 		<value>Pilih gambar latar belakang</value>
 	</data>
-	<data name="SelectIcon" xml:space="preserve">
+  <data name="SelectIcon" xml:space="preserve">
 		<value>Pilih ikon</value>
 	</data>
-	<data name="Settings" xml:space="preserve">
+  <data name="Settings" xml:space="preserve">
 		<value>Pengaturan</value>
 	</data>
-	<data name="ShowExtensionIcon" xml:space="preserve">
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>Berteriak kepada orang-orang yang mendukung WinLaunch di Patreon</value>
+  </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Tampilkan ikon ekstensi</value>
 	</data>
-	<data name="ShowMiniatures" xml:space="preserve">
+  <data name="ShowMiniatures" xml:space="preserve">
 		<value>Tampilkan ikon miniatur</value>
 	</data>
-	<data name="ShowPageIndicators" xml:space="preserve">
+  <data name="ShowPageIndicators" xml:space="preserve">
 		<value>Tampilkan indikator halaman</value>
 	</data>
-	<data name="ShowSearchBar" xml:space="preserve">
+  <data name="ShowSearchBar" xml:space="preserve">
 		<value>Tampilkan bilah pencarian</value>
 	</data>
-	<data name="SortFoldersFirst" xml:space="preserve">
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+		<value>Tampilkan dialog selamat datang</value>
+	</data>
+  <data name="SortFoldersFirst" xml:space="preserve">
 		<value>Urutkan folder terlebih dahulu</value>
 	</data>
-	<data name="SortItemsAlphabetically" xml:space="preserve">
+  <data name="SortItemsAlphabetically" xml:space="preserve">
 		<value>Urutkan item sesuai abjad</value>
 	</data>
-	<data name="StartWithWindows" xml:space="preserve">
+  <data name="StartWithWindows" xml:space="preserve">
 		<value>Mulai dengan Windows</value>
 	</data>
-	<data name="StartWithWindowsInfo" xml:space="preserve">
+  <data name="StartWithWindowsInfo" xml:space="preserve">
 		<value>Saat diaktifkan, WinLaunch akan secara otomatis diluncurkan saat pengaktifan</value>
 	</data>
-	<data name="SyncWallpaper" xml:space="preserve">
+  <data name="SyncWallpaper" xml:space="preserve">
 		<value>Sinkron wallpaper</value>
 	</data>
-	<data name="SyncWallpaperInfo" xml:space="preserve">
+  <data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan menyinkronkan latar belakang dengan wallpaper saat ini</value>
 	</data>
-	<data name="Themes" xml:space="preserve">
+  <data name="Themes" xml:space="preserve">
 		<value>Tema</value>
 	</data>
-	<data name="TranslatedBy" xml:space="preserve">
+  <data name="TranslatedBy" xml:space="preserve">
 		<value>Diterjemahkan oleh Jovanzers</value>
 	</data>
-	<data name="Tutorial" xml:space="preserve">
+  <data name="Tutorial" xml:space="preserve">
 		<value>Tutorial</value>
 	</data>
-	<data name="Update" xml:space="preserve">
+  <data name="Update" xml:space="preserve">
 		<value>Perbarui</value>
 	</data>
-	<data name="UpdateAvailable" xml:space="preserve">
+  <data name="UpdateAvailable" xml:space="preserve">
 		<value>Pembaruan tersedia</value>
 	</data>
-	<data name="UpdateAvailableInfo" xml:space="preserve">
+  <data name="UpdateAvailableInfo" xml:space="preserve">
 		<value>Versi baru dari WinLaunch tersedia, apakah Anda ingin memperbarui?</value>
 	</data>
-	<data name="UpdateError" xml:space="preserve">
+  <data name="UpdateError" xml:space="preserve">
 		<value>Tidak dapat mengunduh info versi</value>
 	</data>
-	<data name="UpdateSilently" xml:space="preserve">
+  <data name="UpdateSilently" xml:space="preserve">
 		<value>Perbarui secara diam-diam</value>
 	</data>
-	<data name="UseCustomBackground" xml:space="preserve">
+  <data name="UseCustomBackground" xml:space="preserve">
 		<value>Gunakan latar belakang kustom</value>
 	</data>
-	<data name="UseCustomBackgroundInfo" xml:space="preserve">
+  <data name="UseCustomBackgroundInfo" xml:space="preserve">
 		<value>Saat diaktifkan akan menggunakan gambar latar belakang kustom</value>
 	</data>
-	<data name="Version" xml:space="preserve">
+  <data name="Version" xml:space="preserve">
 		<value>Versi: </value>
 	</data>
-	<data name="Warning" xml:space="preserve">
+  <data name="Warning" xml:space="preserve">
 		<value>Peringatan</value>
 	</data>
-
-
-
 </root>

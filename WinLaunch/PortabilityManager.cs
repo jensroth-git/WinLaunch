@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.XPath;
 
 namespace WinLaunch
 {
@@ -127,18 +128,24 @@ namespace WinLaunch
             try
             {
                 //make the icon paths relative
+                //make the lnk paths relative 
                 foreach (var item in Items.Items)
                 {
                     MoveToIconCache(item);
+                    MoveToLnkCache(item);
 
                     if (item.IsFolder)
                     {
                         foreach (var subItem in item.IC.Items)
                         {
                             MoveToIconCache(subItem);
+                            MoveToLnkCache(subItem);
                         }
                     }
                 }
+
+                
+
 
                 //save the new items.xml
                 Items.SaveToXML(ItemsPath);
@@ -170,6 +177,18 @@ namespace WinLaunch
             }
         }
 
+        private static void MoveToLnkCache(SBItem item)
+        {
+            if (Path.GetExtension(item.ApplicationPath) == ".lnk")
+            {
+                if (!ItemCollection.IsLnkInCache(item.ApplicationPath))
+                {
+                    //not a relative lnk
+                    item.ApplicationPath = Path.GetFileName(item.ApplicationPath);
 
+                    return;
+                }
+            }
+        }
     }
 }

@@ -193,14 +193,14 @@ namespace WinLaunch
         /// <param name="xml"></param>
         /// <returns></returns>
         #region Save/Load
-        static public Settings LoadSettings(string xml)
+        static public Settings LoadSettings()
         {
             try
             {
                 Settings config;
 
                 //clean access pattern
-                using (FileStream fs = new FileStream(xml, FileMode.Open))
+                using (FileStream fs = new FileStream(PortabilityManager.SettingsPath, FileMode.Open))
                 {
                     using (XmlReader read = XmlReader.Create(fs))
                     {
@@ -226,7 +226,7 @@ namespace WinLaunch
             return new Settings();
         }
 
-        static public bool SaveSettings(string xml, Settings config)
+        static public bool SaveSettings(Settings config)
         {
             try
             {
@@ -236,7 +236,7 @@ namespace WinLaunch
                 }
                 catch { }
 
-                using (FileStream fs = new FileStream(xml, FileMode.Create))
+                using (FileStream fs = new FileStream(PortabilityManager.SettingsPath, FileMode.Create))
                 {
                     using (XmlWriter write = XmlWriter.Create(fs))
                     {

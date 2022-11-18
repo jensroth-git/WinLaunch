@@ -151,6 +151,9 @@
   <data name="CreatedBy" xml:space="preserve">
 		<value>Lavet af</value>
 	</data>
+  <data name="CustomThemes" xml:space="preserve">
+    <value>Støt WinLaunch på Patreon for at få adgang til brugerdefinerede temaer og andre fordele</value>
+  </data>
   <data name="DeskModeSwitch" xml:space="preserve">
 		<value>For at skifte DeskMode kræves det at WinLaunch genstartes, dette kan tage et par sekunder.</value>
 	</data>
@@ -358,6 +361,9 @@
   <data name="Settings" xml:space="preserve">
 		<value>Indstillinger</value>
 	</data>
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>Shoutout til de mennesker, der støtter WinLaunch på Patreon</value>
+  </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Vis udvidelsesikon</value>
 	</data>
@@ -370,6 +376,9 @@
   <data name="ShowSearchBar" xml:space="preserve">
 		<value>Vis søgelinjen</value>
 	</data>
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+    <value>Vis velkomstdialog</value>
+  </data>
   <data name="SortFoldersFirst" xml:space="preserve">
 		<value>Sorter mapper først</value>
 	</data>

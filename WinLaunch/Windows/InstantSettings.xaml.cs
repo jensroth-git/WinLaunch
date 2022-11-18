@@ -121,7 +121,7 @@ namespace WinLaunch
             ApplySettings();
 
             //save settings
-            Settings.SaveSettings(PortabilityManager.SettingsPath, Settings.CurrentSettings);
+            Settings.SaveSettings(Settings.CurrentSettings);
             Theme.SaveTheme(Theme.CurrentTheme);
         }
 
@@ -592,7 +592,7 @@ namespace WinLaunch
                 try
                 {
                     //save current settings
-                    Settings.SaveSettings(PortabilityManager.SettingsPath, settings);
+                    Settings.SaveSettings(settings);
 
                     if (File.Exists(sfd.FileName))
                     {

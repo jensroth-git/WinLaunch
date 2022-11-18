@@ -93,6 +93,8 @@ namespace WinLaunch
                     {
                         Dispatcher.BeginInvoke(new Action(() =>
                         {
+                            DebugLog.WriteToLogFile("Gamepad activated");
+
                             ToggleLaunchpad();
                         }));
 

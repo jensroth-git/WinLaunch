@@ -33,8 +33,14 @@ namespace WinLaunch
                 if (SBM.FolderOpen && SBM.ActiveFolder == Item)
                 {
                     //Update FolderTitle
-                    SBM.FolderTitle = Item.Name;
-                    FolderTitle.Text = Item.Name;
+                    if(Theme.CurrentTheme.UseVectorFolder)
+                    {
+                        FolderTitle.Text = Item.Name;
+                    }
+                    else
+                    {
+                        FolderTitleNew.Text = Item.Name;
+                    }
                 }
             }
 

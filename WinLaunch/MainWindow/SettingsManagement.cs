@@ -33,7 +33,7 @@ namespace WinLaunch
                 }
 
                 Settings.CurrentSettings.version = Assembly.GetExecutingAssembly().GetName().Version;
-                Settings.SaveSettings(PortabilityManager.SettingsPath, Settings.CurrentSettings);
+                Settings.SaveSettings(Settings.CurrentSettings);
 
                 if(!StartHidden)
                 {

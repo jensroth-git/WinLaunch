@@ -152,7 +152,7 @@
 		<value>Creado por</value>
 	</data>
   <data name="CustomThemes" xml:space="preserve">
-    <value>Apoye WinLaunch en Patreon para obtener acceso a temas personalizados y otros beneficios</value>
+    <value>Apoye a WinLaunch en Patreon para acceder a temas personalizados y otros beneficios</value>
   </data>
   <data name="DeskModeSwitch" xml:space="preserve">
 		<value>Para activar DeskMode, WinLaunch tendrá que reiniciarse, esto puede tomar unos segundos.</value>
@@ -362,7 +362,7 @@
 		<value>Configuración</value>
 	</data>
   <data name="ShoutoutPatreon" xml:space="preserve">
-    <value>Un saludo a las personas que apoyan WinLaunch en Patreon</value>
+    <value>Gracias, a las personas que apoyan WinLaunch en Patreon</value>
   </data>
   <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Mostrar icono de expansión</value>
@@ -377,7 +377,7 @@
 		<value>Mostrar barra de búsqueda</value>
 	</data>
   <data name="ShowWelcomeDialog" xml:space="preserve">
-		<value>Mostrar diálogo de bienvenida</value>
+		<value>Diálogo de Bienvenida</value>
 	</data>
   <data name="SortFoldersFirst" xml:space="preserve">
 		<value>Ordenar con carpetas primero</value>

@@ -47,7 +47,7 @@
             <TabItem Height="65">
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/general.png" />
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/general.png" RenderOptions.BitmapScalingMode="HighQuality"/>
                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc General}" />
                     </StackPanel>
                 </TabItem.Header>
@@ -175,7 +175,7 @@
             <TabItem Height="65">
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/items.png" />
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/items.png" RenderOptions.BitmapScalingMode="HighQuality" />
                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc Items}" />
                     </StackPanel>
                 </TabItem.Header>
@@ -216,7 +216,7 @@
             <TabItem Height="65">
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/dualMonitors.ico" />
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/dualMonitors.ico" RenderOptions.BitmapScalingMode="HighQuality" />
                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc MultiMonitors}" />
                     </StackPanel>
                 </TabItem.Header>
@@ -243,7 +243,7 @@
             <TabItem Height="65">
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/lightning.png" />
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/lightning.png" RenderOptions.BitmapScalingMode="HighQuality" />
                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc Activation}" />
                     </StackPanel>
                 </TabItem.Header>
@@ -368,7 +368,7 @@
             <TabItem Height="65">
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/themes.png" />
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/themes.png" RenderOptions.BitmapScalingMode="HighQuality" />
                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc LookAndFeel}" />
                     </StackPanel>
                 </TabItem.Header>
@@ -421,7 +421,7 @@
                             <StackPanel Margin="7,0,0,0">
                                 <GroupBox Header="{my:Loc Themes}">
                                     <StackPanel Margin="10">
-                                        <TextBlock x:Name="tblThemes" TextDecorations="Underline" Cursor="Hand" Text="{my:Loc CustomThemes}" MouseLeftButtonDown="tblThemes_MouseLeftButtonDown"/>
+                                        <TextBlock x:Name="tblThemes" TextDecorations="Underline" Cursor="Hand" TextWrapping="WrapWithOverflow" Text="{my:Loc CustomThemes}" MouseLeftButtonDown="tblThemes_MouseLeftButtonDown"/>
                                     </StackPanel>
                                 </GroupBox>
                             </StackPanel>
@@ -558,7 +558,7 @@
             <TabItem Height="65">
                 <TabItem.Header>
                     <StackPanel Orientation="Vertical">
-                        <Image Height="24" Source="/WinLaunch;component/res/Settings/about.ico" />
+                        <Image Height="24" Source="/WinLaunch;component/res/Settings/about.ico" RenderOptions.BitmapScalingMode="HighQuality" />
                         <TextBlock HorizontalAlignment="Center" Text="{my:Loc About}" />
                     </StackPanel>
                 </TabItem.Header>
@@ -591,7 +591,7 @@
                                 </StackPanel>
 
                                 <TextBlock Text="{my:Loc TranslatedBy}" />
-                                <StackPanel Orientation="Horizontal"  Margin="0,10,0,0" >
+                                <WrapPanel Orientation="Horizontal"  Margin="0,10,0,0" >
                                     <Button x:Name="btnDiscord" HorizontalAlignment="Left" Style="{StaticResource DiscordButton}" Click="btnDiscord_Click">
                                         <StackPanel Orientation="Horizontal" Margin="10">
                                             <Image Source="/WinLaunch;component/res/Settings/discord.png" Height="20" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality"/>
@@ -599,13 +599,13 @@
                                         </StackPanel>
                                     </Button>
 
-                                    <Button x:Name="btnWelcome" Height="30" Margin="10,0,0,0" Click="btnWelcome_Click">
+                                    <Button x:Name="btnWelcome" Height="30" Margin="10" Click="btnWelcome_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <Image Source="/WinLaunch;component/res/Settings/welcome.png" RenderOptions.BitmapScalingMode="HighQuality"/>
                                             <TextBlock Text="{my:Loc ShowWelcomeDialog}" Margin="10,0,5,0" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </Button>
-                                </StackPanel>
+                                </WrapPanel>
                             </StackPanel>
                         </GroupBox>
 
@@ -649,7 +649,7 @@
 
                         <GroupBox Header="Patrons">
                             <StackPanel Margin="10">
-                                <TextBlock Text="{my:Loc ShoutoutPatreon}" TextDecorations="Underline" Cursor="Hand" MouseLeftButtonDown="runPatreon_MouseLeftButtonDown" />
+                                <TextBlock Text="{my:Loc ShoutoutPatreon}" TextDecorations="Underline" Cursor="Hand" TextWrapping="WrapWithOverflow" MouseLeftButtonDown="runPatreon_MouseLeftButtonDown" />
                                 <TextBlock x:Name="tblPatrons" Margin="0,10,0,0" FontSize="16" />
                             </StackPanel>
                         </GroupBox>

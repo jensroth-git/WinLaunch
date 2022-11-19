@@ -87,15 +87,14 @@ namespace WinLaunch
 
             if (filepath.EndsWith(".lnk"))
             {
-                string path = Item.ApplicationPath;
-
-                if (Path.GetExtension(path).ToLower() == ".lnk" && ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                if (Path.GetExtension(filepath).ToLower() == ".lnk" && ItemCollection.IsLnkInCache(Item.ApplicationPath))
                 {
-                    path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                    filepath = Path.Combine(PortabilityManager.LinkCachePath, filepath);
+                    filepath = Path.GetFullPath(filepath);
                 }
 
                 //get actual path if its a link
-                filepath = MiscUtils.GetShortcutTargetFile(path);
+                filepath = MiscUtils.GetShortcutTargetFile(filepath);
 
                 if(string.IsNullOrEmpty(filepath))
                 {

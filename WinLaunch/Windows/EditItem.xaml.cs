@@ -203,6 +203,7 @@ namespace WinLaunch
                 if (ItemCollection.IsLnkInCache(filepath))
                 {
                     filepath = Path.Combine(PortabilityManager.LinkCachePath, filepath);
+                    filepath = Path.GetFullPath(filepath);
                 }
 
                 //get actual path if its a link

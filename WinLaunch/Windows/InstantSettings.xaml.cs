@@ -603,11 +603,11 @@ namespace WinLaunch
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(TranslationSource.Instance["BackupError"] + ex.Message, "WinLaunch Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(TranslationSource.Instance["BackupCreateError"] + ex.Message, TranslationSource.Instance["Error"], MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                MessageBox.Show(TranslationSource.Instance["BackupSuccess"] + " " + sfd.FileName, "Backup created", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(TranslationSource.Instance["BackupCreateSuccess"] + " " + sfd.FileName, TranslationSource.Instance["Success"], MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -628,7 +628,7 @@ namespace WinLaunch
 
             if ((bool)ofd.ShowDialog())
             {
-                if (MessageBox.Show("Restoring from this backup will remove the current configuration, are you sure you want to restore?", "Restore Backup", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                if (MessageBox.Show(TranslationSource.Instance["BackupRestoreInfo"], TranslationSource.Instance["BackupRestore"], MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     try
                     {
@@ -640,7 +640,7 @@ namespace WinLaunch
                         catch
                         {
                             Process.Start(settingsDir);
-                            throw new Exception("unable to delete some files, please do it manually " + settingsDir);
+                            throw new Exception(TranslationSource.Instance["BackupDeleteFilesManually"] + " " + settingsDir);
                         }
 
                         //unzip into it
@@ -651,7 +651,7 @@ namespace WinLaunch
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error restoring from backup " + ex.Message, "WinLaunch Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(TranslationSource.Instance["BackupRestoreError"] + " " + ex.Message, TranslationSource.Instance["Error"], MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }

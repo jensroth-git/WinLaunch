@@ -160,6 +160,24 @@
   <data name="BackupAndRestore" xml:space="preserve">
     <value>Backup and Restore</value>
   </data>
+  <data name="BackupCreateError" xml:space="preserve">
+    <value>Error creating backup</value>
+  </data>
+  <data name="BackupCreateSuccess" xml:space="preserve">
+    <value>Backup successfully created</value>
+  </data>
+  <data name="BackupDeleteFilesManually" xml:space="preserve">
+    <value>Unable to delete some files, please do it manually</value>
+  </data>
+  <data name="BackupRestore" xml:space="preserve">
+    <value>Restore Backup</value>
+  </data>
+  <data name="BackupRestoreError" xml:space="preserve">
+    <value>Error restoring from backup</value>
+  </data>
+  <data name="BackupRestoreInfo" xml:space="preserve">
+    <value>Restoring from this backup will remove the current configuration, are you sure you want to restore?</value>
+  </data>
   <data name="BlockFullscreen" xml:space="preserve">
     <value>Block WinLaunch activation when fullscreen apps are active</value>
   </data>
@@ -258,6 +276,9 @@
   </data>
   <data name="EnableWindowsKey" xml:space="preserve">
     <value>Enable windows key activation</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="FillScreen" xml:space="preserve">
     <value>Fill the entire screen</value>
@@ -450,6 +471,9 @@
   </data>
   <data name="StartWithWindowsInfo" xml:space="preserve">
     <value>When enabled WinLaunch will automatically be launched at startup</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
   </data>
   <data name="SyncWallpaper" xml:space="preserve">
     <value>Sync wallpaper</value>

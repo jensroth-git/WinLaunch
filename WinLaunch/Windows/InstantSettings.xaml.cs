@@ -603,11 +603,11 @@ namespace WinLaunch
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error creating backup " + ex.Message, "WinLaunch Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(TranslationSource.Instance["BackupError"] + ex.Message, "WinLaunch Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                MessageBox.Show("Backup saved to " + sfd.FileName, "Backup created", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(TranslationSource.Instance["BackupSuccess"] + " " + sfd.FileName, "Backup created", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

@@ -187,6 +187,60 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error creating backup.
+        /// </summary>
+        internal static string BackupCreateError {
+            get {
+                return ResourceManager.GetString("BackupCreateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Backup successfully created.
+        /// </summary>
+        internal static string BackupCreateSuccess {
+            get {
+                return ResourceManager.GetString("BackupCreateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to delete some files, please do it manually.
+        /// </summary>
+        internal static string BackupDeleteFilesManually {
+            get {
+                return ResourceManager.GetString("BackupDeleteFilesManually", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore Backup.
+        /// </summary>
+        internal static string BackupRestore {
+            get {
+                return ResourceManager.GetString("BackupRestore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error restoring from backup.
+        /// </summary>
+        internal static string BackupRestoreError {
+            get {
+                return ResourceManager.GetString("BackupRestoreError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restoring from this backup will remove the current configuration, are you sure you want to restore?.
+        /// </summary>
+        internal static string BackupRestoreInfo {
+            get {
+                return ResourceManager.GetString("BackupRestoreInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Block WinLaunch activation when fullscreen apps are active.
         /// </summary>
         internal static string BlockFullscreen {
@@ -480,6 +534,15 @@ namespace WinLaunch.Properties {
         internal static string EnableWindowsKey {
             get {
                 return ResourceManager.GetString("EnableWindowsKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -1056,6 +1119,15 @@ namespace WinLaunch.Properties {
         internal static string StartWithWindowsInfo {
             get {
                 return ResourceManager.GetString("StartWithWindowsInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
             }
         }
         

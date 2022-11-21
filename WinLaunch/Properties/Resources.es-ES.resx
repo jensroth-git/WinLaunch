@@ -101,22 +101,22 @@
 		<value>Copia de seguridad y Restauración</value>
 	</data>
 	<data name="BackupCreateError" xml:space="preserve">
-		<value>Error al crear la copia de seguridad</value>
+		<value>Error al crear copia de seguridad</value>
 	</data>
 	<data name="BackupCreateSuccess" xml:space="preserve">
-		<value>Copia de seguridad creada con éxito</value>
+		<value>Copia de seguridad creada correctamente</value>
 	</data>
 	<data name="BackupDeleteFilesManually" xml:space="preserve">
-		<value>No se pueden eliminar algunos archivos, hágalo manualmente</value>
+		<value>No se pueden eliminar algunos archivos, por favor, hágalo manualmente</value>
 	</data>
 	<data name="BackupRestore" xml:space="preserve">
 		<value>Restaurar copia de seguridad</value>
 	</data>
 	<data name="BackupRestoreError" xml:space="preserve">
-		<value>Error al restaurar desde la copia de seguridad</value>
+		<value>Error al restaurar desde copia de seguridad</value>
 	</data>
 	<data name="BackupRestoreInfo" xml:space="preserve">
-		<value>La restauración desde esta copia de seguridad eliminará la configuración actual. ¿Está seguro de que desea restaurar?</value>
+		<value>Restaurar desde esta copia de seguridad eliminará la configuración actual, ¿está seguro que desea restaurar?</value>
 	</data>
 	<data name="BlockFullscreen" xml:space="preserve">
 		<value>Desactivar WinLaunch con aplicaciones a pantalla completa</value>
@@ -344,7 +344,7 @@
 		<value>Pulsar tecla</value>
 	</data>
 	<data name="Quit" xml:space="preserve">
-		<value>Salir</value>
+		<value>Cerrar</value>
 	</data>
 	<data name="ReallyAddDefaultApps" xml:space="preserve">
 		<value>¿Realmente desea agregar todas las aplicaciones predeterminadas?</value>
@@ -359,7 +359,7 @@
 		<value>¿Realmente desea eliminar este elemento?</value>
 	</data>
 	<data name="RestoreBackup" xml:space="preserve">
-		<value>Restablecer desde copia</value>
+		<value>Restaurar desde copia</value>
 	</data>
 	<data name="RestoreIcon" xml:space="preserve">
 		<value>Restablecer icono</value>

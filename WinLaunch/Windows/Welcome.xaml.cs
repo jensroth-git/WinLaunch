@@ -14,6 +14,7 @@ namespace WinLaunch
             "#Changelog 0.7.2.1",
             "---",
             "- updated portable mode",
+            "- added option to sort folder contents only",
             "- updated the Spanish translation by Damián Roig",
             "",
             "#Changelog 0.7.2.0",

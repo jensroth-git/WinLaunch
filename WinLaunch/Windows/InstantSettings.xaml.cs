@@ -87,6 +87,8 @@ namespace WinLaunch
 
             cbSortFoldersFirst.Checked += CbSortFoldersFirst_Checked;
             cbSortFoldersFirst.Unchecked += CbSortFoldersFirst_Unchecked;
+
+            cbSortFolderContentsOnly.Checked += CbSortFolderContentsOnly_Checked;
         }
 
         private void CbCheckForUpdatesFrequently_Checked(object sender, RoutedEventArgs e)
@@ -258,6 +260,18 @@ namespace WinLaunch
         private void CbSortFoldersFirst_Checked(object sender, RoutedEventArgs e)
         {
             mainWindow.SortItemsAlphabetically();
+        }
+
+        private void CbSortFolderContentsOnly_Checked(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show(TranslationSource.Instance["CantBeUndoneWarning"], TranslationSource.Instance["Warning"], MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                mainWindow.SortItemsAlphabetically();
+            }
+            else
+            {
+                cbSortFolderContentsOnly.IsChecked = false;
+            }
         }
 
         #endregion

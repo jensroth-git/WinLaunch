@@ -1087,6 +1087,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sort only the content of folders.
+        /// </summary>
+        internal static string SortFolderContentsOnly {
+            get {
+                return ResourceManager.GetString("SortFolderContentsOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sort folders first.
         /// </summary>
         internal static string SortFoldersFirst {

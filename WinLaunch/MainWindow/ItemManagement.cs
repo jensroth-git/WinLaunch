@@ -121,7 +121,7 @@ namespace WinLaunch
                 Folder.UpdateFolderIcon(true);
             }
 
-            if (Settings.CurrentSettings.SortItemsAlphabetically)
+            if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
             {
                 SortItemsAlphabetically();
             }
@@ -133,6 +133,7 @@ namespace WinLaunch
 
         public void SortItemsAlphabetically()
         {
+            
             var items = new List<SBItem>();
             var folders = new List<SBItem>();
 
@@ -147,6 +148,34 @@ namespace WinLaunch
                     items.Add(item);
                 }
             }
+
+            if (Settings.CurrentSettings.SortFolderContentsOnly)
+            {
+                //sort all items in folders
+                foreach (var folder in folders)
+                {
+                    folder.IC.Items.Sort((a, b) =>
+                        a.Name.CompareTo(b.Name)
+                    );
+
+                    //adjust grid indexes for items
+                    int FolderGridIndex = 0;
+
+                    foreach (var item in folder.IC.Items)
+                    {
+                        item.GridIndex = FolderGridIndex;
+                        item.Page = 0;
+
+                        FolderGridIndex++;
+                    }
+
+                    //update the folder icons, but hide the text for the active folder
+                    folder.UpdateFolderIcon(folder != SBM.ActiveFolder);
+                }
+
+                return;
+            }
+
 
             //sort all items alphabetically
             items.Sort((a, b) =>

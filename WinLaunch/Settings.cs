@@ -19,6 +19,7 @@ namespace WinLaunch
 
         public bool SortItemsAlphabetically { get; set; }
         public bool SortFoldersFirst { get; set; }
+        public bool SortFolderContentsOnly { get; set; }
 
         /// <summary>
         /// version information used to determine if the version changed (updates)

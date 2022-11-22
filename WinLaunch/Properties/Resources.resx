@@ -460,6 +460,9 @@
   <data name="ShowWelcomeDialog" xml:space="preserve">
     <value>Show welcome dialog</value>
   </data>
+  <data name="SortFolderContentsOnly" xml:space="preserve">
+    <value>Sort only the content of folders</value>
+  </data>
   <data name="SortFoldersFirst" xml:space="preserve">
     <value>Sort folders first</value>
   </data>

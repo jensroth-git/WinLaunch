@@ -27,7 +27,7 @@ namespace WinLaunch
 
             RunEditExtension(Item);
 
-            if (Settings.CurrentSettings.SortItemsAlphabetically)
+            if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
             {
                 SortItemsAlphabetically();
             }
@@ -133,7 +133,7 @@ namespace WinLaunch
                     AddFile(fileName);
                 }
 
-                if (Settings.CurrentSettings.SortItemsAlphabetically)
+                if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
                 {
                     SortItemsAlphabetically();
                 }
@@ -150,7 +150,7 @@ namespace WinLaunch
             {
                 AddFile(ofd.SelectedPath);
 
-                if (Settings.CurrentSettings.SortItemsAlphabetically)
+                if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly )
                 {
                     SortItemsAlphabetically();
                 }
@@ -168,7 +168,7 @@ namespace WinLaunch
             {
                 AddFile(dialog.URL);
 
-                if (Settings.CurrentSettings.SortItemsAlphabetically)
+                if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
                 {
                     SortItemsAlphabetically();
                 }
@@ -507,7 +507,7 @@ namespace WinLaunch
 
         private void SBM_ItemsUpdated(object sender, EventArgs e)
         {
-            if (Settings.CurrentSettings.SortItemsAlphabetically)
+            if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
             {
                 SortItemsAlphabetically();
             }
@@ -946,7 +946,7 @@ namespace WinLaunch
                 AddFile(File);
             }
 
-            if (Settings.CurrentSettings.SortItemsAlphabetically)
+            if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
             {
                 SortItemsAlphabetically();
             }

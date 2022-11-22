@@ -648,8 +648,12 @@ namespace WinLaunch
             GainingFocus = true;
             MouseOperations.MouseEvent(MouseOperations.MouseEventFlags.LeftDown, new MouseOperations.MousePoint((int)this.Left, (int)this.Top));
             MouseOperations.MouseEvent(MouseOperations.MouseEventFlags.LeftUp, new MouseOperations.MousePoint((int)this.Left, (int)this.Top));
-            GainingFocus = false;
+            
             MouseOperations.SetCursorPosition(pos);
+
+            await Task.Delay(1);
+
+            GainingFocus = false;
         }
 
         private void HideWindow()

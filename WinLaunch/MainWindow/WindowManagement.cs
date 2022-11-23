@@ -626,8 +626,6 @@ namespace WinLaunch
             IsFullscreen = false;
         }
 
-        bool GainingFocus = false;
-
         private async void RevealWindow()
         {
             this.Visibility = System.Windows.Visibility.Visible;
@@ -640,20 +638,6 @@ namespace WinLaunch
             SBM.UnselectItem();
 
             StartFlyInAnimation();
-
-            await Task.Delay(1);
-
-            //click top left corner to make winlaunch gain focus 
-            var pos = MouseOperations.GetCursorPosition();
-            GainingFocus = true;
-            MouseOperations.MouseEvent(MouseOperations.MouseEventFlags.LeftDown, new MouseOperations.MousePoint((int)this.Left, (int)this.Top));
-            MouseOperations.MouseEvent(MouseOperations.MouseEventFlags.LeftUp, new MouseOperations.MousePoint((int)this.Left, (int)this.Top));
-            
-            MouseOperations.SetCursorPosition(pos);
-
-            await Task.Delay(1);
-
-            GainingFocus = false;
         }
 
         private void HideWindow()

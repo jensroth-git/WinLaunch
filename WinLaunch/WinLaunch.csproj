@@ -216,7 +216,6 @@
     <Compile Include="ActivationMethods\Hotkey.cs" />
     <Compile Include="Utils\Integration.cs" />
     <Compile Include="Springboard\ItemCollection.cs" />
-    <Compile Include="Utils\MouseOperations.cs" />
     <Compile Include="Utils\RegistryMonitor.cs" />
     <Compile Include="Utils\UpdateCheck.cs" />
     <Compile Include="Utils\WallpaperWatcher.cs" />

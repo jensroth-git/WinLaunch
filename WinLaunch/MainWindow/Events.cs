@@ -218,9 +218,6 @@ namespace WinLaunch
             if (FadingOut)
                 return;
 
-            if (GainingFocus)
-                return;
-
             if (Settings.CurrentSettings.DeskMode)
             {
                 //steal focus on mouse down so the keyboard works
@@ -234,9 +231,6 @@ namespace WinLaunch
         private void MainCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             if (FadingOut)
-                return;
-
-            if (GainingFocus)
                 return;
 
             SBM.MouseUp(sender, e);

@@ -922,6 +922,8 @@ namespace WinLaunch
 
         public static void WriteToLogFile(string logMessage)
         {
+            return;
+
             string strLogMessage = string.Empty;
             string strLogFile = LogFile;
             StreamWriter swLog;

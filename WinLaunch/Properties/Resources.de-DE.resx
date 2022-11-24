@@ -58,406 +58,410 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  	<data name="About" xml:space="preserve">
 		<value>Info</value>
 	</data>
-  <data name="Activation" xml:space="preserve">
+	<data name="Activation" xml:space="preserve">
 		<value>Aktivierung</value>
 	</data>
-  <data name="AddDefaultApps" xml:space="preserve">
+	<data name="AddDefaultApps" xml:space="preserve">
 		<value>Standard Apps hinzufügen</value>
 	</data>
-  <data name="AddFile" xml:space="preserve">
+	<data name="AddFile" xml:space="preserve">
 		<value>Datei hinzufügen</value>
 	</data>
-  <data name="AddFolder" xml:space="preserve">
+	<data name="AddFolder" xml:space="preserve">
 		<value>Ordner hinzufügen</value>
 	</data>
-  <data name="AddLink" xml:space="preserve">
+	<data name="AddLink" xml:space="preserve">
 		<value>Link hinzufügen</value>
 	</data>
-  <data name="AeroSwitch" xml:space="preserve">
+	<data name="AeroSwitch" xml:space="preserve">
 		<value>Um Aero zu aktivieren muss WinLaunch neu gestartet werden, dies kann einige Sekunden dauern.</value>
 	</data>
-  <data name="AllowFreePlacement" xml:space="preserve">
+	<data name="AllowFreePlacement" xml:space="preserve">
 		<value>Freie Elemente positionierung</value>
 	</data>
-  <data name="AllowFreePlacementInfo" xml:space="preserve">
+	<data name="AllowFreePlacementInfo" xml:space="preserve">
 		<value>Wenn aktiviert erlaubt es das freie positionieren von Items auf dem Raster</value>
 	</data>
-  <data name="Arguments" xml:space="preserve">
+	<data name="Arguments" xml:space="preserve">
 		<value>Argumente:</value>
 	</data>
-  <data name="Background" xml:space="preserve">
+	<data name="Background" xml:space="preserve">
 		<value>Hintergrund</value>
 	</data>
-  <data name="BackgroundBlur" xml:space="preserve">
+	<data name="BackgroundBlur" xml:space="preserve">
 		<value>Hintergrund Weichzeichnung</value>
 	</data>
-  <data name="BackgroundTint" xml:space="preserve">
+	<data name="BackgroundTint" xml:space="preserve">
 		<value>Hintergrund Farbe</value>
 	</data>
-  <data name="BackupAndRestore" xml:space="preserve">
+	<data name="BackupAndRestore" xml:space="preserve">
 		<value>Sichern und Wiederherstellen</value>
 	</data>
-  <data name="BackupCreateError" xml:space="preserve">
+	<data name="BackupCreateError" xml:space="preserve">
 		<value>Fehler beim Erstellen der Sicherung</value>
 	</data>
-  <data name="BackupCreateSuccess" xml:space="preserve">
+	<data name="BackupCreateSuccess" xml:space="preserve">
 		<value>Sicherung erfolgreich erstellt</value>
 	</data>
-  <data name="BackupDeleteFilesManually" xml:space="preserve">
+	<data name="BackupDeleteFilesManually" xml:space="preserve">
 		<value>Einige Dateien können nicht gelöscht werden, bitte tun Sie dies manuell</value>
 	</data>
-  <data name="BackupRestore" xml:space="preserve">
+	<data name="BackupRestore" xml:space="preserve">
 		<value>Backup wiederherstellen</value>
 	</data>
-  <data name="BackupRestoreError" xml:space="preserve">
+	<data name="BackupRestoreError" xml:space="preserve">
 		<value>Fehler beim Wiederherstellen aus der Sicherung</value>
 	</data>
-  <data name="BackupRestoreInfo" xml:space="preserve">
+	<data name="BackupRestoreInfo" xml:space="preserve">
 		<value>Durch die Wiederherstellung aus dieser Sicherung wird die aktuelle Konfiguration entfernt. Möchten Sie wirklich wiederherstellen?</value>
 	</data>
-  <data name="BlockFullscreen" xml:space="preserve">
+	<data name="BlockFullscreen" xml:space="preserve">
 		<value>Blockiere WinLaunch bei Vollbild Anwendungen</value>
 	</data>
-  <data name="BlockFullscreenInfo" xml:space="preserve">
+	<data name="BlockFullscreenInfo" xml:space="preserve">
 		<value>Wenn aktiviert wird WinLaunch während Spielen, Videos, etc. Stummgeschalten</value>
 	</data>
-  <data name="Cancel" xml:space="preserve">
+	<data name="Cancel" xml:space="preserve">
 		<value>Abbrechen</value>
 	</data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
+	<data name="CantBeUndoneWarning" xml:space="preserve">
 		<value>Das kann nicht rückgängig gemacht werden</value>
 	</data>
-  <data name="CheckForUpdates" xml:space="preserve">
+	<data name="CheckForUpdates" xml:space="preserve">
 		<value>Suche nach Updates</value>
 	</data>
-  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+	<data name="CheckForUpdatesFrequently" xml:space="preserve">
 		<value>Suche regelmäßig nach Updates</value>
 	</data>
-  <data name="ChooseMonitor" xml:space="preserve">
+	<data name="ChooseMonitor" xml:space="preserve">
 		<value>Auswahl Bildschirm</value>
 	</data>
-  <data name="ChoosePath" xml:space="preserve">
+	<data name="ChoosePath" xml:space="preserve">
 		<value>Wähle Pfad</value>
 	</data>
-  <data name="ClearItems" xml:space="preserve">
+	<data name="ClearItems" xml:space="preserve">
 		<value>Elemente löschen</value>
 	</data>
-  <data name="Clicked" xml:space="preserve">
+	<data name="Clicked" xml:space="preserve">
 		<value>Einmal Klick</value>
 	</data>
-  <data name="CloseWarning" xml:space="preserve">
+	<data name="CloseWarning" xml:space="preserve">
 		<value>Winlaunch wirklich beenden?</value>
 	</data>
-  <data name="Columns" xml:space="preserve">
+	<data name="Columns" xml:space="preserve">
 		<value>Spalten</value>
 	</data>
-  <data name="ColumnsAndRows" xml:space="preserve">
+	<data name="ColumnsAndRows" xml:space="preserve">
 		<value>Spalten &amp; Zeilen</value>
 	</data>
-  <data name="Confirm" xml:space="preserve">
+	<data name="Confirm" xml:space="preserve">
 		<value>Bestätige</value>
 	</data>
-  <data name="Copied" xml:space="preserve">
+	<data name="Copied" xml:space="preserve">
 		<value>Kopiert</value>
 	</data>
-  <data name="CreateBackup" xml:space="preserve">
+	<data name="CreateBackup" xml:space="preserve">
 		<value>Backup erstellen</value>
 	</data>
-  <data name="CreatedBy" xml:space="preserve">
+	<data name="CreatedBy" xml:space="preserve">
 		<value>Erstellt von</value>
 	</data>
-  <data name="CustomThemes" xml:space="preserve">
+	<data name="CustomThemes" xml:space="preserve">
 		<value>Unterstütze WinLaunch auf Patreon, um Zugang zu benutzerdefinierten Designs und anderen Vorteilen zu erhalten</value>
 	</data>
-  <data name="DeskModeSwitch" xml:space="preserve">
+	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>DeskMode WinLaunch umschalten müssen neu gestartet werden, dies kann einige Sekunden dauern.</value>
 	</data>
-  <data name="DoubleClicked" xml:space="preserve">
+	<data name="DoubleClicked" xml:space="preserve">
 		<value>Doppelklick</value>
 	</data>
-  <data name="Edit" xml:space="preserve">
+	<data name="Edit" xml:space="preserve">
 		<value>Ändern</value>
 	</data>
-  <data name="EnableAcrylic" xml:space="preserve">
+	<data name="EnableAcrylic" xml:space="preserve">
 		<value>Benutze Acrylic</value>
 	</data>
-  <data name="EnableAcrylicInfo" xml:space="preserve">
+	<data name="EnableAcrylicInfo" xml:space="preserve">
 		<value>Wenn aktiviert wird Acrylic (Windows 10) verwendet</value>
 	</data>
-  <data name="EnableAero" xml:space="preserve">
+	<data name="EnableAero" xml:space="preserve">
 		<value>Benutze Aero</value>
 	</data>
-  <data name="EnableAeroInfo" xml:space="preserve">
+	<data name="EnableAeroInfo" xml:space="preserve">
 		<value>Wenn aktiviert wird Aero anstelle eines Hintergrundbildes verwendet</value>
 	</data>
-  <data name="EnableAltDoubleTap" xml:space="preserve">
+	<data name="EnableAltDoubleTap" xml:space="preserve">
 		<value>Aktivierung mit Alt-Doppelklick</value>
 	</data>
-  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+	<data name="EnableCtrlDoubleTap" xml:space="preserve">
 		<value>Aktivierung mit Strg-Doppelklick</value>
 	</data>
-  <data name="EnableGamepadActivation" xml:space="preserve">
+	<data name="EnableGamepadActivation" xml:space="preserve">
 		<value>Aktivierung mit Start Button auf Controller</value>
 	</data>
-  <data name="EnableHotCorner" xml:space="preserve">
+	<data name="EnableHotCorner" xml:space="preserve">
 		<value>Aktiviere HotCorners</value>
 	</data>
-  <data name="EnableHotKey" xml:space="preserve">
+	<data name="EnableHotKey" xml:space="preserve">
 		<value>Aktiviere Hotkey</value>
 	</data>
-  <data name="EnableTouchscreen" xml:space="preserve">
+	<data name="EnableTouchscreen" xml:space="preserve">
 		<value>Aktiviere Touchscreen Modus</value>
 	</data>
-  <data name="EnableTouchscreenInfo" xml:space="preserve">
+	<data name="EnableTouchscreenInfo" xml:space="preserve">
 		<value>Im Touchscreen Modus können Elemente erst nach 3 Sekunden verschoben werden</value>
 	</data>
-  <data name="EnableWindowsKey" xml:space="preserve">
+	<data name="EnableWindowsKey" xml:space="preserve">
 		<value>Aktivierung mit Windows Taste</value>
 	</data>
-  <data name="Error" xml:space="preserve">
+	<data name="Error" xml:space="preserve">
 		<value>Fehler</value>
 	</data>
-  <data name="FillScreen" xml:space="preserve">
+	<data name="FillScreen" xml:space="preserve">
 		<value>Fülle den gesamten Bildschirm aus</value>
 	</data>
-  <data name="FillScreenInfo" xml:space="preserve">
+	<data name="FillScreenInfo" xml:space="preserve">
 		<value>Wenn aktiviert füllt den Winlaunch den gesamten Bildschirm inklusive der Taskleiste aus</value>
 	</data>
-  <data name="FolderColumns" xml:space="preserve">
+	<data name="FolderColumns" xml:space="preserve">
 		<value>Spalten für Ordner</value>
 	</data>
-  <data name="GamepadActivation" xml:space="preserve">
+	<data name="GamepadActivation" xml:space="preserve">
 		<value>Controller Aktivierung</value>
 	</data>
-  <data name="General" xml:space="preserve">
+	<data name="General" xml:space="preserve">
 		<value>Allgemein</value>
 	</data>
-  <data name="HotCornerDelay" xml:space="preserve">
+	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Verzögerungszeit für Hotcorner Aktivierung:</value>
 	</data>
-  <data name="HotCornersActivation" xml:space="preserve">
+	<data name="HotCornersActivation" xml:space="preserve">
 		<value>HotCorner Aktivierung</value>
 	</data>
-  <data name="HotKeyActivation" xml:space="preserve">
+	<data name="HotKeyActivation" xml:space="preserve">
 		<value>Hotkey Aktivierung</value>
 	</data>
-  <data name="Icons" xml:space="preserve">
+	<data name="Icons" xml:space="preserve">
 		<value>Icons</value>
 	</data>
-  <data name="IconShadowOpacity" xml:space="preserve">
+	<data name="IconShadowOpacity" xml:space="preserve">
 		<value>Icon Schatten-Deckkraft</value>
 	</data>
-  <data name="IconSize" xml:space="preserve">
+	<data name="IconSize" xml:space="preserve">
 		<value>Icon Größe</value>
 	</data>
-  <data name="IconText" xml:space="preserve">
+	<data name="IconText" xml:space="preserve">
 		<value>Icon Text</value>
 	</data>
-  <data name="IconTextShadow" xml:space="preserve">
+	<data name="IconTextShadow" xml:space="preserve">
 		<value>Icon Schatten-Text</value>
 	</data>
-  <data name="Interface" xml:space="preserve">
+	<data name="Interface" xml:space="preserve">
 		<value>Benutzeroberfläche</value>
 	</data>
-  <data name="ItemOptions" xml:space="preserve">
+	<data name="ItemOptions" xml:space="preserve">
 		<value>Element Einstellungen</value>
 	</data>
-  <data name="Items" xml:space="preserve">
+	<data name="Items" xml:space="preserve">
 		<value>Elemente</value>
 	</data>
-  <data name="JoinUsOnDiscord" xml:space="preserve">
+	<data name="JoinUsOnDiscord" xml:space="preserve">
 		<value>Schließe dich uns auf Discord an</value>
 	</data>
-  <data name="KeyActivation" xml:space="preserve">
+	<data name="KeyActivation" xml:space="preserve">
 		<value>Tastatur Aktivierung</value>
 	</data>
-  <data name="Language" xml:space="preserve">
+	<data name="Language" xml:space="preserve">
 		<value>Sprache</value>
 	</data>
-  <data name="LanguageInfo" xml:space="preserve">
+	<data name="LanguageInfo" xml:space="preserve">
 		<value>Um eine Übersetzung zu erstellen oder zu verbessern besuche</value>
 	</data>
-  <data name="LatestVersion" xml:space="preserve">
+	<data name="LatestVersion" xml:space="preserve">
 		<value>Du verwendest die neuste Version</value>
 	</data>
-  <data name="Loading" xml:space="preserve">
+	<data name="Loading" xml:space="preserve">
 		<value>Lade...</value>
 	</data>
-  <data name="LoadWallpaper" xml:space="preserve">
+	<data name="LoadWallpaper" xml:space="preserve">
 		<value>Lade Hintergrund</value>
 	</data>
-  <data name="LookAndFeel" xml:space="preserve">
+	<data name="LookAndFeel" xml:space="preserve">
 		<value>Erscheinungsbild</value>
 	</data>
-  <data name="MakePortable" xml:space="preserve">
+	<data name="MakePortable" xml:space="preserve">
 		<value>Portabel machen</value>
 	</data>
-  <data name="MakePortableInfo" xml:space="preserve">
+	<data name="MakePortableInfo" xml:space="preserve">
 		<value>Wenn diese Option aktiviert ist, lädt WinLaunch aus dem Data-Verzeichnis in dem Ordner, in dem es installiert ist, anstelle von AppData</value>
 	</data>
-  <data name="MiddleMouseActivation" xml:space="preserve">
+	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Aktivierung über Mittlere-Maus Taste</value>
 	</data>
-  <data name="MultiMonitors" xml:space="preserve">
+	<data name="MultiMonitors" xml:space="preserve">
 		<value>Mehrere Bildschirme</value>
 	</data>
-  <data name="Name" xml:space="preserve">
+	<data name="Name" xml:space="preserve">
 		<value>Name:</value>
 	</data>
-  <data name="Nothing" xml:space="preserve">
+	<data name="Nothing" xml:space="preserve">
 		<value>Nichts</value>
 	</data>
-  <data name="Open" xml:space="preserve">
+	<data name="Open" xml:space="preserve">
 		<value>Öffnen</value>
 	</data>
-  <data name="OpenAsAdmin" xml:space="preserve">
+	<data name="OpenAsAdmin" xml:space="preserve">
 		<value>Öffne als Administrator</value>
 	</data>
-  <data name="OpenFolders" xml:space="preserve">
+	<data name="OpenFolders" xml:space="preserve">
 		<value>Ordner öffnen wenn sie erstellt wurden</value>
 	</data>
-  <data name="OpenLocation" xml:space="preserve">
+	<data name="OpenLocation" xml:space="preserve">
 		<value>Dateipfad öffnen</value>
 	</data>
-  <data name="OpenOnActiveMonitor" xml:space="preserve">
+	<data name="OpenOnActiveMonitor" xml:space="preserve">
 		<value>Winlaunch auf dem aktiven Monitor anzeigen lassen</value>
 	</data>
-  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+	<data name="OpenOnActiveMonitorInfo" xml:space="preserve">
 		<value>Wenn aktiviert öffnet sich WinLaunch auf dem selben Monitor wie der Maus Cursor</value>
 	</data>
-  <data name="Options" xml:space="preserve">
+	<data name="Options" xml:space="preserve">
 		<value>Optionen</value>
 	</data>
-  <data name="Path" xml:space="preserve">
+	<data name="Path" xml:space="preserve">
 		<value>Pfad:</value>
 	</data>
-  <data name="PinDesktop" xml:space="preserve">
+	<data name="PinDesktop" xml:space="preserve">
 		<value>Pinne WinLaunch auf den Desktop</value>
 	</data>
-  <data name="PinDesktopInfo" xml:space="preserve">
+	<data name="PinDesktopInfo" xml:space="preserve">
 		<value>Wenn aktiviert ersetzt WinLaunch den Desktop Hintergrund</value>
 	</data>
-  <data name="PressAKey" xml:space="preserve">
+	<data name="PressAKey" xml:space="preserve">
 		<value>Drücken sie eine Taste</value>
 	</data>
-  <data name="Quit" xml:space="preserve">
+	<data name="Quit" xml:space="preserve">
 		<value>Beenden</value>
 	</data>
-  <data name="ReallyAddDefaultApps" xml:space="preserve">
+	<data name="ReallyAddDefaultApps" xml:space="preserve">
 		<value>Möchten Sie wirklich alle Standard-Apps hinzufügen?</value>
 	</data>
-  <data name="Remove" xml:space="preserve">
+	<data name="Remove" xml:space="preserve">
 		<value>Entfernen</value>
 	</data>
-  <data name="RemoveFolder" xml:space="preserve">
+	<data name="RemoveFolder" xml:space="preserve">
 		<value>Durch das Entfernen dieses Orders werden alle Inhalte gelöscht</value>
 	</data>
-  <data name="RemoveItem" xml:space="preserve">
+	<data name="RemoveItem" xml:space="preserve">
 		<value>Willst du dieses Element wirklich löschen</value>
 	</data>
-  <data name="RestoreBackup" xml:space="preserve">
+	<data name="RestoreBackup" xml:space="preserve">
 		<value>Backup wiederherstellen</value>
 	</data>
-  <data name="RestoreIcon" xml:space="preserve">
+	<data name="RestoreIcon" xml:space="preserve">
 		<value>Icon Wiederherstellen</value>
 	</data>
-  <data name="Rows" xml:space="preserve">
+	<data name="Rows" xml:space="preserve">
 		<value>Zeilen</value>
 	</data>
-  <data name="Screen" xml:space="preserve">
+	<data name="Screen" xml:space="preserve">
 		<value>Bildschirm</value>
 	</data>
-  <data name="SearchKeywords" xml:space="preserve">
-		<value>Suche Schlüsselwörter:</value>
+	<data name="SearchKeywords" xml:space="preserve">
+		<value>Alias:</value>
 	</data>
-  <data name="SelectBackground" xml:space="preserve">
+	<data name="SearchKeywordsInfo" xml:space="preserve">
+		<value>Schlüsselwörter, nach denen Sie suchen können</value>
+	</data>
+	<data name="SelectBackground" xml:space="preserve">
 		<value>Wähle ein Hintergrundbild</value>
 	</data>
-  <data name="SelectIcon" xml:space="preserve">
+	<data name="SelectIcon" xml:space="preserve">
 		<value>Wähle ein Icon</value>
 	</data>
-  <data name="Settings" xml:space="preserve">
+	<data name="Settings" xml:space="preserve">
 		<value>Einstellungen</value>
 	</data>
-  <data name="ShoutoutPatreon" xml:space="preserve">
+	<data name="ShoutoutPatreon" xml:space="preserve">
 		<value>Shoutout an die Leute, die WinLaunch auf Patreon unterstützen</value>
 	</data>
-  <data name="ShowExtensionIcon" xml:space="preserve">
+	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Zeige das Icon für die Toolbar</value>
 	</data>
-  <data name="ShowMiniatures" xml:space="preserve">
+	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Miniatursymbole anzeigen</value>
 	</data>
-  <data name="ShowPageIndicators" xml:space="preserve">
+	<data name="ShowPageIndicators" xml:space="preserve">
 		<value>Zeige die Seiten Indikatoren</value>
 	</data>
-  <data name="ShowSearchBar" xml:space="preserve">
+	<data name="ShowSearchBar" xml:space="preserve">
 		<value>Zeige die Suchleiste</value>
 	</data>
-  <data name="ShowWelcomeDialog" xml:space="preserve">
+	<data name="ShowWelcomeDialog" xml:space="preserve">
 		<value>Begrüßungsdialog anzeigen</value>
 	</data>
-  <data name="SortFolderContentsOnly" xml:space="preserve">
-    <value>Sortieren Sie nur den Inhalt von Ordnern</value>
-  </data>
-  <data name="SortFoldersFirst" xml:space="preserve">
+	<data name="SortFolderContentsOnly" xml:space="preserve">
+		<value>Sortieren Sie nur den Inhalt von Ordnern</value>
+	</data>
+	<data name="SortFoldersFirst" xml:space="preserve">
 		<value>Ordner zuerst sortieren</value>
 	</data>
-  <data name="SortItemsAlphabetically" xml:space="preserve">
+	<data name="SortItemsAlphabetically" xml:space="preserve">
 		<value>Elemente alphabetisch sortieren</value>
 	</data>
-  <data name="StartWithWindows" xml:space="preserve">
+	<data name="StartWithWindows" xml:space="preserve">
 		<value>Mit Windows starten</value>
 	</data>
-  <data name="StartWithWindowsInfo" xml:space="preserve">
+	<data name="StartWithWindowsInfo" xml:space="preserve">
 		<value>Wenn aktiviert wird WinLaunch automatisch mit Windows gestartet</value>
 	</data>
-  <data name="Success" xml:space="preserve">
+	<data name="Success" xml:space="preserve">
 		<value>Erfolg</value>
 	</data>
-  <data name="SyncWallpaper" xml:space="preserve">
+	<data name="SyncWallpaper" xml:space="preserve">
 		<value>Synchronisiere das Hintergrundbild</value>
 	</data>
-  <data name="SyncWallpaperInfo" xml:space="preserve">
+	<data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Wenn aktiviert wird das Hintergrundbild vom Desktop Synchronisiert</value>
 	</data>
-  <data name="Themes" xml:space="preserve">
+	<data name="Themes" xml:space="preserve">
 		<value>Themes</value>
 	</data>
-  <data name="TranslatedBy" xml:space="preserve">
+	<data name="TranslatedBy" xml:space="preserve">
 		<value>Übersetzt von Mark</value>
 	</data>
-  <data name="Tutorial" xml:space="preserve">
+	<data name="Tutorial" xml:space="preserve">
 		<value>Anleitung</value>
 	</data>
-  <data name="Update" xml:space="preserve">
+	<data name="Update" xml:space="preserve">
 		<value>Update</value>
 	</data>
-  <data name="UpdateAvailable" xml:space="preserve">
+	<data name="UpdateAvailable" xml:space="preserve">
 		<value>Update verfügbar</value>
 	</data>
-  <data name="UpdateAvailableInfo" xml:space="preserve">
+	<data name="UpdateAvailableInfo" xml:space="preserve">
 		<value>Neue WinLaunch version verfügbar, möchtest du updaten?</value>
 	</data>
-  <data name="UpdateError" xml:space="preserve">
+	<data name="UpdateError" xml:space="preserve">
 		<value>Versions-Info konnte nicht heruntergeladen werden</value>
 	</data>
-  <data name="UpdateSilently" xml:space="preserve">
+	<data name="UpdateSilently" xml:space="preserve">
 		<value>Im Hintergrund aktualisieren</value>
 	</data>
-  <data name="UseCustomBackground" xml:space="preserve">
+	<data name="UseCustomBackground" xml:space="preserve">
 		<value>Benutzerdefinierten Hintergrund benutzen</value>
 	</data>
-  <data name="UseCustomBackgroundInfo" xml:space="preserve">
+	<data name="UseCustomBackgroundInfo" xml:space="preserve">
 		<value>Wenn diese Option aktiviert wird können sie ein benutzerdefiniertes Hintergrundbild laden</value>
 	</data>
-  <data name="Version" xml:space="preserve">
+	<data name="Version" xml:space="preserve">
 		<value>Version: </value>
 	</data>
-  <data name="Warning" xml:space="preserve">
+	<data name="Warning" xml:space="preserve">
 		<value>Warnung</value>
 	</data>
+
 </root>

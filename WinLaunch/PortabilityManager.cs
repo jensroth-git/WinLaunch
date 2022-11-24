@@ -144,9 +144,6 @@ namespace WinLaunch
                     }
                 }
 
-                
-
-
                 //save the new items.xml
                 Items.SaveToXML(ItemsPath);
             }

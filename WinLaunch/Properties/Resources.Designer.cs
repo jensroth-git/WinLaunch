@@ -997,11 +997,20 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search keywords:.
+        ///   Looks up a localized string similar to Alias:.
         /// </summary>
         internal static string SearchKeywords {
             get {
                 return ResourceManager.GetString("SearchKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keywords that you can search for.
+        /// </summary>
+        internal static string SearchKeywordsInfo {
+            get {
+                return ResourceManager.GetString("SearchKeywordsInfo", resourceCulture);
             }
         }
         

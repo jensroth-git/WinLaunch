@@ -58,406 +58,411 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  		<data name="About" xml:space="preserve">
 		<value>Hakkında</value>
 	</data>
-  <data name="Activation" xml:space="preserve">
+	<data name="Activation" xml:space="preserve">
 		<value>Aktivasyon</value>
 	</data>
-  <data name="AddDefaultApps" xml:space="preserve">
+	<data name="AddDefaultApps" xml:space="preserve">
 		<value>Varsayılan uygulamalar ekle</value>
 	</data>
-  <data name="AddFile" xml:space="preserve">
+	<data name="AddFile" xml:space="preserve">
 		<value>Dosya ekle</value>
 	</data>
-  <data name="AddFolder" xml:space="preserve">
+	<data name="AddFolder" xml:space="preserve">
 		<value>Klasör ekle</value>
 	</data>
-  <data name="AddLink" xml:space="preserve">
+	<data name="AddLink" xml:space="preserve">
 		<value>Bağlantı ekle</value>
 	</data>
-  <data name="AeroSwitch" xml:space="preserve">
+	<data name="AeroSwitch" xml:space="preserve">
 		<value>Aero WinLaunch'ı etkinleştirmek için yeniden başlatma gerekli, bu birkaç saniye sürebilir.</value>
 	</data>
-  <data name="AllowFreePlacement" xml:space="preserve">
+	<data name="AllowFreePlacement" xml:space="preserve">
 		<value>Serbest öğe yerleştirmeye izin ver</value>
 	</data>
-  <data name="AllowFreePlacementInfo" xml:space="preserve">
+	<data name="AllowFreePlacementInfo" xml:space="preserve">
 		<value>Öğelerin ızgara üzerinde herhangi bir yere yerleştirilmesine izin verir</value>
 	</data>
-  <data name="Arguments" xml:space="preserve">
+	<data name="Arguments" xml:space="preserve">
 		<value>Argümanlar:</value>
 	</data>
-  <data name="Background" xml:space="preserve">
+	<data name="Background" xml:space="preserve">
 		<value>Arkaplan</value>
 	</data>
-  <data name="BackgroundBlur" xml:space="preserve">
+	<data name="BackgroundBlur" xml:space="preserve">
 		<value>Arka plan bulanıklığı</value>
 	</data>
-  <data name="BackgroundTint" xml:space="preserve">
+	<data name="BackgroundTint" xml:space="preserve">
 		<value>Arka plan renk tonu</value>
 	</data>
-  <data name="BackupAndRestore" xml:space="preserve">
+	<data name="BackupAndRestore" xml:space="preserve">
 		<value>Yedekleme ve Geri Yükleme</value>
 	</data>
-  <data name="BackupCreateError" xml:space="preserve">
+	<data name="BackupCreateError" xml:space="preserve">
 		<value>Yedekleme oluşturulurken hata oluştu</value>
 	</data>
-  <data name="BackupCreateSuccess" xml:space="preserve">
+	<data name="BackupCreateSuccess" xml:space="preserve">
 		<value>Yedek başarıyla oluşturuldu</value>
 	</data>
-  <data name="BackupDeleteFilesManually" xml:space="preserve">
+	<data name="BackupDeleteFilesManually" xml:space="preserve">
 		<value>Bazı dosyalar silinemiyor, lütfen manuel olarak silin</value>
 	</data>
-  <data name="BackupRestore" xml:space="preserve">
+	<data name="BackupRestore" xml:space="preserve">
 		<value>Yedeklemeyi Geri Yükle</value>
 	</data>
-  <data name="BackupRestoreError" xml:space="preserve">
+	<data name="BackupRestoreError" xml:space="preserve">
 		<value>Yedeklemeden geri yükleme hatası</value>
 	</data>
-  <data name="BackupRestoreInfo" xml:space="preserve">
+	<data name="BackupRestoreInfo" xml:space="preserve">
 		<value>Bu yedekten geri yükleme mevcut yapılandırmayı kaldıracak, geri yüklemek istediğinizden emin misiniz?</value>
 	</data>
-  <data name="BlockFullscreen" xml:space="preserve">
+	<data name="BlockFullscreen" xml:space="preserve">
 		<value>Tam ekran uygulamaları aktifken WinLaunch aktivasyonunu engelle</value>
 	</data>
-  <data name="BlockFullscreenInfo" xml:space="preserve">
+	<data name="BlockFullscreenInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; tam ekran uygulamaları algılandığında WinLaunch engellenir, örn. Oyun oynarken veya video izlerken.</value>
 	</data>
-  <data name="Cancel" xml:space="preserve">
+	<data name="Cancel" xml:space="preserve">
 		<value>İptal</value>
 	</data>
-  <data name="CantBeUndoneWarning" xml:space="preserve">
+	<data name="CantBeUndoneWarning" xml:space="preserve">
 		<value>Bu geri alınamaz</value>
 	</data>
-  <data name="CheckForUpdates" xml:space="preserve">
+	<data name="CheckForUpdates" xml:space="preserve">
 		<value>Güncellemeleri kontrol et</value>
 	</data>
-  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+	<data name="CheckForUpdatesFrequently" xml:space="preserve">
 		<value>Güncellemeleri sık sık kontrol edin</value>
 	</data>
-  <data name="ChooseMonitor" xml:space="preserve">
+	<data name="ChooseMonitor" xml:space="preserve">
 		<value>Monitör seçin</value>
 	</data>
-  <data name="ChoosePath" xml:space="preserve">
+	<data name="ChoosePath" xml:space="preserve">
 		<value>Dosya yolu seçin</value>
 	</data>
-  <data name="ClearItems" xml:space="preserve">
+	<data name="ClearItems" xml:space="preserve">
 		<value>Öğeleri temizle</value>
 	</data>
-  <data name="Clicked" xml:space="preserve">
+	<data name="Clicked" xml:space="preserve">
 		<value>Tek tık</value>
 	</data>
-  <data name="CloseWarning" xml:space="preserve">
+	<data name="CloseWarning" xml:space="preserve">
 		<value>WinLaunch'ı kapatmak istediğinden emin misin?</value>
 	</data>
-  <data name="Columns" xml:space="preserve">
+	<data name="Columns" xml:space="preserve">
 		<value>Sütunlar</value>
 	</data>
-  <data name="ColumnsAndRows" xml:space="preserve">
+	<data name="ColumnsAndRows" xml:space="preserve">
 		<value>Sütunlar &amp; Satırlar</value>
 	</data>
-  <data name="Confirm" xml:space="preserve">
+	<data name="Confirm" xml:space="preserve">
 		<value>Onayla</value>
 	</data>
-  <data name="Copied" xml:space="preserve">
+	<data name="Copied" xml:space="preserve">
 		<value>Kopyalandı</value>
 	</data>
-  <data name="CreateBackup" xml:space="preserve">
+	<data name="CreateBackup" xml:space="preserve">
 		<value>Yedek oluştur</value>
 	</data>
-  <data name="CreatedBy" xml:space="preserve">
+	<data name="CreatedBy" xml:space="preserve">
 		<value>Oluşturan</value>
 	</data>
-  <data name="CustomThemes" xml:space="preserve">
+	<data name="CustomThemes" xml:space="preserve">
 		<value>Özel temalara ve diğer avantajlara erişmek için Patreon'da WinLaunch'ı destekleyin</value>
 	</data>
-  <data name="DeskModeSwitch" xml:space="preserve">
+	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>DeskMode'u değiştirmek için WinLaunch'ın yeniden başlatılması gerekecek, bu birkaç saniye sürebilir.</value>
 	</data>
-  <data name="DoubleClicked" xml:space="preserve">
+	<data name="DoubleClicked" xml:space="preserve">
 		<value>Çift tıklama</value>
 	</data>
-  <data name="Edit" xml:space="preserve">
+	<data name="Edit" xml:space="preserve">
 		<value>Düzenle</value>
 	</data>
-  <data name="EnableAcrylic" xml:space="preserve">
+	<data name="EnableAcrylic" xml:space="preserve">
 		<value>Akriliği Etkinleştir</value>
 	</data>
-  <data name="EnableAcrylicInfo" xml:space="preserve">
+	<data name="EnableAcrylicInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde, Windows 10 yeni akrilik bulanıklaştırma kullanılır</value>
 	</data>
-  <data name="EnableAero" xml:space="preserve">
+	<data name="EnableAero" xml:space="preserve">
 		<value>Aero'yu etkinleştir</value>
 	</data>
-  <data name="EnableAeroInfo" xml:space="preserve">
+	<data name="EnableAeroInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde, duvar kağıdı yerine Windows Aero kullanılır</value>
 	</data>
-  <data name="EnableAltDoubleTap" xml:space="preserve">
+	<data name="EnableAltDoubleTap" xml:space="preserve">
 		<value>Alt çift dokunma aktivasyonunu etkinleştir</value>
 	</data>
-  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+	<data name="EnableCtrlDoubleTap" xml:space="preserve">
 		<value>Ctrl çift dokunma aktivasyonunu etkinleştir</value>
 	</data>
-  <data name="EnableGamepadActivation" xml:space="preserve">
+	<data name="EnableGamepadActivation" xml:space="preserve">
 		<value>Gamepad üzerindeki başlat düğmesini kullanarak WinLaunch'ı etkinleştirmeyi etkinleştirin</value>
 	</data>
-  <data name="EnableHotCorner" xml:space="preserve">
+	<data name="EnableHotCorner" xml:space="preserve">
 		<value>Sıcak Köşeleri Etkinleştir</value>
 	</data>
-  <data name="EnableHotKey" xml:space="preserve">
+	<data name="EnableHotKey" xml:space="preserve">
 		<value>Kısayol Tuşunu Etkinleştir</value>
 	</data>
-  <data name="EnableTouchscreen" xml:space="preserve">
+	<data name="EnableTouchscreen" xml:space="preserve">
 		<value>Dokunmatik ekran modunu etkinleştir</value>
 	</data>
-  <data name="EnableTouchscreenInfo" xml:space="preserve">
+	<data name="EnableTouchscreenInfo" xml:space="preserve">
 		<value>Dokunmatik ekran modu, öğeleri yalnızca 3 saniye basılı tuttuktan sonra taşımanıza izin verir (simge kıpırdamaya başlar)</value>
 	</data>
-  <data name="EnableWindowsKey" xml:space="preserve">
+	<data name="EnableWindowsKey" xml:space="preserve">
 		<value>Windows anahtar aktivasyonunu etkinleştir</value>
 	</data>
-  <data name="Error" xml:space="preserve">
+	<data name="Error" xml:space="preserve">
 		<value>Hata</value>
 	</data>
-  <data name="FillScreen" xml:space="preserve">
+	<data name="FillScreen" xml:space="preserve">
 		<value>Tüm ekranı doldur</value>
 	</data>
-  <data name="FillScreenInfo" xml:space="preserve">
+	<data name="FillScreenInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; WinLaunch, görev çubuğu dahil tüm ekranı kaplayacaktır.</value>
 	</data>
-  <data name="FolderColumns" xml:space="preserve">
+	<data name="FolderColumns" xml:space="preserve">
 		<value>Klasör sütunları</value>
 	</data>
-  <data name="GamepadActivation" xml:space="preserve">
+	<data name="GamepadActivation" xml:space="preserve">
 		<value>Oyun kumandası aktivasyonu</value>
 	</data>
-  <data name="General" xml:space="preserve">
+	<data name="General" xml:space="preserve">
 		<value>Genel</value>
 	</data>
-  <data name="HotCornerDelay" xml:space="preserve">
+	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Gecikme:</value>
 	</data>
-  <data name="HotCornersActivation" xml:space="preserve">
+	<data name="HotCornersActivation" xml:space="preserve">
 		<value>Sıcak Köşe aktivasyonu</value>
 	</data>
-  <data name="HotKeyActivation" xml:space="preserve">
+	<data name="HotKeyActivation" xml:space="preserve">
 		<value>Kısayol tuşu aktivasyonu</value>
 	</data>
-  <data name="Icons" xml:space="preserve">
+	<data name="Icons" xml:space="preserve">
 		<value>Simgeler</value>
 	</data>
-  <data name="IconShadowOpacity" xml:space="preserve">
+	<data name="IconShadowOpacity" xml:space="preserve">
 		<value>Simge gölge opaklığı</value>
 	</data>
-  <data name="IconSize" xml:space="preserve">
+	<data name="IconSize" xml:space="preserve">
 		<value>Simge boyutu</value>
 	</data>
-  <data name="IconText" xml:space="preserve">
+	<data name="IconText" xml:space="preserve">
 		<value>Simge metni:</value>
 	</data>
-  <data name="IconTextShadow" xml:space="preserve">
+	<data name="IconTextShadow" xml:space="preserve">
 		<value>Simge metin gölgesi:</value>
 	</data>
-  <data name="Interface" xml:space="preserve">
+	<data name="Interface" xml:space="preserve">
 		<value>Arayüz</value>
 	</data>
-  <data name="ItemOptions" xml:space="preserve">
+	<data name="ItemOptions" xml:space="preserve">
 		<value>Öğe Seçenekleri</value>
 	</data>
-  <data name="Items" xml:space="preserve">
+	<data name="Items" xml:space="preserve">
 		<value>Öğeler</value>
 	</data>
-  <data name="JoinUsOnDiscord" xml:space="preserve">
+	<data name="JoinUsOnDiscord" xml:space="preserve">
 		<value>Discord'da bize katılın</value>
 	</data>
-  <data name="KeyActivation" xml:space="preserve">
+	<data name="KeyActivation" xml:space="preserve">
 		<value>Anahtar aktivasyonu</value>
 	</data>
-  <data name="Language" xml:space="preserve">
+	<data name="Language" xml:space="preserve">
 		<value>Lisan</value>
 	</data>
-  <data name="LanguageInfo" xml:space="preserve">
+	<data name="LanguageInfo" xml:space="preserve">
 		<value>Bir çeviriyi güncellemek veya yeni bir çeviri sağlamak için ziyaret et</value>
 	</data>
-  <data name="LatestVersion" xml:space="preserve">
+	<data name="LatestVersion" xml:space="preserve">
 		<value>En son sürümü çalıştırıyorsun</value>
 	</data>
-  <data name="Loading" xml:space="preserve">
+	<data name="Loading" xml:space="preserve">
 		<value>Yükleniyor...</value>
 	</data>
-  <data name="LoadWallpaper" xml:space="preserve">
+	<data name="LoadWallpaper" xml:space="preserve">
 		<value>Duvar kağıdını yükle</value>
 	</data>
-  <data name="LookAndFeel" xml:space="preserve">
+	<data name="LookAndFeel" xml:space="preserve">
 		<value>Görünüm &amp; His</value>
 	</data>
-  <data name="MakePortable" xml:space="preserve">
+	<data name="MakePortable" xml:space="preserve">
 		<value>taşınabilir yap</value>
 	</data>
-  <data name="MakePortableInfo" xml:space="preserve">
+	<data name="MakePortableInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde, WinLaunch'ın yüklendiği klasördeki appdata yerine Veri dizininden yüklenmesini sağlar</value>
 	</data>
-  <data name="MiddleMouseActivation" xml:space="preserve">
+	<data name="MiddleMouseActivation" xml:space="preserve">
 		<value>Fare orta tuş aktivasyonu</value>
 	</data>
-  <data name="MultiMonitors" xml:space="preserve">
+	<data name="MultiMonitors" xml:space="preserve">
 		<value>Çoklu monitör</value>
 	</data>
-  <data name="Name" xml:space="preserve">
+	<data name="Name" xml:space="preserve">
 		<value>İsim:</value>
 	</data>
-  <data name="Nothing" xml:space="preserve">
+	<data name="Nothing" xml:space="preserve">
 		<value>Hiç bir şey</value>
 	</data>
-  <data name="Open" xml:space="preserve">
+	<data name="Open" xml:space="preserve">
 		<value>Aç</value>
 	</data>
-  <data name="OpenAsAdmin" xml:space="preserve">
+	<data name="OpenAsAdmin" xml:space="preserve">
 		<value>Yönetici Olarak Aç</value>
 	</data>
-  <data name="OpenFolders" xml:space="preserve">
+	<data name="OpenFolders" xml:space="preserve">
 		<value>Klasörleri oluşturulduklarında aç</value>
 	</data>
-  <data name="OpenLocation" xml:space="preserve">
+	<data name="OpenLocation" xml:space="preserve">
 		<value>Konumu aç</value>
 	</data>
-  <data name="OpenOnActiveMonitor" xml:space="preserve">
+	<data name="OpenOnActiveMonitor" xml:space="preserve">
 		<value>WinLaunch'ı her zaman aktif monitörde aç</value>
 	</data>
-  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+	<data name="OpenOnActiveMonitorInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; farenin o anda açık olduğu monitörde WinLaunch otomatik olarak etkinleştirilir.</value>
 	</data>
-  <data name="Options" xml:space="preserve">
+	<data name="Options" xml:space="preserve">
 		<value>Seçenekler</value>
 	</data>
-  <data name="Path" xml:space="preserve">
+	<data name="Path" xml:space="preserve">
 		<value>Dosya yolu:</value>
 	</data>
-  <data name="PinDesktop" xml:space="preserve">
+	<data name="PinDesktop" xml:space="preserve">
 		<value>WinLaunch'ı masaüstüne sabitle</value>
 	</data>
-  <data name="PinDesktopInfo" xml:space="preserve">
+	<data name="PinDesktopInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; WinLaunch, duvar kağıdının yerini alarak masaüstüne sabitlenecek</value>
 	</data>
-  <data name="PressAKey" xml:space="preserve">
+	<data name="PressAKey" xml:space="preserve">
 		<value>Bir tuşa bas</value>
 	</data>
-  <data name="Quit" xml:space="preserve">
+	<data name="Quit" xml:space="preserve">
 		<value>Çık</value>
 	</data>
-  <data name="ReallyAddDefaultApps" xml:space="preserve">
+	<data name="ReallyAddDefaultApps" xml:space="preserve">
 		<value>Tüm varsayılan uygulamaları gerçekten eklemek istiyor musunuz?</value>
 	</data>
-  <data name="Remove" xml:space="preserve">
+	<data name="Remove" xml:space="preserve">
 		<value>Kaldır</value>
 	</data>
-  <data name="RemoveFolder" xml:space="preserve">
+	<data name="RemoveFolder" xml:space="preserve">
 		<value>Bu klasörü kaldırıldığında, içindeki tüm öğeleri de kaldıracaktır</value>
 	</data>
-  <data name="RemoveItem" xml:space="preserve">
+	<data name="RemoveItem" xml:space="preserve">
 		<value>Bu öğeyi gerçekten kaldırmak istiyor musun?</value>
 	</data>
-  <data name="RestoreBackup" xml:space="preserve">
+	<data name="RestoreBackup" xml:space="preserve">
 		<value>Yedekten geri yükle</value>
 	</data>
-  <data name="RestoreIcon" xml:space="preserve">
+	<data name="RestoreIcon" xml:space="preserve">
 		<value>Simgeyi geri yükle</value>
 	</data>
-  <data name="Rows" xml:space="preserve">
+	<data name="Rows" xml:space="preserve">
 		<value>Satırlar</value>
 	</data>
-  <data name="Screen" xml:space="preserve">
+	<data name="Screen" xml:space="preserve">
 		<value>Ekran</value>
 	</data>
-  <data name="SearchKeywords" xml:space="preserve">
-		<value>Arama Kelimeleri:</value>
+	<data name="SearchKeywords" xml:space="preserve">
+		<value>takma ad:</value>
 	</data>
-  <data name="SelectBackground" xml:space="preserve">
+	<data name="SearchKeywordsInfo" xml:space="preserve">
+		<value>Arayabileceğiniz anahtar kelimeler</value>
+	</data>
+	<data name="SelectBackground" xml:space="preserve">
 		<value>Arka plan resmi seç</value>
 	</data>
-  <data name="SelectIcon" xml:space="preserve">
+	<data name="SelectIcon" xml:space="preserve">
 		<value>Simge seç</value>
 	</data>
-  <data name="Settings" xml:space="preserve">
+	<data name="Settings" xml:space="preserve">
 		<value>Ayarlar</value>
 	</data>
-  <data name="ShoutoutPatreon" xml:space="preserve">
+	<data name="ShoutoutPatreon" xml:space="preserve">
 		<value>Patreon'da WinLaunch'ı destekleyenlere sesleniyorum</value>
 	</data>
-  <data name="ShowExtensionIcon" xml:space="preserve">
+	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Uzantı simgesini göster</value>
 	</data>
-  <data name="ShowMiniatures" xml:space="preserve">
+	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Minyatür simgeleri göster</value>
 	</data>
-  <data name="ShowPageIndicators" xml:space="preserve">
+	<data name="ShowPageIndicators" xml:space="preserve">
 		<value>Sayfa göstergelerini göster</value>
 	</data>
-  <data name="ShowSearchBar" xml:space="preserve">
+	<data name="ShowSearchBar" xml:space="preserve">
 		<value>Arama çubuğunu göster</value>
 	</data>
-  <data name="ShowWelcomeDialog" xml:space="preserve">
+	<data name="ShowWelcomeDialog" xml:space="preserve">
 		<value>Karşılama iletişim kutusunu göster</value>
 	</data>
-  <data name="SortFolderContentsOnly" xml:space="preserve">
-    <value>Yalnızca klasörlerin içeriğini sırala</value>
-  </data>
-  <data name="SortFoldersFirst" xml:space="preserve">
+	<data name="SortFolderContentsOnly" xml:space="preserve">
+		<value>Yalnızca klasörlerin içeriğini sırala</value>
+	</data>
+	<data name="SortFoldersFirst" xml:space="preserve">
 		<value>Önce klasörleri sırala!</value>
 	</data>
-  <data name="SortItemsAlphabetically" xml:space="preserve">
+	<data name="SortItemsAlphabetically" xml:space="preserve">
 		<value>Öğeleri alfabetik olarak sırala</value>
 	</data>
-  <data name="StartWithWindows" xml:space="preserve">
+	<data name="StartWithWindows" xml:space="preserve">
 		<value>Windows ile başlat</value>
 	</data>
-  <data name="StartWithWindowsInfo" xml:space="preserve">
+	<data name="StartWithWindowsInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; WinLaunch, başlangıçta otomatik olarak başlatılacaktır</value>
 	</data>
-  <data name="Success" xml:space="preserve">
+	<data name="Success" xml:space="preserve">
 		<value>Başarı</value>
 	</data>
-  <data name="SyncWallpaper" xml:space="preserve">
+	<data name="SyncWallpaper" xml:space="preserve">
 		<value>Duvar kağıdını senkronize et</value>
 	</data>
-  <data name="SyncWallpaperInfo" xml:space="preserve">
+	<data name="SyncWallpaperInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; arka planı mevcut duvar kağıdıyla senkronize eder</value>
 	</data>
-  <data name="Themes" xml:space="preserve">
+	<data name="Themes" xml:space="preserve">
 		<value>Temalar</value>
 	</data>
-  <data name="TranslatedBy" xml:space="preserve">
+	<data name="TranslatedBy" xml:space="preserve">
 		<value>FarisAGA tarafından çevrildi</value>
 	</data>
-  <data name="Tutorial" xml:space="preserve">
+	<data name="Tutorial" xml:space="preserve">
 		<value>Öğretici</value>
 	</data>
-  <data name="Update" xml:space="preserve">
+	<data name="Update" xml:space="preserve">
 		<value>Güncelleme</value>
 	</data>
-  <data name="UpdateAvailable" xml:space="preserve">
+	<data name="UpdateAvailable" xml:space="preserve">
 		<value>Kullanılabilir güncelleme mevcut</value>
 	</data>
-  <data name="UpdateAvailableInfo" xml:space="preserve">
+	<data name="UpdateAvailableInfo" xml:space="preserve">
 		<value>WinLaunch'ın yeni versiyonu mevcut, güncellemek ister misin?</value>
 	</data>
-  <data name="UpdateError" xml:space="preserve">
+	<data name="UpdateError" xml:space="preserve">
 		<value>Sürüm bilgisi indirilemedi</value>
 	</data>
-  <data name="UpdateSilently" xml:space="preserve">
+	<data name="UpdateSilently" xml:space="preserve">
 		<value>Sessizce güncelle</value>
 	</data>
-  <data name="UseCustomBackground" xml:space="preserve">
+	<data name="UseCustomBackground" xml:space="preserve">
 		<value>Özel arka plan kullan</value>
 	</data>
-  <data name="UseCustomBackgroundInfo" xml:space="preserve">
+	<data name="UseCustomBackgroundInfo" xml:space="preserve">
 		<value>Etkinleştirildiğinde; özel bir arka plan resmi yüklenir</value>
 	</data>
-  <data name="Version" xml:space="preserve">
+	<data name="Version" xml:space="preserve">
 		<value>Sürüm: </value>
 	</data>
-  <data name="Warning" xml:space="preserve">
+	<data name="Warning" xml:space="preserve">
 		<value>Uyarı</value>
 	</data>
+
+
 </root>

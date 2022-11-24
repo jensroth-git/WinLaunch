@@ -158,7 +158,7 @@
 
                 <Grid Height="23" Margin="0,0,0,5" x:Name="gdKeywords">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" MinWidth="{Binding Path=ActualWidth, ElementName=tblSearchKeywords }"/>
+                        <ColumnDefinition Width="{Binding Path=ActualWidth, ElementName=tblSearchKeywords }" MinWidth="82"/>
                         <ColumnDefinition Width="274*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock
@@ -169,14 +169,16 @@
                         Height="23"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Text="{my:Loc SearchKeywords}" />
+                        Text="{my:Loc SearchKeywords}" 
+                        ToolTip="{my:Loc SearchKeywordsInfo}"/>
                     <TextBox
                         x:Name="KeywordsBox"
                         Grid.Column="1"
                         Grid.ColumnSpan="1"
                         Height="25"
                         HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top" />
+                        VerticalAlignment="Top" 
+                        ToolTip="{my:Loc SearchKeywordsInfo}"/>
                 </Grid>
 
                 <Grid

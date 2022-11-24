@@ -431,7 +431,10 @@
     <value>Screen</value>
   </data>
   <data name="SearchKeywords" xml:space="preserve">
-    <value>Search keywords:</value>
+    <value>Alias:</value>
+  </data>
+  <data name="SearchKeywordsInfo" xml:space="preserve">
+    <value>Keywords that you can search for</value>
   </data>
   <data name="SelectBackground" xml:space="preserve">
     <value>Select background image</value>

@@ -241,7 +241,24 @@ namespace WinLaunch
                 if (folderItem != null)
                 {
                     Shell32.ShellLinkObject link = (Shell32.ShellLinkObject)folderItem.GetLink;
+                    
                     return link.Path;
+                }
+            }
+            catch { }
+
+            return null;
+        }
+
+        public static string GetShortcutWorkingDirectory(string shortcutFilename)
+        {
+            try
+            {
+                IWshShell shell = new WshShell();
+                var lnk = shell.CreateShortcut(shortcutFilename) as IWshShortcut;
+                if (lnk != null)
+                {
+                    return lnk.WorkingDirectory;
                 }
             }
             catch { }

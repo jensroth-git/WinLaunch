@@ -149,7 +149,7 @@ namespace WinLaunch
             {
                 AddFile(ofd.SelectedPath);
 
-                if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly )
+                if (Settings.CurrentSettings.SortItemsAlphabetically || Settings.CurrentSettings.SortFolderContentsOnly)
                 {
                     SortItemsAlphabetically();
                 }
@@ -303,6 +303,8 @@ namespace WinLaunch
                         try
                         {
                             string path = Item.ApplicationPath;
+                            string workingDirectory = null;
+
                             if (Path.GetExtension(path).ToLower() == ".lnk")
                             {
                                 if (ItemCollection.IsLnkInCache(Item.ApplicationPath))
@@ -311,13 +313,7 @@ namespace WinLaunch
                                     path = Path.GetFullPath(path);
                                 }
 
-                                //get actual path if its a link
-                                string shortcutPath = MiscUtils.GetShortcutTargetFile(path);
-
-                                if (!string.IsNullOrEmpty(shortcutPath))
-                                {
-                                    path = shortcutPath;
-                                }
+                                workingDirectory = MiscUtils.GetShortcutWorkingDirectory(path);
                             }
 
                             if (System.IO.File.Exists(path) || System.IO.Directory.Exists(path) || Uri.IsWellFormedUriString(path, UriKind.Absolute))
@@ -338,7 +334,15 @@ namespace WinLaunch
                                         startInfo.UseShellExecute = true;
                                         startInfo.FileName = path;
                                         startInfo.Arguments = Item.Arguments;
-                                        startInfo.WorkingDirectory = Path.GetDirectoryName(path);
+
+                                        if (!string.IsNullOrEmpty(workingDirectory))
+                                        {
+                                            startInfo.WorkingDirectory = workingDirectory;
+                                        }
+                                        else
+                                        {
+                                            startInfo.WorkingDirectory = Path.GetDirectoryName(path);
+                                        }
 
                                         if (Item.RunAsAdmin || RunAsAdmin)
                                         {
@@ -544,9 +548,9 @@ namespace WinLaunch
             Activate();
             Focus();
 
-            if(FolderRenamingActive)
+            if (FolderRenamingActive)
             {
-                if(Theme.CurrentTheme.UseVectorFolder)
+                if (Theme.CurrentTheme.UseVectorFolder)
                 {
                     Keyboard.Focus(FolderTitleEdit);
                 }

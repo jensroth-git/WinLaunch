@@ -83,29 +83,28 @@ namespace WinLaunch
                 LaunchedItem = Item;
             }
 
-            string filepath = Item.ApplicationPath;
-
-            if (filepath.EndsWith(".lnk"))
+            string path = Item.ApplicationPath;
+            if (Path.GetExtension(path).ToLower() == ".lnk")
             {
-                if (Path.GetExtension(filepath).ToLower() == ".lnk" && ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                if (ItemCollection.IsLnkInCache(Item.ApplicationPath))
                 {
-                    filepath = Path.Combine(PortabilityManager.LinkCachePath, filepath);
-                    filepath = Path.GetFullPath(filepath);
+                    path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                    path = Path.GetFullPath(path);
                 }
 
                 //get actual path if its a link
-                filepath = MiscUtils.GetShortcutTargetFile(filepath);
+                string shortcutPath = MiscUtils.GetShortcutTargetFile(path);
 
-                if(string.IsNullOrEmpty(filepath))
+                if (!string.IsNullOrEmpty(shortcutPath))
                 {
-                    filepath = Item.ApplicationPath;
+                    path = shortcutPath;
                 }
             }
 
             //open explorer and highlight the file 
             Process ExplorerProc = new Process();
             ExplorerProc.StartInfo.FileName = "explorer.exe";
-            ExplorerProc.StartInfo.Arguments = "/select,\"" + filepath + "\"";
+            ExplorerProc.StartInfo.Arguments = "/select,\"" + path + "\"";
             ExplorerProc.Start();
         }
         #endregion
@@ -304,10 +303,21 @@ namespace WinLaunch
                         try
                         {
                             string path = Item.ApplicationPath;
-
-                            if (Path.GetExtension(path).ToLower() == ".lnk" && ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                            if (Path.GetExtension(path).ToLower() == ".lnk")
                             {
-                                path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                                if (ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                                {
+                                    path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                                    path = Path.GetFullPath(path);
+                                }
+
+                                //get actual path if its a link
+                                string shortcutPath = MiscUtils.GetShortcutTargetFile(path);
+
+                                if (!string.IsNullOrEmpty(shortcutPath))
+                                {
+                                    path = shortcutPath;
+                                }
                             }
 
                             if (System.IO.File.Exists(path) || System.IO.Directory.Exists(path) || Uri.IsWellFormedUriString(path, UriKind.Absolute))
@@ -328,13 +338,13 @@ namespace WinLaunch
                                         startInfo.UseShellExecute = true;
                                         startInfo.FileName = path;
                                         startInfo.Arguments = Item.Arguments;
+                                        startInfo.WorkingDirectory = Path.GetDirectoryName(path);
 
                                         if (Item.RunAsAdmin || RunAsAdmin)
                                         {
                                             startInfo.Verb = "runas";
                                         }
 
-                                        //startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(Item.ApplicationPath);
                                         Process.Start(startInfo);
                                     }
                                     catch (Exception ex) { }

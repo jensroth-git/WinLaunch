@@ -303,17 +303,17 @@ namespace WinLaunch
                         try
                         {
                             string path = Item.ApplicationPath;
-                            string workingDirectory = null;
+                            bool isLnk = false;
 
                             if (Path.GetExtension(path).ToLower() == ".lnk")
                             {
+                                isLnk = true;
+
                                 if (ItemCollection.IsLnkInCache(Item.ApplicationPath))
                                 {
                                     path = Path.Combine(PortabilityManager.LinkCachePath, path);
                                     path = Path.GetFullPath(path);
                                 }
-
-                                workingDirectory = MiscUtils.GetShortcutWorkingDirectory(path);
                             }
 
                             if (System.IO.File.Exists(path) || System.IO.Directory.Exists(path) || Uri.IsWellFormedUriString(path, UriKind.Absolute))
@@ -335,11 +335,7 @@ namespace WinLaunch
                                         startInfo.FileName = path;
                                         startInfo.Arguments = Item.Arguments;
 
-                                        if (!string.IsNullOrEmpty(workingDirectory))
-                                        {
-                                            startInfo.WorkingDirectory = workingDirectory;
-                                        }
-                                        else
+                                        if (!isLnk)
                                         {
                                             startInfo.WorkingDirectory = Path.GetDirectoryName(path);
                                         }

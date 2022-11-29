@@ -14,6 +14,7 @@ namespace WinLaunch
         private void AddDefaultApps()
         {
             SBM.CloseFolderInstant();
+            SBM.EndSearch();
 
             string startMenuItems = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs";
             string additionalStartMenuItems = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Microsoft\\Windows\\Start Menu\\Programs");

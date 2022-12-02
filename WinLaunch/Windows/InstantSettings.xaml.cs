@@ -571,7 +571,7 @@ namespace WinLaunch
         #region Patreon
         private void InitPatrons()
         {
-            tblPatrons.Text = "Marc Castonguay\r\nkotzfresse\r\nMichael Shanahan\r\nDerek\r\nTowiWakka";
+            tblPatrons.Text = "Jarrod Kailef\r\nMarc Castonguay\r\nkotzfresse\r\nMichael Shanahan\r\nDerek\r\nTowiWakka";
         }
 
         private void runPatreon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

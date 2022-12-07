@@ -170,8 +170,41 @@ namespace WinLaunch
                 }
             }
 
+            if(msg == WM_MOUSEHWHEEL)
+            {
+                int tilt = (short)HIWORD(wParam);
+
+                if(tilt > 10)
+                {
+                    SBM.SP.FlipPageRight();
+                }
+                else if (tilt < -10)
+                {
+                    SBM.SP.FlipPageLeft();
+                }
+                return (IntPtr)1;
+            }
+                    
+
             return IntPtr.Zero;
         }
+
+        const int WM_MOUSEHWHEEL = 0x020E;
+
+        private static int HIWORD(IntPtr ptr)
+        {
+            unchecked
+            {
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    var val64 = ptr.ToInt64();
+                    return (short)((val64 >> 16) & 0xFFFF);
+                }
+                var val32 = ptr.ToInt32();
+                return (short)((val32 >> 16) & 0xFFFF);
+            }
+        }
+
 
         #endregion Disable close button
 

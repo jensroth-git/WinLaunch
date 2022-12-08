@@ -93,7 +93,7 @@ namespace WinLaunch
         public static extern void SetLastError(int dwErrorCode);
         #endregion
 
-        #region Disable close button
+        #region Hook WNDPROC
 
         [DllImport("user32.dll")]
         private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
@@ -121,6 +121,23 @@ namespace WinLaunch
             public uint flags;
         }
 
+        bool ShowDesktopActivated = false;
+        
+        const int WM_MOUSEHWHEEL = 0x020E;
+        
+        private static int HIWORD(IntPtr ptr)
+        {
+            unchecked
+            {
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    var val64 = ptr.ToInt64();
+                    return (short)((val64 >> 16) & 0xFFFF);
+                }
+                var val32 = ptr.ToInt32();
+                return (short)((val32 >> 16) & 0xFFFF);
+            }
+        }
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);
@@ -132,8 +149,6 @@ namespace WinLaunch
                 hwndSource.AddHook(new HwndSourceHook(this.hwndSourceHook));
             }
         }
-
-        bool ShowDesktopActivated = false;
 
         private IntPtr hwndSourceHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
@@ -182,31 +197,13 @@ namespace WinLaunch
                 {
                     SBM.SP.FlipPageLeft();
                 }
+
                 return (IntPtr)1;
             }
-                    
 
             return IntPtr.Zero;
         }
-
-        const int WM_MOUSEHWHEEL = 0x020E;
-
-        private static int HIWORD(IntPtr ptr)
-        {
-            unchecked
-            {
-                if (Environment.Is64BitOperatingSystem)
-                {
-                    var val64 = ptr.ToInt64();
-                    return (short)((val64 >> 16) & 0xFFFF);
-                }
-                var val32 = ptr.ToInt32();
-                return (short)((val32 >> 16) & 0xFFFF);
-            }
-        }
-
-
-        #endregion Disable close button
+        #endregion
 
         private bool IsFullscreen = true;
         private bool IsHidden = false;

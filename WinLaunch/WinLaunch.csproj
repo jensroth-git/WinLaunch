@@ -556,6 +556,10 @@
   -->
   <PropertyGroup>
     <PostBuildEvent>
-    </PostBuildEvent>
+for /f "tokens=*" %25%25G in ('dir /b /a:d "$(TargetDir)"') do ( if not "%25%25~NG" == "lib" if not "%25%25~NG" == "lang" if not "%25%25~NG" == "data"  RoboCopy "$(TargetDir)%25%25G " "$(TargetDir)lang\%25%25G " /E /IS /MOVE)
+
+RoboCopy "$(TargetDir) " "$(TargetDir)lib\ " /XF *.exe *.config *.manifext /XD lib lang data /E /IS /MOVE
+if %25errorlevel%25 leq 4 exit 0 else exit %25errorlevel%25
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

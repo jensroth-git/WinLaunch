@@ -103,9 +103,10 @@ namespace WinLaunch
 
         private void tbTranslationLink_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            tbTranslationLink.Text = "http://winlaunch.org/translate.php (" + TranslationSource.Instance["Copied"] + ")";
+            this.Close();
+            mainWindow.StartFlyOutAnimation();
 
-            Clipboard.SetText("http://winlaunch.org/translate.php");
+            MiscUtils.OpenURL("http://winlaunch.org/translate.php");
         }
 
         private void InitDeskMode()
@@ -571,7 +572,7 @@ namespace WinLaunch
         #region Patreon
         private void InitPatrons()
         {
-            tblPatrons.Text = "Jarrod Kailef\r\nMarc Castonguay\r\nkotzfresse\r\nMichael Shanahan\r\nDerek\r\nTowiWakka";
+            tblPatrons.Text = "Nano Nutrino\r\nJarrod K.\r\nSam K.\r\nFreddy G.\r\nTowiWakka\r\nEdvard E.\r\nThomas H.\r\n";
         }
 
         private void runPatreon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

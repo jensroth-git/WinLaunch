@@ -89,7 +89,7 @@ namespace WinLaunch
         {
             IsPortable = false;
 
-            //copy all files from appdata to data
+            //copy all files from data to appdata
             if (!MiscUtils.CopyDirectoryOverwrite(
                 PortableDirectory,
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WinLaunch"),
@@ -157,7 +157,7 @@ namespace WinLaunch
         {
             if (item.IconPath != null)
             {
-                if(!ItemCollection.IsIconInCache(item.IconPath))
+                if(!ItemCollection.IsInCache(item.IconPath))
                 {
                     //not a cached icon
                     //copy file over to the new cache
@@ -178,7 +178,7 @@ namespace WinLaunch
         {
             if (Path.GetExtension(item.ApplicationPath) == ".lnk")
             {
-                if (!ItemCollection.IsLnkInCache(item.ApplicationPath))
+                if (!ItemCollection.IsInCache(item.ApplicationPath))
                 {
                     //not a relative lnk
                     item.ApplicationPath = Path.GetFileName(item.ApplicationPath);

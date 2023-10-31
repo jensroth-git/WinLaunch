@@ -11,9 +11,10 @@ namespace WinLaunch
     {
         private string[] changelog = new string[]{
             "#Welcome to WinLaunch",
-            "#Changelog 0.7.2.3",
+            "#Changelog 0.7.3.0",
             "---",
             "- added horizontal scrolling to change pages",
+            "- fixed icon restore",
             "- updated patron list",
             "",
             "#Changelog 0.7.2.2",

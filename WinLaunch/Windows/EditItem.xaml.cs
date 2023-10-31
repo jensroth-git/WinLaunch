@@ -200,7 +200,7 @@ namespace WinLaunch
 
             if (filepath.EndsWith(".lnk"))
             {
-                if (ItemCollection.IsLnkInCache(filepath))
+                if (ItemCollection.IsInCache(filepath))
                 {
                     filepath = Path.Combine(PortabilityManager.LinkCachePath, filepath);
                     filepath = Path.GetFullPath(filepath);
@@ -290,16 +290,6 @@ namespace WinLaunch
 
         private void ResetIconButton_Click(object sender, RoutedEventArgs e)
         {
-            //delete icon from cache
-            if (Path.GetDirectoryName(this.ActiveItem.IconPath) == "IconCache")
-            {
-                try
-                {
-                    File.Delete(this.ActiveItem.IconPath);
-                }
-                catch { }
-            }
-
             //restore icon path
             this.ActiveItem.IconPath = null;
 
@@ -314,11 +304,18 @@ namespace WinLaunch
             }
             else
             {
+                string path = this.ActiveItem.ApplicationPath;
+
+                if (Path.GetExtension(path).ToLower() == ".lnk" && ItemCollection.IsInCache(path))
+                {
+                    path = Path.Combine(PortabilityManager.LinkCachePath, path);
+                }
+
                 this.ActiveItem.Icon = SBItem.LoadingImage;
 
                 try
                 {
-                    this.ActiveItem.Icon = MiscUtils.GetFileThumbnail(this.ActiveItem.ApplicationPath);
+                    this.ActiveItem.Icon = MiscUtils.GetFileThumbnail(path);
                 }
                 catch { }
             }

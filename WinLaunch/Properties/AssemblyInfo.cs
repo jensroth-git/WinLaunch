@@ -6,11 +6,11 @@ using System.Windows;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("WinLaunch")]
-[assembly: AssemblyDescription("OS X Launchpad for Windows")]
+[assembly: AssemblyDescription("macOS Launchpad for Windows")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WinLaunch.org")]
-[assembly: AssemblyProduct("WinLaunch - OS X Launchpad for Windows")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyProduct("WinLaunch - macOS Launchpad for Windows")]
+[assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -46,5 +46,5 @@ using System.Windows;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.7.2.3")]
-[assembly: AssemblyFileVersion("0.7.2.3")]
+[assembly: AssemblyVersion("0.7.3.0")]
+[assembly: AssemblyFileVersion("0.7.3.0")]

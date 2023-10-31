@@ -86,7 +86,7 @@ namespace WinLaunch
             string path = Item.ApplicationPath;
             if (Path.GetExtension(path).ToLower() == ".lnk")
             {
-                if (ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                if (ItemCollection.IsInCache(Item.ApplicationPath))
                 {
                     path = Path.Combine(PortabilityManager.LinkCachePath, path);
                     path = Path.GetFullPath(path);
@@ -309,7 +309,7 @@ namespace WinLaunch
                             {
                                 isLnk = true;
 
-                                if (ItemCollection.IsLnkInCache(Item.ApplicationPath))
+                                if (ItemCollection.IsInCache(Item.ApplicationPath))
                                 {
                                     path = Path.Combine(PortabilityManager.LinkCachePath, path);
                                     path = Path.GetFullPath(path);

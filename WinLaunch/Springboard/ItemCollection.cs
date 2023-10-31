@@ -72,9 +72,9 @@ namespace WinLaunch
 
         #region Image Loading
 
-        public static bool IsIconInCache(string IconPath)
+        public static bool IsInCache(string path)
         {
-            string filename = Path.GetFileNameWithoutExtension(IconPath);
+            string filename = Path.GetFileNameWithoutExtension(path);
             Guid id;
 
             if (!Guid.TryParse(filename, out id))
@@ -82,25 +82,7 @@ namespace WinLaunch
                 return false;
             }
 
-            if (string.IsNullOrEmpty(Path.GetDirectoryName(IconPath)))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public static bool IsLnkInCache(string lnkPath)
-        {
-            string filename = Path.GetFileNameWithoutExtension(lnkPath);
-            Guid id;
-
-            if (!Guid.TryParse(filename, out id))
-            {
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(Path.GetDirectoryName(lnkPath)))
+            if (string.IsNullOrEmpty(Path.GetDirectoryName(path)))
             {
                 return true;
             }
@@ -121,7 +103,7 @@ namespace WinLaunch
                     {
                         string fullPath = "";
 
-                        if (IsIconInCache(item.IconPath))
+                        if (IsInCache(item.IconPath))
                         {
                             fullPath = Path.Combine(PortabilityManager.IconCachePath, item.IconPath);
                         }
@@ -154,7 +136,7 @@ namespace WinLaunch
             {
                 string path = item.ApplicationPath;
 
-                if (Path.GetExtension(path).ToLower() == ".lnk" && IsLnkInCache(item.ApplicationPath))
+                if (Path.GetExtension(path).ToLower() == ".lnk" && IsInCache(item.ApplicationPath))
                 {
                     path = Path.Combine(PortabilityManager.LinkCachePath, path);
                 }
@@ -172,7 +154,7 @@ namespace WinLaunch
                         {
                             string fullPath = "";
 
-                            if (IsIconInCache(item.IconPath))
+                            if (IsInCache(item.IconPath))
                             {
                                 fullPath = Path.Combine(PortabilityManager.IconCachePath, item.IconPath);
                             }
@@ -205,6 +187,14 @@ namespace WinLaunch
                     }
                     else
                     {
+                        //get icon from original app 
+                        //var appPath = MiscUtils.GetShortcutTargetFile(path);
+
+                        //if(appPath != null)
+                        //{
+                        //    path = appPath;
+                        //}
+
                         try
                         {
                             bmps = MiscUtils.GetFileThumbnail(path);

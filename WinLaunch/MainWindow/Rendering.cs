@@ -356,6 +356,10 @@ namespace WinLaunch
                 //strokepath.Margin = new Thickness(0, YOffset, 0, 0);
             }
 
+            //set folder title margin for different resolutions
+            double leftOffset = 0.089;
+            FolderTitleGrid.Margin = new Thickness(this.Width * leftOffset, 26, 0, 0);
+            FolderTitleGridNew.Margin = new Thickness(this.Width * leftOffset, 26, 0, 0);
         }
 
         private void UpdateFolderSettings()

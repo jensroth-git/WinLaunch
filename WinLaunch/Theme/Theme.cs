@@ -179,7 +179,6 @@ namespace WinLaunch
             if (center != null && arrow == null)
             {
                 shouldUseVectorFolder = true;
-                StretchFolderBackground = false;
             }
             else
             {

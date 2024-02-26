@@ -153,14 +153,22 @@ namespace WinLaunch
 
         private void GamepadLoop()
         {
-            while (true)
+            try
             {
-                ProcessInputForPlayer(PlayerIndex.One);
-                ProcessInputForPlayer(PlayerIndex.Two);
-                ProcessInputForPlayer(PlayerIndex.Three);
-                ProcessInputForPlayer(PlayerIndex.Four);
 
-                Thread.Sleep(20);
+                while (true)
+                {
+                    ProcessInputForPlayer(PlayerIndex.One);
+                    ProcessInputForPlayer(PlayerIndex.Two);
+                    ProcessInputForPlayer(PlayerIndex.Three);
+                    ProcessInputForPlayer(PlayerIndex.Four);
+
+                    Thread.Sleep(20);
+                }
+            }
+            catch (DllNotFoundException)
+            {
+                // no gamepad dll shouldn't blow us up...
             }
         }
 
@@ -180,7 +188,7 @@ namespace WinLaunch
                     {
                         if (Keyboard.PrimaryDevice.ActiveSource != null)
                         {
-                            if(SBM != null)
+                            if (SBM != null)
                                 SBM.KeyDown(this, new System.Windows.Input.KeyEventArgs(Keyboard.PrimaryDevice, Keyboard.PrimaryDevice.ActiveSource, 0, key) { RoutedEvent = Keyboard.KeyDownEvent });
 
                             if (key == Key.Enter)

@@ -345,6 +345,7 @@
                             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <StackPanel>
                                     <CheckBox x:Name="cbEnableWindowsKeyActivation" Margin="8,8,0,8" Content="{my:Loc EnableWindowsKey}" IsChecked="{Binding settings.WindowsKeyActivationEnabled}" />
+                                    <CheckBox Margin="8,0,0,8" Content="{my:Loc EnableStartWindow}" IsChecked="{Binding settings.StartWindowActivationEnabled}" />
                                     <CheckBox Margin="8,0,0,8" Content="{my:Loc EnableCtrlDoubleTap}" IsChecked="{Binding settings.DoubleTapCtrlActivationEnabled}" />
                                     <CheckBox Margin="8,0,0,8" Content="{my:Loc EnableAltDoubleTap}" IsChecked="{Binding settings.DoubleTapAltActivationEnabled}" />
                                 </StackPanel>

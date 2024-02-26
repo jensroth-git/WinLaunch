@@ -58,411 +58,412 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
-		<value>אודות</value>
-	</data>
-	<data name="Activation" xml:space="preserve">
-		<value>הפעלה</value>
-	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>הוסף אפליקציות ברירת מחדל</value>
-	</data>
-	<data name="AddFile" xml:space="preserve">
-		<value>הוסף קובץ</value>
-	</data>
-	<data name="AddFolder" xml:space="preserve">
-		<value>הוסף תיקיה</value>
-	</data>
-	<data name="AddLink" xml:space="preserve">
-		<value>הוסף קישור</value>
-	</data>
-	<data name="AeroSwitch" xml:space="preserve">
-		<value>כדי להפעיל את  שקיפות WinLaunch יהיה צורך להפעיל מחדש, פעולה זו עשויה להימשך מספר שניות.</value>
-	</data>
-	<data name="AllowFreePlacement" xml:space="preserve">
-		<value>אפשר מיקום פריט חופשי</value>
-	</data>
-	<data name="AllowFreePlacementInfo" xml:space="preserve">
-		<value>מאפשר להציב פריטים  בכל מקום </value>
-	</data>
-	<data name="Arguments" xml:space="preserve">
-		<value>טיעונים:</value>
-	</data>
-	<data name="Background" xml:space="preserve">
-		<value>טפט</value>
-	</data>
-	<data name="BackgroundBlur" xml:space="preserve">
-		<value>טשטוש טפט</value>
-	</data>
-	<data name="BackgroundTint" xml:space="preserve">
-		<value>חוזק טשטוש רקע</value>
-	</data>
-	<data name="BackupAndRestore" xml:space="preserve">
-		<value>גיבוי ושחזור</value>
-	</data>
-	<data name="BackupCreateError" xml:space="preserve">
-		<value>שגיאה ביצירת גיבוי</value>
-	</data>
-	<data name="BackupCreateSuccess" xml:space="preserve">
-		<value>הגיבוי נוצר בהצלחה</value>
-	</data>
-	<data name="BackupDeleteFilesManually" xml:space="preserve">
-		<value>לא ניתן למחוק חלק מהקבצים, אנא עשה זאת באופן ידני</value>
-	</data>
-	<data name="BackupRestore" xml:space="preserve">
-		<value>שחזור גיבוי</value>
-	</data>
-	<data name="BackupRestoreError" xml:space="preserve">
-		<value>שגיאה בשחזור מגיבוי</value>
-	</data>
-	<data name="BackupRestoreInfo" xml:space="preserve">
-		<value>שחזור מגיבוי זה יסיר את התצורה הנוכחית, האם אתה בטוח שברצונך לשחזר?</value>
-	</data>
-	<data name="BlockFullscreen" xml:space="preserve">
-		<value>חסום הפעלה של WinLaunch כאשר אפליקציות במסך מלא פועלות, כגון משחקים או סרטונים.</value>
-	</data>
-	<data name="BlockFullscreenInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, הפעלת WinLaunch תיחסם כשפעילות אפליקציות במסך מלא מזוהות, למשל בעת הפעלת משחקים או צפייה בסרטונים.</value>
-	</data>
-	<data name="Cancel" xml:space="preserve">
-		<value>ביטול</value>
-	</data>
-	<data name="CantBeUndoneWarning" xml:space="preserve">
-		<value>אי אפשר לבטל את זה</value>
-	</data>
-	<data name="CheckForUpdates" xml:space="preserve">
-		<value>בדוק אחר עדכונים</value>
-	</data>
-	<data name="CheckForUpdatesFrequently" xml:space="preserve">
-		<value>בדוק אם יש עדכונים לעתים קרובות</value>
-	</data>
-	<data name="ChooseMonitor" xml:space="preserve">
-		<value>בחר צג</value>
-	</data>
-	<data name="ChoosePath" xml:space="preserve">
-		<value>בחר נתיב</value>
-	</data>
-	<data name="ClearItems" xml:space="preserve">
-		<value>נקה פריטים</value>
-	</data>
-	<data name="Clicked" xml:space="preserve">
-		<value>קליק בודד</value>
-	</data>
-	<data name="CloseWarning" xml:space="preserve">
-		<value>האם אתה בטוח שברצונך לסגור את WinLaunch?</value>
-	</data>
-	<data name="Columns" xml:space="preserve">
-		<value>עמודות</value>
-	</data>
-	<data name="ColumnsAndRows" xml:space="preserve">
-		<value>עמודות ושורות</value>
-	</data>
-	<data name="Confirm" xml:space="preserve">
-		<value>אישור</value>
-	</data>
-	<data name="Copied" xml:space="preserve">
-		<value>הועתק</value>
-	</data>
-	<data name="CreateBackup" xml:space="preserve">
-		<value>צור גיבוי</value>
-	</data>
-	<data name="CreatedBy" xml:space="preserve">
-		<value>נוצר ע"י</value>
-	</data>
-	<data name="CustomThemes" xml:space="preserve">
-		<value>תמכו ב-WinLaunch ב-Patreon כדי לקבל גישה לנושאים מותאמים אישית ולהטבות אחרות</value>
-	</data>
-	<data name="DeskModeSwitch" xml:space="preserve">
-		<value>כדי להחליף מצב שולחן עבודה יהיה צורך להפעיל את WinLaunch מחדש, זה עלול לקחת מספר שניות.</value>
-	</data>
-	<data name="DoubleClicked" xml:space="preserve">
-		<value>לחץ לחיצה כפולה</value>
-	</data>
-	<data name="Edit" xml:space="preserve">
-		<value>עריכה</value>
-	</data>
-	<data name="EnableAcrylic" xml:space="preserve">
-		<value>הפעל טשטוש אקריליק</value>
-	</data>
-	<data name="EnableAcrylicInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, יבוצע שימוש בטשטוש אקריליק של Windows 10</value>
-	</data>
-	<data name="EnableAero" xml:space="preserve">
-		<value>הפעל שקיפות רקע</value>
-	</data>
-	<data name="EnableAeroInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, רקע WinLaunch יהפוך שקוף</value>
-	</data>
-	<data name="EnableAltDoubleTap" xml:space="preserve">
-		<value>הפעל את הפעלת הקשה כפולה Alt</value>
-	</data>
-	<data name="EnableCtrlDoubleTap" xml:space="preserve">
-		<value>אפשר הפעלה של Ctrl עם הקשה כפולה</value>
-	</data>
-	<data name="EnableGamepadActivation" xml:space="preserve">
-		<value>אפשר הפעלת WinLaunch באמצעות כפתור ההתחלה ב-gamepad</value>
-	</data>
-	<data name="EnableHotCorner" xml:space="preserve">
-		<value>אפשר פינות חמות</value>
-	</data>
-	<data name="EnableHotKey" xml:space="preserve">
-		<value>הפעל מקשי קיצור דרך</value>
-	</data>
-	<data name="EnableTouchscreen" xml:space="preserve">
-		<value>הפעל מצב מסך מגע</value>
-	</data>
-	<data name="EnableTouchscreenInfo" xml:space="preserve">
-		<value>מצב מסך מגע יאפשר לך להעביר פריטים לאחר החזקתם במשך 3 שניות (פריטים יתחילו להתנועע)</value>
-	</data>
-	<data name="EnableWindowsKey" xml:space="preserve">
-		<value>אפשר הפעלת מפתח Windows</value>
-	</data>
-	<data name="Error" xml:space="preserve">
-		<value>שְׁגִיאָה</value>
-	</data>
-	<data name="FillScreen" xml:space="preserve">
-		<value>הפעל במסך מלא</value>
-	</data>
-	<data name="FillScreenInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, WinLaunch יכסה את המסך כולו כולל שורת המשימות</value>
-	</data>
-	<data name="FolderColumns" xml:space="preserve">
-		<value>עמודות תיקיה</value>
-	</data>
-	<data name="GamepadActivation" xml:space="preserve">
-		<value>הפעלת גיימפד</value>
-	</data>
-	<data name="General" xml:space="preserve">
-		<value>כללי</value>
-	</data>
-	<data name="HotCornerDelay" xml:space="preserve">
-		<value>לְעַכֵּב:</value>
-	</data>
-	<data name="HotCornersActivation" xml:space="preserve">
-		<value>פינות חמות</value>
-	</data>
-	<data name="HotKeyActivation" xml:space="preserve">
-		<value>מקשי קיצור דרך</value>
-	</data>
-	<data name="Icons" xml:space="preserve">
-		<value>צלמיות</value>
-	</data>
-	<data name="IconShadowOpacity" xml:space="preserve">
-		<value>חוזק צל של צלמיות</value>
-	</data>
-	<data name="IconSize" xml:space="preserve">
-		<value>גודל צלמית</value>
-	</data>
-	<data name="IconText" xml:space="preserve">
-		<value>טקסט צלמית:</value>
-	</data>
-	<data name="IconTextShadow" xml:space="preserve">
-		<value>צל טקסט של צלמית:</value>
-	</data>
-	<data name="Interface" xml:space="preserve">
-		<value>מִמְשָׁק</value>
-	</data>
-	<data name="ItemOptions" xml:space="preserve">
-		<value>אפשרויות פריט</value>
-	</data>
-	<data name="Items" xml:space="preserve">
-		<value>פריטים</value>
-	</data>
-	<data name="JoinUsOnDiscord" xml:space="preserve">
-		<value>הצטרפו אלינו לדיסקורד</value>
-	</data>
-	<data name="KeyActivation" xml:space="preserve">
-		<value>הפעלת מפתח</value>
-	</data>
-	<data name="Language" xml:space="preserve">
-		<value>שפה</value>
-	</data>
-	<data name="LanguageInfo" xml:space="preserve">
-		<value>כדי לעדכן תרגום או לספק תרגום חדש בקר בכתובת:</value>
-	</data>
-	<data name="LatestVersion" xml:space="preserve">
-		<value>אתה מפעיל את הגרסה האחרונה</value>
-	</data>
-	<data name="Loading" xml:space="preserve">
-		<value>טוען...</value>
-	</data>
-	<data name="LoadWallpaper" xml:space="preserve">
-		<value>טען טפט</value>
-	</data>
-	<data name="LookAndFeel" xml:space="preserve">
-		<value>תצוגה</value>
-	</data>
-	<data name="MakePortable" xml:space="preserve">
-		<value>הפוך לנייד</value>
-	</data>
-	<data name="MakePortableInfo" xml:space="preserve">
-		<value>כאשר מופעל יגרום ל-WinLaunch להיטען מספריית הנתונים בתיקייה בה היא מותקנת במקום appdata</value>
-	</data>
-	<data name="MiddleMouseActivation" xml:space="preserve">
-		<value>פעולות לחצן עכבר אמצעי</value>
-	</data>
-	<data name="MultiMonitors" xml:space="preserve">
-		<value>צגים מרובים</value>
-	</data>
-	<data name="Name" xml:space="preserve">
-		<value>שם:</value>
-	</data>
-	<data name="Nothing" xml:space="preserve">
-		<value>שום דבר</value>
-	</data>
-	<data name="Open" xml:space="preserve">
-		<value>פתח</value>
-	</data>
-	<data name="OpenAsAdmin" xml:space="preserve">
-		<value>פתח כמנהל מערכת</value>
-	</data>
-	<data name="OpenFolders" xml:space="preserve">
-		<value>פתח תיקיות כאשר הן נוצרות</value>
-	</data>
-	<data name="OpenLocation" xml:space="preserve">
-		<value>פתח מיקום</value>
-	</data>
-	<data name="OpenOnActiveMonitor" xml:space="preserve">
-		<value>תמיד תפתח את WinLaunch על המסך הפעיל</value>
-	</data>
-	<data name="OpenOnActiveMonitorInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, WinLaunch יפתח באופן אוטומטי על הצג הפעיל (שסמן העכבר נמצא בו) </value>
-	</data>
-	<data name="Options" xml:space="preserve">
-		<value>אפשרויות</value>
-	</data>
-	<data name="Path" xml:space="preserve">
-		<value>נתיב:</value>
-	</data>
-	<data name="PinDesktop" xml:space="preserve">
-		<value>הצמד את WinLaunch לשולחן העבודה</value>
-	</data>
-	<data name="PinDesktopInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, WinLaunch יחליף את שולחן העבודה הקיים</value>
-	</data>
-	<data name="PressAKey" xml:space="preserve">
-		<value>לחץ על מקש</value>
-	</data>
-	<data name="Quit" xml:space="preserve">
-		<value>יציאה</value>
-	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>האם אתה באמת רוצה להוסיף את כל אפליקציות ברירת המחדל?</value>
-	</data>
-	<data name="Remove" xml:space="preserve">
-		<value>מחק</value>
-	</data>
-	<data name="RemoveFolder" xml:space="preserve">
-		<value>הסרת תיקיה זו תסיר את כל הפריטים בתוכה</value>
-	</data>
-	<data name="RemoveItem" xml:space="preserve">
-		<value>אתה בטוח שאתה רוצה למחוק פריט זה?</value>
-	</data>
-	<data name="RestoreBackup" xml:space="preserve">
-		<value>שחזר מגיבוי</value>
-	</data>
-	<data name="RestoreIcon" xml:space="preserve">
-		<value>שחזר צלמית</value>
-	</data>
-	<data name="Rows" xml:space="preserve">
-		<value>שורות</value>
-	</data>
-	<data name="Screen" xml:space="preserve">
-		<value>מסך</value>
-	</data>
-	<data name="SearchKeywords" xml:space="preserve">
-		<value>כינוי:</value>
-	</data>
-	<data name="SearchKeywordsInfo" xml:space="preserve">
-		<value>מילות מפתח שאתה יכול לחפש</value>
-	</data>
-	<data name="SelectBackground" xml:space="preserve">
-		<value>בחר תמונת רקע</value>
-	</data>
-	<data name="SelectIcon" xml:space="preserve">
-		<value>בחר צלמית</value>
-	</data>
-	<data name="Settings" xml:space="preserve">
-		<value>הגדרות</value>
-	</data>
-	<data name="ShoutoutPatreon" xml:space="preserve">
-		<value>צעקה לאנשים התומכים ב-WinLaunch ב-Patreon</value>
-	</data>
-	<data name="ShowExtensionIcon" xml:space="preserve">
-		<value>הצג את סמל הרחבה</value>
-	</data>
-	<data name="ShowMiniatures" xml:space="preserve">
-		<value>הצג סמלים מיניאטוריים</value>
-	</data>
-	<data name="ShowPageIndicators" xml:space="preserve">
-		<value>הצג מחווני עמודים</value>
-	</data>
-	<data name="ShowSearchBar" xml:space="preserve">
-		<value>הצג את שורת החיפוש</value>
-	</data>
-	<data name="ShowWelcomeDialog" xml:space="preserve">
-		<value>הצג תיבת פתיחה</value>
-	</data>
-	<data name="SortFolderContentsOnly" xml:space="preserve">
-		<value>מיין רק את התוכן של תיקיות</value>
-	</data>
-	<data name="SortFoldersFirst" xml:space="preserve">
-		<value>מיין תיקיות קודם!</value>
-	</data>
-	<data name="SortItemsAlphabetically" xml:space="preserve">
-		<value>מיין פריטים בסדר אלפביתי</value>
-	</data>
-	<data name="StartWithWindows" xml:space="preserve">
-		<value>הפעל בעת אתחול המחשב</value>
-	</data>
-	<data name="StartWithWindowsInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, WinLaunch יופעל באופן אוטומטי בעתק אתחול המחשב</value>
-	</data>
-	<data name="Success" xml:space="preserve">
-		<value>הַצלָחָה</value>
-	</data>
-	<data name="SyncWallpaper" xml:space="preserve">
-		<value>סנכרן טפט</value>
-	</data>
-	<data name="SyncWallpaperInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, הרקע יסונכרן עם הטפט הנוכחי</value>
-	</data>
-	<data name="Themes" xml:space="preserve">
-		<value>ערכות נושא</value>
-	</data>
-	<data name="TranslatedBy" xml:space="preserve">
-		<value>תורגם ע"י תמיר בן נון</value>
-	</data>
-	<data name="Tutorial" xml:space="preserve">
-		<value>מדריך</value>
-	</data>
-	<data name="Update" xml:space="preserve">
-		<value>עדכון</value>
-	</data>
-	<data name="UpdateAvailable" xml:space="preserve">
-		<value>עדכון זמין</value>
-	</data>
-	<data name="UpdateAvailableInfo" xml:space="preserve">
-		<value>גרסה חדשה של WinLaunch זמינה, לעדכן עכשיו?</value>
-	</data>
-	<data name="UpdateError" xml:space="preserve">
-		<value>לא ניתן להוריד את פרטי הגירסה</value>
-	</data>
-	<data name="UpdateSilently" xml:space="preserve">
-		<value>עדכן בשקט</value>
-	</data>
-	<data name="UseCustomBackground" xml:space="preserve">
-		<value>השתמש ברקע מותאם אישית</value>
-	</data>
-	<data name="UseCustomBackgroundInfo" xml:space="preserve">
-		<value>כאשר אפשרות זו פעילה, תבחר תמונת רקע מותאמת אישית</value>
-	</data>
-	<data name="Version" xml:space="preserve">
-		<value>גירסה:</value>
-	</data>
-	<data name="Warning" xml:space="preserve">
-		<value>אזהרה</value>
-	</data>
-
-
+  <data name="About" xml:space="preserve">
+    <value>אודות</value>
+  </data>
+  <data name="Activation" xml:space="preserve">
+    <value>הפעלה</value>
+  </data>
+  <data name="AddDefaultApps" xml:space="preserve">
+    <value>הוסף אפליקציות ברירת מחדל</value>
+  </data>
+  <data name="AddFile" xml:space="preserve">
+    <value>הוסף קובץ</value>
+  </data>
+  <data name="AddFolder" xml:space="preserve">
+    <value>הוסף תיקיה</value>
+  </data>
+  <data name="AddLink" xml:space="preserve">
+    <value>הוסף קישור</value>
+  </data>
+  <data name="AeroSwitch" xml:space="preserve">
+    <value>כדי להפעיל את  שקיפות WinLaunch יהיה צורך להפעיל מחדש, פעולה זו עשויה להימשך מספר שניות.</value>
+  </data>
+  <data name="AllowFreePlacement" xml:space="preserve">
+    <value>אפשר מיקום פריט חופשי</value>
+  </data>
+  <data name="AllowFreePlacementInfo" xml:space="preserve">
+    <value>מאפשר להציב פריטים  בכל מקום </value>
+  </data>
+  <data name="Arguments" xml:space="preserve">
+    <value>טיעונים:</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>טפט</value>
+  </data>
+  <data name="BackgroundBlur" xml:space="preserve">
+    <value>טשטוש טפט</value>
+  </data>
+  <data name="BackgroundTint" xml:space="preserve">
+    <value>חוזק טשטוש רקע</value>
+  </data>
+  <data name="BackupAndRestore" xml:space="preserve">
+    <value>גיבוי ושחזור</value>
+  </data>
+  <data name="BackupCreateError" xml:space="preserve">
+    <value>שגיאה ביצירת גיבוי</value>
+  </data>
+  <data name="BackupCreateSuccess" xml:space="preserve">
+    <value>הגיבוי נוצר בהצלחה</value>
+  </data>
+  <data name="BackupDeleteFilesManually" xml:space="preserve">
+    <value>לא ניתן למחוק חלק מהקבצים, אנא עשה זאת באופן ידני</value>
+  </data>
+  <data name="BackupRestore" xml:space="preserve">
+    <value>שחזור גיבוי</value>
+  </data>
+  <data name="BackupRestoreError" xml:space="preserve">
+    <value>שגיאה בשחזור מגיבוי</value>
+  </data>
+  <data name="BackupRestoreInfo" xml:space="preserve">
+    <value>שחזור מגיבוי זה יסיר את התצורה הנוכחית, האם אתה בטוח שברצונך לשחזר?</value>
+  </data>
+  <data name="BlockFullscreen" xml:space="preserve">
+    <value>חסום הפעלה של WinLaunch כאשר אפליקציות במסך מלא פועלות, כגון משחקים או סרטונים.</value>
+  </data>
+  <data name="BlockFullscreenInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, הפעלת WinLaunch תיחסם כשפעילות אפליקציות במסך מלא מזוהות, למשל בעת הפעלת משחקים או צפייה בסרטונים.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ביטול</value>
+  </data>
+  <data name="CantBeUndoneWarning" xml:space="preserve">
+    <value>אי אפשר לבטל את זה</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>בדוק אחר עדכונים</value>
+  </data>
+  <data name="CheckForUpdatesFrequently" xml:space="preserve">
+    <value>בדוק אם יש עדכונים לעתים קרובות</value>
+  </data>
+  <data name="ChooseMonitor" xml:space="preserve">
+    <value>בחר צג</value>
+  </data>
+  <data name="ChoosePath" xml:space="preserve">
+    <value>בחר נתיב</value>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>נקה פריטים</value>
+  </data>
+  <data name="Clicked" xml:space="preserve">
+    <value>קליק בודד</value>
+  </data>
+  <data name="CloseWarning" xml:space="preserve">
+    <value>האם אתה בטוח שברצונך לסגור את WinLaunch?</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>עמודות</value>
+  </data>
+  <data name="ColumnsAndRows" xml:space="preserve">
+    <value>עמודות ושורות</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>אישור</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>הועתק</value>
+  </data>
+  <data name="CreateBackup" xml:space="preserve">
+    <value>צור גיבוי</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>נוצר ע"י</value>
+  </data>
+  <data name="CustomThemes" xml:space="preserve">
+    <value>תמכו ב-WinLaunch ב-Patreon כדי לקבל גישה לנושאים מותאמים אישית ולהטבות אחרות</value>
+  </data>
+  <data name="DeskModeSwitch" xml:space="preserve">
+    <value>כדי להחליף מצב שולחן עבודה יהיה צורך להפעיל את WinLaunch מחדש, זה עלול לקחת מספר שניות.</value>
+  </data>
+  <data name="DoubleClicked" xml:space="preserve">
+    <value>לחץ לחיצה כפולה</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>עריכה</value>
+  </data>
+  <data name="EnableAcrylic" xml:space="preserve">
+    <value>הפעל טשטוש אקריליק</value>
+  </data>
+  <data name="EnableAcrylicInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, יבוצע שימוש בטשטוש אקריליק של Windows 10</value>
+  </data>
+  <data name="EnableAero" xml:space="preserve">
+    <value>הפעל שקיפות רקע</value>
+  </data>
+  <data name="EnableAeroInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, רקע WinLaunch יהפוך שקוף</value>
+  </data>
+  <data name="EnableAltDoubleTap" xml:space="preserve">
+    <value>הפעל את הפעלת הקשה כפולה Alt</value>
+  </data>
+  <data name="EnableCtrlDoubleTap" xml:space="preserve">
+    <value>אפשר הפעלה של Ctrl עם הקשה כפולה</value>
+  </data>
+  <data name="EnableGamepadActivation" xml:space="preserve">
+    <value>אפשר הפעלת WinLaunch באמצעות כפתור ההתחלה ב-gamepad</value>
+  </data>
+  <data name="EnableHotCorner" xml:space="preserve">
+    <value>אפשר פינות חמות</value>
+  </data>
+  <data name="EnableHotKey" xml:space="preserve">
+    <value>הפעל מקשי קיצור דרך</value>
+  </data>
+  <data name="EnableStartWindow" xml:space="preserve">
+    <value>החלף את תפריט ההתחלה של Windows</value>
+  </data>
+  <data name="EnableTouchscreen" xml:space="preserve">
+    <value>הפעל מצב מסך מגע</value>
+  </data>
+  <data name="EnableTouchscreenInfo" xml:space="preserve">
+    <value>מצב מסך מגע יאפשר לך להעביר פריטים לאחר החזקתם במשך 3 שניות (פריטים יתחילו להתנועע)</value>
+  </data>
+  <data name="EnableWindowsKey" xml:space="preserve">
+    <value>אפשר הפעלת מפתח Windows</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>שְׁגִיאָה</value>
+  </data>
+  <data name="FillScreen" xml:space="preserve">
+    <value>הפעל במסך מלא</value>
+  </data>
+  <data name="FillScreenInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, WinLaunch יכסה את המסך כולו כולל שורת המשימות</value>
+  </data>
+  <data name="FolderColumns" xml:space="preserve">
+    <value>עמודות תיקיה</value>
+  </data>
+  <data name="GamepadActivation" xml:space="preserve">
+    <value>הפעלת גיימפד</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>כללי</value>
+  </data>
+  <data name="HotCornerDelay" xml:space="preserve">
+    <value>לְעַכֵּב:</value>
+  </data>
+  <data name="HotCornersActivation" xml:space="preserve">
+    <value>פינות חמות</value>
+  </data>
+  <data name="HotKeyActivation" xml:space="preserve">
+    <value>מקשי קיצור דרך</value>
+  </data>
+  <data name="Icons" xml:space="preserve">
+    <value>צלמיות</value>
+  </data>
+  <data name="IconShadowOpacity" xml:space="preserve">
+    <value>חוזק צל של צלמיות</value>
+  </data>
+  <data name="IconSize" xml:space="preserve">
+    <value>גודל צלמית</value>
+  </data>
+  <data name="IconText" xml:space="preserve">
+    <value>טקסט צלמית:</value>
+  </data>
+  <data name="IconTextShadow" xml:space="preserve">
+    <value>צל טקסט של צלמית:</value>
+  </data>
+  <data name="Interface" xml:space="preserve">
+    <value>מִמְשָׁק</value>
+  </data>
+  <data name="ItemOptions" xml:space="preserve">
+    <value>אפשרויות פריט</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>פריטים</value>
+  </data>
+  <data name="JoinUsOnDiscord" xml:space="preserve">
+    <value>הצטרפו אלינו לדיסקורד</value>
+  </data>
+  <data name="KeyActivation" xml:space="preserve">
+    <value>הפעלת מפתח</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>שפה</value>
+  </data>
+  <data name="LanguageInfo" xml:space="preserve">
+    <value>כדי לעדכן תרגום או לספק תרגום חדש בקר בכתובת:</value>
+  </data>
+  <data name="LatestVersion" xml:space="preserve">
+    <value>אתה מפעיל את הגרסה האחרונה</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>טוען...</value>
+  </data>
+  <data name="LoadWallpaper" xml:space="preserve">
+    <value>טען טפט</value>
+  </data>
+  <data name="LookAndFeel" xml:space="preserve">
+    <value>תצוגה</value>
+  </data>
+  <data name="MakePortable" xml:space="preserve">
+    <value>הפוך לנייד</value>
+  </data>
+  <data name="MakePortableInfo" xml:space="preserve">
+    <value>כאשר מופעל יגרום ל-WinLaunch להיטען מספריית הנתונים בתיקייה בה היא מותקנת במקום appdata</value>
+  </data>
+  <data name="MiddleMouseActivation" xml:space="preserve">
+    <value>פעולות לחצן עכבר אמצעי</value>
+  </data>
+  <data name="MultiMonitors" xml:space="preserve">
+    <value>צגים מרובים</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>שם:</value>
+  </data>
+  <data name="Nothing" xml:space="preserve">
+    <value>שום דבר</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>פתח</value>
+  </data>
+  <data name="OpenAsAdmin" xml:space="preserve">
+    <value>פתח כמנהל מערכת</value>
+  </data>
+  <data name="OpenFolders" xml:space="preserve">
+    <value>פתח תיקיות כאשר הן נוצרות</value>
+  </data>
+  <data name="OpenLocation" xml:space="preserve">
+    <value>פתח מיקום</value>
+  </data>
+  <data name="OpenOnActiveMonitor" xml:space="preserve">
+    <value>תמיד תפתח את WinLaunch על המסך הפעיל</value>
+  </data>
+  <data name="OpenOnActiveMonitorInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, WinLaunch יפתח באופן אוטומטי על הצג הפעיל (שסמן העכבר נמצא בו) </value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>אפשרויות</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>נתיב:</value>
+  </data>
+  <data name="PinDesktop" xml:space="preserve">
+    <value>הצמד את WinLaunch לשולחן העבודה</value>
+  </data>
+  <data name="PinDesktopInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, WinLaunch יחליף את שולחן העבודה הקיים</value>
+  </data>
+  <data name="PressAKey" xml:space="preserve">
+    <value>לחץ על מקש</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>יציאה</value>
+  </data>
+  <data name="ReallyAddDefaultApps" xml:space="preserve">
+    <value>האם אתה באמת רוצה להוסיף את כל אפליקציות ברירת המחדל?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>מחק</value>
+  </data>
+  <data name="RemoveFolder" xml:space="preserve">
+    <value>הסרת תיקיה זו תסיר את כל הפריטים בתוכה</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>אתה בטוח שאתה רוצה למחוק פריט זה?</value>
+  </data>
+  <data name="RestoreBackup" xml:space="preserve">
+    <value>שחזר מגיבוי</value>
+  </data>
+  <data name="RestoreIcon" xml:space="preserve">
+    <value>שחזר צלמית</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>שורות</value>
+  </data>
+  <data name="Screen" xml:space="preserve">
+    <value>מסך</value>
+  </data>
+  <data name="SearchKeywords" xml:space="preserve">
+    <value>כינוי:</value>
+  </data>
+  <data name="SearchKeywordsInfo" xml:space="preserve">
+    <value>מילות מפתח שאתה יכול לחפש</value>
+  </data>
+  <data name="SelectBackground" xml:space="preserve">
+    <value>בחר תמונת רקע</value>
+  </data>
+  <data name="SelectIcon" xml:space="preserve">
+    <value>בחר צלמית</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>הגדרות</value>
+  </data>
+  <data name="ShoutoutPatreon" xml:space="preserve">
+    <value>צעקה לאנשים התומכים ב-WinLaunch ב-Patreon</value>
+  </data>
+  <data name="ShowExtensionIcon" xml:space="preserve">
+    <value>הצג את סמל הרחבה</value>
+  </data>
+  <data name="ShowMiniatures" xml:space="preserve">
+    <value>הצג סמלים מיניאטוריים</value>
+  </data>
+  <data name="ShowPageIndicators" xml:space="preserve">
+    <value>הצג מחווני עמודים</value>
+  </data>
+  <data name="ShowSearchBar" xml:space="preserve">
+    <value>הצג את שורת החיפוש</value>
+  </data>
+  <data name="ShowWelcomeDialog" xml:space="preserve">
+    <value>הצג תיבת פתיחה</value>
+  </data>
+  <data name="SortFolderContentsOnly" xml:space="preserve">
+    <value>מיין רק את התוכן של תיקיות</value>
+  </data>
+  <data name="SortFoldersFirst" xml:space="preserve">
+    <value>מיין תיקיות קודם!</value>
+  </data>
+  <data name="SortItemsAlphabetically" xml:space="preserve">
+    <value>מיין פריטים בסדר אלפביתי</value>
+  </data>
+  <data name="StartWithWindows" xml:space="preserve">
+    <value>הפעל בעת אתחול המחשב</value>
+  </data>
+  <data name="StartWithWindowsInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, WinLaunch יופעל באופן אוטומטי בעתק אתחול המחשב</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>הַצלָחָה</value>
+  </data>
+  <data name="SyncWallpaper" xml:space="preserve">
+    <value>סנכרן טפט</value>
+  </data>
+  <data name="SyncWallpaperInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, הרקע יסונכרן עם הטפט הנוכחי</value>
+  </data>
+  <data name="Themes" xml:space="preserve">
+    <value>ערכות נושא</value>
+  </data>
+  <data name="TranslatedBy" xml:space="preserve">
+    <value>תורגם ע"י תמיר בן נון</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>מדריך</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>עדכון</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>עדכון זמין</value>
+  </data>
+  <data name="UpdateAvailableInfo" xml:space="preserve">
+    <value>גרסה חדשה של WinLaunch זמינה, לעדכן עכשיו?</value>
+  </data>
+  <data name="UpdateError" xml:space="preserve">
+    <value>לא ניתן להוריד את פרטי הגירסה</value>
+  </data>
+  <data name="UpdateSilently" xml:space="preserve">
+    <value>עדכן בשקט</value>
+  </data>
+  <data name="UseCustomBackground" xml:space="preserve">
+    <value>השתמש ברקע מותאם אישית</value>
+  </data>
+  <data name="UseCustomBackgroundInfo" xml:space="preserve">
+    <value>כאשר אפשרות זו פעילה, תבחר תמונת רקע מותאמת אישית</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>גירסה:</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>אזהרה</value>
+  </data>
 </root>

@@ -277,6 +277,9 @@
   <data name="EnableWindowsKey" xml:space="preserve">
     <value>Enable windows key activation</value>
   </data>
+  <data name="EnableStartWindow" xml:space="preserve">
+    <value>Replace Windows start menu</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>

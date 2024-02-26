@@ -4,17 +4,14 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using Vanara.PInvoke;
 
 namespace WinLaunch
 {
@@ -186,6 +183,9 @@ namespace WinLaunch
         {
             if (MessageBox.Show(TranslationSource.Instance["CloseWarning"], TranslationSource.Instance["Quit"], MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
+                // cleanup any activation handlers we need to...
+                ShutdownStartWindowActivation();
+
                 PerformItemBackup();
 
                 hotCorner.Active = false;
@@ -666,6 +666,46 @@ namespace WinLaunch
         }
 
         #endregion WindowsKeyActivation
+
+        #region StartWindowActivation
+        private StartWindowActivation swa = new StartWindowActivation();
+
+        private void InitStartWindowActivation()
+        {
+            if (Settings.CurrentSettings.WindowsKeyActivationEnabled && !Settings.CurrentSettings.DeskMode)
+            {
+                HWND hwndStart = FindWindow("Windows.UI.Core.CoreWindow", "Start");
+                if (hwndStart != HWND.NULL)
+                {
+                    // we hide it so we don't get any future flashes from it activating
+                    User32.ShowWindow(hwndStart, ShowWindowCommand.SW_HIDE);
+                }
+
+                swa.StartListening((visible) =>
+                {
+                    if (visible)
+                    {
+                        User32.SendMessage(hwndStart, User32.WindowMessage.WM_CLOSE);
+                        ToggleLaunchpad();
+                    }
+                });
+            }
+        }
+
+        private void ShutdownStartWindowActivation()
+        {
+            if (swa != null)
+            {
+                swa.StopListening();
+                
+                HWND hwndStart = FindWindow("Windows.UI.Core.CoreWindow", "Start");
+                if (hwndStart != HWND.NULL)
+                {
+                    User32.ShowWindow(hwndStart, ShowWindowCommand.SW_SHOW);
+                }
+            }
+        }
+        #endregion StartWindowActivation
 
         #region MiddleMouseButtonActivator
         MiddleMouseActivation middleMouseActivator = null;

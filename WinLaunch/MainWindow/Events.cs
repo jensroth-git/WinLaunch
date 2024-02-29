@@ -672,7 +672,7 @@ namespace WinLaunch
 
         private void InitStartWindowActivation()
         {
-            if (Settings.CurrentSettings.WindowsKeyActivationEnabled && !Settings.CurrentSettings.DeskMode)
+            if (Settings.CurrentSettings.StartWindowActivationEnabled && !Settings.CurrentSettings.DeskMode)
             {
                 HWND hwndStart = FindWindow("Windows.UI.Core.CoreWindow", "Start");
                 if (hwndStart != HWND.NULL)

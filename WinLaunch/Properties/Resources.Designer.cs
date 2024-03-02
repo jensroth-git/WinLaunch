@@ -511,6 +511,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Replace Windows start menu.
+        /// </summary>
+        internal static string EnableStartWindow {
+            get {
+                return ResourceManager.GetString("EnableStartWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable touchscreen mode.
         /// </summary>
         internal static string EnableTouchscreen {

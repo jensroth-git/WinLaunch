@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
+using Vanara.PInvoke;
 
 namespace WinLaunch
 {
@@ -35,7 +36,7 @@ namespace WinLaunch
                 Settings.CurrentSettings.version = Assembly.GetExecutingAssembly().GetName().Version;
                 Settings.SaveSettings(Settings.CurrentSettings);
 
-                if(!StartHidden)
+                if (!StartHidden)
                 {
                     Welcome welcome = new Welcome();
                     welcome.ShowDialog();
@@ -62,6 +63,7 @@ namespace WinLaunch
                 InitHotKey();
                 InitMiddleMouseButtonActivator();
                 InitWindowsKeyActivation();
+                InitStartWindowActivation();
                 InitDoubleKeytapActivation();
 
                 UpdateGridSettings();
@@ -97,6 +99,7 @@ namespace WinLaunch
             UpdateHotCornerSettings();
             UpdateMiddleMouseButtonActivator();
             UpdateWindowsKeyActivation();
+            UpdateStartWindowActivation();
             UpdateDoubleKeytapActivation();
 
             UpdateGridSettings();
@@ -152,7 +155,7 @@ namespace WinLaunch
 
                 return;
             }
-                
+
 
             try
             {
@@ -189,15 +192,28 @@ namespace WinLaunch
             {
                 wka.StartListening();
             }
-            else
+            else 
             {
                 wka.StopListening();
             }
         }
 
+        private void UpdateStartWindowActivation()
+        {
+            HWND hwndStart = FindWindow("Windows.UI.Core.CoreWindow", "Start");
+            if (Settings.CurrentSettings.StartWindowActivationEnabled && !Settings.CurrentSettings.DeskMode)
+            {
+                InitStartWindowActivation();
+            }
+            else
+            {
+                ShutdownStartWindowActivation();
+            }
+        }
+
         private void UpdateDoubleKeytapActivation()
         {
-            if(Settings.CurrentSettings.DoubleTapCtrlActivationEnabled || 
+            if (Settings.CurrentSettings.DoubleTapCtrlActivationEnabled ||
                 Settings.CurrentSettings.DoubleTapAltActivationEnabled)
             {
                 if (Settings.CurrentSettings.DoubleTapCtrlActivationEnabled)

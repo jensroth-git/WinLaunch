@@ -117,6 +117,11 @@ namespace WinLaunch
         /// </summary>
         public bool WindowsKeyActivationEnabled { get; set; }
 
+        /// <summary>
+        /// Window Start Menu activation
+        /// </summary>
+        public bool StartWindowActivationEnabled { get; set; }
+        
         public bool DoubleTapCtrlActivationEnabled { get; set; }
         public bool DoubleTapAltActivationEnabled { get; set; }
 

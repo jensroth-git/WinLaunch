@@ -151,7 +151,7 @@ namespace WinLaunch
 
             //hook up events
             this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
-
+            
             //setup window
             this.AllowDrop = true;
 
@@ -175,6 +175,7 @@ namespace WinLaunch
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
 
+#if BROKEN // this doesn't compile???
             if (Theme.CurrentTheme.Rows != -1)
             {
                 //old style 
@@ -192,6 +193,7 @@ namespace WinLaunch
 
                 Theme.SaveTheme(Theme.CurrentTheme);
             }
+#endif 
 
             //enable if aero is in use and available
             //if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
@@ -210,6 +212,9 @@ namespace WinLaunch
         void Current_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             CrashReporter.Report(e.Exception);
+            
+            // cleanup subscriptions
+            ShutdownStartWindowActivation();
 
             MessageBox.Show("WinLaunch just crashed!\nplease submit a bug report to winlaunch.official@gmail.com\nerror: " + e.Exception.Message);
             Environment.Exit(1);
@@ -301,7 +306,7 @@ namespace WinLaunch
             }
         }
 
-        #endregion Init
+#endregion Init
 
         #region Utils
 

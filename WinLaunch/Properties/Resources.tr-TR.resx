@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>Hakkında</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>Aktivasyon</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>Varsayılan uygulamalar ekle</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>Masaüstü bağlantılarını WinLaunch'a otomatik olarak ekleyin</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>Dosya ekle</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>Argümanlar:</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>Asistan</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>Konuşma geçmişini temizle</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>WinLaunch Assistant'ı kapatın</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>Bağlanıyor...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>Metinden konuşmaya etkinleştir</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>Hesap Bulundu!\r\nLütfen WinLaunch Asistanınız için yeni bir şifre girin</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>lütfen bir şifre girin</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Lütfen Patreon E-Postanızı girin</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>Asistan komutunun yürütülmesini etkinleştir</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>Yürütülen Komut</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>Lütfen giriş yapın</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>Mesaj WinLaunch Asistanı...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>WinLaunch Yardımcısı</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0}, WinLaunch Patreon'un üyesi değil</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>Girişi Sıfırla</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>Web'de arama yaptım</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>Asistan simgesini göster</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>Bağlanma sorunu</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>Artık WinLaunch Patreon'un üyesi değilsiniz,\nWinLaunch Asistanına erişmek için lütfen katılın</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>Size bugün nasıl yardımcı olabilirim?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>yanlış şifre</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>Sen</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>Arkaplan</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>Özel temalara ve diğer avantajlara erişmek için Patreon'da WinLaunch'ı destekleyin</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>Masaüstü bağlantılarını ekledikten sonra silin</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>DeskMode'u değiştirmek için WinLaunch'ın yeniden başlatılması gerekecek, bu birkaç saniye sürebilir.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>Genel</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>Pencereyi gizle</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Gecikme:</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>Dosya yolu:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>Kullanıcılar</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>WinLaunch'ı masaüstüne sabitle</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>Çık</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>Tüm varsayılan uygulamaları gerçekten eklemek istiyor musunuz?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>Gerçekten yüklü tüm uygulamaları yenilemek ve eksik olanları WinLaunch'a eklemek istiyor musunuz?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>Yüklü uygulamaları yenile</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>Kaldır</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Uzantı simgesini göster</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>Klasör metnini göster</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>Öğe metnini göster</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Minyatür simgeleri göster</value>
@@ -463,6 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Uyarı</value>
 	</data>
+
+
+
 
 
 </root>

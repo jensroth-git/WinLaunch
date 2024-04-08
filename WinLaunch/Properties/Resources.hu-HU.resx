@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>Névjegy</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>Aktiválás</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>Adjon hozzá alapértelmezett alkalmazásokat</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>Asztali hivatkozások automatikus hozzáadása a WinLaunchhoz</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>Fájl hozzáadása</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>Értékek</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>Helyettes</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>Beszélgetési előzmények törlése</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>Zárja be a WinLaunch Assistant alkalmazást</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>Csatlakozás...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>Szöveg felolvasásának engedélyezése</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>Fiók található!\r\nKérjük, adjon meg egy új jelszót a WinLaunch Assistant számára</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>Adjon meg egy jelszót</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Kérjük, adja meg Patreon e-mail címét</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>Az asszisztens parancs végrehajtásának engedélyezése</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>Végrehajtott parancs</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>Kérjük jelentkezzen be</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>Üzenet a WinLaunch Assistant...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} nem tagja a WinLaunch Patreonnak</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>Bejelentkezés visszaállítása</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>Keresgélt a weben</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>Segéd ikon megjelenítése</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>Hiba történt a csatlakozással</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>Ön már nem tagja a WinLaunch Patreonnak,\nkérem, csatlakozzon a WinLaunch Assistant eléréséhez</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>Hogyan segíthetek ma?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>rossz jelszó</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>te</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>Háttérkép</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>Támogassa a WinLaunch programot a Patreonon, hogy hozzáférjen az egyéni témákhoz és egyéb előnyökhöz</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>Hozzáadásuk után törölje az asztali hivatkozásokat</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>Váltás a DeskMode WinLaunch kell, hogy újra kell indítani, ez eltarthat néhány másodpercig,.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>Általános</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>Ablak elrejtése</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Késleltetés:</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>Elérési út:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>Mecénások</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>WinLaunch kitűzése az Asztalra</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>Kilépés</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>Biztosan hozzá szeretné adni az összes alapértelmezett alkalmazást?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>Biztosan frissíteni szeretné az összes telepített alkalmazást, és hozzáadni a hiányzó alkalmazásokat a WinLaunchhoz?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>Frissítse a telepített alkalmazásokat</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>Eltávolítás</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Kiterjesztés ikon megjelenítése</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>Mappa szövegének megjelenítése</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>Elem szövegének megjelenítése</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Miniatűr ikonok megjelenítése</value>
@@ -463,6 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Figyelem</value>
 	</data>
+
+
+
 
 
 </root>

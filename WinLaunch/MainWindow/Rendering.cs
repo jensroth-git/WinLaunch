@@ -25,13 +25,20 @@ namespace WinLaunch
                 if (LoadingAssets)
                 {
                     if (LoadingText.Visibility != System.Windows.Visibility.Visible)
+                    {
                         LoadingText.Visibility = System.Windows.Visibility.Visible;
+                        spSearchAndAssistantContainer.Visibility = System.Windows.Visibility.Hidden;
+                    }
+                        
                 }
                 else
                 {
                     if (LoadingText.Visibility != System.Windows.Visibility.Hidden)
+                    {
                         LoadingText.Visibility = System.Windows.Visibility.Hidden;
-
+                        spSearchAndAssistantContainer.Visibility = System.Windows.Visibility.Visible;
+                    }
+                        
                     if (SBM.IC.Items.Count == 0)
                     {
                         SBM.StopMoveMode();

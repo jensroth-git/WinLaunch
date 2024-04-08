@@ -64,8 +64,8 @@
   <data name="Activation" xml:space="preserve">
 		<value>Activación</value>
 	</data>
-  <data name="AddDefaultApps" xml:space="preserve">
-		<value>Agregar aplicaciones</value>
+  <data name="AddDesktopLinks" xml:space="preserve">
+		<value>Agregar automáticamente accesos directos del Escritorio a WinLaunch</value>
 	</data>
   <data name="AddFile" xml:space="preserve">
 		<value>Agregar archivo</value>
@@ -87,6 +87,72 @@
 	</data>
   <data name="Arguments" xml:space="preserve">
 		<value>Argumentos:</value>
+	</data>
+  <data name="Assistant" xml:space="preserve">
+		<value>Asistente</value>
+	</data>
+  <data name="AssistantClearConversation" xml:space="preserve">
+		<value>Borrar historial de conversaciones</value>
+	</data>
+  <data name="AssistantClose" xml:space="preserve">
+		<value>Cerrar Asistente WinLaunch</value>
+	</data>
+  <data name="AssistantConnecting" xml:space="preserve">
+		<value>Conectando...</value>
+	</data>
+  <data name="AssistantEnableTTS" xml:space="preserve">
+		<value>Habilitar texto a voz</value>
+	</data>
+  <data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>¡Cuenta encontrada!\r\nIngrese una nueva contraseña para su Asistente WinLaunch</value>
+	</data>
+  <data name="AssistantEnterPassword" xml:space="preserve">
+		<value>porfavor ingrese una contraseña</value>
+	</data>
+  <data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Por favor ingresa tu correo electrónico de Patreon</value>
+	</data>
+  <data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>Habilitar la ejecución de comandos del Asistente</value>
+	</data>
+  <data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>Comando ejecutado</value>
+	</data>
+  <data name="AssistantLogin" xml:space="preserve">
+		<value>Por favor Iniciar sesión</value>
+	</data>
+  <data name="AssistantMessage" xml:space="preserve">
+		<value>Mensaje Asistente de WinLaunch...</value>
+	</data>
+  <data name="AssistantName" xml:space="preserve">
+		<value>Asistente de WinLaunch</value>
+	</data>
+  <data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} no es miembro de WinLaunch Patreon</value>
+	</data>
+  <data name="AssistantResetLogin" xml:space="preserve">
+		<value>Restablecer inicio de sesión</value>
+	</data>
+  <data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>Busqué en la web</value>
+	</data>
+  <data name="AssistantShowIcon" xml:space="preserve">
+		<value>Mostrar icono de asistente</value>
+	</data>
+  <data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>Problemas para conectar</value>
+	</data>
+  <data name="AssistantUnfollowed" xml:space="preserve">
+		<value>Ya no eres miembro de WinLaunch Patreon,\núnete para acceder al Asistente de WinLaunch</value>
+	</data>
+  <data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>¿Cómo puedo ayudarle hoy?</value>
+	</data>
+  <data name="AssistantWrongPassword" xml:space="preserve">
+		<value>contraseña incorrecta</value>
+	</data>
+  <data name="AssistantYou" xml:space="preserve">
+		<value>Tú</value>
 	</data>
   <data name="Background" xml:space="preserve">
 		<value>Fondo</value>
@@ -172,6 +238,9 @@
   <data name="CustomThemes" xml:space="preserve">
 		<value>Apoye a WinLaunch en Patreon para acceder a temas personalizados y otros beneficios</value>
 	</data>
+  <data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>Eliminar accesos directos del Escritorio después de agregarlos</value>
+	</data>
   <data name="DeskModeSwitch" xml:space="preserve">
 		<value>Para activar DeskMode, WinLaunch tendrá que reiniciarse, esto puede tomar unos segundos.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
   <data name="General" xml:space="preserve">
 		<value>General</value>
+	</data>
+  <data name="HideWindow" xml:space="preserve">
+		<value>Ocultar ventana</value>
 	</data>
   <data name="HotCornerDelay" xml:space="preserve">
 		<value>Demora: </value>
@@ -334,6 +406,9 @@
   <data name="Path" xml:space="preserve">
 		<value>Ruta:</value>
 	</data>
+  <data name="Patrons" xml:space="preserve">
+		<value>Patrocinadores</value>
+	</data>
   <data name="PinDesktop" xml:space="preserve">
 		<value>Anclar WinLaunch al escritorio</value>
 	</data>
@@ -346,8 +421,11 @@
   <data name="Quit" xml:space="preserve">
 		<value>Cerrar</value>
 	</data>
-  <data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>¿Realmente desea agregar todas las aplicaciones predeterminadas?</value>
+  <data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>¿Realmente desea actualizar todas las aplicaciones instaladas y agregar las que faltan a WinLaunch?</value>
+	</data>
+  <data name="RefreshInstalledApps" xml:space="preserve">
+		<value>Actualizar aplicaciones instaladas</value>
 	</data>
   <data name="Remove" xml:space="preserve">
 		<value>Eliminar</value>
@@ -390,6 +468,12 @@
 	</data>
   <data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Mostrar icono de expansión</value>
+	</data>
+  <data name="ShowFolderText" xml:space="preserve">
+		<value>Mostrar texto de carpeta</value>
+	</data>
+  <data name="ShowItemText" xml:space="preserve">
+		<value>Mostrar texto del elemento</value>
 	</data>
   <data name="ShowMiniatures" xml:space="preserve">
 		<value>Mostrar iconos en miniatura</value>

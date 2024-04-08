@@ -1,29 +1,72 @@
-﻿<Window x:Class="WinLaunch.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:my="clr-namespace:WinLaunch"
-        x:Name="WPFMainWindow"
-        Title="WinLaunch"
-        Width="783"
-        Height="641"
-        AllowsTransparency="True"
-        Background="#01000000"
-        FlowDirection="{my:LocFlow}"
-        Icon="/WinLaunch;component/Images/icon.ico"
-        ResizeMode="NoResize"
-        UseLayoutRounding="True"
-        WindowStyle="None">
+﻿<Window x:Name="WPFMainWindow"
+    x:Class="WinLaunch.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:my="clr-namespace:WinLaunch"
+    xmlns:wpttk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Title="WinLaunch"
+    Width="1000"
+    Height="641"
+    AllowsTransparency="True"
+    Background="#01000000"
+    FlowDirection="{my:LocFlow}"
+    FontFamily="res/Fonts/SF-Pro-Display-Regular.otf#SF Pro Display"
+    Icon="/WinLaunch;component/Images/icon.ico"
+    ResizeMode="NoResize"
+    UseLayoutRounding="True"
+    WindowStyle="None">
 
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ContextMenu.xaml" />
 
+                <ResourceDictionary Source="ThinScrollBar.xaml" />
+
+                <ResourceDictionary Source="AssistantResponseStyle.xaml" />
+
                 <ResourceDictionary>
                     <BooleanToVisibilityConverter x:Key="BoolToVis" />
-                    
+
                     <DataTemplate DataType="{x:Type my:SBItem}">
                         <Grid ContextMenuOpening="Grid_ContextMenuOpening" IsEnabled="{Binding IsEnabled}">
+                            <Grid.Resources>
+                                <Style TargetType="ToolTip">
+                                    <Setter Property="BorderThickness" Value="0" />
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Style>
+                            </Grid.Resources>
+
+                            <Grid.ToolTip>
+                                <Border
+                                    Background="#bbffffff"
+                                    BorderBrush="White"
+                                    BorderThickness="1"
+                                    CornerRadius="5">
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding NotesProp}" Value="">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+
+                                    <TextBlock Margin="10" Text="{Binding NotesProp}" />
+
+                                    <Border.Effect>
+                                        <DropShadowEffect
+                                            BlurRadius="5"
+                                            Direction="270"
+                                            Opacity="0.4"
+                                            ShadowDepth="2"
+                                            Color="Black" />
+                                    </Border.Effect>
+                                </Border>
+                            </Grid.ToolTip>
+
                             <Grid.Clip>
                                 <RectangleGeometry Rect="{Binding ClipRectangle}" />
                             </Grid.Clip>
@@ -37,30 +80,55 @@
 
                             <Grid.ContextMenu>
                                 <ContextMenu Width="200" Style="{StaticResource DarkContextMenu}">
-                                    <MenuItem x:Name="miOpen" Click="miOpen_Click" Header="{my:Loc Open}">
+                                    <MenuItem x:Name="miOpen"
+                                        Click="miOpen_Click"
+                                        Header="{my:Loc Open}">
                                         <MenuItem.Icon>
-                                            <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/launch.png" />
+                                            <Image
+                                                Margin="2,0"
+                                                RenderOptions.BitmapScalingMode="HighQuality"
+                                                Source="res/context/launch.png" />
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem x:Name="miOpenAsAdmin" Click="miOpenAsAdmin_Click" Header="{my:Loc OpenAsAdmin}">
+                                    <MenuItem x:Name="miOpenAsAdmin"
+                                        Click="miOpenAsAdmin_Click"
+                                        Header="{my:Loc OpenAsAdmin}">
                                         <MenuItem.Icon>
-                                            <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/admin.png" />
+                                            <Image
+                                                Margin="2,0"
+                                                RenderOptions.BitmapScalingMode="HighQuality"
+                                                Source="res/context/admin.png" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <Separator />
-                                    <MenuItem x:Name="miEdit" Click="miEdit_Click" Header="{my:Loc Edit}">
+                                    <MenuItem x:Name="miEdit"
+                                        Click="miEdit_Click"
+                                        Header="{my:Loc Edit}">
                                         <MenuItem.Icon>
-                                            <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/edit.png" />
+                                            <Image
+                                                Margin="2,0"
+                                                RenderOptions.BitmapScalingMode="HighQuality"
+                                                Source="res/context/edit.png" />
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem x:Name="miRemove" Click="miRemove_Click" Header="{my:Loc Remove}">
+                                    <MenuItem x:Name="miRemove"
+                                        Click="miRemove_Click"
+                                        Header="{my:Loc Remove}">
                                         <MenuItem.Icon>
-                                            <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/trash.png" />
+                                            <Image
+                                                Margin="2,0"
+                                                RenderOptions.BitmapScalingMode="HighQuality"
+                                                Source="res/context/trash.png" />
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem x:Name="miOpenLocation" Click="miOpenLocation_Click" Header="{my:Loc OpenLocation}">
+                                    <MenuItem x:Name="miOpenLocation"
+                                        Click="miOpenLocation_Click"
+                                        Header="{my:Loc OpenLocation}">
                                         <MenuItem.Icon>
-                                            <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/folder.png" />
+                                            <Image
+                                                Margin="2,0"
+                                                RenderOptions.BitmapScalingMode="HighQuality"
+                                                Source="res/context/folder.png" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                 </ContextMenu>
@@ -70,9 +138,14 @@
                                 <Border.BorderBrush>
                                     <VisualBrush>
                                         <VisualBrush.Visual>
-                                            <Rectangle StrokeDashArray="4 2" Stroke="{Binding SelectionBorder}" StrokeThickness="2" RadiusX="10" RadiusY="10"
-                  Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
-                  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"/>
+                                            <Rectangle
+                                                Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                                                Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
+                                                RadiusX="10"
+                                                RadiusY="10"
+                                                Stroke="{Binding SelectionBorder}"
+                                                StrokeDashArray="4 2"
+                                                StrokeThickness="2" />
                                         </VisualBrush.Visual>
                                     </VisualBrush>
                                 </Border.BorderBrush>
@@ -83,67 +156,86 @@
                                             <BitmapCache RenderAtScale="1.0" SnapsToDevicePixels="True" />
                                         </Grid.CacheMode>
 
-                                        <Image Width="150" Opacity="{Binding ShadowOpacity}" Source="{Binding Shadow}" />
+                                        <Image
+                                            Width="150"
+                                            Opacity="{Binding ShadowOpacity}"
+                                            Source="{Binding Shadow}" />
 
                                         <Grid Width="150" Height="150">
-                                            <Image Width="140"
-                                           Height="140"
-                                           Margin="{Binding DropMargin}"
-                                           Opacity="{Binding DropOpacity}"
-                                           Source="{Binding DropImage}">
+                                            <Image
+                                                Width="140"
+                                                Height="140"
+                                                Margin="{Binding DropMargin}"
+                                                Opacity="{Binding DropOpacity}"
+                                                Source="{Binding DropImage}">
                                                 <Image.RenderTransform>
                                                     <ScaleTransform CenterX="70" CenterY="70" ScaleX="{Binding DropScale}" ScaleY="{Binding DropScale}" />
                                                 </Image.RenderTransform>
                                             </Image>
                                         </Grid>
 
-                                        <Grid Width="{Binding IconWidth}"
-                                      Height="{Binding IconHeight}"
-                                      Margin="0,10,0,0"
-                                      VerticalAlignment="Top"
-                                      Effect="{Binding IconEffect}"
-                                      RenderOptions.BitmapScalingMode="HighQuality">
+                                        <Grid
+                                            Width="{Binding IconWidth}"
+                                            Height="{Binding IconHeight}"
+                                            Margin="0,10,0,0"
+                                            VerticalAlignment="Top"
+                                            Effect="{Binding IconEffect}"
+                                            RenderOptions.BitmapScalingMode="HighQuality">
 
-                                            <Image HorizontalAlignment="Stretch" Opacity="{Binding IconOpacity}" Source="{Binding Icon}" />
+                                            <Image
+                                                HorizontalAlignment="Stretch"
+                                                Opacity="{Binding IconOpacity}"
+                                                Source="{Binding Icon}" />
 
-                                            <Grid Width="{Binding MiniatureWidth}" Height="{Binding MiniatureWidth}" HorizontalAlignment="Center" ClipToBounds="True">
-                                                <Image Width="{Binding MiniatureWidth}" Margin="{Binding MiniatureMargin}" Source="{Binding FolderMiniatures}" Stretch="UniformToFill" />
+                                            <Grid
+                                                Width="{Binding MiniatureWidth}"
+                                                Height="{Binding MiniatureWidth}"
+                                                HorizontalAlignment="Center"
+                                                ClipToBounds="True">
+                                                <Image
+                                                    Width="{Binding MiniatureWidth}"
+                                                    Margin="{Binding MiniatureMargin}"
+                                                    Source="{Binding FolderMiniatures}"
+                                                    Stretch="UniformToFill" />
                                             </Grid>
                                         </Grid>
 
-                                        <TextBlock Height="50"
-                                           MaxWidth="150"
-                                           Margin="{Binding TextMargin}"
-                                           HorizontalAlignment="Center"
-                                           FontFamily="{Binding FontFamily}"
-                                           FontSize="{Binding FontSize}"
-                                           FontWeight="Normal"
-                                           Foreground="{Binding FontColor}"
-                                           Opacity="{Binding TextOpacity}"
-                                           Text="{Binding Text}"
-                                           TextAlignment="Center"
-                                           TextOptions.TextFormattingMode="Ideal"
-                                           TextTrimming="CharacterEllipsis"
-                                           TextWrapping="WrapWithOverflow"
-                                           UseLayoutRounding="True"
-                                           Visibility="{Binding TextVisible}">
+                                        <TextBlock
+                                            Height="50"
+                                            MaxWidth="150"
+                                            Margin="{Binding TextMargin}"
+                                            HorizontalAlignment="Center"
+                                            FontFamily="res/Fonts/SF-Pro-Display-Regular.otf#SF Pro Display"
+                                            FontSize="14"
+                                            FontWeight="Normal"
+                                            Foreground="{Binding FontColor}"
+                                            Opacity="{Binding TextOpacity}"
+                                            Text="{Binding Text}"
+                                            TextAlignment="Center"
+                                            TextOptions.TextFormattingMode="Ideal"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="WrapWithOverflow"
+                                            UseLayoutRounding="True"
+                                            Visibility="{Binding TextVisible}">
 
                                             <TextBlock.Effect>
-                                                <DropShadowEffect BlurRadius="4"
-                                                          Direction="270"
-                                                          Opacity="{Binding FontShadowOpacity}"
-                                                          ShadowDepth="1"
-                                                          Color="{Binding FontShadowColor}" />
+                                                <DropShadowEffect
+                                                    BlurRadius="4"
+                                                    Direction="270"
+                                                    Opacity="{Binding FontShadowOpacity}"
+                                                    ShadowDepth="1"
+                                                    Color="{Binding FontShadowColor}" />
                                             </TextBlock.Effect>
                                         </TextBlock>
                                     </Grid>
 
-                                    <Image Width="28"
-                                   Height="28"
-                                   Margin="{Binding CloseBoxMargin}"
-                                   HorizontalAlignment="Left"
-                                   VerticalAlignment="Top"
-                                   Source="{Binding CloseBox}">
+                                    <Image
+                                        Width="28"
+                                        Height="28"
+                                        Margin="{Binding CloseBoxMargin}"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Source="{Binding CloseBox}">
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
                                                 <Setter Property="Visibility" Value="Hidden" />
@@ -169,22 +261,44 @@
 
     <Grid>
         <Grid.ContextMenu>
-            <ContextMenu x:Name="MainContextMenu" Width="200" Style="{StaticResource DarkContextMenu}">
+            <ContextMenu x:Name="MainContextMenu"
+                Width="200"
+                Style="{StaticResource DarkContextMenu}">
                 <MenuItem Click="miAddFile_Clicked" Header="{my:Loc AddFile}">
                     <MenuItem.Icon>
-                        <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/add.png" />
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
                 <MenuItem Click="miAddFolder_Clicked" Header="{my:Loc AddFolder}">
                     <MenuItem.Icon>
-                        <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/add.png" />
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/add.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
                 <MenuItem Click="miAddLink_Clicked" Header="{my:Loc AddLink}">
                     <MenuItem.Icon>
-                        <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/add.png" />
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/add.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator />
+
+                <MenuItem Click="miRefreshInstalledApps_Clicked" Header="{my:Loc RefreshInstalledApps}">
+                    <MenuItem.Icon>
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/refresh_white.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -192,13 +306,19 @@
 
                 <MenuItem Click="miSettingsClicked" Header="{my:Loc Settings}">
                     <MenuItem.Icon>
-                        <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/settings.png" />
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/settings.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
                 <MenuItem Click="miQuitClicked" Header="{my:Loc Quit}">
                     <MenuItem.Icon>
-                        <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/quit.png" />
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/quit.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -206,7 +326,10 @@
 
                 <MenuItem Click="miTutorialClicked" Header="{my:Loc Tutorial}">
                     <MenuItem.Icon>
-                        <Image Margin="2,0" RenderOptions.BitmapScalingMode="HighQuality" Source="res/context/tutorial.png" />
+                        <Image
+                            Margin="2,0"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/context/tutorial.png" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -214,20 +337,23 @@
         </Grid.ContextMenu>
         <!--  Background  -->
         <Grid x:Name="BGGrid" Visibility="Visible">
-            <Image x:Name="Wallpaperbottom" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill" />
-
-            <Image x:Name="Wallpapernoblur"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Stretch="Fill"
-                   Visibility="Collapsed" />
-        </Grid>
-        
-        <Canvas x:Name="MainCanvas"
+            <Image x:Name="Wallpaperbottom"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Background="#01000000"
-                UseLayoutRounding="True">
+                Stretch="Fill" />
+
+            <Image x:Name="Wallpapernoblur"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Stretch="Fill"
+                Visibility="Collapsed" />
+        </Grid>
+
+        <Canvas x:Name="MainCanvas"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#01000000"
+            UseLayoutRounding="True">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform x:Name="MainCanvasScale" CenterX="0.0" CenterY="0.0" ScaleX="1.0" ScaleY="1.0" />
@@ -236,13 +362,20 @@
             </Canvas.RenderTransform>
 
             <!--  Folder  -->
-            <!-- Oldscool folder grid-->
-            <Path x:Name="strokepath" Visibility="Hidden" Stroke="#77ffffff" StrokeThickness="2" Margin="0,178,0,0" RenderOptions.EdgeMode="Aliased" >
+            <!--  Oldscool folder grid  -->
+            <Path x:Name="strokepath"
+                Margin="0,178,0,0"
+                RenderOptions.EdgeMode="Aliased"
+                Stroke="#77ffffff"
+                StrokeThickness="2"
+                Visibility="Hidden">
                 <Path.Data>
                     <PathGeometry x:Name="foldershape">
                         <PathGeometry.Figures>
                             <PathFigureCollection>
-                                <PathFigure IsClosed="True" x:Name="FolderShapePath" StartPoint="-10,20">
+                                <PathFigure x:Name="FolderShapePath"
+                                    IsClosed="True"
+                                    StartPoint="-10,20">
                                     <PathFigure.Segments>
                                         <PathSegmentCollection>
 
@@ -267,12 +400,24 @@
                 </Path.Data>
             </Path>
 
-            <Grid Visibility="Hidden" Panel.ZIndex="1" x:Name="FolderGrid" Height="126" Width="{Binding ElementName=MainCanvas, Path=ActualWidth}" Clip="{Binding ElementName=foldershape}" Margin="0,178,0,0">
+            <Grid x:Name="FolderGrid"
+                Width="{Binding ElementName=MainCanvas, Path=ActualWidth}"
+                Height="126"
+                Margin="0,178,0,0"
+                Panel.ZIndex="1"
+                Clip="{Binding ElementName=foldershape}"
+                Visibility="Hidden">
                 <Grid.Background>
-                    <ImageBrush x:Name="FolderBackgroundTileBrush" TileMode="Tile" ViewportUnits="Absolute" Stretch="Fill"/>
+                    <ImageBrush x:Name="FolderBackgroundTileBrush"
+                        Stretch="Fill"
+                        TileMode="Tile"
+                        ViewportUnits="Absolute" />
                 </Grid.Background>
 
-                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="60">
+                <Rectangle
+                    Height="60"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top">
                     <Rectangle.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStop x:Name="FolderTopShadowGradientStart" Offset="0.0" Color="#cc000000" />
@@ -281,7 +426,11 @@
                     </Rectangle.Fill>
                 </Rectangle>
 
-                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="{Binding ElementName=FolderGrid, Path=ActualHeight}" Margin="0,20,0,0">
+                <Rectangle
+                    Height="{Binding ElementName=FolderGrid, Path=ActualHeight}"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
                     <Rectangle.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStop x:Name="FolderBodyShadowGradientStart" Offset="0.0" Color="#00000000" />
@@ -290,7 +439,10 @@
                     </Rectangle.Fill>
                 </Rectangle>
 
-                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="30">
+                <Rectangle
+                    Height="30"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom">
                     <Rectangle.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStop x:Name="FolderBottomShadowGradientStart" Offset="0.0" Color="#00000000" />
@@ -299,20 +451,43 @@
                     </Rectangle.Fill>
                 </Rectangle>
 
-                <Grid x:Name="FolderTitleGrid" Margin="170.5,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SnapsToDevicePixels="True">
-                    <TextBlock x:Name="FolderTitleShadow" Margin="3,3,0,0" Foreground="#99000000" FontFamily="res/Fonts/#Lucida Grande Bold" FontSize="14pt" Text="{Binding ElementName=FolderTitle, Path=Text}"  />
-                    <TextBlock x:Name="FolderTitle" Margin="3,2,0,0" Foreground="White" FontFamily="res/Fonts/#Lucida Grande Bold" FontSize="14pt" Text=""  />
-                    <TextBox x:Name="FolderTitleEdit" Margin="0,1,0,0" BorderBrush="#00000000" Foreground="#ff000000" Background="#ffffffff" FontFamily="res/Fonts/#Lucida Grande Bold" FontSize="14pt"  BorderThickness="0" Visibility="Collapsed" KeyDown="FolderTitleEdit_KeyDown"/>
+                <Grid x:Name="FolderTitleGrid"
+                    Margin="170.5,26,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    SnapsToDevicePixels="True">
+                    <TextBlock x:Name="FolderTitleShadow"
+                        Margin="3,3,0,0"
+                        FontFamily="res/Fonts/SF-Pro-Display-Regular.otf#SF Pro Display"
+                        FontSize="16pt"
+                        Foreground="#99000000"
+                        Text="{Binding ElementName=FolderTitle, Path=Text}" />
+                    <TextBlock x:Name="FolderTitle"
+                        Margin="3,2,0,0"
+                        FontFamily="res/Fonts/SF-Pro-Display-Regular.otf#SF Pro Display"
+                        FontSize="16pt"
+                        Foreground="White"
+                        Text="" />
+                    <TextBox x:Name="FolderTitleEdit"
+                        Margin="0,1,0,0"
+                        Background="#ffffffff"
+                        BorderBrush="#00000000"
+                        BorderThickness="0"
+                        FontFamily="res/Fonts/SF-Pro-Display-Regular.otf#SF Pro Display"
+                        FontSize="16pt"
+                        Foreground="#ff000000"
+                        KeyDown="FolderTitleEdit_KeyDown"
+                        Visibility="Collapsed" />
                 </Grid>
             </Grid>
 
 
             <Grid x:Name="FolderGridNew"
-                  Width="{Binding ElementName=MainCanvas, Path=ActualWidth}"
-                  Height="126"
-                  Margin="0,178,0,0"
-                  Panel.ZIndex="1"
-                  Visibility="Hidden">
+                Width="{Binding ElementName=MainCanvas, Path=ActualWidth}"
+                Height="126"
+                Margin="0,178,0,0"
+                Panel.ZIndex="1"
+                Visibility="Hidden">
 
                 <Grid x:Name="FolderBackgroundGrid" Visibility="Visible">
                     <Grid.RowDefinitions>
@@ -329,248 +504,1671 @@
                         <ColumnDefinition Width="120" />
                     </Grid.ColumnDefinitions>
 
-                      <!--left side-->  
-                    <Grid x:Name="LeftSide" Grid.Row="1" Grid.Column="0">
+                    <!--  left side  -->
+                    <Grid x:Name="LeftSide"
+                        Grid.Row="1"
+                        Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
                             <RowDefinition />
                             <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
                                 <ImageBrush ImageSource="{Binding theme.leftTop}" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.leftCenter}" TileMode="Tile" Viewport="0,0,121,163" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.leftCenter}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,121,163"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
                                 <ImageBrush ImageSource="{Binding theme.leftBottomShadow}" />
                             </Grid.Background>
                         </Grid>
                     </Grid>
 
-                      <!--Left inner side-->  
-                    <Grid x:Name="LeftInnerSide" Grid.Row="1" Grid.Column="1">
+                    <!--  Left inner side  -->
+                    <Grid x:Name="LeftInnerSide"
+                        Grid.Row="1"
+                        Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
                             <RowDefinition />
                             <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.topRim}" TileMode="Tile" Viewport="0,0,372,27" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.topRim}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,27"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.center}" TileMode="Tile" Viewport="0,0,372,163" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.center}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,163"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.bottomShadow}" TileMode="Tile" Viewport="0,0,372,25" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.bottomShadow}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,25"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
                     </Grid>
 
-                      <!--middle-->  
-                    <Grid x:Name="Middle" Grid.RowSpan="2" Grid.Column="2">
+                    <!--  middle  -->
+                    <Grid x:Name="Middle"
+                        Grid.RowSpan="2"
+                        Grid.Column="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="47" />
                             <RowDefinition />
                             <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
                                 <ImageBrush ImageSource="{Binding theme.arrow}" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.center}" TileMode="Tile" Viewport="0,0,372,163" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.center}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,163"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.bottomShadow}" TileMode="Tile" Viewport="0,0,372,25" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.bottomShadow}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,25"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
                     </Grid>
 
-                      <!--right inner side-->  
-                    <Grid x:Name="RightInnerSide" Grid.Row="1" Grid.Column="3">
+                    <!--  right inner side  -->
+                    <Grid x:Name="RightInnerSide"
+                        Grid.Row="1"
+                        Grid.Column="3">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
                             <RowDefinition />
                             <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.topRim}" TileMode="Tile" Viewport="0,0,372,27" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.topRim}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,27"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.center}" TileMode="Tile" Viewport="0,0,372,163" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.center}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,163"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.bottomShadow}" TileMode="Tile" Viewport="0,0,372,25" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.bottomShadow}"
+                                    TileMode="Tile"
+                                    Viewport="0,0,372,25"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
                     </Grid>
 
-                      <!--right side-->  
-                    <Grid x:Name="RightSide" Grid.Row="1" Grid.Column="4">
+                    <!--  right side  -->
+                    <Grid x:Name="RightSide"
+                        Grid.Row="1"
+                        Grid.Column="4">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="26" />
                             <RowDefinition />
                             <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
                                 <ImageBrush ImageSource="{Binding theme.rightTop}" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{Binding theme.rightCenter}" TileMode="Tile" Viewport="-1,0,120,163" ViewportUnits="Absolute" />
+                                <ImageBrush
+                                    ImageSource="{Binding theme.rightCenter}"
+                                    TileMode="Tile"
+                                    Viewport="-1,0,120,163"
+                                    ViewportUnits="Absolute" />
                             </Grid.Background>
                         </Grid>
 
-                        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
                             <Grid.Background>
                                 <ImageBrush ImageSource="{Binding theme.rightBottomShadow}" />
                             </Grid.Background>
                         </Grid>
                     </Grid>
 
-                      <!--Bottom border-->  
-                    <Grid Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <!--  Bottom border  -->
+                    <Grid
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
                         <Grid.Background>
                             <ImageBrush ImageSource="{Binding theme.leftBottomBorder}" />
                         </Grid.Background>
                     </Grid>
 
-                    <Grid Grid.Row="2"
-                          Grid.Column="1"
-                          Grid.ColumnSpan="3"
-                          HorizontalAlignment="Stretch"
-                          VerticalAlignment="Stretch">
+                    <Grid
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
                         <Grid.Background>
                             <ImageBrush ImageSource="{Binding theme.bottomBorder}" />
                         </Grid.Background>
                     </Grid>
 
-                    <Grid Grid.Row="3" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid
+                        Grid.Row="3"
+                        Grid.Column="4"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
                         <Grid.Background>
                             <ImageBrush ImageSource="{Binding theme.rightBottomBorder}" />
                         </Grid.Background>
                     </Grid>
                 </Grid>
 
-                <Grid x:Name="FolderTitleGridNew" Margin="170.5,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-
+                <Grid x:Name="FolderTitleGridNew"
+                    Margin="170.5,26,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    TextBlock.FontFamily="res/Fonts/SF-Pro-Display-Regular.otf#SF Pro Display"
+                    TextBlock.FontSize="16pt">
                     <TextBlock x:Name="FolderTitleShadowNew"
-                               Margin="3,3,0,0"
-                               FontFamily="res/Fonts/#Lucida Grande Bold"
-                               FontSize="14pt"
-                               Foreground="#99000000"
-                               Text="{Binding ElementName=FolderTitle, Path=Text}" />
+                        Margin="3,3,0,0"
+                        Foreground="#99000000"
+                        Text="{Binding ElementName=FolderTitle, Path=Text}" />
                     <TextBlock x:Name="FolderTitleNew"
-                               Margin="3,2,0,0"
-                               FontFamily="res/Fonts/#Lucida Grande Bold"
-                               FontSize="14pt"
-                               Foreground="White"
-                               Text="" />
+                        Margin="3,2,0,0"
+                        Foreground="White"
+                        Text="" />
                     <TextBox x:Name="FolderTitleEditNew"
-                             Margin="0,1,0,0"
-                             Background="#ffffffff"
-                             BorderBrush="#00000000"
-                             BorderThickness="0"
-                             FontFamily="res/Fonts/#Lucida Grande Bold"
-                             FontSize="14pt"
-                             Foreground="#ff000000"
-                             KeyDown="FolderTitleEdit_KeyDown"
-                             Visibility="Collapsed" />
+                        Margin="0,1,0,0"
+                        Background="#ffffffff"
+                        BorderBrush="#00000000"
+                        BorderThickness="0"
+                        Foreground="#ff000000"
+                        KeyDown="FolderTitleEdit_KeyDown"
+                        Visibility="Collapsed" />
                 </Grid>
             </Grid>
 
             <!--  Debug  -->
             <TextBlock x:Name="FPSCounter"
-                       Margin="5,18,0,0"
-                       FontFamily="Consolas"
-                       FontSize="16"
-                       Foreground="White"
-                       Text="60"
-                       Visibility="Collapsed" />
+                Margin="5,18,0,0"
+                FontFamily="Consolas"
+                FontSize="16"
+                Foreground="White"
+                Text="60"
+                Visibility="Collapsed" />
         </Canvas>
 
+        <Grid x:Name="gdAssistant"
+            Width="1000"
+            Margin="0,80,0,0"
+            Opacity="{Binding ElementName=MainCanvas, Path=Opacity}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
 
+            <ScrollViewer x:Name="scvAssistant"
+                Grid.Row="1"
+                Background="{x:Null}"
+                FocusVisualStyle="{x:Null}">
+
+                <ItemsControl x:Name="icAssistantContent">
+                    <ItemsControl.Resources>
+                        <DataTemplate DataType="{x:Type my:AssistantMessageHeader}">
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        Width="25"
+                                        VerticalAlignment="Top"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="{Binding Icon}" />
+
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="White"
+                                        Text="{Binding Name}">
+                                        <TextBlock.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="2"
+                                                Direction="270"
+                                                ShadowDepth="1"
+                                                Color="Black" />
+                                        </TextBlock.Effect>
+                                    </TextBlock>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type my:AssistantMessageTextContent}">
+                            <RichTextBox
+                                Margin="47,0,0,0"
+                                my:RichTextBoxHelper.DocumentMarkdown="{Binding Text}"
+                                AcceptsReturn="true"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                CaretBrush="White"
+                                Foreground="White"
+                                IsDocumentEnabled="True"
+                                IsReadOnly="True"
+                                SelectionBrush="#80ffffff">
+                                <RichTextBox.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="2"
+                                        Direction="270"
+                                        ShadowDepth="1"
+                                        Color="Black" />
+                                </RichTextBox.Effect>
+                            </RichTextBox>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantMessageSpacer}">
+                            <Border Height="20" />
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type my:AssistantMessageFooter}">
+                            <Border Height="30" />
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type my:AssistantMessageShowItemContainer}">
+                            <Border x:Name="bdItemContainer"
+                                Margin="50,30,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <Border.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="bdItemContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Border.Triggers>
+
+                                <ItemsControl ItemsSource="{Binding Items}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </Border>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type my:SBItem}">
+                            <Grid x:Name="gdSBItem"
+                                Margin="15"
+                                Cursor="Hand"
+                                MouseLeftButtonDown="AssistantShowItem_MouseLeftButtonDown">
+                                <Grid.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gdSBItem" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+
+                                    <EventTrigger RoutedEvent="Grid.MouseEnter">
+                                        <EventTrigger.Actions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        FillBehavior="HoldEnd"
+                                                        Storyboard.TargetName="gdIconScale"
+                                                        Storyboard.TargetProperty="ScaleX"
+                                                        To="1.2"
+                                                        Duration="0:0:0.1" />
+                                                    <DoubleAnimation
+                                                        FillBehavior="HoldEnd"
+                                                        Storyboard.TargetName="gdIconScale"
+                                                        Storyboard.TargetProperty="ScaleY"
+                                                        To="1.2"
+                                                        Duration="0:0:0.1" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger.Actions>
+                                    </EventTrigger>
+
+                                    <EventTrigger RoutedEvent="Grid.MouseLeave">
+                                        <EventTrigger.Actions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                                        FillBehavior="HoldEnd"
+                                                        Storyboard.TargetName="gdIconScale"
+                                                        Storyboard.TargetProperty="ScaleX"
+                                                        To="1.0"
+                                                        Duration="0:0:0.1" />
+                                                    <DoubleAnimation
+                                                        FillBehavior="HoldEnd"
+                                                        Storyboard.TargetName="gdIconScale"
+                                                        Storyboard.TargetProperty="ScaleY"
+                                                        To="1.0"
+                                                        Duration="0:0:0.1" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger.Actions>
+                                    </EventTrigger>
+                                </Grid.Triggers>
+
+                                <Grid.Resources>
+                                    <Style TargetType="ToolTip">
+                                        <Setter Property="BorderThickness" Value="0" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Style>
+                                </Grid.Resources>
+
+                                <Grid.ToolTip>
+                                    <Border
+                                        Background="#bbffffff"
+                                        BorderBrush="White"
+                                        BorderThickness="1"
+                                        CornerRadius="5">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding NotesProp}" Value="">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+
+                                        <TextBlock Margin="10" Text="{Binding NotesProp}" />
+
+                                        <Border.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="5"
+                                                Direction="270"
+                                                Opacity="0.4"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </Border.Effect>
+                                    </Border>
+                                </Grid.ToolTip>
+
+                                <Grid.ContextMenu>
+                                    <ContextMenu Width="200" Style="{StaticResource DarkContextMenu}">
+                                        <MenuItem Click="miOpen_Click" Header="{my:Loc Open}">
+                                            <MenuItem.Icon>
+                                                <Image
+                                                    Margin="2,0"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    Source="res/context/launch.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Click="miOpenAsAdmin_Click" Header="{my:Loc OpenAsAdmin}">
+                                            <MenuItem.Icon>
+                                                <Image
+                                                    Margin="2,0"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    Source="res/context/admin.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator />
+                                        <MenuItem Click="miOpenLocation_Click" Header="{my:Loc OpenLocation}">
+                                            <MenuItem.Icon>
+                                                <Image
+                                                    Margin="2,0"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    Source="res/context/folder.png" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
+
+                                <Border BorderThickness="2" CornerRadius="10">
+                                    <Border.BorderBrush>
+                                        <VisualBrush>
+                                            <VisualBrush.Visual>
+                                                <Rectangle
+                                                    Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                                                    Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
+                                                    RadiusX="10"
+                                                    RadiusY="10"
+                                                    Stroke="{Binding SelectionBorder}"
+                                                    StrokeDashArray="4 2"
+                                                    StrokeThickness="2" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Border.BorderBrush>
+
+                                    <Grid Margin="0,15,0,0">
+                                        <Grid.CacheMode>
+                                            <BitmapCache RenderAtScale="1.0" SnapsToDevicePixels="True" />
+                                        </Grid.CacheMode>
+
+                                        <Image
+                                            Width="150"
+                                            Opacity="{Binding ShadowOpacity}"
+                                            Source="{Binding Shadow}" />
+
+                                        <TextBlock
+                                            Height="50"
+                                            MaxWidth="150"
+                                            Margin="{Binding TextMargin}"
+                                            HorizontalAlignment="Center"
+                                            FontFamily="{Binding FontFamily}"
+                                            FontSize="{Binding FontSize}"
+                                            FontWeight="Normal"
+                                            Foreground="{Binding FontColor}"
+                                            Opacity="{Binding TextOpacity}"
+                                            Text="{Binding Text}"
+                                            TextAlignment="Center"
+                                            TextOptions.TextFormattingMode="Ideal"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="WrapWithOverflow"
+                                            UseLayoutRounding="True"
+                                            Visibility="{Binding TextVisible}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="4"
+                                                    Direction="270"
+                                                    Opacity="{Binding FontShadowOpacity}"
+                                                    ShadowDepth="1"
+                                                    Color="{Binding FontShadowColor}" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <Grid
+                                            Width="100"
+                                            Height="100"
+                                            Margin="0,10,0,0"
+                                            VerticalAlignment="Top"
+                                            RenderOptions.BitmapScalingMode="HighQuality">
+
+                                            <Grid.RenderTransform>
+                                                <ScaleTransform x:Name="gdIconScale" CenterX="50" CenterY="50" />
+                                            </Grid.RenderTransform>
+
+                                            <Image
+                                                HorizontalAlignment="Stretch"
+                                                Opacity="{Binding IconOpacity}"
+                                                Source="{Binding Icon}" />
+                                        </Grid>
+
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+
+                        <DataTemplate DataType="{x:Type my:AssistantPendingIndicator}">
+                            <Image x:Name="imAssistantPending"
+                                Width="20"
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                RenderTransformOrigin=".5,.5"
+                                Source="res/assistant/assistantPending.png">
+                                <Image.RenderTransform>
+                                    <RotateTransform />
+                                </Image.RenderTransform>
+
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard x:Name="sbRotateAni">
+                                            <Storyboard x:Name="sbRotate">
+                                                <DoubleAnimation
+                                                    FillBehavior="Stop"
+                                                    RepeatBehavior="Forever"
+                                                    Storyboard.TargetName="imAssistantPending"
+                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                                    From="360"
+                                                    To="0"
+                                                    Duration="0:0:2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                            </Image>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantSearchedWeb}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="res/search.png" />
+                                    <StackPanel Margin="15,0,0,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="{Binding Text}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding Query}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantLaunchedApp}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="{Binding Icon}" />
+                                    <StackPanel Margin="15,0,0,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="{Binding Text}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding Name}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantExecutedCommand}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="res/assistant/command.png" />
+                                    <StackPanel Margin="15,0,0,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="{Binding Text}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <Grid MaxWidth="{Binding ElementName=gdAssistant, Path=ActualWidth}" HorizontalAlignment="Left">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock
+                                                Grid.Column="0"
+                                                Margin="0,5,0,0"
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="#4287f5"
+                                                Text="{Binding File}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="2"
+                                                        Direction="270"
+                                                        ShadowDepth="1"
+                                                        Color="Black" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Margin="10,5,0,0"
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="#a3c1f0"
+                                                Text="{Binding Parameters}"
+                                                TextWrapping="Wrap"
+                                                Visibility="{Binding Path=showParameters, Converter={StaticResource BoolToVis}}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="2"
+                                                        Direction="270"
+                                                        ShadowDepth="1"
+                                                        Color="Black" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+                                        </Grid>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantSetItemNote}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="{Binding Icon}" />
+                                    <StackPanel Margin="15,0,0,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="{Binding Text}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding Name}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            MaxWidth="850"
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#a3c1f0"
+                                            Text="{Binding Note}"
+                                            TextWrapping="Wrap">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantMemoryAction}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="res/assistant/brain.png" />
+                                    <Grid MaxWidth="850" Margin="15,0,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                            <TextBlock
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="White"
+                                                Text="{Binding Text}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="2"
+                                                        Direction="270"
+                                                        ShadowDepth="1"
+                                                        Color="Black" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+
+                                            <TextBlock
+                                                Margin="5,0,0,0"
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="#4287f5"
+                                                Text="{Binding Name}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="2"
+                                                        Direction="270"
+                                                        ShadowDepth="1"
+                                                        Color="Black" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#a3c1f0"
+                                            Text="{Binding Memory}"
+                                            TextWrapping="Wrap">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </Grid>
+
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantFailedFunction}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="res/cancel.png" />
+                                    <Grid MaxWidth="850" Margin="15,0,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+
+                                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                            <TextBlock
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="White"
+                                                Text="{Binding Text}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="2"
+                                                        Direction="270"
+                                                        ShadowDepth="1"
+                                                        Color="Black" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+
+                                            <TextBlock
+                                                Margin="5,0,0,0"
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="#4287f5"
+                                                Text="{Binding Function}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="2"
+                                                        Direction="270"
+                                                        ShadowDepth="1"
+                                                        Color="Black" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#a3c1f0"
+                                            Text="{Binding Args}"
+                                            TextWrapping="Wrap">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+
+                    </ItemsControl.Resources>
+
+                    <!--<my:AssistantMessageHeader />
+                    <my:AssistantMessageTextContent Text="**this** is a test message" />-->
+                </ItemsControl>
+            </ScrollViewer>
+
+            <StackPanel x:Name="spAssistantHeader"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                VerticalAlignment="Center"
+                Visibility="Hidden">
+
+                <Image x:Name="imAssistantIcon"
+                    Width="100"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/icon.png" />
+
+                <StackPanel
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <TextBlock x:Name="tbAssistantHeader"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Uninitialized!">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <Border x:Name="bdRewardTierPro"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        BorderBrush="#4287f5"
+                        BorderThickness="2"
+                        CornerRadius="5"
+                        Visibility="Collapsed">
+                        <TextBlock
+                            Margin="7,2"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="#4287f5"
+                            Text="Pro" />
+
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="3"
+                                Direction="270"
+                                Opacity="0.6"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </Border.Effect>
+                    </Border>
+
+
+                    <Border x:Name="bdRewardTierBasic"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        BorderBrush="#6beb34"
+                        BorderThickness="2"
+                        CornerRadius="5"
+                        Visibility="Collapsed">
+                        <TextBlock
+                            Margin="7,2"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="#6beb34"
+                            Text="Basic" />
+
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="3"
+                                Direction="270"
+                                Opacity="0.6"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </Border.Effect>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel x:Name="spAssistantEnterUsername"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                VerticalAlignment="Center"
+                Visibility="Hidden">
+
+                <Image
+                    Width="100"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/icon.png" />
+
+                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="{my:Loc AssistantEnterPatreonEmail}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <Border
+                        Width="400"
+                        Height="40"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Background="#55000000"
+                        BorderBrush="#33ffffff"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="10" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#99ffffff"
+                                Text="Patreon E-Mail">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <!--  Trigger to show watermark when TextBox is empty and not focused  -->
+                                            <DataTrigger Binding="{Binding Text, ElementName=tbxAssistantPatreonEmail}" Value="">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+                            <TextBox x:Name="tbxAssistantPatreonEmail"
+                                Grid.Column="1"
+                                VerticalContentAlignment="Center"
+                                Background="#01000000"
+                                BorderThickness="0"
+                                CaretBrush="White"
+                                FontSize="16"
+                                Foreground="White"
+                                PreviewKeyDown="tbxAssistantPatreonEmail_PreviewKeyDown"
+                                SelectionBrush="#80ffffff" />
+
+                            <Image x:Name="imAssistantPatreonEmailSend"
+                                Grid.Column="2"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                Cursor="Hand"
+                                MouseLeftButtonDown="imAssistantPatreonEmailSend_MouseLeftButtonDown"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="res/assistant/send.png"
+                                Visibility="Visible" />
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel x:Name="spAssistantEnterPassword"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                VerticalAlignment="Center"
+                Visibility="Hidden">
+
+                <Image
+                    Width="100"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/icon.png" />
+
+                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+                    <TextBlock x:Name="tblPasswordInstructions"
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Please enter a new password for your WinLaunch Assistant"
+                        TextAlignment="Center">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <Border
+                        Height="40"
+                        MinWidth="400"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Background="#55000000"
+                        BorderBrush="#33ffffff"
+                        BorderThickness="1"
+                        CornerRadius="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="10" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="tblAssistantPasswordWatermark"
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="#99ffffff"
+                                Text="Assistant Password" />
+
+                            <PasswordBox x:Name="tbxAssistantPassword"
+                                Grid.Column="1"
+                                VerticalContentAlignment="Center"
+                                Background="#01000000"
+                                BorderThickness="0"
+                                CaretBrush="White"
+                                FontSize="16"
+                                Foreground="White"
+                                KeyDown="tbxAssistantPassword_KeyDown"
+                                PasswordChanged="tbxAssistantPassword_PasswordChanged"
+                                SelectionBrush="#80ffffff" />
+
+                            <Image x:Name="imAssistantPasswordSend"
+                                Grid.Column="2"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                Cursor="Hand"
+                                MouseLeftButtonDown="imAssistantPasswordSend_MouseLeftButtonDown"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="res/assistant/send.png"
+                                Visibility="Visible" />
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel x:Name="spAssistantConnecting"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                VerticalAlignment="Center"
+                Visibility="Hidden">
+
+                <Image
+                    Width="100"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/icon.png" />
+
+                <StackPanel
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        RenderTransformOrigin=".5,.5"
+                        Source="res/assistant/assistantPending.png">
+                        <Image.RenderTransform>
+                            <RotateTransform />
+                        </Image.RenderTransform>
+
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard x:Name="sbRotateAni">
+                                    <Storyboard x:Name="sbRotate">
+                                        <DoubleAnimation
+                                            FillBehavior="Stop"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                            From="360"
+                                            To="0"
+                                            Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+
+                    <TextBlock x:Name="tbAssistantConnectingText"
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="{my:Loc AssistantConnecting}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel x:Name="spAssistantManualReconnect"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                VerticalAlignment="Center"
+                Visibility="Hidden">
+
+                <Image
+                    Width="100"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/icon.png" />
+
+                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="You have been disconnected">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <ContentControl Margin="0,10">
+                        <ContentControl.Resources>
+                            <DataTemplate DataType="{x:Type my:AssistantPromptSuggestion}">
+                                <Border x:Name="bdButtonReconnect"
+                                    Margin="5"
+                                    HorizontalAlignment="Stretch"
+                                    BorderBrush="#33ffffff"
+                                    BorderThickness="1"
+                                    CornerRadius="10"
+                                    Cursor="Hand"
+                                    MouseLeftButtonDown="bdButtonReconnect_MouseLeftButtonDown">
+
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="scbBackground" Color="#22000000" />
+                                    </Border.Background>
+
+                                    <Border.Triggers>
+                                        <EventTrigger RoutedEvent="Border.MouseEnter">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation
+                                                            FillBehavior="HoldEnd"
+                                                            Storyboard.TargetName="scbBackground"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#11ffffff"
+                                                            Duration="0:0:0.1" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+
+                                        <EventTrigger RoutedEvent="Border.MouseLeave">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation
+                                                            FillBehavior="HoldEnd"
+                                                            Storyboard.TargetName="scbBackground"
+                                                            Storyboard.TargetProperty="Color"
+                                                            To="#22000000"
+                                                            Duration="0:0:0.1" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </Border.Triggers>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image
+                                            Width="25"
+                                            Margin="15,0"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            Source="{Binding Icon}" />
+                                        <TextBlock
+                                            Margin="0,15"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="16"
+                                            Foreground="#bbffffff"
+                                            Text="{Binding Prompt}" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ContentControl.Resources>
+                        <my:AssistantPromptSuggestion Icon="res/assistant/reconnect.png" Prompt="Reconnect" />
+                    </ContentControl>
+
+
+                </StackPanel>
+            </StackPanel>
+
+            <ItemsControl x:Name="icPromptSuggestions"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.Resources>
+                    <DataTemplate DataType="{x:Type my:AssistantPromptSuggestion}">
+                        <Border x:Name="bdSuggestion"
+                            Width="480"
+                            Margin="5"
+                            HorizontalAlignment="Stretch"
+                            BorderBrush="#33ffffff"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="bdSuggestion_MouseLeftButtonDown">
+
+                            <Border.Background>
+                                <SolidColorBrush x:Name="scbBackground" Color="#22000000" />
+                            </Border.Background>
+
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="Border.MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    FillBehavior="HoldEnd"
+                                                    Storyboard.TargetName="scbBackground"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="#11ffffff"
+                                                    Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+
+                                <EventTrigger RoutedEvent="Border.MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    FillBehavior="HoldEnd"
+                                                    Storyboard.TargetName="scbBackground"
+                                                    Storyboard.TargetProperty="Color"
+                                                    To="#22000000"
+                                                    Duration="0:0:0.1" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Border.Triggers>
+                            <StackPanel Orientation="Horizontal">
+                                <Image
+                                    Width="25"
+                                    Margin="15,0"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="{Binding Icon}" />
+                                <TextBlock
+                                    Margin="0,15"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Foreground="#bbffffff"
+                                    Text="{Binding Prompt}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.Resources>
+
+                <my:AssistantPromptSuggestion Icon="res/assistant/games.png" Prompt="I want to play some games" />
+                <my:AssistantPromptSuggestion Icon="res/assistant/brush.png" Prompt="Show me some apps I can use to be creative" />
+                <my:AssistantPromptSuggestion Icon="res/assistant/message.png" Prompt="Open my messaging apps" />
+                <my:AssistantPromptSuggestion Icon="res/assistant/search.png" Prompt="Search for new applications I could need" />
+            </ItemsControl>
+
+            <Grid x:Name="bdAssistantControls"
+                Grid.Row="2"
+                Margin="0,20,0,0"
+                VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="imAssistantClear"
+                    Grid.Column="0"
+                    Width="20"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    MouseLeftButtonDown="imAssistantClear_MouseLeftButtonDown"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/assistant/clear.png"
+                    ToolTip="{my:Loc AssistantClearConversation}"
+                    ToolTipService.InitialShowDelay="300"
+                    Visibility="Visible" />
+
+                <Border
+                    Grid.Column="1"
+                    Height="50"
+                    HorizontalAlignment="Stretch"
+                    Background="#55000000"
+                    BorderBrush="#33ffffff"
+                    BorderThickness="1"
+                    CornerRadius="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Foreground="#99ffffff"
+                            Text="{my:Loc AssistantMessage}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <!--  Trigger to show watermark when TextBox is empty and not focused  -->
+                                        <DataTrigger Binding="{Binding Text, ElementName=tbAssistant}" Value="">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+
+                        <TextBox x:Name="tbAssistant"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="3"
+                            Margin="0,0,30,-1"
+                            VerticalContentAlignment="Center"
+                            AcceptsReturn="True"
+                            Background="#01000000"
+                            BorderThickness="0"
+                            CaretBrush="White"
+                            FontSize="16"
+                            Foreground="White"
+                            PreviewKeyDown="tbAssistant_PreviewKeyDown"
+                            SelectionBrush="#80ffffff" />
+
+                        <Image x:Name="imAssistantSend"
+                            Grid.Column="4"
+                            Width="20"
+                            VerticalAlignment="Center"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="imAssistantSend_MouseLeftButtonDown"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/assistant/send.png"
+                            Visibility="Visible" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
 
         <TextBlock x:Name="LoadingText"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontFamily="res/Fonts/#Lucida Grande Bold"
-                   FontSize="14pt"
-                   Foreground="White"
-                   Text="{my:Loc Loading}"
-                   Visibility="Collapsed">
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="18"
+            Foreground="White"
+            Text="{my:Loc Loading}"
+            Visibility="Collapsed">
             <TextBlock.Effect>
-                <DropShadowEffect BlurRadius="2" Direction="270" ShadowDepth="1" Color="Black" />
+                <DropShadowEffect
+                    BlurRadius="2"
+                    Direction="270"
+                    ShadowDepth="1"
+                    Color="Black" />
             </TextBlock.Effect>
         </TextBlock>
 
-        <StackPanel x:Name="PageCounter"
-                    Margin="0,0,0,45"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Bottom"
-                    Orientation="Horizontal"
-                    Visibility="{Binding Path=settings.PageIndicatorsVisible, Converter={StaticResource BoolToVis}}">
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type Ellipse}">
-                    <Setter Property="Width" Value="8" />
-                    <Setter Property="Height" Value="8" />
-                    <Setter Property="Margin" Value="4,0,4,0" />
-                    <Setter Property="Cursor" Value="Hand" />
-                    <Setter Property="Effect">
-                        <Setter.Value>
-                            <DropShadowEffect BlurRadius="2.4" Direction="0" ShadowDepth="0" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </StackPanel.Resources>
-            <Ellipse Fill="#88ffffff" />
-        </StackPanel>
+        <Border x:Name="PageCounterWrap"
+            Margin="0,0,0,45"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+
+            <StackPanel x:Name="PageCounter"
+                Orientation="Horizontal"
+                Visibility="{Binding Path=settings.PageIndicatorsVisible, Converter={StaticResource BoolToVis}}">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Ellipse}">
+                        <Setter Property="Width" Value="8" />
+                        <Setter Property="Height" Value="8" />
+                        <Setter Property="Margin" Value="4,0,4,0" />
+                        <Setter Property="Cursor" Value="Hand" />
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect
+                                    BlurRadius="2.4"
+                                    Direction="0"
+                                    ShadowDepth="0" />
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <Ellipse Fill="#88ffffff" />
+            </StackPanel>
+        </Border>
 
         <!--  Extensions  -->
-        <StackPanel Margin="5,0,0,5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#00000000">
+        <StackPanel
+            Margin="5,0,0,5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Background="#00000000">
             <Image x:Name="ExtensionsToggle"
-                   Width="35"
-                   Height="35"
-                   MouseDown="ExtensionsToggle_MouseDown"
-                   Visibility="{Binding Path=settings.ExtensionIconVisible, Converter={StaticResource BoolToVis}}"
-                   RenderOptions.BitmapScalingMode="HighQuality"
-                   Source="{Binding theme.ExtensionsToggle}">
+                Width="35"
+                Height="35"
+                Cursor="Hand"
+                MouseDown="ExtensionsToggle_MouseDown"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                Source="{Binding theme.ExtensionsToggle}"
+                Visibility="{Binding Path=settings.ExtensionIconVisible, Converter={StaticResource BoolToVis}}">
                 <Image.RenderTransform>
                     <RotateTransform x:Name="ExtensionsToggleRotation" Angle="0" CenterX="16" CenterY="16" />
                 </Image.RenderTransform>
@@ -580,10 +2178,11 @@
         </StackPanel>
 
         <Border x:Name="ExtensionsGrid"
-                Height="0"
-                VerticalAlignment="Bottom"
-                BorderBrush="#23FFFFFF"
-                BorderThickness="0,2,0,0">
+            Height="0"
+            VerticalAlignment="Bottom"
+            BorderBrush="#23FFFFFF"
+            BorderThickness="0,2,0,0"
+            TextBlock.FontSize="14">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="#22000000" />
@@ -595,7 +2194,11 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miSettingsClicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miSettingsClicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -606,14 +2209,16 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="150" VerticalAlignment="Center" Orientation="Vertical">
+                        <StackPanel
+                            Width="150"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
                             <Image Height="70" Source="res/Settings.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc Settings}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc Settings}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -621,7 +2226,11 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miQuitClicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miQuitClicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -632,14 +2241,16 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="150" VerticalAlignment="Center" Orientation="Vertical">
+                        <StackPanel
+                            Width="150"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
                             <Image Height="70" Source="res/Quit.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc Quit}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc Quit}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -658,7 +2269,11 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miAddFile_Clicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miAddFile_Clicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -669,14 +2284,16 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="150" VerticalAlignment="Center" Orientation="Vertical">
+                        <StackPanel
+                            Width="150"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
                             <Image Height="70" Source="res/add.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc AddFile}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc AddFile}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -684,7 +2301,11 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miAddFolder_Clicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miAddFolder_Clicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -695,14 +2316,16 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="150" VerticalAlignment="Center" Orientation="Vertical">
+                        <StackPanel
+                            Width="150"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
                             <Image Height="70" Source="res/add.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc AddFolder}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc AddFolder}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -710,7 +2333,11 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miAddLink_Clicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miAddLink_Clicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -721,14 +2348,16 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="150" VerticalAlignment="Center" Orientation="Vertical">
+                        <StackPanel
+                            Width="150"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
                             <Image Height="70" Source="res/add.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc AddLink}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc AddLink}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -747,7 +2376,11 @@
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miAddDefaultApps_Clicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miRefreshInstalledApps_Clicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -758,22 +2391,28 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="200" VerticalAlignment="Center" Orientation="Vertical">
-                            <Image Height="70" Source="res/add.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc AddDefaultApps}" />
+                        <StackPanel
+                            Width="200"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+                            <Image Height="70" Source="res/context/refresh_white.png" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc RefreshInstalledApps}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
-                
+
                 <!--  Item grid  -->
                 <Grid>
                     <!--  Background grid  -->
-                    <Grid MouseDown="miTutorialClicked" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Opacity="0">
+                    <Grid
+                        MouseDown="miTutorialClicked"
+                        MouseEnter="Grid_MouseEnter"
+                        MouseLeave="Grid_MouseLeave"
+                        Opacity="0">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="1" Color="#19FFFFFF" />
@@ -784,35 +2423,294 @@
 
                     <!--  Content grid  -->
                     <Grid IsHitTestVisible="False">
-                        <StackPanel Width="150" VerticalAlignment="Center" Orientation="Vertical">
+                        <StackPanel
+                            Width="150"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
                             <Image Height="70" Source="res/Tutorial.png" />
-                            <TextBlock Margin="0,10,0,0"
-                                       HorizontalAlignment="Center"
-                                       FontFamily="Lucida Sans Unicode"
-                                       FontSize="13"
-                                       Foreground="White"
-                                       Text="{my:Loc Tutorial}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Foreground="White"
+                                Text="{my:Loc Tutorial}" />
                         </StackPanel>
                     </Grid>
                 </Grid>
             </StackPanel>
         </Border>
 
-        <Border x:Name="bdSearch" Width="300" Height="33" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" CornerRadius="20" Background="#33000000"
-                Visibility="{Binding Path=settings.SearchBarVisible, Converter={StaticResource BoolToVis}}" Opacity="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="30"/>
-                </Grid.ColumnDefinitions>
+        <Grid
+            Width="{Binding ElementName=gdAssistant, Path=Width}"
+            Margin="0,20,0,0"
+            Opacity="{Binding ElementName=MainCanvas, Path=Opacity}">
 
-                <Image Source="res/search.png" Grid.Column="0" Width="20" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-                <TextBox x:Name="tbSearch" PreviewMouseDown="tbSearch_MouseDown" TextChanged="tbSearch_TextChanged" PreviewKeyDown="tbSearch_KeyDown" Foreground="White" Grid.Column="1" VerticalContentAlignment="Center" Background="#01000000" BorderThickness="0" SelectionBrush="#80ffffff" CaretBrush="Transparent"/>
-                <Image x:Name="imCancel" Visibility="Collapsed" Source="res/cancel.png" Cursor="Hand" MouseLeftButtonDown="imCancel_MouseLeftButtonDown"  Grid.Column="2" Width="20" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-                
-            </Grid>
-        </Border>
+            <Border x:Name="bdAssistantModeSwitcher"
+                Width="252"
+                Height="45"
+                Margin="0,10,0,0"
+                VerticalAlignment="Top"
+                Background="#ff202020"
+                BorderBrush="#22ffffff"
+                BorderThickness="1"
+                CornerRadius="8"
+                Visibility="Collapsed">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
+                    <Grid Grid.ColumnSpan="2" Margin="3">
+                        <Border x:Name="bdBasicMode"
+                            Width="122"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Left"
+                            Background="#33ffffff"
+                            BorderThickness="1"
+                            CornerRadius="6" />
+
+                        <Border x:Name="bdProMode"
+                            Width="122"
+                            Margin="122,0,0,0"
+                            HorizontalAlignment="Left"
+                            Background="#4287f5"
+                            BorderThickness="1"
+                            CornerRadius="6"
+                            Opacity="0.0" />
+
+                        <Border
+                            Width="122"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Left"
+                            Background="#01000000"
+                            CornerRadius="6"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="tblModeBasic_MouseLeftButtonDown" />
+
+                        <Border
+                            Width="122"
+                            Margin="122,0,0,0"
+                            HorizontalAlignment="Left"
+                            Background="#01000000"
+                            CornerRadius="6"
+                            Cursor="Hand"
+                            MouseLeftButtonDown="tblModePro_MouseLeftButtonDown"
+                            ToolTipService.InitialShowDelay="0">
+                            <Border.Resources>
+                                <Style BasedOn="{StaticResource {x:Type ToolTip}}" TargetType="ToolTip">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Style>
+
+                                <Style TargetType="Separator">
+                                    <Setter Property="Margin" Value="0,15" />
+                                    <Setter Property="Opacity" Value="0.3" />
+                                </Style>
+                            </Border.Resources>
+                            <Border.ToolTip>
+                                <Border
+                                    Width="400"
+                                    Background="#ff202020"
+                                    BorderBrush="#22ffffff"
+                                    BorderThickness="1"
+                                    CornerRadius="8">
+                                    <Grid Margin="20">
+                                        <StackPanel>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Foreground="white"
+                                                Text="Benefits of the Pro Assistant" />
+
+                                            <Separator />
+
+                                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                                <Image
+                                                    Width="15"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    Source="res/assistant/pro.png" />
+
+                                                <TextBlock
+                                                    Margin="5,0,0,0"
+                                                    FontSize="14"
+                                                    Foreground="white"
+                                                    Text="Smarter, more capable model" />
+                                            </StackPanel>
+
+                                            <Separator />
+
+                                            <Grid HorizontalAlignment="Center">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20" />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image
+                                                    Grid.Column="0"
+                                                    Width="15"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    Source="res/assistant/command.png" />
+
+                                                <TextBlock
+                                                    Grid.Column="1"
+                                                    Margin="5,0,0,0"
+                                                    FontSize="14"
+                                                    Foreground="white"
+                                                    Text="Ability to run commands like emptying your trash, restarting processes, creating shortcuts and much more..."
+                                                    TextWrapping="Wrap" />
+                                            </Grid>
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                </Border>
+                            </Border.ToolTip>
+                        </Border>
+                    </Grid>
+
+                    <TextBlock x:Name="tblModeBasic"
+                        Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        IsHitTestVisible="False"
+                        Opacity="1.0"
+                        Text="Basic">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="3"
+                                Direction="270"
+                                Opacity="0.6"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+
+                    <StackPanel x:Name="tblModePro"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        IsHitTestVisible="False"
+                        Opacity="0.5"
+                        Orientation="Horizontal">
+
+                        <Image x:Name="imProModeIcon"
+                            Width="15"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="res/assistant/locked.png" />
+
+                        <TextBlock
+                            Margin="2,0,0,0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Pro" />
+
+                        <StackPanel.Effect>
+                            <DropShadowEffect
+                                BlurRadius="3"
+                                Direction="270"
+                                Opacity="0.6"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </StackPanel.Effect>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+            <StackPanel x:Name="spSearchAndAssistantContainer"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+
+                <Border x:Name="bdSearchContainer" Margin="0,0,10,0">
+                    <Border x:Name="bdSearch"
+                        Width="300"
+                        Height="33"
+                        Background="#33000000"
+                        CornerRadius="20"
+                        Opacity="0"
+                        Visibility="{Binding Path=settings.SearchBarVisible, Converter={StaticResource BoolToVis}}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="27*" />
+                                <ColumnDefinition Width="203*" />
+                                <ColumnDefinition Width="30" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image
+                                Width="20"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="res/search.png" />
+                            <TextBox x:Name="tbSearch"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                Margin="0,0,30,-1"
+                                VerticalContentAlignment="Center"
+                                Background="#01000000"
+                                BorderThickness="0"
+                                CaretBrush="Transparent"
+                                Foreground="White"
+                                PreviewKeyDown="tbSearch_KeyDown"
+                                PreviewMouseDown="tbSearch_MouseDown"
+                                SelectionBrush="#80ffffff"
+                                TextChanged="tbSearch_TextChanged" />
+                            <Image x:Name="imCancel"
+                                Grid.Column="3"
+                                Width="20"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Cursor="Hand"
+                                MouseLeftButtonDown="imCancel_MouseLeftButtonDown"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="res/cancel.png"
+                                Visibility="Collapsed" />
+
+                        </Grid>
+                    </Border>
+                </Border>
+
+                <Image x:Name="imAssistant"
+                    Width="30"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    MouseLeftButtonDown="imAssistant_MouseLeftButtonDown"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/assistant/assistant.png"
+                    ToolTip="{my:Loc AssistantName}"
+                    Visibility="{Binding Path=settings.AssistantIconVisible, Converter={StaticResource BoolToVis}}" />
+            </StackPanel>
+
+            <Image x:Name="imHideAssistantWindow"
+                Width="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Cursor="Hand"
+                MouseLeftButtonDown="imHideAssistantWindow_MouseLeftButtonDown"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                Source="res/assistant/minus.png"
+                ToolTip="{my:Loc HideWindow}"
+                Visibility="Hidden" />
+
+
+            <Image x:Name="imCloseAssistant"
+                Width="30"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Cursor="Hand"
+                MouseLeftButtonDown="imCloseAssistant_MouseLeftButtonDown"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                Source="res/cancel.png"
+                ToolTip="{my:Loc AssistantClose}"
+                Visibility="Hidden" />
+        </Grid>
     </Grid>
 </Window>

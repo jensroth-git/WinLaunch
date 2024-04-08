@@ -123,8 +123,8 @@
   <data name="Activation" xml:space="preserve">
     <value>Activation</value>
   </data>
-  <data name="AddDefaultApps" xml:space="preserve">
-    <value>Add default apps</value>
+  <data name="AddDesktopLinks" xml:space="preserve">
+    <value>Add desktop links automatically to WinLaunch</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Add file</value>
@@ -147,6 +147,81 @@
   </data>
   <data name="Arguments" xml:space="preserve">
     <value>Arguments:</value>
+  </data>
+  <data name="Assistant" xml:space="preserve">
+    <value>Assistant</value>
+  </data>
+  <data name="AssistantClearConversation" xml:space="preserve">
+    <value>Clear conversation history</value>
+  </data>
+  <data name="AssistantClose" xml:space="preserve">
+    <value>Close WinLaunch Assistant</value>
+  </data>
+  <data name="AssistantConnecting" xml:space="preserve">
+    <value>Connecting...</value>
+  </data>
+  <data name="AssistantEnableTTS" xml:space="preserve">
+    <value>Enable text to speech</value>
+  </data>
+  <data name="AssistantEnterNewPassword" xml:space="preserve">
+    <value>Found Account!\r\nPlease enter a new password for your WinLaunch Assistant</value>
+  </data>
+  <data name="AssistantEnterPassword" xml:space="preserve">
+    <value>Please enter a password</value>
+  </data>
+  <data name="AssistantEnterPatreonEmail" xml:space="preserve">
+    <value>Please enter your Patreon E-Mail</value>
+  </data>
+  <data name="AssistantExecuteCommands" xml:space="preserve">
+    <value>Enable assistant command execution (Pro)</value>
+  </data>
+  <data name="AssistantExecutedCommand" xml:space="preserve">
+    <value>Executed Command</value>
+  </data>
+  <data name="AssistantForgetMemory" xml:space="preserve">
+    <value>Forget memory</value>
+  </data>
+  <data name="AssistantLaunchedItem" xml:space="preserve">
+    <value>Launched Item</value>
+  </data>
+  <data name="AssistantLogin" xml:space="preserve">
+    <value>Please login</value>
+  </data>
+  <data name="AssistantMessage" xml:space="preserve">
+    <value>Message WinLaunch Assistant...</value>
+  </data>
+  <data name="AssistantName" xml:space="preserve">
+    <value>WinLaunch Assistant</value>
+  </data>
+  <data name="AssistantNoPatron" xml:space="preserve">
+    <value>{0} is not a member of the WinLaunch Patreon</value>
+  </data>
+  <data name="AssistantResetLogin" xml:space="preserve">
+    <value>Reset Login</value>
+  </data>
+  <data name="AssistantSearchedWeb" xml:space="preserve">
+    <value>Searched the web</value>
+  </data>
+  <data name="AssistantShowIcon" xml:space="preserve">
+    <value>Show assistant icon</value>
+  </data>
+  <data name="AssistantStoreMemory" xml:space="preserve">
+    <value>Store memory</value>
+  </data>
+  <data name="AssistantTroubleConnecting" xml:space="preserve">
+    <value>Trouble connecting</value>
+  </data>
+  <data name="AssistantUnfollowed" xml:space="preserve">
+    <value>You are not a member of the WinLaunch Patreon anymore,\nplease join to access the WinLaunch Assistant</value>
+  </data>
+  <data name="AssistantWelcomeMessage" xml:space="preserve">
+    <value>How can I assist you today?</value>
+  </data>
+  <data name="AssistantWrongPassword" xml:space="preserve">
+    <value>wrong password</value>
+  </data>
+  <data name="AssistantYou" xml:space="preserve">
+    <value>You</value>
   </data>
   <data name="Background" xml:space="preserve">
     <value>Background</value>
@@ -232,6 +307,9 @@
   <data name="CustomThemes" xml:space="preserve">
     <value>Support WinLaunch on Patreon to get access to custom themes and other benefits</value>
   </data>
+  <data name="DeleteDesktopLinks" xml:space="preserve">
+    <value>Delete desktop links after adding them</value>
+  </data>
   <data name="DeskModeSwitch" xml:space="preserve">
     <value>To toggle DeskMode WinLaunch will have to be restarted, this might take a few seconds.</value>
   </data>
@@ -274,6 +352,9 @@
   <data name="EnableTouchscreenInfo" xml:space="preserve">
     <value>Touchscreen mode will allow you to only move items after you held them for 3 seconds (they will start to wiggle)</value>
   </data>
+  <data name="EnableVoiceActivation" xml:space="preserve">
+    <value>Enable activating WinLaunch by saying "hey WinLaunch", "open WinLaunch" or "start WinLaunch"</value>
+  </data>
   <data name="EnableWindowsKey" xml:space="preserve">
     <value>Enable windows key activation</value>
   </data>
@@ -294,6 +375,9 @@
   </data>
   <data name="General" xml:space="preserve">
     <value>General</value>
+  </data>
+  <data name="HideWindow" xml:space="preserve">
+    <value>Hide window</value>
   </data>
   <data name="HotCornerDelay" xml:space="preserve">
     <value>Delay: </value>
@@ -394,6 +478,9 @@
   <data name="Path" xml:space="preserve">
     <value>Path:</value>
   </data>
+  <data name="Patrons" xml:space="preserve">
+    <value>Patrons</value>
+  </data>
   <data name="PinDesktop" xml:space="preserve">
     <value>Pin WinLaunch to the desktop</value>
   </data>
@@ -406,8 +493,11 @@
   <data name="Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
-  <data name="ReallyAddDefaultApps" xml:space="preserve">
-    <value>Do you really want to add all default apps ?</value>
+  <data name="ReallyRefreshInstalledApps" xml:space="preserve">
+    <value>Do you really want to refresh all installed apps and add missing ones to WinLaunch?</value>
+  </data>
+  <data name="RefreshInstalledApps" xml:space="preserve">
+    <value>Refresh installed apps</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
@@ -451,6 +541,12 @@
   <data name="ShowExtensionIcon" xml:space="preserve">
     <value>Show extension icon</value>
   </data>
+  <data name="ShowFolderText" xml:space="preserve">
+    <value>Show folder text</value>
+  </data>
+  <data name="ShowItemText" xml:space="preserve">
+    <value>Show item text</value>
+  </data>
   <data name="ShowMiniatures" xml:space="preserve">
     <value>Show miniature icons</value>
   </data>
@@ -491,7 +587,7 @@
     <value>Themes</value>
   </data>
   <data name="TranslatedBy" xml:space="preserve">
-    <value>Translated by C0rrupted</value>
+    <value>Translated by JR</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
     <value>Tutorial</value>
@@ -519,6 +615,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version: </value>
+  </data>
+  <data name="VoiceActivation" xml:space="preserve">
+    <value>Voice activation</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>

@@ -37,17 +37,12 @@
         </Storyboard>
     </Window.Resources>
 
-    <Grid
-        x:Name="MainGrid"
+    <Grid x:Name="MainGrid"
         Width="600"
-        Height="290">
+        Height="320">
         <!--  Height="146" Width="382">  -->
         <Grid.RenderTransform>
-            <ScaleTransform
-                CenterX="191"
-                CenterY="73"
-                ScaleX="1.0"
-                ScaleY="1.0" />
+            <ScaleTransform CenterX="191" CenterY="73" ScaleX="1.0" ScaleY="1.0" />
         </Grid.RenderTransform>
 
         <!--  BG Form  -->
@@ -79,20 +74,20 @@
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
-                                        <LineSegment Point="477,220" />
+                                        <LineSegment Point="477,250" />
                                         <ArcSegment
                                             IsLargeArc="False"
-                                            Point="472,225"
+                                            Point="472,255"
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
-                                        <LineSegment x:Name="PointerRightBottom" Point="120,225" />
-                                        <LineSegment x:Name="PointerCenterBottom" Point="110,235" />
-                                        <LineSegment x:Name="PointerLeftBottom" Point="100,225" />
-                                        <LineSegment Point="10,225" />
+                                        <LineSegment x:Name="PointerRightBottom" Point="120,255" />
+                                        <LineSegment x:Name="PointerCenterBottom" Point="110,265" />
+                                        <LineSegment x:Name="PointerLeftBottom" Point="100,255" />
+                                        <LineSegment Point="10,255" />
                                         <ArcSegment
                                             IsLargeArc="False"
-                                            Point="5,220"
+                                            Point="5,250"
                                             RotationAngle="90"
                                             Size="5,5"
                                             SweepDirection="Clockwise" />
@@ -114,21 +109,22 @@
             </Path.Effect>
         </Path>
 
-        <Grid MaxWidth="470" MaxHeight="230" Margin="0,40,0,0">
+        <Grid
+            MaxWidth="470"
+            MaxHeight="260"
+            Margin="0,40,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="141" />
                 <ColumnDefinition Width="329*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel Margin="6,0,0,4">
-                <Image
-                    x:Name="IconFrame"
+                <Image x:Name="IconFrame"
                     Height="125"
                     Cursor="Hand"
                     MouseDown="IconFrame_MouseDown"
                     RenderOptions.BitmapScalingMode="HighQuality" />
-                <Button
-                    x:Name="ResetIconButton"
+                <Button x:Name="ResetIconButton"
                     Click="ResetIconButton_Click"
                     Content="{my:Loc RestoreIcon}" />
             </StackPanel>
@@ -147,8 +143,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Text="{my:Loc Name}" />
-                    <TextBox
-                        x:Name="NameBox"
+                    <TextBox x:Name="NameBox"
                         Grid.Column="1"
                         Grid.ColumnSpan="1"
                         Height="25"
@@ -156,33 +151,56 @@
                         VerticalAlignment="Top" />
                 </Grid>
 
-                <Grid Height="23" Margin="0,0,0,5" x:Name="gdKeywords">
+                <Grid x:Name="gdKeywords"
+                    Height="23"
+                    Margin="0,0,0,5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{Binding Path=ActualWidth, ElementName=tblSearchKeywords }" MinWidth="82"/>
-                        <ColumnDefinition Width="274*"/>
+                        <ColumnDefinition Width="{Binding Path=ActualWidth, ElementName=tblSearchKeywords}" MinWidth="82" />
+                        <ColumnDefinition Width="274*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock
-                        x:Name="tblSearchKeywords"
+                    <TextBlock x:Name="tblSearchKeywords"
                         Grid.Column="0"
                         Grid.ColumnSpan="1"
-                        Padding="0,0,10,0"
                         Height="23"
+                        Padding="0,0,10,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
-                        Text="{my:Loc SearchKeywords}" 
-                        ToolTip="{my:Loc SearchKeywordsInfo}"/>
-                    <TextBox
-                        x:Name="KeywordsBox"
+                        Text="{my:Loc SearchKeywords}"
+                        ToolTip="{my:Loc SearchKeywordsInfo}" />
+                    <TextBox x:Name="KeywordsBox"
                         Grid.Column="1"
                         Grid.ColumnSpan="1"
                         Height="25"
                         HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top" 
-                        ToolTip="{my:Loc SearchKeywordsInfo}"/>
+                        VerticalAlignment="Top"
+                        ToolTip="{my:Loc SearchKeywordsInfo}" />
                 </Grid>
 
-                <Grid
-                    x:Name="PathGrid"
+
+                <Grid x:Name="gdAssistantNotes"
+                    Height="23"
+                    Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding Path=ActualWidth, ElementName=tblAssistantNotes}" MinWidth="82" />
+                        <ColumnDefinition Width="274*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="tblAssistantNotes"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="1"
+                        Height="23"
+                        Padding="0,0,10,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Text="Notes:" />
+                    <TextBox x:Name="AssistantNotesBox"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="1"
+                        Height="25"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top" />
+                </Grid>
+
+                <Grid x:Name="PathGrid"
                     Height="23"
                     Margin="0,0,0,5">
                     <Grid.ColumnDefinitions>
@@ -198,8 +216,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Text="{my:Loc Path}" />
-                    <TextBox
-                        x:Name="PathBox"
+                    <TextBox x:Name="PathBox"
                         Grid.Column="1"
                         Grid.ColumnSpan="1"
                         Height="25"
@@ -207,8 +224,7 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
                         IsReadOnly="True" />
-                    <Button
-                        x:Name="ChoosePathButton"
+                    <Button x:Name="ChoosePathButton"
                         Grid.Column="2"
                         Grid.ColumnSpan="1"
                         Click="ChoosePathButton_Click"
@@ -222,8 +238,7 @@
                     </Button>
                 </Grid>
 
-                <Grid
-                    x:Name="ArgumentsGrid"
+                <Grid x:Name="ArgumentsGrid"
                     Height="23"
                     Margin="0,0,0,5">
                     <Grid.ColumnDefinitions>
@@ -237,8 +252,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         Text="{my:Loc Arguments}" />
-                    <TextBox
-                        x:Name="ArgumentsBox"
+                    <TextBox x:Name="ArgumentsBox"
                         Grid.Column="1"
                         Grid.ColumnSpan="1"
                         Height="25"
@@ -246,15 +260,20 @@
                         VerticalAlignment="Top" />
                 </Grid>
 
-                <CheckBox x:Name="cbAdmin" Content="{my:Loc OpenAsAdmin}" Margin="0,0,0,5"/>
-                <CheckBox x:Name="cbShowMiniatures" Content="{my:Loc ShowMiniatures}" Checked="cbShowMiniatures_Checked" Unchecked="cbShowMiniatures_Checked" />
+                <CheckBox x:Name="cbAdmin"
+                    Margin="0,0,0,5"
+                    Content="{my:Loc OpenAsAdmin}" />
+                <CheckBox x:Name="cbShowMiniatures"
+                    Checked="cbShowMiniatures_Checked"
+                    Content="{my:Loc ShowMiniatures}"
+                    Unchecked="cbShowMiniatures_Checked" />
             </StackPanel>
 
             <Button
                 Grid.Column="1"
                 Width="89"
                 Height="24"
-                Margin="229,146,0,0"
+                Margin="229,176,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="CancelClicked"
@@ -263,7 +282,7 @@
                 Grid.Column="1"
                 Width="89"
                 Height="24"
-                Margin="137,146,0,0"
+                Margin="137,176,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Click="ConfirmClicked"

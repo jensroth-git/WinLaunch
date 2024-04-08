@@ -5,7 +5,7 @@ namespace WinLaunch
 {
     public class SpringPages
     {
-        public Rect DisplayRect = new Rect(0, 0, 1080, 1920);
+        public Rect DisplayRect = new Rect(0, 0, 1920, 1080);
         public event EventHandler PagesFlipped;
 
         public double XOffset = 0.0;

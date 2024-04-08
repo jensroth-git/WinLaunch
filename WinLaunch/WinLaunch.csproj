@@ -139,11 +139,66 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <HintPath>..\packages\AvalonEdit.6.0.0\lib\net45\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="MdXaml, Version=1.21.0.0, Culture=neutral, PublicKeyToken=9f8c7afb435b7edc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MdXaml.1.21.0\lib\net45\MdXaml.dll</HintPath>
+    </Reference>
+    <Reference Include="MdXaml.Plugins, Version=1.21.0.0, Culture=neutral, PublicKeyToken=9f8c7afb435b7edc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MdXaml.Plugins.1.21.0\lib\net45\MdXaml.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIO.Core, Version=3.1.1.0, Culture=neutral, PublicKeyToken=c9a3629195a82104, processorArchitecture=MSIL">
+      <HintPath>..\packages\SocketIO.Core.3.1.1\lib\netstandard2.0\SocketIO.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIO.Serializer.Core, Version=3.1.1.0, Culture=neutral, PublicKeyToken=c9a3629195a82104, processorArchitecture=MSIL">
+      <HintPath>..\packages\SocketIO.Serializer.Core.3.1.1\lib\netstandard2.0\SocketIO.Serializer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIO.Serializer.SystemTextJson, Version=3.1.1.0, Culture=neutral, PublicKeyToken=c9a3629195a82104, processorArchitecture=MSIL">
+      <HintPath>..\packages\SocketIO.Serializer.SystemTextJson.3.1.1\lib\netstandard2.0\SocketIO.Serializer.SystemTextJson.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIOClient, Version=3.1.1.0, Culture=neutral, PublicKeyToken=c9a3629195a82104, processorArchitecture=MSIL">
+      <HintPath>..\packages\SocketIOClient.3.1.1\lib\net462\SocketIOClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.3\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -173,7 +228,9 @@
     <Compile Include="ActivationMethods\MiddleMouseActivation.cs" />
     <Compile Include="ActivationMethods\ShortcutActivation.cs" />
     <Compile Include="ActivationMethods\DoubleKeytapActivation.cs" />
+    <Compile Include="ActivationMethods\VoiceActivation.cs" />
     <Compile Include="ActivationMethods\WindowsKeyActivation.cs" />
+    <Compile Include="Assistant\AssistantUI.cs" />
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Darkening.cs">
       <AutoGen>True</AutoGen>
@@ -181,6 +238,8 @@
       <DependentUpon>Darkening.fx</DependentUpon>
     </Compile>
     <Compile Include="Language\nsLoc.cs" />
+    <Compile Include="Assistant\Assistant.cs" />
+    <Compile Include="Assistant\AssistantStates.cs" />
     <Compile Include="MainWindow\Events.cs" />
     <Compile Include="MainWindow\Extensions.cs" />
     <Compile Include="MainWindow\GamepadControls.cs" />
@@ -210,6 +269,7 @@
     <Compile Include="Utils\AnimationHelper.cs" />
     <Compile Include="Utils\Autostart.cs" />
     <Compile Include="Utils\BackupManager.cs" />
+    <Compile Include="Utils\DesktopFileWatcher.cs" />
     <Compile Include="Utils\DoubleClickEvent.cs" />
     <Compile Include="Utils\GetIcon.cs" />
     <Compile Include="Springboard\GridManager.cs" />
@@ -217,6 +277,7 @@
     <Compile Include="Utils\Integration.cs" />
     <Compile Include="Springboard\ItemCollection.cs" />
     <Compile Include="Utils\RegistryMonitor.cs" />
+    <Compile Include="Utils\Trie.cs" />
     <Compile Include="Utils\UpdateCheck.cs" />
     <Compile Include="Utils\WallpaperWatcher.cs" />
     <Compile Include="Windows\AddLink.xaml.cs">
@@ -239,6 +300,10 @@
     <Compile Include="Windows\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Page Include="AssistantResponseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ContextMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -265,6 +330,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OSXTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,6 +423,7 @@
       <Generator>ShaderEffectGenerator</Generator>
       <LastGenOutput>Darkening.cs</LastGenOutput>
     </None>
+    <Resource Include="res\Fonts\SF-Pro-Display-Regular.otf" />
     <Resource Include="Darkening.ps">
       <DependentUpon>Darkening.fx</DependentUpon>
     </Resource>
@@ -363,7 +433,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Resource Include="res\Fonts\Lucida Grande Bold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\shadow.png" />
@@ -545,6 +614,55 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\Settings\welcome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\assistant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\assistantPending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\brush.png" />
+    <Resource Include="res\assistant\games.png" />
+    <Resource Include="res\assistant\message.png" />
+    <Resource Include="res\assistant\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\command.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\Settings\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\context\refresh_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\pro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\brain.png" />
+    <Resource Include="res\assistant\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\reconnect.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

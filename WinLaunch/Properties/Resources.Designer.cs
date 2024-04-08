@@ -79,11 +79,11 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add default apps.
+        ///   Looks up a localized string similar to Add desktop links automatically to WinLaunch.
         /// </summary>
-        internal static string AddDefaultApps {
+        internal static string AddDesktopLinks {
             get {
-                return ResourceManager.GetString("AddDefaultApps", resourceCulture);
+                return ResourceManager.GetString("AddDesktopLinks", resourceCulture);
             }
         }
         
@@ -147,6 +147,231 @@ namespace WinLaunch.Properties {
         internal static string Arguments {
             get {
                 return ResourceManager.GetString("Arguments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assistant.
+        /// </summary>
+        internal static string Assistant {
+            get {
+                return ResourceManager.GetString("Assistant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear conversation history.
+        /// </summary>
+        internal static string AssistantClearConversation {
+            get {
+                return ResourceManager.GetString("AssistantClearConversation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close WinLaunch Assistant.
+        /// </summary>
+        internal static string AssistantClose {
+            get {
+                return ResourceManager.GetString("AssistantClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connecting....
+        /// </summary>
+        internal static string AssistantConnecting {
+            get {
+                return ResourceManager.GetString("AssistantConnecting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable text to speech.
+        /// </summary>
+        internal static string AssistantEnableTTS {
+            get {
+                return ResourceManager.GetString("AssistantEnableTTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found Account!\r\nPlease enter a new password for your WinLaunch Assistant.
+        /// </summary>
+        internal static string AssistantEnterNewPassword {
+            get {
+                return ResourceManager.GetString("AssistantEnterNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a password.
+        /// </summary>
+        internal static string AssistantEnterPassword {
+            get {
+                return ResourceManager.GetString("AssistantEnterPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your Patreon E-Mail.
+        /// </summary>
+        internal static string AssistantEnterPatreonEmail {
+            get {
+                return ResourceManager.GetString("AssistantEnterPatreonEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable assistant command execution (Pro).
+        /// </summary>
+        internal static string AssistantExecuteCommands {
+            get {
+                return ResourceManager.GetString("AssistantExecuteCommands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executed Command.
+        /// </summary>
+        internal static string AssistantExecutedCommand {
+            get {
+                return ResourceManager.GetString("AssistantExecutedCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forget memory.
+        /// </summary>
+        internal static string AssistantForgetMemory {
+            get {
+                return ResourceManager.GetString("AssistantForgetMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launched Item.
+        /// </summary>
+        internal static string AssistantLaunchedItem {
+            get {
+                return ResourceManager.GetString("AssistantLaunchedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please login.
+        /// </summary>
+        internal static string AssistantLogin {
+            get {
+                return ResourceManager.GetString("AssistantLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message WinLaunch Assistant....
+        /// </summary>
+        internal static string AssistantMessage {
+            get {
+                return ResourceManager.GetString("AssistantMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WinLaunch Assistant.
+        /// </summary>
+        internal static string AssistantName {
+            get {
+                return ResourceManager.GetString("AssistantName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is not a member of the WinLaunch Patreon.
+        /// </summary>
+        internal static string AssistantNoPatron {
+            get {
+                return ResourceManager.GetString("AssistantNoPatron", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Login.
+        /// </summary>
+        internal static string AssistantResetLogin {
+            get {
+                return ResourceManager.GetString("AssistantResetLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searched the web.
+        /// </summary>
+        internal static string AssistantSearchedWeb {
+            get {
+                return ResourceManager.GetString("AssistantSearchedWeb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show assistant icon.
+        /// </summary>
+        internal static string AssistantShowIcon {
+            get {
+                return ResourceManager.GetString("AssistantShowIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Store memory.
+        /// </summary>
+        internal static string AssistantStoreMemory {
+            get {
+                return ResourceManager.GetString("AssistantStoreMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trouble connecting.
+        /// </summary>
+        internal static string AssistantTroubleConnecting {
+            get {
+                return ResourceManager.GetString("AssistantTroubleConnecting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are not a member of the WinLaunch Patreon anymore,\nplease join to access the WinLaunch Assistant.
+        /// </summary>
+        internal static string AssistantUnfollowed {
+            get {
+                return ResourceManager.GetString("AssistantUnfollowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How can I assist you today?.
+        /// </summary>
+        internal static string AssistantWelcomeMessage {
+            get {
+                return ResourceManager.GetString("AssistantWelcomeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wrong password.
+        /// </summary>
+        internal static string AssistantWrongPassword {
+            get {
+                return ResourceManager.GetString("AssistantWrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You.
+        /// </summary>
+        internal static string AssistantYou {
+            get {
+                return ResourceManager.GetString("AssistantYou", resourceCulture);
             }
         }
         
@@ -403,6 +628,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete desktop links after adding them.
+        /// </summary>
+        internal static string DeleteDesktopLinks {
+            get {
+                return ResourceManager.GetString("DeleteDesktopLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To toggle DeskMode WinLaunch will have to be restarted, this might take a few seconds..
         /// </summary>
         internal static string DeskModeSwitch {
@@ -529,6 +763,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable activating WinLaunch by saying &quot;hey WinLaunch&quot;, &quot;open WinLaunch&quot; or &quot;start WinLaunch&quot;.
+        /// </summary>
+        internal static string EnableVoiceActivation {
+            get {
+                return ResourceManager.GetString("EnableVoiceActivation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable windows key activation.
         /// </summary>
         internal static string EnableWindowsKey {
@@ -588,6 +831,15 @@ namespace WinLaunch.Properties {
         internal static string General {
             get {
                 return ResourceManager.GetString("General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide window.
+        /// </summary>
+        internal static string HideWindow {
+            get {
+                return ResourceManager.GetString("HideWindow", resourceCulture);
             }
         }
         
@@ -889,6 +1141,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patrons.
+        /// </summary>
+        internal static string Patrons {
+            get {
+                return ResourceManager.GetString("Patrons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pin WinLaunch to the desktop.
         /// </summary>
         internal static string PinDesktop {
@@ -925,11 +1186,20 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you really want to add all default apps ?.
+        ///   Looks up a localized string similar to Do you really want to refresh all installed apps and add missing ones to WinLaunch?.
         /// </summary>
-        internal static string ReallyAddDefaultApps {
+        internal static string ReallyRefreshInstalledApps {
             get {
-                return ResourceManager.GetString("ReallyAddDefaultApps", resourceCulture);
+                return ResourceManager.GetString("ReallyRefreshInstalledApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh installed apps.
+        /// </summary>
+        internal static string RefreshInstalledApps {
+            get {
+                return ResourceManager.GetString("RefreshInstalledApps", resourceCulture);
             }
         }
         
@@ -1060,6 +1330,24 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show folder text.
+        /// </summary>
+        internal static string ShowFolderText {
+            get {
+                return ResourceManager.GetString("ShowFolderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show item text.
+        /// </summary>
+        internal static string ShowItemText {
+            get {
+                return ResourceManager.GetString("ShowItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show miniature icons.
         /// </summary>
         internal static string ShowMiniatures {
@@ -1177,7 +1465,7 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Translated by C0rrupted.
+        ///   Looks up a localized string similar to Translated by JR.
         /// </summary>
         internal static string TranslatedBy {
             get {
@@ -1263,6 +1551,15 @@ namespace WinLaunch.Properties {
         internal static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voice activation.
+        /// </summary>
+        internal static string VoiceActivation {
+            get {
+                return ResourceManager.GetString("VoiceActivation", resourceCulture);
             }
         }
         

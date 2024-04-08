@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>За</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>Активиране</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>Добавяне на приложения по подразбиране</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>Добавете връзки към работния плот автоматично към WinLaunch</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>Добави файл</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>Аргументи:</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>Помощник</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>Изчистване на историята на разговорите</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>Затворете WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>Свързване...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>Активиране на текст в реч</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>Намерен акаунт!\r\nМоля, въведете нова парола за вашия WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>Моля, въведете парола</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Моля, въведете своя имейл адрес в Patreon</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>Разрешете изпълнението на командата на Асистент</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>Изпълнена команда</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>Моля влезте</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>Съобщение WinLaunch Assistant...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} не е член на WinLaunch Patreon</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>Нулиране на входа</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>Търсих в мрежата</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>Показване на иконата на асистент</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>Проблем при свързването</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>Вече не сте член на WinLaunch Patreon,\nмоля, присъединете се за достъп до WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>Как мога да ви помогна днес?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>грешна парола</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>Вие</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>Фон</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>Подкрепете WinLaunch в Patreon, за да получите достъп до персонализирани теми и други предимства</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>Изтрийте връзките към работния плот, след като ги добавите</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>За превключване на DeskMode WinLaunch трябва да се рестартира, това ще отнеме няколко секунди.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>Общо</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>Скриване на прозореца</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Закъснение:</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>Път:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>Покровители</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>Закачи WinLaunch на десктопа</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>Изход</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>Наистина ли искате да добавите всички приложения по подразбиране?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>Наистина ли искате да опресните всички инсталирани приложения и да добавите липсващите към WinLaunch?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>Обновете инсталираните приложения</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>Премахни</value>
@@ -391,6 +469,12 @@
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Показване на иконата на разширение</value>
 	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>Показване на текста на папката</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>Показване на текста на елемента</value>
+	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Показване на миниатюрни икони</value>
 	</data>
@@ -431,7 +515,7 @@
 		<value>Теми</value>
 	</data>
 	<data name="TranslatedBy" xml:space="preserve">
-		<value>Преведено от C0rrupted</value>
+		<value>Преведено от анонимен</value>
 	</data>
 	<data name="Tutorial" xml:space="preserve">
 		<value>Урок</value>
@@ -463,5 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Внимание</value>
 	</data>
+
+
+
+
 
 </root>

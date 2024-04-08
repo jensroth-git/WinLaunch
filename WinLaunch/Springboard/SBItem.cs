@@ -22,8 +22,6 @@ namespace WinLaunch
 
         public static double TextSize = 1.0;
 
-        public static FontFamily ItemFont = new FontFamily("Lucida Sans Unicode");
-
         #endregion styles
 
         //Item Properties
@@ -36,6 +34,8 @@ namespace WinLaunch
         public string Name { get; set; }
 
         public string Keywords { get; set; }
+
+        public string Notes { get; set; }
 
         public string ApplicationPath { get; set; }
 
@@ -63,11 +63,12 @@ namespace WinLaunch
             ShowClose = false;
         }
 
-        public SBItem(string Name, string Keywords, string ApplicationPath, string IconPath, string Arguments, BitmapSource Icon, double XPos = 0.0, double YPos = 0.0)
+        public SBItem(string Name, string Keywords, string Notes, string ApplicationPath, string IconPath, string Arguments, BitmapSource Icon, double XPos = 0.0, double YPos = 0.0)
         {
             this.IC = new ItemCollection();
             this.Name = Name;
             this.Keywords = Keywords;
+            this.Notes = Notes;
             this.ApplicationPath = ApplicationPath;
             this.IconPath = IconPath;
             this.Arguments = Arguments;
@@ -337,7 +338,7 @@ namespace WinLaunch
         }
 
         public static readonly DependencyProperty FontSizeProperty =
-            DependencyProperty.Register("FontSize", typeof(double), typeof(SBItem), new UIPropertyMetadata(0.0));
+            DependencyProperty.Register("FontSize", typeof(double), typeof(SBItem), new UIPropertyMetadata(14.0));
 
 
         public SolidColorBrush FontColor
@@ -408,6 +409,15 @@ namespace WinLaunch
 
         public static readonly DependencyProperty TextMarginProperty =
             DependencyProperty.Register("TextMargin", typeof(Thickness), typeof(SBItem), new UIPropertyMetadata(new Thickness(0, 10, 0, 0)));
+
+        public string NotesProp
+        {
+            get { return (string)GetValue(NotesPropProperty); }
+            set { SetValue(NotesPropProperty, value); }
+        }
+
+        public static readonly DependencyProperty NotesPropProperty =
+            DependencyProperty.Register("NotesProp", typeof(string), typeof(SBItem), new PropertyMetadata(""));
         #endregion Icon properties
 
 
@@ -451,25 +461,24 @@ namespace WinLaunch
                 this.CloseBox = SBItem.CloseBoxImage;
 
                 //Update Text & Font
-                if (SBItem.TextSize != 0)
+                bool ShowText = this.IsFolder ? Settings.CurrentSettings.ShowFolderIconText : Settings.CurrentSettings.ShowItemIconText;
+
+                if (SBItem.TextSize != 0 && ShowText)
                 {
-                    this.FontSize = (double)13 * SBItem.TextSize;
-                    this.Text = Name;//MiscUtils.GetLionFormattedText(Name, SBItem.ItemFont, this.FontSize, 150);
+                    this.FontSize = (double)14 * SBItem.TextSize;
+                    this.Text = Name;
                     this.FontColor = new SolidColorBrush(Theme.CurrentTheme.IconTextColor);
                     this.FontShadowColor = Theme.CurrentTheme.IconTextShadowColor;
-
-                    //update font shadow opacity
                     this.FontShadowOpacity = (double)Theme.CurrentTheme.IconTextShadowColor.ScA;
-
                     this.TextVisible = Visibility.Visible;
                 }
                 else
                 {
-                    //Hide text
                     this.TextVisible = Visibility.Hidden;
                 }
 
-                this.FontFamily = SBItem.ItemFont;
+                //update notes
+                this.NotesProp = this.Notes;
 
                 //Update Shadow Opacity
                 this.ShadowOpacity = Theme.CurrentTheme.IconShadowOpacity;

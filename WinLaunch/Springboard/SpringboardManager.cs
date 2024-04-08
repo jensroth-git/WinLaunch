@@ -9,12 +9,23 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
-using Xceed.Wpf.Toolkit.Primitives;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using Point = System.Windows.Point;
 
 namespace WinLaunch
 {
+    public enum ItemsUpdatedAction
+    {
+        Added,
+        Removed,
+        Moved,
+        FolderModified
+    }
+
+    public class ItemsUpdatedEventArgs: EventArgs
+    {
+        public ItemsUpdatedAction Action;
+    }
+
     /// <summary>
     /// Manages positioning, events and Animations of SBItems
     /// </summary>
@@ -24,7 +35,7 @@ namespace WinLaunch
         public GridManager GM { get; set; }
         public SpringPages SP;
 
-        public event EventHandler ItemsUpdated;
+        public event EventHandler<ItemsUpdatedEventArgs> ItemsUpdated;
 
         //search 
         public bool SearchMode = false;
@@ -203,6 +214,8 @@ namespace WinLaunch
             {
                 AddItemToSpringboard(Item, Page, GridIndex);
             }
+
+            ItemsUpdated(this, new ItemsUpdatedEventArgs() { Action = ItemsUpdatedAction.Added });
         }
 
         public void AddItemToActiveFolder(SBItem Item, int GridIndex = -1)
@@ -283,7 +296,7 @@ namespace WinLaunch
 
         private bool RemoveItemPending = false;
 
-        public void RemoveItem(SBItem Item, bool AskPermission = true) // <--- rewrite!!!
+        public void RemoveItem(SBItem Item, bool AskPermission = false) // <--- rewrite!!!
         {
             RemoveItemPending = true;
 
@@ -374,7 +387,7 @@ namespace WinLaunch
             //update page count
             SP.TotalPages = GM.GetUsedPages();
 
-            ItemsUpdated(this, EventArgs.Empty);
+            ItemsUpdated(this, new ItemsUpdatedEventArgs() { Action = ItemsUpdatedAction.Removed });
         }
 
         public void RemoveItemFromSB(SBItem Item)
@@ -927,9 +940,17 @@ namespace WinLaunch
                     this.PageTarget = -1;
                     TargetItem = null;
                     HoldItem = null;
-                    ActiveDropAction = DropAction.Nothing;
+                    
+                    if(ActiveDropAction == DropAction.MoveIntoFolder || ActiveDropAction == DropAction.CreateNewFolder)
+                    {
+                        ItemsUpdated(this, new ItemsUpdatedEventArgs() { Action = ItemsUpdatedAction.FolderModified });
+                    }
+                    else
+                    {
+                        ItemsUpdated(this, new ItemsUpdatedEventArgs() { Action = ItemsUpdatedAction.Moved });
+                    }
 
-                    ItemsUpdated(this, EventArgs.Empty);
+                    ActiveDropAction = DropAction.Nothing;
                 }
             }
         }
@@ -1046,7 +1067,6 @@ namespace WinLaunch
         #region Scrolling
 
         public bool MouseScrolling = false;
-        public bool SynapticsScrolling = false;
 
         #endregion Scrolling
 
@@ -1867,6 +1887,42 @@ namespace WinLaunch
         }
 
         //search by name and keywords
+        public List<SBItem> AssistantFindItemsByExactName(string name, bool includeFolders = false)
+        {
+            List<SBItem> results = new List<SBItem>();
+
+            foreach (var item in IC.Items)
+            {
+                if (item.IsFolder)
+                {
+                    if(includeFolders)
+                    {
+                        if (item.Name == name)
+                        {
+                            results.Add(item);
+                        }
+                    }
+
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        if (subItem.Name == name)
+                        {
+                            results.Add(subItem);
+                        }
+                    }
+                }
+                else
+                {
+                    if (item.Name == name)
+                    {
+                        results.Add(item);
+                    }
+                }
+            }
+
+            return results;
+        }
+
         public List<SBItem> FindItemsByName(string name)
         {
             List<SBItem> results = new List<SBItem>();

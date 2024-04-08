@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>約</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>アクティベーション</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>デフォルトのアプリを追加</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>デスクトップ リンクを WinLaunch に自動的に追加する</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>ファイルの追加</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>引数:</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>アシスタント</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>会話履歴をクリアする</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>WinLaunch アシスタントを閉じる</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>接続中...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>テキスト読み上げを有効にする</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>アカウントが見つかりました!\r\nWinLaunch アシスタントの新しいパスワードを入力してください</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>パスワードを入力してください</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Patreonのメールアドレスを入力してください</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>アシスタントのコマンド実行を有効にする</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>実行されたコマンド</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>ログインしてください</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>メッセージ WinLaunch アシスタント...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>WinLaunch アシスタント</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} は WinLaunch Patreon のメンバーではありません</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>ログインをリセットする</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>ウェブで検索した</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>アシスタントアイコンを表示</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>接続の問題</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>あなたはもう WinLaunch Patreon のメンバーではありません。\nWinLaunch アシスタントにアクセスするには参加してください</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>今日はどのようにお手伝いさせていただけますか?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>間違ったパスワード</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>あなた</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>背景</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>Patreon で WinLaunch をサポートして、カスタム テーマやその他の特典にアクセスできます</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>デスクトップリンクを追加した後に削除する</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>DeskModeを切り替えるには、再起動する必要がありますが、これには数秒かかる場合があります。</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>全般</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>ウィンドウを隠す</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>遅れ：</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>パス:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>パトロン</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>WinLaunchをデスクトップに固定</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>終了</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>本当にすべての既定のアプリを追加しますか?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>インストールされているすべてのアプリを更新し、不足しているアプリを WinLaunch に追加しますか?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>インストールされているアプリを更新する</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>削除</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>拡張機能のアイコンを表示</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>フォルダーのテキストを表示する</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>項目テキストを表示</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>ミニチュアアイコンを表示</value>
@@ -463,6 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>警告</value>
 	</data>
+
+
+
 
 
 </root>

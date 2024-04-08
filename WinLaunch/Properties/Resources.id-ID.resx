@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>Tentang</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>Aktivasi</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>Tambah aplikasi default</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>Tambahkan tautan desktop secara otomatis ke WinLaunch</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>Tambah file</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>Argumen:</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>Asisten</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>Hapus riwayat Percakapan</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>Tutup Asisten WinLaunch</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>Menghubungkan...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>Aktifkan teks ke ucapan</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>Akun Ditemukan!\r\nSilakan masukkan kata sandi baru untuk Asisten WinLaunch Anda</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>Silakan masukkan kata sandi</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Silakan masukkan E-Mail Patreon Anda</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>Aktifkan eksekusi perintah Asisten</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>Perintah yang Dieksekusi</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>Silahkan masuk</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>Pesan Asisten WinLaunch...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>Asisten Peluncuran Win</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} bukan anggota WinLaunch Patreon</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>Setel Ulang Masuk</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>Mencari di web</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>Tampilkan ikon asisten</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>Terjadi masalah saat menyambung</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>Anda bukan lagi anggota WinLaunch Patreon,\nsilakan bergabung untuk mengakses Asisten WinLaunch</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>Apa yang bisa saya bantu hari ini?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>kata sandi salah</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>Anda</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>Latar belakang</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>Dukung WinLaunch di Patreon untuk mendapatkan akses ke tema khusus dan manfaat lainnya</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>Hapus tautan desktop setelah menambahkannya</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>Untuk mengaktifkan DeskMode, WinLaunch perlu dimulai ulang, ini mungkin memakan waktu beberapa detik.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>Umum</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>Sembunyikan jendela</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Jeda: </value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>Jalur:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>Pelanggan</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>Sematkan WinLaunch ke desktop</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>Keluar</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>Apakah Anda benar-benar ingin menambahkan semua aplikasi default?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>Apakah Anda benar-benar ingin menyegarkan semua aplikasi yang terinstal dan menambahkan aplikasi yang hilang ke WinLaunch?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>Segarkan aplikasi yang diinstal</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>Hapus</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Tampilkan ikon ekstensi</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>Tampilkan teks folder</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>Tampilkan teks item</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Tampilkan ikon miniatur</value>
@@ -463,6 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Peringatan</value>
 	</data>
+
+
+
 
 
 </root>

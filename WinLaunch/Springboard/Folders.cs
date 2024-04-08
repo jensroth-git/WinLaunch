@@ -527,7 +527,7 @@ namespace WinLaunch
         public void CreateNewFolder(SBItem ItemA, SBItem ItemB, string folderName = "NewFolder")
         {
             //Create Folder
-            SBItem Folder = new SBItem(folderName, "", "Folder", null, "", SBItem.FolderIcon);
+            SBItem Folder = new SBItem(folderName, "", "", "Folder", null, "", SBItem.FolderIcon);
             Folder.IsFolder = true;
 
             int GridIndex = Math.Min(ItemA.GridIndex, ItemB.GridIndex);

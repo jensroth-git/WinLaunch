@@ -31,14 +31,6 @@
         <BitmapImage x:Key="LockIcon" UriSource="/res/Settings/lock.ico" />
         <BitmapImage x:Key="UnlockIcon" UriSource="/res/Settings/unlock.ico" />
 
-        <BitmapImage x:Key="DonateImage" UriSource="/res/donate.png" />
-
-        <!--  Performance advisor resources  -->
-        <BitmapImage x:Key="PerformanceIcon" UriSource="/res/PerformanceAdvisor/icon.png" />
-        <BitmapImage x:Key="AeroPreview" UriSource="/res/PerformanceAdvisor/Aero.png" />
-        <BitmapImage x:Key="BlurPreview" UriSource="/res/PerformanceAdvisor/Blur.png" />
-        <BitmapImage x:Key="NoBlurPreview" UriSource="/res/PerformanceAdvisor/NoBlur.png" />
-
         <LinearGradientBrush x:Key="FrontBrush" StartPoint="0.5,0" EndPoint="0.5,1">
             <GradientStop Offset="0" Color="#FF00FF3B" />
             <GradientStop Offset="1" Color="#FF007C1C" />

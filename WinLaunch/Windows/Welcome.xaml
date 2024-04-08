@@ -1,18 +1,19 @@
-﻿<Window x:Class="WinLaunch.Welcome"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Welcome"
-        Width="450.432"
-        Height="481.749"
-        MinWidth="430"
-        MinHeight="300"
-        Icon="/WinLaunch;component/icon.ico"
-        ResizeMode="CanResize"
-        ShowInTaskbar="False"
-        WindowStyle="ToolWindow"
-        Topmost="True"
-        UseLayoutRounding="True"
-        WindowStartupLocation="CenterScreen">
+﻿<Window
+    x:Class="WinLaunch.Welcome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Welcome"
+    Width="450.432"
+    Height="481.749"
+    MinWidth="430"
+    MinHeight="300"
+    Icon="/WinLaunch;component/icon.ico"
+    ResizeMode="CanResize"
+    ShowInTaskbar="False"
+    Topmost="True"
+    UseLayoutRounding="True"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="ToolWindow">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -40,22 +41,23 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <Image Grid.Column="0"
-                   Height="100"
-                   Margin="10,10,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   RenderOptions.BitmapScalingMode="HighQuality"
-                   Source="{StaticResource WinLaunchLogo}" />
+            <Image
+                Grid.Column="0"
+                Height="100"
+                Margin="10,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderOptions.BitmapScalingMode="HighQuality"
+                Source="../res/Logo.png" />
 
             <TextBlock x:Name="VersionHeader"
-                       Grid.Column="1"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="18"
-                       FontFamily="/WinLaunch;component/res/Fonts/#Helvetica Neue"
-                       Foreground="#FF616161"
-                       Text="Version x.x.x.x" />
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="/WinLaunch;component/res/Fonts/#Helvetica Neue"
+                FontSize="18"
+                Foreground="#FF616161"
+                Text="Version x.x.x.x" />
         </Grid>
 
         <Grid Grid.Row="1">
@@ -66,19 +68,21 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <Border Margin="10"
-                        Background="White"
-                        CornerRadius="5">
+            <Border
+                Margin="10"
+                Background="White"
+                CornerRadius="5">
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="5"
-                                          Opacity="0.2"
-                                          ShadowDepth="0" />
+                    <DropShadowEffect
+                        BlurRadius="5"
+                        Opacity="0.2"
+                        ShadowDepth="0" />
                 </Border.Effect>
 
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="10">
+                <ScrollViewer Margin="10" VerticalScrollBarVisibility="Auto">
                     <StackPanel x:Name="MainContainer"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Top">
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top">
 
                         <StackPanel.Resources>
                             <Style TargetType="Ellipse">

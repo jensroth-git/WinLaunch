@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Input;
 using System.Xml;
@@ -21,6 +22,20 @@ namespace WinLaunch
         public bool SortFoldersFirst { get; set; }
         public bool SortFolderContentsOnly { get; set; }
 
+        public bool WatchForDesktopLinks { get; set; }
+        public bool DeleteDesktopLinksAfterAdding { get; set; }
+
+        /// <summary>
+        /// Assistant Settings
+        /// </summary>
+        public List<AssistantMemoryItem> AssistantMemoryList { get; set; }
+        public bool AssistantIconVisible { get; set; }
+        public string AssistantUsername { get; set; }
+        public string AssistantPassword { get; set; }
+        public bool AssistantTTS { get; set; }
+        public bool ExecuteAssistantCommands { get; set; }
+        public bool AssistantProMode { get; set; }
+
         /// <summary>
         /// version information used to determine if the version changed (updates)
         /// </summary>
@@ -35,10 +50,13 @@ namespace WinLaunch
         #endregion
 
         public double IconSize { get; set; }
+        public bool ShowItemIconText { get; set; }
+        public bool ShowFolderIconText { get; set; }
 
         public bool ExtensionIconVisible { get; set; }
         public bool SearchBarVisible { get; set; }
         public bool PageIndicatorsVisible { get; set; }
+        
 
         /// <summary>
         /// When enabled will only allow movement of items while in wiggle mode (after holding an item for 2s)
@@ -127,6 +145,8 @@ namespace WinLaunch
 
         public bool GamepadActivation { get; set; }
 
+        public bool VoiceActivation { get; set; }
+
         /// <summary>
         /// Construct a new Settings object
         /// </summary>
@@ -148,10 +168,21 @@ namespace WinLaunch
             CheckForUpdates = true;
             UpdateSilently = false;
 
+            WatchForDesktopLinks = true;
+            DeleteDesktopLinksAfterAdding = false;
+
             IconSize = 1.4;
+            ShowItemIconText = true;
+            ShowFolderIconText = true;
+
             ExtensionIconVisible = true;
             SearchBarVisible = true;
             PageIndicatorsVisible = true;
+
+            AssistantMemoryList = new List<AssistantMemoryItem>();
+            AssistantIconVisible = true;
+            AssistantTTS = false;
+            ExecuteAssistantCommands = true;
 
             //set default settings
             Columns = 8;
@@ -186,6 +217,8 @@ namespace WinLaunch
             MiddleMouseActivation = MiddleMouseButtonAction.DoubleClicked;
 
             GamepadActivation = false;
+
+            VoiceActivation = false;
         }
 
         /// <summary>

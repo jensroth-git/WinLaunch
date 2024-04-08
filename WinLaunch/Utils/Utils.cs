@@ -12,6 +12,7 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -220,6 +221,36 @@ namespace WinLaunch
             }
 
             return DPIScale;
+        }
+
+        public static void UpdateDPIScale()
+        {
+            DPIScale = -1.0;
+            GetDPIScale();
+        }
+
+        //async WebClient DownloadString method
+        public static Task<string> DownloadStringTaskAsync(WebClient client, string url)
+        {
+            var tcs = new TaskCompletionSource<string>();
+
+            DownloadStringCompletedEventHandler completed = null;
+            completed = (sender, args) =>
+            {
+                client.DownloadStringCompleted -= completed;
+
+                if (args.Error != null)
+                    tcs.TrySetException(args.Error);
+                else if (args.Cancelled)
+                    tcs.TrySetCanceled();
+                else
+                    tcs.TrySetResult(args.Result);
+            };
+
+            client.DownloadStringCompleted += completed;
+            client.DownloadStringAsync(new Uri(url));
+
+            return tcs.Task;
         }
 
         public static string GetShortcutTargetFile(string shortcutFilename)

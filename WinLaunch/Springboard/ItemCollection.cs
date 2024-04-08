@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
 using System.Xml.Serialization;
+using KTrie;
 
 namespace WinLaunch
 {
@@ -270,7 +274,7 @@ namespace WinLaunch
 
             foreach (SBItem item in Items)
             {
-                ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Keywords, item.Arguments, item.RunAsAdmin, item.IsFolder, item.ShowMiniatures);
+                ICItem NewItem = new ICItem(item.GridIndex, item.Page, item.ApplicationPath, item.IconPath, item.Name, item.Keywords, item.Notes, item.Arguments, item.RunAsAdmin, item.IsFolder, item.ShowMiniatures);
                 ItemList.Add(NewItem);
 
                 if (item.IsFolder)
@@ -293,7 +297,7 @@ namespace WinLaunch
                     SBItem SBitem;
                     if (item.IsFolder)
                     {
-                        SBitem = new SBItem(item.Name, item.Keywords, item.Application, item.IconPath, item.Arguments, SBItem.FolderIcon);
+                        SBitem = new SBItem(item.Name, item.Keywords, item.Notes, item.Application, item.IconPath, item.Arguments, SBItem.FolderIcon);
                         SBitem.IsFolder = item.IsFolder;
                         SBitem.ShowMiniatures = item.ShowMiniatures;
                     }
@@ -301,7 +305,7 @@ namespace WinLaunch
                     {
                         //use Loading image first
                         BitmapSource bmps = SBItem.LoadingImage;
-                        SBitem = new SBItem(item.Name, item.Keywords, item.Application, item.IconPath, item.Arguments, bmps);
+                        SBitem = new SBItem(item.Name, item.Keywords, item.Notes, item.Application, item.IconPath, item.Arguments, bmps);
                         SBitem.RunAsAdmin = item.RunAsAdmin;
                     }
 
@@ -324,6 +328,127 @@ namespace WinLaunch
                 catch { }
             }
         }
+
+        public AssistantItem ConstructAssistantItem(SBItem item)
+        {
+            string type;
+
+            if (Uri.IsWellFormedUriString(item.ApplicationPath, UriKind.Absolute))
+            {
+                type = "weblink";
+            }
+            else
+            {
+                type = Path.GetExtension(item.ApplicationPath);
+            }
+
+            return new AssistantItem() { Name = item.Name, Type = type, Keywords = item.Keywords, Notes = item.Notes };
+        }
+
+        public List<AssistantItem> BuildAssistantItems()
+        {
+            List<AssistantItem> items = new List<AssistantItem>();
+
+            foreach (var item in Items)
+            {
+                if (item.IsFolder)
+                {
+                    AssistantItem folder = new AssistantItem();
+                    folder.Name = item.Name;
+                    folder.Type = "folder";
+                    folder.Notes = item.Notes;
+                    folder.Items = new List<AssistantItem>();
+
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        folder.Items.Add(ConstructAssistantItem(subItem));
+                    }
+
+                    items.Add(folder);
+                }
+                else
+                {
+                    items.Add(ConstructAssistantItem(item));
+                }
+            }
+
+            return items;
+        }
+
+        List<string> GetItemGrammarTokens(SBItem item)
+        {
+            List<string> tokens = new List<string>();
+
+            tokens.AddRange(item.Name.Split(' '));
+            tokens.AddRange(item.Keywords.Split(' '));
+
+            return tokens;
+        }
+
+        public string[] BuildItemGrammar()
+        {
+            List<string> grammar = new List<string>();
+
+            foreach (var item in Items)
+            {
+                if (item.IsFolder)
+                {
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        grammar.AddRange(GetItemGrammarTokens(subItem));
+                    }
+                }
+                else
+                {
+                    grammar.AddRange(GetItemGrammarTokens(item));
+                }
+            }
+
+            for (int i = 0; i < grammar.Count; i++)
+            {
+                grammar[i] = grammar[i].ToLower();
+            }
+
+            var uniqueGrammar = new HashSet<string>(grammar.ToArray());
+            uniqueGrammar.Remove(" ");
+            uniqueGrammar.Remove("");
+
+            string[] finalGrammar = new string[uniqueGrammar.Count];
+            uniqueGrammar.CopyTo(finalGrammar);
+
+            return finalGrammar;
+        }
+
+        //builds a trie for fast searching
+        public StringTrie<SBItem> BuildItemTrie()
+        {
+            StringTrie<SBItem> list = new StringTrie<SBItem>();
+
+            foreach (var item in Items)
+            {
+                if (item.IsFolder)
+                {
+                    foreach (var subItem in item.IC.Items)
+                    {
+                        try
+                        {
+                            list.Add(subItem.Name, subItem);
+                        }
+                        catch { }
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        list.Add(item.Name, item);
+                    }
+                    catch { }
+                }
+            }
+
+            return list;
+        }
     }
 
     //helper class used to serialize items to xml
@@ -338,6 +463,7 @@ namespace WinLaunch
 
         public string Name = "";
         public string Keywords = "";
+        public string Notes = "";
         public string Application = "";
         public string Arguments = "";
         public bool RunAsAdmin = false;
@@ -349,7 +475,7 @@ namespace WinLaunch
             Items = new List<ICItem>();
         }
 
-        public ICItem(int GridIndex, int Page, string App, string IconPath, string Name, string Keywords, string Arguments, bool RunAsAdmin, bool IsFolder, bool showMiniatures)
+        public ICItem(int GridIndex, int Page, string App, string IconPath, string Name, string Keywords, string Notes, string Arguments, bool RunAsAdmin, bool IsFolder, bool showMiniatures)
         {
             Items = new List<ICItem>();
             this.GridIndex = GridIndex;
@@ -358,6 +484,7 @@ namespace WinLaunch
             this.IconPath = IconPath;
             this.Name = Name;
             this.Keywords = Keywords;
+            this.Notes = Notes;
             this.Arguments = Arguments;
             this.RunAsAdmin = RunAsAdmin;
             this.IsFolder = IsFolder;

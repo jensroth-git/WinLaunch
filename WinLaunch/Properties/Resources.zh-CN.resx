@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>关于</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>激活</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>添加默认应用</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>自动将桌面链接添加到 WinLaunch</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>添加程序</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>参数：</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>助手</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>清除对话历史记录</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>关闭WinLaunch助手</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>正在连接...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>启用文本转语音</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>找到帐户！\r\n请输入 WinLaunch 助手的新密码</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>请输入密码</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>请输入您的 Patreon 电子邮件</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>启用助手命令执行</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>执行的命令</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>请登录</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>消息 WinLaunch 助手...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>Win启动助手</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} 不是 WinLaunch Patreon 的成员</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>重置登录</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>网上搜了一下</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>显示助手图标</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>连接时出现问题</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>您不再是 WinLaunch Patreon 的成员，\n请加入以访问 WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>今天我能为您提供什么帮助？</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>密码错误</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>你</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>背景</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>在 Patreon 上支持 WinLaunch 以获得自定义主题和其他好处</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>添加桌面链接后删除它们</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>要切换 DeskMode WinLaunch 将必须重新启动，这可能需要几秒钟时间。 </value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>通用</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>隐藏窗口</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>延迟：</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>路径：</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>赞助人</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>使用WinLaunch替代桌面</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>退出</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>您真的要添加所有默认应用程序吗？</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>您确实想要刷新所有已安装的应用程序并将缺少的应用程序添加到 WinLaunch 中吗？</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>刷新已安装的应用程序</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>移除</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>显示扩展图标</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>显示文件夹文本</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>显示项目文本</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>显示微型图标</value>
@@ -463,6 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>警告</value>
 	</data>
+
+
+
 
 
 </root>

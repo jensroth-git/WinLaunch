@@ -28,6 +28,7 @@ namespace WinLaunch
         private string ApplicationPathBackup;
         private string NameBackup;
         private string KeywordsBackup;
+        private string NotesBackup;
         private string IconPathBackup;
         private string ArgumentsBackup;
         private bool RunAsAdminBackup;
@@ -39,6 +40,7 @@ namespace WinLaunch
             ApplicationPathBackup = Item.ApplicationPath;
             NameBackup = Item.Name;
             KeywordsBackup = Item.Keywords;
+            NotesBackup = Item.Notes;
             IconPathBackup = Item.IconPath;
             ArgumentsBackup = Item.Arguments;
             RunAsAdminBackup = Item.RunAsAdmin;
@@ -51,6 +53,7 @@ namespace WinLaunch
             Item.ApplicationPath = ApplicationPathBackup;
             Item.Name = NameBackup;
             Item.Keywords = KeywordsBackup;
+            Item.Notes = NotesBackup;
             Item.IconPath = IconPathBackup;
             Item.Arguments = ArgumentsBackup;
             Item.RunAsAdmin = RunAsAdminBackup;
@@ -195,6 +198,7 @@ namespace WinLaunch
 
             this.NameBox.Text = Item.Name;
             this.KeywordsBox.Text = Item.Keywords;
+            this.AssistantNotesBox.Text = Item.Notes;
 
             string filepath = Item.ApplicationPath;
 
@@ -256,19 +260,22 @@ namespace WinLaunch
 
         private void ConfirmClicked(object sender, RoutedEventArgs e)
         {
+            this.ActiveItem.Name = NameBox.Text;
+            this.ActiveItem.Notes = AssistantNotesBox.Text;
+
             if (this.ActiveItem.IsFolder)
             {
-                this.ActiveItem.Name = NameBox.Text;
-                this.ShowMiniaturesBackup = (bool)cbShowMiniatures.IsChecked;
+                this.ActiveItem.ShowMiniatures = (bool)cbShowMiniatures.IsChecked;
             }
             else
             {
-                this.ActiveItem.Name = NameBox.Text;
                 this.ActiveItem.Keywords = KeywordsBox.Text;
+
                 this.ActiveItem.ApplicationPath = PathBox.Text;
                 this.ActiveItem.Arguments = ArgumentsBox.Text;
                 this.ActiveItem.RunAsAdmin = (bool)cbAdmin.IsChecked;
             }
+
 
             this.ActiveItem.UpdateIcon();
 
@@ -277,14 +284,15 @@ namespace WinLaunch
                 this.ActiveItem.UpdateFolderIcon();
             }
 
-           
-
+            this.DialogResult = true;
             this.Close();
         }
 
         private void CancelClicked(object sender, RoutedEventArgs e)
         {
             RestoreBackup(this.ActiveItem);
+
+            this.DialogResult = false;
             this.Close();
         }
 

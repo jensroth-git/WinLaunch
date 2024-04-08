@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  		<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>אודות</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>הפעלה</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>הוסף אפליקציות ברירת מחדל</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>הוסף קישורים לשולחן העבודה באופן אוטומטי ל-WinLaunch</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>הוסף קובץ</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>טיעונים:</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>עוֹזֵר</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>נקה היסטוריית שיחות</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>סגור את WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>מְקַשֵׁר...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>אפשר טקסט לדיבור</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>נמצא חשבון!\r\nאנא הזן סיסמה חדשה עבור ה-WinLaunch Assistant שלך</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>הכנס סיסמא בבקשה</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>אנא הזן את הדואר האלקטרוני של Patreon שלך</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>אפשר ביצוע פקודת Assistant</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>הפקודה בוצעה</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>אנא התחבר</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>שלח הודעה ל-WinLaunch Assistant...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} אינו חבר ב-WinLaunch Patreon</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>אפס התחברות</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>חיפש באינטרנט</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>הצג סמל עוזר</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>בעיה בחיבור</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>אינך חבר יותר ב-WinLaunch Patreon,\nנא הצטרף כדי לגשת ל-WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>איך אני יכול לעזור לך היום?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>סיסמה שגויה</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>אתה</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>טפט</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>תמכו ב-WinLaunch ב-Patreon כדי לקבל גישה לנושאים מותאמים אישית ולהטבות אחרות</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>מחק קישורים לשולחן העבודה לאחר הוספתם</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>כדי להחליף מצב שולחן עבודה יהיה צורך להפעיל את WinLaunch מחדש, זה עלול לקחת מספר שניות.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>כללי</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>הסתר חלון</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>לְעַכֵּב:</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>נתיב:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>פטרונים</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>הצמד את WinLaunch לשולחן העבודה</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>יציאה</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>האם אתה באמת רוצה להוסיף את כל אפליקציות ברירת המחדל?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>האם אתה באמת רוצה לרענן את כל האפליקציות המותקנות ולהוסיף את החסרות ל-WinLaunch?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>רענן אפליקציות מותקנות</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>מחק</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>הצג את סמל הרחבה</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>הצג טקסט של תיקייה</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>הצג טקסט של פריט</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>הצג סמלים מיניאטוריים</value>
@@ -463,6 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>אזהרה</value>
 	</data>
+
+
+
 
 
 </root>

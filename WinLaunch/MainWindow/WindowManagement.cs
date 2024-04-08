@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Forms.VisualStyles;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Threading;
 
 namespace WinLaunch
 {
@@ -122,9 +123,32 @@ namespace WinLaunch
         }
 
         bool ShowDesktopActivated = false;
-        
+
+        #region Horizontal scroll
         const int WM_MOUSEHWHEEL = 0x020E;
-        
+        DispatcherTimer HorizontalScrollPageChangeTimer;
+        bool HorizontalScrollLocked = false;
+
+        private void InitHorizontalScrollPageChangeTimer()
+        {
+            HorizontalScrollPageChangeTimer = new DispatcherTimer();
+            HorizontalScrollPageChangeTimer.Interval = TimeSpan.FromMilliseconds(600);
+            HorizontalScrollPageChangeTimer.Tick += HorizontalScrollPageChangeTimer_Tick;
+        }
+
+        private void HorizontalScrollPageChangeTimer_Tick(object sender, EventArgs e)
+        {
+            HorizontalScrollLocked = false;
+        }
+
+        private void JustScrolledHorizontally()
+        {
+            HorizontalScrollLocked = true;
+            HorizontalScrollPageChangeTimer.Stop();
+            HorizontalScrollPageChangeTimer.Start();
+        }
+        #endregion
+
         private static int HIWORD(IntPtr ptr)
         {
             unchecked
@@ -147,6 +171,9 @@ namespace WinLaunch
             if (hwndSource != null)
             {
                 hwndSource.AddHook(new HwndSourceHook(this.hwndSourceHook));
+
+                //init horizontal scroll timer
+                InitHorizontalScrollPageChangeTimer();
             }
         }
 
@@ -185,17 +212,19 @@ namespace WinLaunch
                 }
             }
 
-            if(msg == WM_MOUSEHWHEEL)
+            if (msg == WM_MOUSEHWHEEL && !HorizontalScrollLocked)
             {
                 int tilt = (short)HIWORD(wParam);
 
-                if(tilt > 10)
+                if (tilt >= 10)
                 {
                     SBM.SP.FlipPageRight();
+                    JustScrolledHorizontally();
                 }
-                else if (tilt < -10)
+                else if (tilt <= -10)
                 {
                     SBM.SP.FlipPageLeft();
+                    JustScrolledHorizontally();
                 }
 
                 return (IntPtr)1;
@@ -414,6 +443,8 @@ namespace WinLaunch
 
         Thread KeepWindowVisibleThread;
 
+        DispatcherTimer UpdateDeskModeRectTimer;
+
         System.Drawing.Point topLeftCorner;
 
         // Delegate to filter which windows to include 
@@ -426,6 +457,9 @@ namespace WinLaunch
         {
             if (KeepWindowVisibleThread != null)
                 KeepWindowVisibleThread.Abort();
+
+            if (UpdateDeskModeRectTimer != null)
+                UpdateDeskModeRectTimer.Stop();
 
             KeepWindowVisibleThread = new Thread(new ThreadStart(new Action(() =>
             {
@@ -460,6 +494,23 @@ namespace WinLaunch
             })));
 
             KeepWindowVisibleThread.Start();
+
+            UpdateDeskModeRectTimer = new DispatcherTimer();
+            UpdateDeskModeRectTimer.Interval = TimeSpan.FromMilliseconds(5000);
+            UpdateDeskModeRectTimer.Tick += (s, e) =>
+            {
+                if (IsDesktopChild)
+                {
+                    Rect FullScreenRect = GetDeskModeRect();
+
+                    ChangeResolution(FullScreenRect.X, FullScreenRect.Y,
+                                     FullScreenRect.Width,FullScreenRect.Height,1.0);
+
+                    topLeftCorner = new System.Drawing.Point((int)FullScreenRect.X, (int)FullScreenRect.Y);
+                }
+            };
+
+            UpdateDeskModeRectTimer.Start();
         }
 
         public void MakeDesktopChildWindow()
@@ -540,7 +591,8 @@ namespace WinLaunch
             }
             else
             {
-                KeepWindowVisibleThread.Abort();
+                if (KeepWindowVisibleThread != null)
+                    KeepWindowVisibleThread.Abort();
 
                 IsDesktopChild = false;
             }
@@ -662,10 +714,21 @@ namespace WinLaunch
             MakeFullscreen();
 
             IsHidden = false;
+            JustOpened = true;
 
-            //manage selection
-            Keyboard.Focus(tbSearch);
-            SBM.UnselectItem();
+            if (AssistantActive)
+            {
+                if (currentAssistantState == AssistantState.Disconnected)
+                {
+                    TransitionAssistantState(AssistantState.Connecting);
+                }
+            }
+            else
+            {
+                //manage selection
+                Keyboard.Focus(tbSearch);
+                SBM.UnselectItem();
+            }
 
             StartFlyInAnimation();
         }
@@ -705,6 +768,12 @@ namespace WinLaunch
                     return;
 
                 RevealWindow();
+
+                //start assistant background timer
+                if (currentAssistantState == AssistantState.BackgroundHidden)
+                {
+                    TransitionAssistantState(AssistantState.Connecting);
+                }
             }
             else
             {
@@ -776,8 +845,11 @@ namespace WinLaunch
 
             DeactivateSearch();
 
-            //save items
-            PerformItemBackup();
+            //start assistant background timer
+            if (AssistantActive)
+            {
+                TransitionAssistantState(AssistantState.BackgroundHidden);
+            }
         }
     }
 }

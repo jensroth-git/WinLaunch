@@ -63,10 +63,13 @@ namespace WinLaunch
                 InitMiddleMouseButtonActivator();
                 InitWindowsKeyActivation();
                 InitDoubleKeytapActivation();
+                InitVoiceActivation();
 
                 UpdateGridSettings();
 
                 UpdateMiddleMouseButtonActivator();
+
+                UpdateDesktopWatcher();
 
                 //update bindings
                 settings = Settings.CurrentSettings;
@@ -75,6 +78,19 @@ namespace WinLaunch
             catch
             {
                 MessageBox.Show("Could not initialize some activation methods", "Winlaunch Error");
+            }
+        }
+
+        private void UpdateDesktopWatcher()
+        {
+            //init desktop watcher
+            if (Settings.CurrentSettings.WatchForDesktopLinks)
+            {
+                StartDesktopWatcher();
+            }
+            else
+            {
+                StopDesktopWatcher();
             }
         }
 
@@ -98,8 +114,11 @@ namespace WinLaunch
             UpdateMiddleMouseButtonActivator();
             UpdateWindowsKeyActivation();
             UpdateDoubleKeytapActivation();
+            UpdateVoiceActivation();
 
             UpdateGridSettings();
+
+            UpdateDesktopWatcher();
 
             //update bindings
             settings = Settings.CurrentSettings;
@@ -185,9 +204,10 @@ namespace WinLaunch
 
         private void UpdateWindowsKeyActivation()
         {
-            if (Settings.CurrentSettings.WindowsKeyActivationEnabled && !Settings.CurrentSettings.DeskMode)
+            if (Settings.CurrentSettings.WindowsKeyActivationEnabled)
             {
-                wka.StartListening();
+                if(!Settings.CurrentSettings.DeskMode)
+                    wka.StartListening();
             }
             else
             {
@@ -215,6 +235,18 @@ namespace WinLaunch
             else
             {
                 dka.StopListening();
+            }
+        }
+
+        void UpdateVoiceActivation()
+        {
+            if (Settings.CurrentSettings.VoiceActivation)
+            {
+                voiceActivation.StartListening();
+            }
+            else
+            {
+                voiceActivation.StopListening();
             }
         }
 

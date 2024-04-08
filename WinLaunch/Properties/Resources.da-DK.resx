@@ -58,14 +58,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  	<data name="About" xml:space="preserve">
+  					<data name="About" xml:space="preserve">
 		<value>Om</value>
 	</data>
 	<data name="Activation" xml:space="preserve">
 		<value>Aktivering</value>
 	</data>
-	<data name="AddDefaultApps" xml:space="preserve">
-		<value>Tilføj standardapps</value>
+	<data name="AddDesktopLinks" xml:space="preserve">
+		<value>Tilføj skrivebordslinks automatisk til WinLaunch</value>
 	</data>
 	<data name="AddFile" xml:space="preserve">
 		<value>Tilføj fil</value>
@@ -87,6 +87,72 @@
 	</data>
 	<data name="Arguments" xml:space="preserve">
 		<value>Argumenter:</value>
+	</data>
+	<data name="Assistant" xml:space="preserve">
+		<value>Assistent</value>
+	</data>
+	<data name="AssistantClearConversation" xml:space="preserve">
+		<value>Ryd samtalehistorik</value>
+	</data>
+	<data name="AssistantClose" xml:space="preserve">
+		<value>Luk WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantConnecting" xml:space="preserve">
+		<value>Tilslutning...</value>
+	</data>
+	<data name="AssistantEnableTTS" xml:space="preserve">
+		<value>Aktiver tekst til tale</value>
+	</data>
+	<data name="AssistantEnterNewPassword" xml:space="preserve">
+		<value>Fundet konto!\r\nIndtast venligst en ny adgangskode til din WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantEnterPassword" xml:space="preserve">
+		<value>Indtast venligst en adgangskode</value>
+	</data>
+	<data name="AssistantEnterPatreonEmail" xml:space="preserve">
+		<value>Indtast venligst din Patreon-e-mail</value>
+	</data>
+	<data name="AssistantExecuteCommands" xml:space="preserve">
+		<value>Aktiver udførelse af Assistent-kommando</value>
+	</data>
+	<data name="AssistantExecutedCommand" xml:space="preserve">
+		<value>Udført kommando</value>
+	</data>
+	<data name="AssistantLogin" xml:space="preserve">
+		<value>Vær venlig at logge ind</value>
+	</data>
+	<data name="AssistantMessage" xml:space="preserve">
+		<value>Meddelelse WinLaunch Assistant...</value>
+	</data>
+	<data name="AssistantName" xml:space="preserve">
+		<value>WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantNoPatron" xml:space="preserve">
+		<value>{0} er ikke medlem af WinLaunch Patreon</value>
+	</data>
+	<data name="AssistantResetLogin" xml:space="preserve">
+		<value>Nulstil login</value>
+	</data>
+	<data name="AssistantSearchedWeb" xml:space="preserve">
+		<value>Søgte på nettet</value>
+	</data>
+	<data name="AssistantShowIcon" xml:space="preserve">
+		<value>Vis assistentikon</value>
+	</data>
+	<data name="AssistantTroubleConnecting" xml:space="preserve">
+		<value>Problemer med at oprette forbindelse</value>
+	</data>
+	<data name="AssistantUnfollowed" xml:space="preserve">
+		<value>Du er ikke medlem af WinLaunch Patreon længere,\ntilmeld dig for at få adgang til WinLaunch Assistant</value>
+	</data>
+	<data name="AssistantWelcomeMessage" xml:space="preserve">
+		<value>Hvordan kan jeg hjælpe dig i dag?</value>
+	</data>
+	<data name="AssistantWrongPassword" xml:space="preserve">
+		<value>forkert kodeord</value>
+	</data>
+	<data name="AssistantYou" xml:space="preserve">
+		<value>Du</value>
 	</data>
 	<data name="Background" xml:space="preserve">
 		<value>Baggrund</value>
@@ -172,6 +238,9 @@
 	<data name="CustomThemes" xml:space="preserve">
 		<value>Støt WinLaunch på Patreon for at få adgang til brugerdefinerede temaer og andre fordele</value>
 	</data>
+	<data name="DeleteDesktopLinks" xml:space="preserve">
+		<value>Slet skrivebordslinks, når du har tilføjet dem</value>
+	</data>
 	<data name="DeskModeSwitch" xml:space="preserve">
 		<value>For at skifte DeskMode kræves det at WinLaunch genstartes, dette kan tage et par sekunder.</value>
 	</data>
@@ -234,6 +303,9 @@
 	</data>
 	<data name="General" xml:space="preserve">
 		<value>Generelt</value>
+	</data>
+	<data name="HideWindow" xml:space="preserve">
+		<value>Skjul vindue</value>
 	</data>
 	<data name="HotCornerDelay" xml:space="preserve">
 		<value>Forsinke:</value>
@@ -334,6 +406,9 @@
 	<data name="Path" xml:space="preserve">
 		<value>Sti:</value>
 	</data>
+	<data name="Patrons" xml:space="preserve">
+		<value>Lånere</value>
+	</data>
 	<data name="PinDesktop" xml:space="preserve">
 		<value>Fastgør WinLaunch til skrivebordet</value>
 	</data>
@@ -346,8 +421,11 @@
 	<data name="Quit" xml:space="preserve">
 		<value>Afslut</value>
 	</data>
-	<data name="ReallyAddDefaultApps" xml:space="preserve">
-		<value>Vil du virkelig tilføje alle standardapps?</value>
+	<data name="ReallyRefreshInstalledApps" xml:space="preserve">
+		<value>Vil du virkelig opdatere alle installerede apps og tilføje manglende til WinLaunch?</value>
+	</data>
+	<data name="RefreshInstalledApps" xml:space="preserve">
+		<value>Opdater installerede apps</value>
 	</data>
 	<data name="Remove" xml:space="preserve">
 		<value>Fjern</value>
@@ -390,6 +468,12 @@
 	</data>
 	<data name="ShowExtensionIcon" xml:space="preserve">
 		<value>Vis udvidelsesikon</value>
+	</data>
+	<data name="ShowFolderText" xml:space="preserve">
+		<value>Vis mappetekst</value>
+	</data>
+	<data name="ShowItemText" xml:space="preserve">
+		<value>Vis emnetekst</value>
 	</data>
 	<data name="ShowMiniatures" xml:space="preserve">
 		<value>Vis miniatureikoner</value>
@@ -463,5 +547,9 @@
 	<data name="Warning" xml:space="preserve">
 		<value>Advarsel</value>
 	</data>
+
+
+
+
 
 </root>

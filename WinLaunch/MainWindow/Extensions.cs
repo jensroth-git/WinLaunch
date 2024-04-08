@@ -25,29 +25,30 @@ namespace WinLaunch
             //activate extension
             EditItem EditItemDialog = new EditItem(this, Item);
             EditItemDialog.Owner = this;
-            EditItemDialog.ShowDialog();
-
-            //rerender item
-            if (Item.IsFolder)
+            if ((bool)EditItemDialog.ShowDialog())
             {
-                if (SBM.FolderOpen && SBM.ActiveFolder == Item)
+                //rerender item
+                if (Item.IsFolder)
                 {
-                    //Update FolderTitle
-                    if(Theme.CurrentTheme.UseVectorFolder)
+                    if (SBM.FolderOpen && SBM.ActiveFolder == Item)
                     {
-                        FolderTitle.Text = Item.Name;
-                    }
-                    else
-                    {
-                        FolderTitleNew.Text = Item.Name;
+                        //Update FolderTitle
+                        if (Theme.CurrentTheme.UseVectorFolder)
+                        {
+                            FolderTitle.Text = Item.Name;
+                        }
+                        else
+                        {
+                            FolderTitleNew.Text = Item.Name;
+                        }
                     }
                 }
+
+                TriggerSaveItemsDelayed();
+                TriggerUpdateAssistantItemsTimer();
             }
 
-            PerformItemBackup();
-
             //end extension
-            EditExtensionActive = false;
             SBM.ExtensionActive = false;
             SBM.LockItems = false;
 
@@ -105,9 +106,16 @@ namespace WinLaunch
                 };
 
                 ExtensionsToggleRotation.BeginAnimation(RotateTransform.AngleProperty, toggleanim);
+
+                if (!AssistantActive)
+                {
+                    //make page counters visible again 
+                    PageCounterWrap.Visibility = Visibility.Visible;
+                }
             }
             else
             {
+                //make visible
                 extensionBarVisible = true;
                 DoubleAnimation anim = new DoubleAnimation()
                 {
@@ -127,6 +135,10 @@ namespace WinLaunch
                 };
 
                 ExtensionsToggleRotation.BeginAnimation(RotateTransform.AngleProperty, toggleanim);
+
+
+                //hide page dots 
+                PageCounterWrap.Visibility = Visibility.Collapsed;
             }
         }
 

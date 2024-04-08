@@ -58,6 +58,12 @@ namespace WinLaunch
             slIconSize.ValueChanged += UpdateIconSize;
             slIconShadowOpacity.ValueChanged += UpdateIconShadows;
 
+            cbShowItemIconText.Checked += CbShowIconText_CheckedChange;
+            cbShowItemIconText.Unchecked += CbShowIconText_CheckedChange;
+
+            cbShowFolderIconText.Checked += CbShowIconText_CheckedChange;
+            cbShowFolderIconText.Unchecked += CbShowIconText_CheckedChange;
+
             cpIconTextColor.SelectedColorChanged += UpdateIconColors;
             cpIconTextShadowColor.SelectedColorChanged += UpdateIconColors;
 
@@ -426,6 +432,12 @@ namespace WinLaunch
             //update ui
             mainWindow.SBM.UpdateIcons();
         }
+
+        private void CbShowIconText_CheckedChange(object sender, RoutedEventArgs e)
+        {
+            //update ui
+            mainWindow.SBM.UpdateIcons();
+        }
         #endregion
 
         #region Background
@@ -438,6 +450,8 @@ namespace WinLaunch
                 theme.UseAeroBlur = false;
             }
 
+            cbEnableAcrylic.IsEnabled = theme.UseAeroBlur;
+            slBackgroundTint.IsEnabled = theme.UseAeroBlur;
             spBackgroundImageOptions.IsEnabled = !theme.UseAeroBlur;
         }
 
@@ -572,7 +586,7 @@ namespace WinLaunch
         #region Patreon
         private void InitPatrons()
         {
-            tblPatrons.Text = "Nano Nutrino\r\nJarrod K.\r\nSam K.\r\nFreddy G.\r\nTowiWakka\r\nEdvard E.\r\nThomas H.\r\n";
+            tblPatrons.Text = "Nano Nutrino\r\nJarrod K.\r\nSam K.\r\nFreddy G.\r\nTowiWakka\r\nKen C.\r\nEdvard E.\r\nMega Unix\r\nThomas H.\r\n";
         }
 
         private void runPatreon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -671,9 +685,21 @@ namespace WinLaunch
                 }
             }
         }
+        #endregion
 
+        #region Assistant
+        private void btnResetAssistantLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //reset login information
+            Settings.CurrentSettings.AssistantUsername = null;
+            Settings.CurrentSettings.AssistantPassword = null;
 
+            Settings.SaveSettings(Settings.CurrentSettings);
 
+            mainWindow.NewAssistantSession();
+
+            MessageBox.Show("Assistant Login has been reset");
+        }
         #endregion
     }
 }

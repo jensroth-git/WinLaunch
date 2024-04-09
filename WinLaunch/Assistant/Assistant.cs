@@ -599,10 +599,27 @@ namespace WinLaunch
                 }));
             });
 
-            await AssistantClient.ConnectAsync();
-            //send output back
-           
+            AssistantClient.On("add_calendar_event", args =>
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    try
+                    {
+                        icAssistantContent.Items.Add(new AssistantAddedCalendarEvent()
+                        {
+                            Text = TranslationSource.Instance["AssistantAddedCalendarEvent"],
+                        });
 
+
+                        MovePendingIndicatorToBottom();
+                        scvAssistant.ScrollToBottom();
+
+                        AssistantDelayClose = false;
+                    }
+                    catch { }
+                }));
+            });
+            await AssistantClient.ConnectAsync();
         }
 
         private string ExecuteProcessAndGetOutput(string file, string parameters)

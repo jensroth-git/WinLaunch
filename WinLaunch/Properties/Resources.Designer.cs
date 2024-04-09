@@ -160,6 +160,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calendar event added.
+        /// </summary>
+        internal static string AssistantAddedCalendarEvent {
+            get {
+                return ResourceManager.GetString("AssistantAddedCalendarEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear conversation history.
         /// </summary>
         internal static string AssistantClearConversation {

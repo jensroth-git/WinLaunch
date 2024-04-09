@@ -1,6 +1,7 @@
 ﻿using SocketIOClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
@@ -526,6 +527,7 @@ namespace WinLaunch
             {
                 Dispatcher.BeginInvoke(new Action(async () =>
                 {
+                    string output = string.Empty;
                     try
                     {
                         string file = args.GetValue<string>();
@@ -544,9 +546,8 @@ namespace WinLaunch
                         {
                             try
                             {
-                                System.Diagnostics.Process.Start(file, parameters);
-
-                                await args.CallbackAsync(true);
+                                output = ExecuteProcessAndGetOutput(file, parameters);
+                                await args.CallbackAsync(output);
                             }
                             catch (Exception ex)
                             {
@@ -599,6 +600,36 @@ namespace WinLaunch
             });
 
             await AssistantClient.ConnectAsync();
+            //send output back
+           
+
+        }
+
+        private string ExecuteProcessAndGetOutput(string file, string parameters)
+        {
+            string output = string.Empty;
+            parameters += " && exit";
+            using (Process process = new Process())
+            {
+                process.StartInfo.FileName = file;
+                process.StartInfo.Arguments = parameters;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+
+                process.StartInfo.CreateNoWindow = true; // Do not create the black window
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; // Hides the window
+
+                process.Start();
+
+                output = process.StandardOutput.ReadToEnd();
+
+                if (!process.WaitForExit(1)) // Wait for the process to exit with a timeout.
+                {
+                    process.Kill(); // Forcefully kill the process if it doesn't exit in time.
+                }
+            }
+
+            return output;
         }
 
         public void InitAssistant()

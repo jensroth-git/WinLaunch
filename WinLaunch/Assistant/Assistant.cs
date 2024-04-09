@@ -239,7 +239,39 @@ namespace WinLaunch
                 catch { }
             });
 
-            AssistantClient.On("msg", message =>
+            AssistantClient.On("msg_stream_update", messagePart =>
+            {
+                Dispatcher.BeginInvoke(new Action(async () =>
+                {
+                    try
+                    {
+                        var element = GetLastActualAssistantMessage();
+
+                        if (element is AssistantMessageTextContent)
+                        {
+                            //update text
+                            (element as AssistantMessageTextContent).Text += messagePart.GetValue<string>();
+                        }
+                        else
+                        {
+                            if (!(element is AssistantMessageHeader))
+                            {
+                                icAssistantContent.Items.Add(new AssistantMessageSpacer());
+                            }
+
+                            icAssistantContent.Items.Add(new AssistantMessageTextContent() { Text = messagePart.GetValue<string>() });
+                            icAssistantContent.Items.Add(new AssistantMessageFooter());
+
+                            MovePendingIndicatorToBottom();
+
+                            scvAssistant.ScrollToBottom();
+                        }
+                    }
+                    catch { }
+                }));
+            });
+
+            AssistantClient.On("msg_stream_end", args =>
             {
                 Dispatcher.BeginInvoke(new Action(async () =>
                 {
@@ -248,23 +280,21 @@ namespace WinLaunch
                         //if it is not an immediate response, add a spacer
                         var element = GetLastActualAssistantMessage();
 
-                        if (!(element is AssistantMessageHeader))
+                        if (element is AssistantMessageTextContent)
                         {
-                            icAssistantContent.Items.Add(new AssistantMessageSpacer());
-                        }
+                            if (Settings.CurrentSettings.AssistantTTS)
+                            {
+                                AssistantMessageTextContent message = element as AssistantMessageTextContent;
 
-                        icAssistantContent.Items.Add(new AssistantMessageTextContent() { Text = message.GetValue<string>() });
-                        icAssistantContent.Items.Add(new AssistantMessageFooter());
+                                assistantSpeech.SpeakAsyncCancelAll();
+                                assistantSpeech.SpeakAsync(message.Text);
+                            }
+                        }
 
                         AssistantResponsePending = false;
                         RemovePendingIndicator();
                         scvAssistant.ScrollToBottom();
 
-                        if (Settings.CurrentSettings.AssistantTTS)
-                        {
-                            assistantSpeech.SpeakAsyncCancelAll();
-                            assistantSpeech.SpeakAsync(message.GetValue<string>());
-                        }
 
                         if (AssistantDelayClose)
                         {
@@ -475,7 +505,7 @@ namespace WinLaunch
                     try
                     {
                         String searchRequest = query.GetValue<string>();
-                        System.Diagnostics.Process.Start("http://www.google.com.au/search?q=" + System.Uri.EscapeDataString(searchRequest));
+                        System.Diagnostics.Process.Start("http://www.google.com/search?q=" + System.Uri.EscapeDataString(searchRequest));
 
                         icAssistantContent.Items.Add(new AssistantSearchedWeb()
                         {

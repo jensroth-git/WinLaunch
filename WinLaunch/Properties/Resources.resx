@@ -151,6 +151,9 @@
   <data name="Assistant" xml:space="preserve">
     <value>Assistant</value>
   </data>
+  <data name="AssistantAddedCalendarEvent" xml:space="preserve">
+    <value>Calendar event added</value>
+  </data>
   <data name="AssistantClearConversation" xml:space="preserve">
     <value>Clear conversation history</value>
   </data>

@@ -649,7 +649,7 @@ namespace WinLaunch
 
         private async void RunAssistant(string prompt = "")
         {
-            if (AssistantClient == null || !AssistantClient.Connected)
+            if (AssistantClient == null || !AssistantClient.Connected || AssistantResponsePending)
             {
                 TransitionAssistantState(AssistantState.Connecting);
                 return;
@@ -709,11 +709,11 @@ namespace WinLaunch
             //        return;
             //    }
 
-            if (AssistantResponsePending)
-            {
-                e.Handled = true;
-                return;
-            }
+            //if (AssistantResponsePending)
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
 
             if (e.KeyboardDevice.IsKeyDown(Key.LeftShift))
             {
@@ -729,10 +729,15 @@ namespace WinLaunch
             {
                 if (e.Key == Key.Return)
                 {
+                    if (!AssistantResponsePending)
+                    {
                     RunAssistant();
                     e.Handled = true;
+                    else
                     return;
                 }
+                }
+
             }
         }
 

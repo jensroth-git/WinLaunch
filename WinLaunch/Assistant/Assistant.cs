@@ -733,7 +733,11 @@ namespace WinLaunch
                     {
                     RunAssistant();
                     e.Handled = true;
+                        return;
+                    }
                     else
+                    {
+                        e.Handled = true;
                     return;
                 }
                 }

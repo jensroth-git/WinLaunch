@@ -16,7 +16,7 @@ namespace WinLaunch
     partial class MainWindow : Window
     {
         string PasswordEncryptionKey = "oDuh7NN3Kw7EqEFv0FrRCJTKZizzmUz7FGjsRojGSN4=";
-        string AssistantURL = "http://localhost:3000";
+        string AssistantURL = "http://localhost:3001";
         //string AssistantURL = "http://assistant.winlaunch.org:3000";
     }
 }

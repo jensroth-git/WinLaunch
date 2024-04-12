@@ -19,15 +19,8 @@ namespace WinLaunch
             Unopened,
 
             //no credentials saved in settings
-            //displays a message telling the user that they are not registered
-            //and a textbox where they can enter their patreon email
-            Register,
-
-            //Server found user on Patreon but there is no password stored yet
-            SetPassword,
-
-            //Server found user on Patreon and there is a password set
-            EnterPassword,
+            //displays a message telling the user that they have to login
+            Login,
 
             //displays a connecting animation
             Connecting,
@@ -53,7 +46,6 @@ namespace WinLaunch
             ManualReconnectRequired
         }
 
-        AssistantTier currentTier = AssistantTier.Basic;
         AssistantState currentAssistantState = AssistantState.Unopened;
 
         DispatcherTimer assistantBackgroundTimer;
@@ -75,46 +67,23 @@ namespace WinLaunch
                     string.IsNullOrEmpty(Settings.CurrentSettings.AssistantPassword))
                 {
                     //username or password not stored in settings
-                    TransitionAssistantState(AssistantState.Register);
+                    TransitionAssistantState(AssistantState.Login);
                     return;
                 }
             }
 
-            if (newState == AssistantState.Register)
+            if (newState == AssistantState.Login)
             {
                 ShowAssistantUI();
                 HideAssistantUIPanels();
 
                 //display registration UI
-                spAssistantEnterUsername.Visibility = Visibility.Visible;
-            }
-            else if (newState == AssistantState.SetPassword)
-            {
-                ShowAssistantUI();
-                HideAssistantUIPanels();
+                spAssistantLogin.Visibility = Visibility.Visible;
 
-                //display registration UI
-                tblPasswordInstructions.Text = TranslationSource.Instance["AssistantEnterNewPassword"].Replace("\\r\\n", Environment.NewLine);
-                spAssistantEnterPassword.Visibility = Visibility.Visible;
-
-                if(!string.IsNullOrEmpty(tbxAssistantPassword.Password))
+                if (!string.IsNullOrEmpty(tbxAssistantPassword.Password))
                     tbxAssistantPassword.Clear();
 
-                Keyboard.Focus(tbxAssistantPassword);
-            }
-            else if (newState == AssistantState.EnterPassword)
-            {
-                ShowAssistantUI();
-                HideAssistantUIPanels();
-
-                //display authentication UI
-                tblPasswordInstructions.Text = TranslationSource.Instance["AssistantLogin"];
-                spAssistantEnterPassword.Visibility = Visibility.Visible;
-
-                if(!string.IsNullOrEmpty(tbxAssistantPassword.Password))
-                    tbxAssistantPassword.Clear();
-
-                Keyboard.Focus(tbxAssistantPassword);
+                Keyboard.Focus(tbxAssistantEmail);
             }
             else if (newState == AssistantState.Connecting)
             {

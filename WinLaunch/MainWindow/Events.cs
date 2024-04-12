@@ -617,14 +617,13 @@ namespace WinLaunch
             }
             else
             {
-                if(currentAssistantState == AssistantState.Register)
+                if (currentAssistantState == AssistantState.Login)
                 {
-                    Keyboard.Focus(tbxAssistantPatreonEmail);
-                }
-                else if(currentAssistantState == AssistantState.EnterPassword ||
-                        currentAssistantState == AssistantState.SetPassword)
-                {
-                    Keyboard.Focus(tbxAssistantPassword);
+                    if (JustOpened)
+                    { 
+                        Keyboard.Focus(tbxAssistantEmail);
+                        JustOpened = false;
+                    }
                 }
                 else
                 {

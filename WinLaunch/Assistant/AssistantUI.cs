@@ -379,6 +379,10 @@ namespace WinLaunch
         public string Args { get; set; }
     }
 
+    public class AssistantItemsListed : DependencyObject
+    {
+    }
+
     partial class MainWindow : Window
     {
         #region ModeSwitcher
@@ -386,17 +390,6 @@ namespace WinLaunch
 
         public void InitializeAssistantModeSwitcher()
         {
-            if (currentTier == AssistantTier.Basic)
-            {
-                imProModeIcon.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/assistant/locked.png"));
-                SetMode(pro: false);
-
-                return;
-            }
-
-
-            imProModeIcon.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/assistant/pro.png"));
-
             SetMode(pro: Settings.CurrentSettings.AssistantProMode);
         }
 
@@ -448,12 +441,6 @@ namespace WinLaunch
 
         private void tblModePro_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (currentTier == AssistantTier.Basic)
-            {
-                MessageBox.Show("Please upgrade your Patreon pledge to use Pro mode");
-                return;
-            }
-
             SetMode(pro: true);
         }
         #endregion
@@ -476,10 +463,7 @@ namespace WinLaunch
             scvAssistant.Visibility = Visibility.Hidden;
 
             //the enter username UI 
-            spAssistantEnterUsername.Visibility = Visibility.Hidden;
-
-            //the enter password UI
-            spAssistantEnterPassword.Visibility = Visibility.Hidden;
+            spAssistantLogin.Visibility = Visibility.Hidden;
 
             //the connecting animation UI
             spAssistantConnecting.Visibility = Visibility.Hidden;

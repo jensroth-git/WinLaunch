@@ -1,6 +1,7 @@
 ﻿using SocketIOClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using EncryptionUtils;
 
 namespace WinLaunch
 {
@@ -31,10 +33,6 @@ namespace WinLaunch
 
     partial class MainWindow : Window
     {
-        //string AssistantURL = "http://localhost:3000";
-        string AssistantURL = "http://assistant.winlaunch.org:3000";
-
-
         bool AssistantActive = false;
         bool AssistantDelayClose = false;
         bool AssistantResponsePending = false;
@@ -142,12 +140,27 @@ namespace WinLaunch
             if (AssistantClient != null && AssistantClient.Connected)
                 return;
 
+            string password = null;
+
+            if (Settings.CurrentSettings.AssistantPassword != null)
+            {
+                try
+                {
+                    password = EncryptionUtils.AesOperation.DecryptString(PasswordEncryptionKey, Settings.CurrentSettings.AssistantPassword);
+                }
+                catch
+                {
+                    TransitionAssistantState(AssistantState.Login);
+                    return;
+                }
+            }
+
             AssistantClient = new SocketIOClient.SocketIO(AssistantURL, new SocketIOOptions
             {
                 Query = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("username", Settings.CurrentSettings.AssistantUsername),
-                    new KeyValuePair<string, string>("password", Settings.CurrentSettings.AssistantPassword),
+                    new KeyValuePair<string, string>("password", password),
                     new KeyValuePair<string, string>("version", Settings.CurrentSettings.version.ToString())
                 }
             });
@@ -177,17 +190,7 @@ namespace WinLaunch
                     Settings.SaveSettings(Settings.CurrentSettings);
 
                     //will be disconnected shortly
-                    TransitionAssistantState(AssistantState.Register);
-                }));
-            });
-
-            AssistantClient.On("unfollowed", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    MessageBox.Show(TranslationSource.Instance["AssistantUnfollowed"]);
-
-                    TransitionAssistantState(AssistantState.ManualReconnectRequired);
+                    TransitionAssistantState(AssistantState.Login); 
                 }));
             });
 
@@ -210,7 +213,6 @@ namespace WinLaunch
                 try
                 {
                     string username = args.GetValue<string>();
-                    string rewardTier = args.GetValue<string>(1);
 
                     //send memory
                     await AssistantClient.EmitAsync("set_memory", Settings.CurrentSettings.AssistantMemoryList);
@@ -222,15 +224,6 @@ namespace WinLaunch
                     {
                         //clear old chat messages since this is a new session
                         ClearAssistantChat();
-
-                        if (rewardTier == "Free")
-                        {
-                            currentTier = AssistantTier.Basic;
-                        }
-                        else
-                        {
-                            currentTier = AssistantTier.Pro;
-                        }
 
                         InitializeAssistantModeSwitcher();
 
@@ -610,6 +603,23 @@ namespace WinLaunch
                             Text = TranslationSource.Instance["AssistantAddedCalendarEvent"],
                         });
 
+                        MovePendingIndicatorToBottom();
+                        scvAssistant.ScrollToBottom();
+
+                        AssistantDelayClose = false;
+                    }
+                    catch { }
+                }));
+            });
+
+
+            AssistantClient.On("items_listed", query =>
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    try
+                    {
+                        icAssistantContent.Items.Add(new AssistantItemsListed());
 
                         MovePendingIndicatorToBottom();
                         scvAssistant.ScrollToBottom();
@@ -619,9 +629,11 @@ namespace WinLaunch
                     catch { }
                 }));
             });
+
             await AssistantClient.ConnectAsync();
         }
 
+        //TODO: run threaded to not block the UI thread
         private string ExecuteProcessAndGetOutput(string file, string parameters)
         {
             string output = string.Empty;
@@ -809,135 +821,28 @@ namespace WinLaunch
             e.Handled = true;
         }
 
-        //set username
-        string attemptedSetUsername;
-        bool checkUsernameActive = false;
-        async void AttemptSetAssistantUsername()
+        //login
+        async void SetAssistantLogin()
         {
-            if (checkUsernameActive)
-                return;
+            string username = tbxAssistantEmail.Text;
+            string password = tbxAssistantPassword.Password;
 
-            try
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                if (string.IsNullOrEmpty(tbxAssistantPatreonEmail.Text))
-                    return;
-
-                attemptedSetUsername = tbxAssistantPatreonEmail.Text.ToLower();
-
-                checkUsernameActive = true;
-                tbxAssistantPatreonEmail.IsEnabled = false;
-
-                WebClient client = new WebClient();
-
-                var str = await MiscUtils.DownloadStringTaskAsync(client, AssistantURL + "/checkUser/" + attemptedSetUsername);
-
-                if (str == "set password")
-                {
-                    //correct username but no password set yet
-                    Settings.CurrentSettings.AssistantUsername = attemptedSetUsername;
-
-                    TransitionAssistantState(AssistantState.SetPassword);
-                }
-                else if (str == "registered")
-                {
-                    //user already registered
-                    Settings.CurrentSettings.AssistantUsername = attemptedSetUsername;
-
-                    TransitionAssistantState(AssistantState.EnterPassword);
-                }
-                else
-                {
-                    MessageBox.Show(string.Format(TranslationSource.Instance["AssistantNoPatron"], attemptedSetUsername));
-                }
-            }
-            catch
-            {
-                MessageBox.Show(TranslationSource.Instance["AssistantTroubleConnecting"]);
-            }
-
-            checkUsernameActive = false;
-            tbxAssistantPatreonEmail.IsEnabled = true;
-        }
-
-        private void tbxAssistantPatreonEmail_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                AttemptSetAssistantUsername();
-
-                e.Handled = true;
-                return;
-            }
-        }
-        private void imAssistantPatreonEmailSend_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            AttemptSetAssistantUsername();
-        }
-
-
-        //set password
-        string GetPasswordHash(string username, string plainTextPassword)
-        {
-            var bytes = Encoding.UTF8.GetBytes(username.ToLower() + plainTextPassword);
-
-            HashAlgorithm algorithm = new SHA256Managed();
-
-            var passwordHashBytes = algorithm.ComputeHash(bytes);
-
-            return Convert.ToBase64String(passwordHashBytes);
-        }
-        bool checkPasswordActive = false;
-        async void HandlePasswordInput()
-        {
-            if (checkPasswordActive)
-                return;
-
-            if (string.IsNullOrEmpty(tbxAssistantPassword.Password))
-            {
-                MessageBox.Show(TranslationSource.Instance["AssistantEnterPassword"]);
+                MessageBox.Show("Please enter an email and password");
                 return;
             }
 
-            //check or set password 
-            try
-            {
-                checkPasswordActive = true;
-                tbxAssistantPassword.IsEnabled = false;
+            //encrypt password
+            password = EncryptionUtils.AesOperation.EncryptString(PasswordEncryptionKey, password);
 
-                string passwordHash = GetPasswordHash(attemptedSetUsername, tbxAssistantPassword.Password);
+            Settings.CurrentSettings.AssistantUsername = username;
+            Settings.CurrentSettings.AssistantPassword = password;
 
-                WebClient client = new WebClient();
-                client.QueryString.Add("username", attemptedSetUsername);
-                client.QueryString.Add("passwordHash", passwordHash);
+            Settings.SaveSettings(Settings.CurrentSettings);
 
-                var str = await MiscUtils.DownloadStringTaskAsync(client, AssistantURL + "/checkSetPassword");
-
-                if (str == "invalid")
-                {
-                    MessageBox.Show(TranslationSource.Instance["AssistantWrongPassword"]);
-                }
-                else if (str == "success")
-                {
-                    Settings.CurrentSettings.AssistantPassword = passwordHash;
-                    Settings.SaveSettings(Settings.CurrentSettings);
-
-                    attemptedSetUsername = null;
-
-                    TransitionAssistantState(AssistantState.Connecting);
-                }
-
-                if (str == "error")
-                {
-                    throw new Exception();
-                }
-            }
-            catch
-            {
-                MessageBox.Show(TranslationSource.Instance["Error"]);
-            }
-
-            checkPasswordActive = false;
-            tbxAssistantPassword.IsEnabled = true;
+            //transition to connecting
+            TransitionAssistantState(AssistantState.Connecting);
         }
 
         private void tbxAssistantPassword_KeyDown(object sender, KeyEventArgs e)
@@ -946,7 +851,7 @@ namespace WinLaunch
             {
                 e.Handled = true;
 
-                HandlePasswordInput();
+                SetAssistantLogin();
                 return;
             }
         }
@@ -963,7 +868,7 @@ namespace WinLaunch
         }
         private void imAssistantPasswordSend_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            HandlePasswordInput();
+            SetAssistantLogin();
         }
 
         private void imHideAssistantWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

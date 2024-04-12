@@ -230,6 +230,7 @@
     <Compile Include="ActivationMethods\DoubleKeytapActivation.cs" />
     <Compile Include="ActivationMethods\VoiceActivation.cs" />
     <Compile Include="ActivationMethods\WindowsKeyActivation.cs" />
+    <Compile Include="Assistant\AssistantConfig.cs" />
     <Compile Include="Assistant\AssistantUI.cs" />
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Darkening.cs">
@@ -271,6 +272,7 @@
     <Compile Include="Utils\BackupManager.cs" />
     <Compile Include="Utils\DesktopFileWatcher.cs" />
     <Compile Include="Utils\DoubleClickEvent.cs" />
+    <Compile Include="Utils\EncryptionUtils.cs" />
     <Compile Include="Utils\GetIcon.cs" />
     <Compile Include="Springboard\GridManager.cs" />
     <Compile Include="ActivationMethods\Hotkey.cs" />
@@ -655,14 +657,14 @@
     <Resource Include="res\assistant\pro.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="res\assistant\locked.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="res\assistant\brain.png" />
     <Resource Include="res\assistant\note.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\assistant\reconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="res\assistant\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

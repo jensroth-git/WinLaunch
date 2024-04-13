@@ -159,8 +159,8 @@ namespace WinLaunch
             {
                 Query = new List<KeyValuePair<string, string>>
                 {
-                    new KeyValuePair<string, string>("username", Settings.CurrentSettings.AssistantUsername),
-                    new KeyValuePair<string, string>("password", password),
+                    new KeyValuePair<string, string>("username", Base64Operation.Encode(Settings.CurrentSettings.AssistantUsername)),
+                    new KeyValuePair<string, string>("password", Base64Operation.Encode(password)),
                     new KeyValuePair<string, string>("version", Settings.CurrentSettings.version.ToString())
                 }
             });
@@ -172,8 +172,11 @@ namespace WinLaunch
 
             AssistantClient.OnDisconnected += (sender, e) =>
             {
-                AssistantResponsePending = false;
-                TransitionAssistantState(AssistantState.Disconnected);
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    AssistantResponsePending = false;
+                    TransitionAssistantState(AssistantState.ManualReconnectRequired);
+                }));
             };
 
             AssistantClient.On("wrong_login", message =>
@@ -181,7 +184,7 @@ namespace WinLaunch
                 //wrong login
                 Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    MessageBox.Show(TranslationSource.Instance["AssistantWrongPassword"]);
+                    //MessageBox.Show(TranslationSource.Instance["AssistantWrongPassword"]);
 
                     //reset login information
                     Settings.CurrentSettings.AssistantUsername = null;
@@ -190,7 +193,7 @@ namespace WinLaunch
                     Settings.SaveSettings(Settings.CurrentSettings);
 
                     //will be disconnected shortly
-                    TransitionAssistantState(AssistantState.Login); 
+                    TransitionAssistantState(AssistantState.Login);
                 }));
             });
 
@@ -791,15 +794,15 @@ namespace WinLaunch
                 {
                     if (!AssistantResponsePending)
                     {
-                    RunAssistant();
-                    e.Handled = true;
+                        RunAssistant();
+                        e.Handled = true;
                         return;
                     }
                     else
                     {
                         e.Handled = true;
-                    return;
-                }
+                        return;
+                    }
                 }
 
             }

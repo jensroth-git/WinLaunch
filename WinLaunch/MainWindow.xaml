@@ -1258,6 +1258,179 @@
                             </Border>
                         </DataTemplate>
 
+
+                        <DataTemplate DataType="{x:Type my:AssistantGmailMessagesListed}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="res/assistant/refresh.png" />
+                                    <StackPanel Margin="15,0,0,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="Gmail Messages Listed">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding username}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding query}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding count}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+
+
+                        <DataTemplate DataType="{x:Type my:AssistantGmailMessageSent}">
+                            <Border
+                                Margin="50,20,0,0"
+                                HorizontalAlignment="Left"
+                                Background="#66000000"
+                                CornerRadius="10">
+                                <StackPanel Margin="15" Orientation="Horizontal">
+                                    <Image
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="res/assistant/note.png" />
+                                    <StackPanel Margin="15,0,0,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="Gmail Message Sent">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding username}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding to}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding subject}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Margin="0,5,0,0"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="#4287f5"
+                                            Text="{Binding message}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect
+                                                    BlurRadius="2"
+                                                    Direction="270"
+                                                    ShadowDepth="1"
+                                                    Color="Black" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </Border>
+                        </DataTemplate>
+
                         <DataTemplate DataType="{x:Type my:AssistantItemsListed}">
                             <Border
                                 Margin="50,20,0,0"

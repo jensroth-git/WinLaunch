@@ -338,6 +338,22 @@ namespace WinLaunch
         public string date { get; set; }
     }
 
+
+    public class AssistantGmailMessagesListed : DependencyObject
+    {
+        public string username { get; set; }
+        public int count { get; set; }
+        public string query { get; set; }
+    }
+
+    public class AssistantGmailMessageSent : DependencyObject
+    {
+        public string username { get; set; }
+        public string to { get; set; }
+        public string subject { get; set; }
+        public string message { get; set; }
+    }
+
     public class AssistantAddedCalendarEvent : DependencyObject
     {
         public string Text { get; set; }

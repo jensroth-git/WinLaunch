@@ -642,7 +642,6 @@ namespace WinLaunch
                 }));
             });
 
-
             AssistantClient.On("get_calendar_events", args =>
             {
                 Dispatcher.BeginInvoke(new Action(() =>
@@ -698,6 +697,61 @@ namespace WinLaunch
                     try
                     {
                         icAssistantContent.Items.Add(new AssistantItemsListed());
+
+                        MovePendingIndicatorToBottom();
+                        scvAssistant.ScrollToBottom();
+
+                        AssistantDelayClose = false;
+                    }
+                    catch { }
+                }));
+            });
+
+
+            AssistantClient.On("get_gmail_messages", args =>
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    try
+                    {
+                        var username = args.GetValue<string>();
+                        var count = args.GetValue<int>(1);
+                        var query = args.GetValue<string>(2);
+
+                        icAssistantContent.Items.Add(new AssistantGmailMessagesListed()
+                        {
+                            username = username,
+                            count = count,
+                            query = query
+                        });
+
+                        MovePendingIndicatorToBottom();
+                        scvAssistant.ScrollToBottom();
+
+                        AssistantDelayClose = false;
+                    }
+                    catch { }
+                }));
+            });
+
+            AssistantClient.On("sent_gmail_message", args =>
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    try
+                    {
+                        var username = args.GetValue<string>();
+                        var to = args.GetValue<string>(1);
+                        var subject = args.GetValue<string>(2);
+                        var message = args.GetValue<string>(3);
+
+                        icAssistantContent.Items.Add(new AssistantGmailMessageSent()
+                        {
+                            username = username,
+                            to = to,
+                            subject = subject,
+                            message = message
+                        });
 
                         MovePendingIndicatorToBottom();
                         scvAssistant.ScrollToBottom();

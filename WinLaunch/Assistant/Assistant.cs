@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using EncryptionUtils;
+using System.Globalization;
 
 namespace WinLaunch
 {
@@ -707,7 +708,6 @@ namespace WinLaunch
                 }));
             });
 
-
             AssistantClient.On("get_gmail_messages", args =>
             {
                 Dispatcher.BeginInvoke(new Action(() =>
@@ -926,7 +926,7 @@ namespace WinLaunch
             scvAssistant.ScrollToBottom();
 
             //send prompt
-            await AssistantClient.EmitAsync("msg", prompt);
+            await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));
             AssistantResponsePending = true;
         }
 

@@ -331,6 +331,13 @@ namespace WinLaunch
         public string Text { get; set; }
         public string Query { get; set; }
     }
+
+    public class AssistantCalendarEventsListed : DependencyObject
+    {
+        public string username { get; set; }
+        public string date { get; set; }
+    }
+
     public class AssistantAddedCalendarEvent : DependencyObject
     {
         public string Text { get; set; }

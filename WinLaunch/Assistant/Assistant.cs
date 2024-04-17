@@ -642,6 +642,34 @@ namespace WinLaunch
                 }));
             });
 
+
+            AssistantClient.On("get_calendar_events", args =>
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    try
+                    {
+                        var username = args.GetValue<string>();
+                        var date = args.GetValue<string>(1);
+
+                        //parse date to datetime
+                        DateTime parsedDate = DateTime.Parse(date);
+
+                        icAssistantContent.Items.Add(new AssistantCalendarEventsListed()
+                        {
+                            username = username,
+                            date = parsedDate.ToShortDateString()
+                        });
+
+                        MovePendingIndicatorToBottom();
+                        scvAssistant.ScrollToBottom();
+
+                        AssistantDelayClose = false;
+                    }
+                    catch { }
+                }));
+            });
+
             AssistantClient.On("add_calendar_event", args =>
             {
                 Dispatcher.BeginInvoke(new Action(() =>

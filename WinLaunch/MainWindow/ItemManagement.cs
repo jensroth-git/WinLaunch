@@ -37,6 +37,12 @@ namespace WinLaunch
 
             foreach (var file in e.Files)
             {
+                //check if the file is already added
+                if (SBM.FindItemsByExactName(Path.GetFileNameWithoutExtension(file)).Count > 0)
+                {
+                    continue;
+                }
+
                 AddFile(file);
 
                 if(Settings.CurrentSettings.DeleteDesktopLinksAfterAdding)
@@ -69,7 +75,7 @@ namespace WinLaunch
             {
                 if (file.EndsWith(".lnk"))
                 {
-                    if (SBM.GetItemsByName(Path.GetFileNameWithoutExtension(file)).Count == 0)
+                    if (SBM.FindItemsByExactName(Path.GetFileNameWithoutExtension(file)).Count == 0)
                         filesToAdd.Add(file);
                 }
             }
@@ -92,7 +98,7 @@ namespace WinLaunch
                 {
                     if (file.EndsWith(".lnk"))
                     {
-                        if (SBM.GetItemsByName(Path.GetFileNameWithoutExtension(file)).Count == 0)
+                        if (SBM.FindItemsByExactName(Path.GetFileNameWithoutExtension(file)).Count == 0)
                             numLnk++;
                     }
                 }
@@ -108,7 +114,7 @@ namespace WinLaunch
                     {
                         if (file.EndsWith(".lnk"))
                         {
-                            if (SBM.GetItemsByName(Path.GetFileNameWithoutExtension(file)).Count == 0)
+                            if (SBM.FindItemsByExactName(Path.GetFileNameWithoutExtension(file)).Count == 0)
                                 filesToAdd.Add(file);
                         }
                     }

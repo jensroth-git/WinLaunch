@@ -335,6 +335,7 @@
 
             </ContextMenu>
         </Grid.ContextMenu>
+        
         <!--  Background  -->
         <Grid x:Name="BGGrid" Visibility="Visible">
             <Image x:Name="Wallpaperbottom"

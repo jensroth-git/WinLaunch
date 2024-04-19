@@ -97,7 +97,7 @@ namespace WinLaunch
                     var name = args.GetValue<string>();
                     var note = args.GetValue<string>(1);
 
-                    var InstalledItems = SBM.AssistantFindItemsByExactName(name, true);
+                    var InstalledItems = SBM.FindItemsByExactName(name, true);
 
                     if (InstalledItems.Count == 0)
                         return;

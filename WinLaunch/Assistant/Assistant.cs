@@ -58,7 +58,7 @@ namespace WinLaunch
         void AppendShowItem(string name)
         {
             //find item
-            var items = SBM.AssistantFindItemsByExactName(name);
+            var items = SBM.FindItemsByExactName(name);
 
             if (items.Count == 0)
                 return;

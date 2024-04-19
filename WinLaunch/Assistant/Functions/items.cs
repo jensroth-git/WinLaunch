@@ -73,7 +73,7 @@ namespace WinLaunch
 
                     foreach (var item in items)
                     {
-                        var InstalledItems = SBM.AssistantFindItemsByExactName(item);
+                        var InstalledItems = SBM.FindItemsByExactName(item);
 
                         if (InstalledItems.Count == 0)
                             continue;

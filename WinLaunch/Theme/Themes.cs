@@ -187,6 +187,12 @@ namespace WinLaunch
                 }
             }
 
+            //never make it fully transparent to avoid mouse acting through the window
+            if(bgColor.A == 0)
+            {
+                bgColor.A = 1;
+            }
+
             Background = new SolidColorBrush(bgColor);
         }
 

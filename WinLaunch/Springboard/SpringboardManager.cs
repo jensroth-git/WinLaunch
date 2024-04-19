@@ -1858,36 +1858,8 @@ namespace WinLaunch
         Dictionary<SBItem, PagePosition> PagePositions;
         private List<SBItem> AllItems;
 
-        public List<SBItem> GetItemsByName(string name)
-        {
-            List<SBItem> results = new List<SBItem>();
-
-            foreach (var item in IC.Items)
-            {
-                if (item.IsFolder)
-                {
-                    foreach (var subItem in item.IC.Items)
-                    {
-                        if (subItem.Name == name)
-                        {
-                            results.Add(subItem);
-                        }
-                    }
-                }
-                else
-                {
-                    if (item.Name == name)
-                    {
-                        results.Add(item);
-                    }
-                }
-            }
-
-            return results;
-        }
-
         //search by name and keywords
-        public List<SBItem> AssistantFindItemsByExactName(string name, bool includeFolders = false)
+        public List<SBItem> FindItemsByExactName(string name, bool includeFolders = false)
         {
             List<SBItem> results = new List<SBItem>();
 

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -94,89 +96,65 @@ namespace WinLaunch
         public Color ExtensionBarTextColor = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
         #endregion UI
 
+        BitmapSource LoadThemedImage(string themePath, string defaultAppPath)
+        {
+            BitmapSource bitmapSource = null;
+
+            //try loading themed image from disk 
+            try
+            {
+                bitmapSource = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + themePath);
+
+                if (bitmapSource != null)
+                {
+                    return bitmapSource;
+                }
+            }
+            catch { }
+
+            if (defaultAppPath == null)
+            {
+                return null;
+            }
+
+            //load default image from resources
+            try { return new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component" + defaultAppPath)); }
+            catch { }
+
+            return null;
+        }
+
         public void LoadImages(out bool shouldUseVectorFolder)
         {
-            //load all images (prefreezed)
-            if (CloseBox == null)
-                try { CloseBox = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/closebox.png"); }
-                catch { }
-
-            if (FolderIcon == null)
-                try { FolderIcon = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder_icon.png", 128); }
-                catch { }
-
-            if (Background == null)
-                try { Background = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/bg.png"); }
-                catch { }
-
-            if (BlurredBackground == null)
-                try { BlurredBackground = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/blurred_bg.png"); }
-                catch { }
-
-            if (ExtensionsToggle == null)
-                try { ExtensionsToggle = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/extensions.png"); }
-                catch { }
-
+            CloseBox = LoadThemedImage("/closebox.png", "/res/closebox.png");
+            FolderIcon = LoadThemedImage("/folder_icon.png", "/res/folder_icon_transparent.png");
+            Background = LoadThemedImage("/bg.png", null);
+            BlurredBackground = LoadThemedImage("/blurred_bg.png", null);
+            ExtensionsToggle = LoadThemedImage("/extensions.png", "/res/extensions.png");
 
             //folder
             #region folder images disk
-            if (leftTop == null)
-                try { leftTop = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftTop.png"); }
-                catch { }
+            leftTop = LoadThemedImage("/folder/leftTop.png", "/res/folder/leftTop.png");
+            leftCenter = LoadThemedImage("/folder/leftCenter.png", "/res/folder/leftCenter.png");
+            leftBottomShadow = LoadThemedImage("/folder/leftBottomShadow.png", "/res/folder/leftBottomShadow.png");
+            leftBottomBorder = LoadThemedImage("/folder/leftBottomBorder.png", "/res/folder/leftBottomBorder.png");
 
-            if (leftCenter == null)
-                try { leftCenter = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftCenter.png"); }
-                catch { }
+            topRim = LoadThemedImage("/folder/topRim.png", "/res/folder/topRim.png");
+            center = LoadThemedImage("/folder/center.png", "/res/folder/center.png");
+            bottomShadow = LoadThemedImage("/folder/bottomShadow.png", "/res/folder/bottomShadow.png");
+            bottomBorder = LoadThemedImage("/folder/bottomBorder.png", "/res/folder/bottomBorder.png");
 
-            if (leftBottomShadow == null)
-                try { leftBottomShadow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftBottomShadow.png"); }
-                catch { }
+            arrow = LoadThemedImage("/folder/arrow.png", "/res/folder/arrow.png");
 
-            if (leftBottomBorder == null)
-                try { leftBottomBorder = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/leftBottomBorder.png"); }
-                catch { }
-
-
-            if (topRim == null)
-                try { topRim = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/topRim.png"); }
-                catch { }
-
-            if (center == null)
-                try { center = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/center.png"); }
-                catch { }
-
-            if (bottomShadow == null)
-                try { bottomShadow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/bottomShadow.png"); }
-                catch { }
-
-            if (bottomBorder == null)
-                try { bottomBorder = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/bottomBorder.png"); }
-                catch { }
-
-
-            if (arrow == null)
-                try { arrow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/arrow.png"); }
-                catch { }
-
-
-            if (rightTop == null)
-                try { rightTop = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightTop.png"); }
-                catch { }
-
-            if (rightCenter == null)
-                try { rightCenter = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightCenter.png"); }
-                catch { }
-
-            if (rightBottomShadow == null)
-                try { rightBottomShadow = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightBottomShadow.png"); }
-                catch { }
-
-            if (rightBottomBorder == null)
-                try { rightBottomBorder = MiscUtils.LoadBitmapImage(PortabilityManager.ThemePath + "/folder/rightBottomBorder.png"); }
-                catch { }
+            rightTop = LoadThemedImage("/folder/rightTop.png", "/res/folder/rightTop.png");
+            rightCenter = LoadThemedImage("/folder/rightCenter.png", "/res/folder/rightCenter.png");
+            rightBottomShadow = LoadThemedImage("/folder/rightBottomShadow.png", "/res/folder/rightBottomShadow.png");
+            rightBottomBorder = LoadThemedImage("/folder/rightBottomBorder.png", "/res/folder/rightBottomBorder.png");
             #endregion
 
-            if (center != null && arrow == null)
+            //if theme specifies a center image but no arrow image, use vector folder
+            if (File.Exists(PortabilityManager.ThemePath + "/folder/center.png") &&
+                !File.Exists(PortabilityManager.ThemePath + "/folder/arrow.png"))
             {
                 shouldUseVectorFolder = true;
             }
@@ -184,76 +162,6 @@ namespace WinLaunch
             {
                 shouldUseVectorFolder = false;
             }
-
-
-            #region folder images app
-            if (leftTop == null)
-                try { leftTop = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftTop.png")); }
-                catch { }
-
-            if (leftCenter == null)
-                try { leftCenter = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftCenter.png")); }
-                catch { }
-
-            if (leftBottomShadow == null)
-                try { leftBottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftBottomShadow.png")); }
-                catch { }
-
-            if (leftBottomBorder == null)
-                try { leftBottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/leftBottomBorder.png")); }
-                catch { }
-
-
-            if (topRim == null)
-                try { topRim = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/topRim.png")); }
-                catch { }
-
-            if (center == null)
-                try { center = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/center.png")); }
-                catch { }
-
-            if (bottomShadow == null)
-                try { bottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/bottomShadow.png")); }
-                catch { }
-
-            if (bottomBorder == null)
-                try { bottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/bottomBorder.png")); }
-                catch { }
-
-
-            if (arrow == null)
-                try { arrow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/arrow.png")); }
-                catch { }
-
-
-            if (rightTop == null)
-                try { rightTop = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightTop.png")); }
-                catch { }
-
-            if (rightCenter == null)
-                try { rightCenter = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightCenter.png")); }
-                catch { }
-
-            if (rightBottomShadow == null)
-                try { rightBottomShadow = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightBottomShadow.png")); }
-                catch { }
-
-            if (rightBottomBorder == null)
-                try { rightBottomBorder = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder/rightBottomBorder.png")); }
-                catch { }
-            #endregion
-
-            if (CloseBox == null)
-                try { CloseBox = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/closebox.png")); }
-                catch { }
-
-            if (FolderIcon == null)
-                try { FolderIcon = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/folder_icon_transparent.png")); }
-                catch { }
-
-            if (ExtensionsToggle == null)
-                try { ExtensionsToggle = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component/res/extensions.png")); }
-                catch { }
 
             if (Background == null)
                 Background = MiscUtils.GetCurrentWallpaper();
@@ -263,64 +171,32 @@ namespace WinLaunch
 
         private void FreezeImages()
         {
-            if (CloseBox != null && CloseBox.CanFreeze)
-                CloseBox.Freeze();
+            List<BitmapSource> images = new List<BitmapSource>{
+                CloseBox,
+                FolderIcon,
+                Background,
+                BlurredBackground,
+                leftTop,
+                leftCenter,
+                leftBottomShadow,
+                leftBottomBorder,
+                topRim,
+                center,
+                bottomShadow,
+                bottomBorder,
+                arrow,
+                rightTop,
+                rightCenter,
+                rightBottomShadow,
+                rightBottomBorder,
+                ExtensionsToggle
+            };
 
-            if (FolderIcon != null && FolderIcon.CanFreeze)
-                FolderIcon.Freeze();
-
-            if (Background != null && Background.CanFreeze)
-                Background.Freeze();
-
-            if (BlurredBackground != null && BlurredBackground.CanFreeze)
-                BlurredBackground.Freeze();
-
-
-
-            if (leftTop != null && leftTop.CanFreeze)
-                leftTop.Freeze();
-
-            if (leftCenter != null && leftCenter.CanFreeze)
-                leftCenter.Freeze();
-
-            if (leftBottomShadow != null)
-                leftBottomShadow.Freeze();
-
-            if (leftBottomBorder != null)
-                leftBottomBorder.Freeze();
-
-
-            if (topRim != null)
-                topRim.Freeze();
-
-            if (center != null)
-                center.Freeze();
-
-            if (bottomShadow != null)
-                bottomShadow.Freeze();
-
-            if (bottomBorder != null)
-                bottomBorder.Freeze();
-
-
-            if (arrow != null)
-                arrow.Freeze();
-
-
-            if (rightTop != null)
-                rightTop.Freeze();
-
-            if (rightCenter != null)
-                rightCenter.Freeze();
-
-            if (rightBottomShadow != null)
-                rightBottomShadow.Freeze();
-
-            if (rightBottomBorder != null)
-                rightBottomBorder.Freeze();
-
-            if (ExtensionsToggle != null)
-                ExtensionsToggle.Freeze();
+            foreach (var image in images)
+            {
+                if (image != null && image.CanFreeze)
+                    image.Freeze();
+            }
         }
 
         #region Save Images

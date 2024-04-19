@@ -1,5 +1,6 @@
 ﻿using SocketIOClient;
 using System;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
@@ -130,7 +131,7 @@ namespace WinLaunch
                         string output = await ExecuteProcessAndGetOutput(file, parameters);
                         await args.CallbackAsync(output);
 
-                        if(!string.IsNullOrEmpty(output))
+                        if (!string.IsNullOrEmpty(output))
                         {
                             //update output in the UI
                             commandUI.Output = output.TrimEnd(new char[] { '\n', '\r' });
@@ -176,9 +177,16 @@ namespace WinLaunch
                 process.Start();
 
                 output = process.StandardOutput.ReadToEnd();
-                error = process.StandardError.ReadToEnd();
+                try
+                {
+                    error = process.StandardError.ReadToEnd();
+                }
+                catch
+                {
+                    Trace.WriteLine("No error in python execution");
+                }
 
-                if (!process.WaitForExit(1)) // Wait for the process to exit with a timeout.
+                if (!process.WaitForExit(5)) // Wait for the process to exit with a timeout.
                 {
                     process.Kill(); // Forcefully kill the process if it doesn't exit in time.
                 }
@@ -195,10 +203,11 @@ namespace WinLaunch
                 try
                 {
                     string code = args.GetValue<string>();
-                    icAssistantContent.Items.Add(new AssistantExecutedCommand("Python code Run", code)
+                    var commandUI = new AssistantExecutedCommand("Python code Run", code)
                     {
                         Text = TranslationSource.Instance["AssistantExecutedCommand"]
-                    });
+                    };
+                    icAssistantContent.Items.Add(commandUI);
 
                     AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
@@ -210,10 +219,23 @@ namespace WinLaunch
                             Trace.WriteLine("Executing Python Code:\n" + code);//Debugging
                             output = RunPythonAndGetOutput(code);
                             Trace.WriteLine("Python Output\n" + output);
+
+                            if (!string.IsNullOrEmpty(output))
+                            {
+                                //update output in the UI
+                                commandUI.Output = output.TrimEnd(new char[] { '\n', '\r' });
+                                commandUI.OutputVisible = Visibility.Visible;
+                            }
+
+
                             await args.CallbackAsync(output);//Debugging
+
                         }
                         catch (Exception ex)
                         {
+                            //raise ex
+                            Trace.WriteLine("Error running python code\n", ex.ToString());
+
                             try
                             {
                                 await args.CallbackAsync(ex.Message);

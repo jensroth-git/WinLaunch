@@ -1,7 +1,9 @@
 ﻿using SocketIOClient;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace WinLaunch
 {
@@ -12,6 +14,26 @@ namespace WinLaunch
         public string Parameters { get; set; }
 
         public bool showParameters { get; set; } = false;
+
+        public string Output
+        {
+            get { return (string)GetValue(OutputProperty); }
+            set { SetValue(OutputProperty, value); }
+        }
+
+        public static readonly DependencyProperty OutputProperty =
+            DependencyProperty.Register("Output", typeof(string), typeof(AssistantExecutedCommand), new PropertyMetadata(""));
+
+
+        public Visibility OutputVisible
+        {
+            get { return (Visibility)GetValue(OutputVisibleProperty); }
+            set { SetValue(OutputVisibleProperty, value); }
+        }
+
+        public static readonly DependencyProperty OutputVisibleProperty =
+            DependencyProperty.Register("OutputVisible", typeof(Visibility), typeof(AssistantExecutedCommand), new PropertyMetadata(Visibility.Collapsed));
+
 
         public AssistantExecutedCommand(string file, string parameters)
         {
@@ -28,78 +50,98 @@ namespace WinLaunch
     partial class MainWindow : Window
     {
         //TODO: run threaded to not block the UI thread
-        private string ExecuteProcessAndGetOutput(string file, string parameters)
+        private async Task<string> ExecuteProcessAndGetOutput(string file, string parameters)
         {
-            string output = string.Empty;
-            parameters += " && exit";
-            using (Process process = new Process())
+            return await Task<string>.Run(() =>
             {
-                process.StartInfo.FileName = file;
-                process.StartInfo.Arguments = parameters;
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.RedirectStandardOutput = true;
-
-                process.StartInfo.CreateNoWindow = true; // Do not create the black window
-                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; // Hides the window
-
-                process.Start();
-
-                output = process.StandardOutput.ReadToEnd();
-
-                if (!process.WaitForExit(1)) // Wait for the process to exit with a timeout.
+                string output = string.Empty;
+                parameters += " && exit";
+                using (Process process = new Process())
                 {
-                    process.Kill(); // Forcefully kill the process if it doesn't exit in time.
-                }
-            }
+                    process.StartInfo.FileName = file;
+                    process.StartInfo.Arguments = parameters;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.RedirectStandardOutput = true;
 
-            return output;
+                    // Do not create the black window
+                    process.StartInfo.CreateNoWindow = true;
+
+                    // Hides the window
+                    process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                    process.Start();
+
+                    process.BeginOutputReadLine();
+                    process.OutputDataReceived += (sender, args) =>
+                    {
+                        if (!string.IsNullOrEmpty(args.Data))
+                        {
+                            // Handle the output line here.
+                            output += args.Data + "\n";
+                        }
+                    };
+
+                    // Wait for the process to exit with a 10s timeout.
+                    if (!process.WaitForExit(10000))
+                    {
+                        process.Kill();
+                    }
+
+                    //ensure process has exited even after being killed
+                    process.WaitForExit();
+                }
+
+                return output;
+            });
         }
 
         void shell_execute(SocketIOResponse args)
         {
             Dispatcher.BeginInvoke(new Action(async () =>
             {
-                string output = string.Empty;
                 try
                 {
                     string file = args.GetValue<string>();
                     string parameters = args.GetValue<string>(1);
-                    bool hide = args.GetValue<bool>(2);
 
-                    icAssistantContent.Items.Add(new AssistantExecutedCommand(file, parameters)
+                    var commandUI = new AssistantExecutedCommand(file, parameters)
                     {
                         Text = TranslationSource.Instance["AssistantExecutedCommand"]
-                    });
+                    };
+
+                    icAssistantContent.Items.Add(commandUI);
 
                     MovePendingIndicatorToBottom();
                     scvAssistant.ScrollToBottom();
 
-                    if (Settings.CurrentSettings.ExecuteAssistantCommands)
-                    {
-                        try
-                        {
-                            output = ExecuteProcessAndGetOutput(file, parameters);
-                            await args.CallbackAsync(output);
-                        }
-                        catch (Exception ex)
-                        {
-                            try
-                            {
-                                await args.CallbackAsync(ex.Message);
-                            }
-                            catch { }
-                        }
-
-                        if (hide)
-                        {
-                            AssistantDelayClose = true;
-                        }
-                    }
-                    else
+                    if (!Settings.CurrentSettings.ExecuteAssistantCommands)
                     {
                         try
                         {
                             await args.CallbackAsync("User disabled commands, they can be enabled again in the settings");
+                        }
+                        catch { }
+
+                        return;
+                    }
+
+                    try
+                    {
+                        string output = await ExecuteProcessAndGetOutput(file, parameters);
+                        await args.CallbackAsync(output);
+
+                        if(!string.IsNullOrEmpty(output))
+                        {
+                            //update output in the UI
+                            commandUI.Output = output;
+                            commandUI.OutputVisible = Visibility.Visible;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            await args.CallbackAsync(ex.Message);
                         }
                         catch { }
                     }

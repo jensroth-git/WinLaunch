@@ -70,6 +70,7 @@ namespace WinLaunch
                     icAssistantContent.Items.Add(new AssistantMessageFooter());
 
                     AssistantResponsePending = false;
+                    AdjustAssistantMessageSpacing();
                     RemovePendingIndicator();
                     scvAssistant.ScrollToBottom();
 
@@ -99,7 +100,7 @@ namespace WinLaunch
                         Args = functionArgs
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
                 }
                 catch { }

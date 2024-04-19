@@ -111,7 +111,7 @@ namespace WinLaunch
 
                     icAssistantContent.Items.Add(commandUI);
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     if (!Settings.CurrentSettings.ExecuteAssistantCommands)
@@ -133,7 +133,7 @@ namespace WinLaunch
                         if(!string.IsNullOrEmpty(output))
                         {
                             //update output in the UI
-                            commandUI.Output = output;
+                            commandUI.Output = output.TrimEnd(new char[] { '\n', '\r' });
                             commandUI.OutputVisible = Visibility.Visible;
                         }
                     }
@@ -200,7 +200,7 @@ namespace WinLaunch
                         Text = TranslationSource.Instance["AssistantExecutedCommand"]
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     if (Settings.CurrentSettings.ExecuteAssistantCommands)

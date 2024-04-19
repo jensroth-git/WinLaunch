@@ -35,7 +35,7 @@ namespace WinLaunch
                         date = parsedDate.ToShortDateString()
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;
@@ -55,7 +55,7 @@ namespace WinLaunch
                         Text = TranslationSource.Instance["AssistantAddedCalendarEvent"],
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;

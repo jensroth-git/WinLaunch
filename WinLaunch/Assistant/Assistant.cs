@@ -7,6 +7,7 @@ using System.Linq;
 using System.Speech.Synthesis;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace WinLaunch
 {
@@ -85,7 +86,7 @@ namespace WinLaunch
             }
         }
 
-        public void RemovePendingIndicator()
+        public AssistantPendingIndicator RemovePendingIndicator()
         {
             if (icAssistantContent.Items.Count >= 1)
             {
@@ -101,32 +102,58 @@ namespace WinLaunch
                 }
 
                 if (indicator == null)
-                    return;
+                    return null;
 
                 icAssistantContent.Items.Remove(indicator);
+
+                return indicator;
             }
+
+            return null;
         }
 
-        public void MovePendingIndicatorToBottom()
+        void AdjustAssistantMessageSpacing()
         {
-            if (icAssistantContent.Items.Count >= 1)
+            //remove all spacers and footers
+            for (int i = icAssistantContent.Items.Count - 1; i >= 0; i--)
             {
-                //find indicator
-                AssistantPendingIndicator indicator = null;
-                foreach (var item in icAssistantContent.Items)
+                if (icAssistantContent.Items[i] is AssistantMessageSpacer || icAssistantContent.Items[i] is AssistantMessageFooter)
                 {
-                    if (item is AssistantPendingIndicator)
+                    icAssistantContent.Items.RemoveAt(i);
+                }
+            }
+
+            //remove pending indicator
+            var pendingIndicator = RemovePendingIndicator();
+
+            //insert spacers above each text message unless there is a header above it
+            for (int i = icAssistantContent.Items.Count - 1; i >= 0; i--)
+            {
+                if (icAssistantContent.Items[i] is AssistantMessageTextContent)
+                {
+                    if (i != 0 && !(icAssistantContent.Items[i - 1] is AssistantMessageHeader))
                     {
-                        indicator = item as AssistantPendingIndicator;
-                        break;
+                        icAssistantContent.Items.Insert(i, new AssistantMessageSpacer());
                     }
                 }
+            }
 
-                if (indicator == null)
-                    return;
+            //insert footers above each header except the first one
+            for (int i = icAssistantContent.Items.Count - 1; i >= 0; i--)
+            {
+                if (icAssistantContent.Items[i] is AssistantMessageHeader)
+                {
+                    if (i != 0)
+                    {
+                        icAssistantContent.Items.Insert(i, new AssistantMessageFooter());
+                    }
+                }
+            }
 
-                icAssistantContent.Items.Remove(indicator);
-                icAssistantContent.Items.Add(indicator);
+            //add pending indicator back
+            if (pendingIndicator != null)
+            {
+                icAssistantContent.Items.Add(pendingIndicator);
             }
         }
 
@@ -198,6 +225,22 @@ namespace WinLaunch
                     }));
                 }
                 catch { }
+            });
+
+            AssistantClient.On("run_end", (args) =>
+            {
+                Dispatcher.BeginInvoke(new Action(async () =>
+                {
+                    try
+                    {
+                        AssistantResponsePending = false;
+                        RemovePendingIndicator();
+                        scvAssistant.ScrollToBottom();
+
+                        imAssistantSend.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component" + "/res/assistant/send.png"));
+                    }
+                    catch { }
+                }));
             });
 
             //system messages
@@ -284,7 +327,7 @@ namespace WinLaunch
 
         private async void RunAssistant(string prompt = "")
         {
-            if (AssistantClient == null || !AssistantClient.Connected || AssistantResponsePending)
+            if (AssistantClient == null || !AssistantClient.Connected)
             {
                 TransitionAssistantState(AssistantState.Connecting);
                 return;
@@ -324,15 +367,29 @@ namespace WinLaunch
 
             icAssistantContent.Items.Add(new AssistantMessageHeader(true));
             icAssistantContent.Items.Add(new AssistantMessageTextContent() { Text = prompt });
-            icAssistantContent.Items.Add(new AssistantMessageFooter());
 
             icAssistantContent.Items.Add(new AssistantMessageHeader());
             icAssistantContent.Items.Add(new AssistantPendingIndicator());
+
+            AdjustAssistantMessageSpacing();
             scvAssistant.ScrollToBottom();
 
             //send prompt
             await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));
             AssistantResponsePending = true;
+
+            //change send button to abort
+            imAssistantSend.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component" + "/res/quit.png"));
+        }
+
+        private async void AbortAssistant()
+        {
+            if(AssistantClient == null || !AssistantResponsePending)
+            {
+                return;
+            }
+
+            await AssistantClient.EmitAsync("abort_run");
         }
 
         private void tbAssistant_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -366,7 +423,7 @@ namespace WinLaunch
                 {
                     e.Handled = true;
 
-                    if (!AssistantResponsePending)
+                    //if (!AssistantResponsePending)
                     {
                         RunAssistant();
                         return;
@@ -462,9 +519,13 @@ namespace WinLaunch
         private void imAssistantSend_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (AssistantResponsePending)
-                return;
-
-            RunAssistant();
+            {
+                AbortAssistant();
+            }
+            else
+            {
+                RunAssistant();
+            }
         }
 
         private void imAssistantClear_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

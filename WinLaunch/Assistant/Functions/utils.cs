@@ -27,7 +27,7 @@ namespace WinLaunch
                         Query = searchRequest
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = true;

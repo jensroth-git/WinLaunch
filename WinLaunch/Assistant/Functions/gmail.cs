@@ -38,7 +38,7 @@ namespace WinLaunch
                         query = query
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;
@@ -66,7 +66,7 @@ namespace WinLaunch
                         message = message
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;

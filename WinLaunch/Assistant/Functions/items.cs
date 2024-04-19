@@ -34,7 +34,7 @@ namespace WinLaunch
                 {
                     icAssistantContent.Items.Add(new AssistantItemsListed());
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;
@@ -56,7 +56,7 @@ namespace WinLaunch
                         AppendShowItem(item);
                     }
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
                 }
                 catch { }
@@ -87,8 +87,7 @@ namespace WinLaunch
                             Icon = InstalledItems.First().Icon
                         });
 
-                        MovePendingIndicatorToBottom();
-
+                        AdjustAssistantMessageSpacing();
                         AssistantDelayClose = true;
                     }
                 }

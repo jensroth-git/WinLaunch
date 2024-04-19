@@ -15,6 +15,8 @@ namespace WinLaunch
 {
     public class AssistantMessageTextContent : DependencyObject
     {
+        public int StreamID { get; set; }
+
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
@@ -288,31 +290,42 @@ namespace WinLaunch
 
     partial class MainWindow : Window
     {
-        void msg_stream_update(SocketIOResponse messagePart)
+        AssistantMessageTextContent GetMessageForStreamID(int RunID)
+        {
+            for (int i = icAssistantContent.Items.Count - 1; i > 0; i--)
+            {
+                if (icAssistantContent.Items[i] is AssistantMessageTextContent)
+                {
+                    var message = icAssistantContent.Items[i] as AssistantMessageTextContent;
+
+                    if (message.StreamID == RunID)
+                    {
+                        return message;
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        void msg_stream_update(SocketIOResponse args)
         {
             Dispatcher.BeginInvoke(new Action(async () =>
             {
                 try
                 {
-                    var element = GetLastActualAssistantMessage();
+                    int StreamID = args.GetValue<int>(0);
+                    var message = GetMessageForStreamID(StreamID);
 
-                    if (element is AssistantMessageTextContent)
+                    if (message != null)
                     {
-                        //update text
-                        (element as AssistantMessageTextContent).Text += messagePart.GetValue<string>();
+                        message.Text += args.GetValue<string>(1);
                     }
                     else
                     {
-                        if (!(element is AssistantMessageHeader))
-                        {
-                            icAssistantContent.Items.Add(new AssistantMessageSpacer());
-                        }
+                        icAssistantContent.Items.Add(new AssistantMessageTextContent() { StreamID = StreamID, Text = args.GetValue<string>(1) });
 
-                        icAssistantContent.Items.Add(new AssistantMessageTextContent() { Text = messagePart.GetValue<string>() });
-                        icAssistantContent.Items.Add(new AssistantMessageFooter());
-
-                        MovePendingIndicatorToBottom();
-
+                        AdjustAssistantMessageSpacing();
                         scvAssistant.ScrollToBottom();
                     }
                 }
@@ -326,24 +339,24 @@ namespace WinLaunch
             {
                 try
                 {
-                    //if it is not an immediate response, add a spacer
-                    var element = GetLastActualAssistantMessage();
+                    int StreamID = args.GetValue<int>(0);
+                    var message = GetMessageForStreamID(StreamID);
 
-                    if (element is AssistantMessageTextContent)
+                    if (message == null)
                     {
-                        if (Settings.CurrentSettings.AssistantTTS)
-                        {
-                            AssistantMessageTextContent message = element as AssistantMessageTextContent;
-
-                            assistantSpeech.SpeakAsyncCancelAll();
-                            assistantSpeech.SpeakAsync(message.Text);
-                        }
+                        //something went wrong, just add the message to the UI
+                        icAssistantContent.Items.Add(new AssistantMessageTextContent() { StreamID = StreamID, Text = args.GetValue<string>(1) });
+                    }
+                    else
+                    {
+                        //set the text 
+                        message.Text = args.GetValue<string>(1);
                     }
 
                     AssistantResponsePending = false;
-                    RemovePendingIndicator();
-                    scvAssistant.ScrollToBottom();
 
+                    AdjustAssistantMessageSpacing();
+                    scvAssistant.ScrollToBottom();
 
                     if (AssistantDelayClose)
                     {
@@ -361,6 +374,6 @@ namespace WinLaunch
             }));
         }
 
-        
+
     }
 }

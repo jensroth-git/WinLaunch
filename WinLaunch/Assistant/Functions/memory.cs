@@ -52,7 +52,7 @@ namespace WinLaunch
                         Memory = memoryValue
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
                 }
                 catch { }
@@ -80,7 +80,7 @@ namespace WinLaunch
                             Memory = memoryItem.Memory
                         });
 
-                        MovePendingIndicatorToBottom();
+                        AdjustAssistantMessageSpacing();
                         scvAssistant.ScrollToBottom();
                     }
                 }
@@ -116,7 +116,7 @@ namespace WinLaunch
                         Note = note
                     });
 
-                    MovePendingIndicatorToBottom();
+                    AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
                 }
                 catch { }

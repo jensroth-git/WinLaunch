@@ -4,11 +4,12 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Margin="3,3,3,1"
-                               SnapsToDevicePixels="true"
-                               Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                               StrokeDashArray="1 2"
-                               StrokeThickness="1" />
+                    <Rectangle
+                        Margin="3,3,3,1"
+                        SnapsToDevicePixels="true"
+                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                        StrokeDashArray="1 2"
+                        StrokeThickness="1" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -25,7 +26,7 @@
     <SolidColorBrush x:Key="TabItemDisabledBorderBrush" Color="#FFC9C7BA" />
 
     <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#8C8E94" />
-    
+
     <Style x:Key="OSXTabBar" TargetType="{x:Type TabControl}">
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
         <Setter Property="Padding" Value="4,4,4,4" />
@@ -37,9 +38,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
-                    <Grid ClipToBounds="true"
-                          KeyboardNavigation.TabNavigation="Local"
-                          SnapsToDevicePixels="true">
+                    <Grid
+                        ClipToBounds="true"
+                        KeyboardNavigation.TabNavigation="Local"
+                        SnapsToDevicePixels="true">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnDefinition0" />
@@ -52,22 +54,22 @@
                         </Grid.RowDefinitions>
 
                         <TabPanel x:Name="HeaderPanel"
-                                  HorizontalAlignment="Center"
-                                  Panel.ZIndex="1"
-                                  Background="{x:Null}"
-                                  IsItemsHost="true"
-                                  KeyboardNavigation.TabIndex="1" />
+                            HorizontalAlignment="Center"
+                            Panel.ZIndex="1"
+                            Background="{x:Null}"
+                            IsItemsHost="true"
+                            KeyboardNavigation.TabIndex="1" />
 
                         <Border x:Name="ContentPanel"
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                Margin="0,-10,0,0"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="DimGray"
-                                BorderThickness="0"
-                                KeyboardNavigation.DirectionalNavigation="Contained"
-                                KeyboardNavigation.TabIndex="2"
-                                KeyboardNavigation.TabNavigation="Local">
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0,-10,0,0"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="DimGray"
+                            BorderThickness="0"
+                            KeyboardNavigation.DirectionalNavigation="Contained"
+                            KeyboardNavigation.TabIndex="2"
+                            KeyboardNavigation.TabNavigation="Local">
 
                             <Border.OpacityMask>
                                 <VisualBrush Stretch="None" Visual="{Binding ElementName=ShadowBorder}" />
@@ -75,25 +77,26 @@
 
                             <Grid>
                                 <Border x:Name="ShadowBorder"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Background="White"
-                                        BorderThickness="1,1,1,1"
-                                        CornerRadius="10" />
-                                <Border HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        BorderBrush="White"
-                                        BorderThickness="1,1,1,1"
-                                        CornerRadius="10">
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Background="White"
+                                    BorderThickness="1,1,1,1"
+                                    CornerRadius="10" />
+                                <Border
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    BorderBrush="White"
+                                    BorderThickness="1,1,1,1"
+                                    CornerRadius="10">
                                     <Border.Effect>
                                         <DropShadowEffect BlurRadius="4" ShadowDepth="0" />
                                     </Border.Effect>
                                 </Border>
 
                                 <ContentPresenter x:Name="PART_SelectedContentHost"
-                                                  Margin="5,13,5,5"
-                                                  ContentSource="SelectedContent"
-                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    Margin="5,13,5,5"
+                                    ContentSource="SelectedContent"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </Grid>
                         </Border>
                     </Grid>
@@ -121,10 +124,10 @@
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Grid SnapsToDevicePixels="true">
                         <Border x:Name="Bd"
-                                BorderBrush="#FFA2A2A2"
-                                BorderThickness="1,1,0,1"
-                                CornerRadius="3,0,0,3"
-                                Padding="{TemplateBinding Padding}">
+                            Padding="{TemplateBinding Padding}"
+                            BorderBrush="#FFA2A2A2"
+                            BorderThickness="1,1,0,1"
+                            CornerRadius="3,0,0,3">
 
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -136,14 +139,12 @@
                             </Border.Background>
 
                             <ContentPresenter x:Name="Content"
-                                              Margin="10,2,9,3"
-                                              HorizontalAlignment="{Binding HorizontalContentAlignment,
-                                                                            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              VerticalAlignment="{Binding VerticalContentAlignment,
-                                                                          RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              ContentSource="Header"
-                                              RecognizesAccessKey="True"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                Margin="10,2,9,3"
+                                HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                ContentSource="Header"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                     </Grid>
 
@@ -167,10 +168,11 @@
 
                             <Setter TargetName="Content" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect BlurRadius="0"
-                                                      Direction="270"
-                                                      Opacity="0.3"
-                                                      ShadowDepth="1" />
+                                    <DropShadowEffect
+                                        BlurRadius="0"
+                                        Direction="270"
+                                        Opacity="0.3"
+                                        ShadowDepth="1" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -207,10 +209,10 @@
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Grid SnapsToDevicePixels="true">
                         <Border x:Name="Bd"
-                                BorderBrush="#FFA2A2A2"
-                                BorderThickness="1,1,0,1"
-                                CornerRadius="0,0,0,0"
-                                Padding="{TemplateBinding Padding}">
+                            Padding="{TemplateBinding Padding}"
+                            BorderBrush="#FFA2A2A2"
+                            BorderThickness="1,1,0,1"
+                            CornerRadius="0,0,0,0">
 
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -222,14 +224,12 @@
                             </Border.Background>
 
                             <ContentPresenter x:Name="Content"
-                                              Margin="10,2,10,3"
-                                              HorizontalAlignment="{Binding HorizontalContentAlignment,
-                                                                            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              VerticalAlignment="{Binding VerticalContentAlignment,
-                                                                          RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              ContentSource="Header"
-                                              RecognizesAccessKey="True"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                Margin="10,2,10,3"
+                                HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                ContentSource="Header"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                     </Grid>
 
@@ -253,10 +253,11 @@
 
                             <Setter TargetName="Content" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect BlurRadius="0"
-                                                      Direction="270"
-                                                      Opacity="0.3"
-                                                      ShadowDepth="1" />
+                                    <DropShadowEffect
+                                        BlurRadius="0"
+                                        Direction="270"
+                                        Opacity="0.3"
+                                        ShadowDepth="1" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -293,10 +294,10 @@
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Grid SnapsToDevicePixels="true">
                         <Border x:Name="Bd"
-                                BorderBrush="#FFA2A2A2"
-                                BorderThickness="1,1,1,1"
-                                CornerRadius="0,3,3,0"
-                                Padding="{TemplateBinding Padding}">
+                            Padding="{TemplateBinding Padding}"
+                            BorderBrush="#FFA2A2A2"
+                            BorderThickness="1,1,1,1"
+                            CornerRadius="0,3,3,0">
 
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -308,14 +309,12 @@
                             </Border.Background>
 
                             <ContentPresenter x:Name="Content"
-                                              Margin="10,2,10,3"
-                                              HorizontalAlignment="{Binding HorizontalContentAlignment,
-                                                                            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              VerticalAlignment="{Binding VerticalContentAlignment,
-                                                                          RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                                              ContentSource="Header"
-                                              RecognizesAccessKey="True"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                Margin="10,2,10,3"
+                                HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                ContentSource="Header"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                     </Grid>
 
@@ -339,10 +338,11 @@
 
                             <Setter TargetName="Content" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect BlurRadius="0"
-                                                      Direction="270"
-                                                      Opacity="0.3"
-                                                      ShadowDepth="1" />
+                                    <DropShadowEffect
+                                        BlurRadius="0"
+                                        Direction="270"
+                                        Opacity="0.3"
+                                        ShadowDepth="1" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>

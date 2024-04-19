@@ -232,6 +232,14 @@
     <Compile Include="ActivationMethods\WindowsKeyActivation.cs" />
     <Compile Include="Assistant\AssistantConfig.cs" />
     <Compile Include="Assistant\AssistantUI.cs" />
+    <Compile Include="Assistant\Functions\calendar.cs" />
+    <Compile Include="Assistant\Functions\commands.cs" />
+    <Compile Include="Assistant\Functions\gmail.cs" />
+    <Compile Include="Assistant\Functions\items.cs" />
+    <Compile Include="Assistant\Functions\memory.cs" />
+    <Compile Include="Assistant\Functions\messages.cs" />
+    <Compile Include="Assistant\Functions\system.cs" />
+    <Compile Include="Assistant\Functions\utils.cs" />
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Darkening.cs">
       <AutoGen>True</AutoGen>
@@ -303,6 +311,38 @@
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
     <Page Include="AssistantResponseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\commands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\gmail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\memory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\messages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\system.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\utils.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

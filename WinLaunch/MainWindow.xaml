@@ -819,1028 +819,219 @@
 
                 <ItemsControl x:Name="icAssistantContent">
                     <ItemsControl.Resources>
-                        <DataTemplate DataType="{x:Type my:AssistantMessageHeader}">
-                            <StackPanel>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="Assistant/UI/calendar.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/commands.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/gmail.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/items.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/memory.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/messages.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/system.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/utils.xaml" />
+                            </ResourceDictionary.MergedDictionaries>
 
-                                    <Image
-                                        Grid.Column="0"
-                                        Width="25"
-                                        VerticalAlignment="Top"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="{Binding Icon}" />
-
-                                    <TextBlock
-                                        Grid.Column="1"
-                                        VerticalAlignment="Center"
-                                        FontSize="16"
-                                        FontWeight="Bold"
-                                        Foreground="White"
-                                        Text="{Binding Name}">
-                                        <TextBlock.Effect>
-                                            <DropShadowEffect
-                                                BlurRadius="2"
-                                                Direction="270"
-                                                ShadowDepth="1"
-                                                Color="Black" />
-                                        </TextBlock.Effect>
-                                    </TextBlock>
-                                </Grid>
-                            </StackPanel>
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantMessageTextContent}">
-                            <RichTextBox
-                                Margin="47,0,0,0"
-                                my:RichTextBoxHelper.DocumentMarkdown="{Binding Text}"
-                                AcceptsReturn="true"
-                                Background="Transparent"
-                                BorderThickness="0"
-                                CaretBrush="White"
-                                Foreground="White"
-                                IsDocumentEnabled="True"
-                                IsReadOnly="True"
-                                SelectionBrush="#80ffffff">
-                                <RichTextBox.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="2"
-                                        Direction="270"
-                                        ShadowDepth="1"
-                                        Color="Black" />
-                                </RichTextBox.Effect>
-                            </RichTextBox>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantMessageSpacer}">
-                            <Border Height="20" />
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantMessageFooter}">
-                            <Border Height="30" />
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantMessageShowItemContainer}">
-                            <Border x:Name="bdItemContainer"
-                                Margin="50,30,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <Border.Triggers>
-                                    <EventTrigger RoutedEvent="Loaded">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="bdItemContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
-                                                </DoubleAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Border.Triggers>
-
-                                <ItemsControl ItemsSource="{Binding Items}">
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel />
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                </ItemsControl>
-                            </Border>
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:SBItem}">
-                            <Grid x:Name="gdSBItem"
-                                Margin="15"
-                                Cursor="Hand"
-                                MouseLeftButtonDown="AssistantShowItem_MouseLeftButtonDown">
-                                <Grid.Triggers>
-                                    <EventTrigger RoutedEvent="Loaded">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gdSBItem" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                                    <EasingDoubleKeyFrame KeyTime="0" Value="0" />
-                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
-                                                </DoubleAnimationUsingKeyFrames>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-
-                                    <EventTrigger RoutedEvent="Grid.MouseEnter">
-                                        <EventTrigger.Actions>
+                            <DataTemplate DataType="{x:Type my:SBItem}">
+                                <Grid x:Name="gdSBItem"
+                                    Margin="15"
+                                    Cursor="Hand"
+                                    MouseLeftButtonDown="AssistantShowItem_MouseLeftButtonDown">
+                                    <Grid.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
                                             <BeginStoryboard>
                                                 <Storyboard>
-                                                    <DoubleAnimation
-                                                        FillBehavior="HoldEnd"
-                                                        Storyboard.TargetName="gdIconScale"
-                                                        Storyboard.TargetProperty="ScaleX"
-                                                        To="1.2"
-                                                        Duration="0:0:0.1" />
-                                                    <DoubleAnimation
-                                                        FillBehavior="HoldEnd"
-                                                        Storyboard.TargetName="gdIconScale"
-                                                        Storyboard.TargetProperty="ScaleY"
-                                                        To="1.2"
-                                                        Duration="0:0:0.1" />
+                                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gdSBItem" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                        <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                                        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
+                                                    </DoubleAnimationUsingKeyFrames>
                                                 </Storyboard>
                                             </BeginStoryboard>
-                                        </EventTrigger.Actions>
-                                    </EventTrigger>
+                                        </EventTrigger>
 
-                                    <EventTrigger RoutedEvent="Grid.MouseLeave">
-                                        <EventTrigger.Actions>
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <DoubleAnimation
-                                                        FillBehavior="HoldEnd"
-                                                        Storyboard.TargetName="gdIconScale"
-                                                        Storyboard.TargetProperty="ScaleX"
-                                                        To="1.0"
-                                                        Duration="0:0:0.1" />
-                                                    <DoubleAnimation
-                                                        FillBehavior="HoldEnd"
-                                                        Storyboard.TargetName="gdIconScale"
-                                                        Storyboard.TargetProperty="ScaleY"
-                                                        To="1.0"
-                                                        Duration="0:0:0.1" />
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger.Actions>
-                                    </EventTrigger>
-                                </Grid.Triggers>
+                                        <EventTrigger RoutedEvent="Grid.MouseEnter">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                            FillBehavior="HoldEnd"
+                                                            Storyboard.TargetName="gdIconScale"
+                                                            Storyboard.TargetProperty="ScaleX"
+                                                            To="1.2"
+                                                            Duration="0:0:0.1" />
+                                                        <DoubleAnimation
+                                                            FillBehavior="HoldEnd"
+                                                            Storyboard.TargetName="gdIconScale"
+                                                            Storyboard.TargetProperty="ScaleY"
+                                                            To="1.2"
+                                                            Duration="0:0:0.1" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
 
-                                <Grid.Resources>
-                                    <Style TargetType="ToolTip">
-                                        <Setter Property="BorderThickness" Value="0" />
-                                        <Setter Property="Background" Value="Transparent" />
-                                    </Style>
-                                </Grid.Resources>
+                                        <EventTrigger RoutedEvent="Grid.MouseLeave">
+                                            <EventTrigger.Actions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                            FillBehavior="HoldEnd"
+                                                            Storyboard.TargetName="gdIconScale"
+                                                            Storyboard.TargetProperty="ScaleX"
+                                                            To="1.0"
+                                                            Duration="0:0:0.1" />
+                                                        <DoubleAnimation
+                                                            FillBehavior="HoldEnd"
+                                                            Storyboard.TargetName="gdIconScale"
+                                                            Storyboard.TargetProperty="ScaleY"
+                                                            To="1.0"
+                                                            Duration="0:0:0.1" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger.Actions>
+                                        </EventTrigger>
+                                    </Grid.Triggers>
 
-                                <Grid.ToolTip>
-                                    <Border
-                                        Background="#bbffffff"
-                                        BorderBrush="White"
-                                        BorderThickness="1"
-                                        CornerRadius="5">
-                                        <Border.Style>
-                                            <Style TargetType="Border">
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding NotesProp}" Value="">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </Border.Style>
+                                    <Grid.Resources>
+                                        <Style TargetType="ToolTip">
+                                            <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </Style>
+                                    </Grid.Resources>
 
-                                        <TextBlock Margin="10" Text="{Binding NotesProp}" />
+                                    <Grid.ToolTip>
+                                        <Border
+                                            Background="#bbffffff"
+                                            BorderBrush="White"
+                                            BorderThickness="1"
+                                            CornerRadius="5">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NotesProp}" Value="">
+                                                            <Setter Property="Visibility" Value="Collapsed" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
 
-                                        <Border.Effect>
-                                            <DropShadowEffect
-                                                BlurRadius="5"
-                                                Direction="270"
-                                                Opacity="0.4"
-                                                ShadowDepth="2"
-                                                Color="Black" />
-                                        </Border.Effect>
-                                    </Border>
-                                </Grid.ToolTip>
+                                            <TextBlock Margin="10" Text="{Binding NotesProp}" />
 
-                                <Grid.ContextMenu>
-                                    <ContextMenu Width="200" Style="{StaticResource DarkContextMenu}">
-                                        <MenuItem Click="miOpen_Click" Header="{my:Loc Open}">
-                                            <MenuItem.Icon>
-                                                <Image
-                                                    Margin="2,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="res/context/launch.png" />
-                                            </MenuItem.Icon>
-                                        </MenuItem>
-                                        <MenuItem Click="miOpenAsAdmin_Click" Header="{my:Loc OpenAsAdmin}">
-                                            <MenuItem.Icon>
-                                                <Image
-                                                    Margin="2,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="res/context/admin.png" />
-                                            </MenuItem.Icon>
-                                        </MenuItem>
-                                        <Separator />
-                                        <MenuItem Click="miOpenLocation_Click" Header="{my:Loc OpenLocation}">
-                                            <MenuItem.Icon>
-                                                <Image
-                                                    Margin="2,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="res/context/folder.png" />
-                                            </MenuItem.Icon>
-                                        </MenuItem>
-                                    </ContextMenu>
-                                </Grid.ContextMenu>
-
-                                <Border BorderThickness="2" CornerRadius="10">
-                                    <Border.BorderBrush>
-                                        <VisualBrush>
-                                            <VisualBrush.Visual>
-                                                <Rectangle
-                                                    Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
-                                                    Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
-                                                    RadiusX="10"
-                                                    RadiusY="10"
-                                                    Stroke="{Binding SelectionBorder}"
-                                                    StrokeDashArray="4 2"
-                                                    StrokeThickness="2" />
-                                            </VisualBrush.Visual>
-                                        </VisualBrush>
-                                    </Border.BorderBrush>
-
-                                    <Grid Margin="0,15,0,0">
-                                        <Grid.CacheMode>
-                                            <BitmapCache RenderAtScale="1.0" SnapsToDevicePixels="True" />
-                                        </Grid.CacheMode>
-
-                                        <Image
-                                            Width="150"
-                                            Opacity="{Binding ShadowOpacity}"
-                                            Source="{Binding Shadow}" />
-
-                                        <TextBlock
-                                            Height="50"
-                                            MaxWidth="150"
-                                            Margin="{Binding TextMargin}"
-                                            HorizontalAlignment="Center"
-                                            FontFamily="{Binding FontFamily}"
-                                            FontSize="{Binding FontSize}"
-                                            FontWeight="Normal"
-                                            Foreground="{Binding FontColor}"
-                                            Opacity="{Binding TextOpacity}"
-                                            Text="{Binding Text}"
-                                            TextAlignment="Center"
-                                            TextOptions.TextFormattingMode="Ideal"
-                                            TextTrimming="CharacterEllipsis"
-                                            TextWrapping="WrapWithOverflow"
-                                            UseLayoutRounding="True"
-                                            Visibility="{Binding TextVisible}">
-                                            <TextBlock.Effect>
+                                            <Border.Effect>
                                                 <DropShadowEffect
-                                                    BlurRadius="4"
+                                                    BlurRadius="5"
                                                     Direction="270"
-                                                    Opacity="{Binding FontShadowOpacity}"
-                                                    ShadowDepth="1"
-                                                    Color="{Binding FontShadowColor}" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
+                                                    Opacity="0.4"
+                                                    ShadowDepth="2"
+                                                    Color="Black" />
+                                            </Border.Effect>
+                                        </Border>
+                                    </Grid.ToolTip>
 
-                                        <Grid
-                                            Width="100"
-                                            Height="100"
-                                            Margin="0,10,0,0"
-                                            VerticalAlignment="Top"
-                                            RenderOptions.BitmapScalingMode="HighQuality">
+                                    <Grid.ContextMenu>
+                                        <ContextMenu Width="200" Style="{StaticResource DarkContextMenu}">
+                                            <MenuItem Click="miOpen_Click" Header="{my:Loc Open}">
+                                                <MenuItem.Icon>
+                                                    <Image
+                                                        Margin="2,0"
+                                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                                        Source="res/context/launch.png" />
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+                                            <MenuItem Click="miOpenAsAdmin_Click" Header="{my:Loc OpenAsAdmin}">
+                                                <MenuItem.Icon>
+                                                    <Image
+                                                        Margin="2,0"
+                                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                                        Source="res/context/admin.png" />
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+                                            <Separator />
+                                            <MenuItem Click="miOpenLocation_Click" Header="{my:Loc OpenLocation}">
+                                                <MenuItem.Icon>
+                                                    <Image
+                                                        Margin="2,0"
+                                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                                        Source="res/context/folder.png" />
+                                                </MenuItem.Icon>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Grid.ContextMenu>
 
-                                            <Grid.RenderTransform>
-                                                <ScaleTransform x:Name="gdIconScale" CenterX="50" CenterY="50" />
-                                            </Grid.RenderTransform>
+                                    <Border BorderThickness="2" CornerRadius="10">
+                                        <Border.BorderBrush>
+                                            <VisualBrush>
+                                                <VisualBrush.Visual>
+                                                    <Rectangle
+                                                        Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                                                        Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
+                                                        RadiusX="10"
+                                                        RadiusY="10"
+                                                        Stroke="{Binding SelectionBorder}"
+                                                        StrokeDashArray="4 2"
+                                                        StrokeThickness="2" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Border.BorderBrush>
+
+                                        <Grid Margin="0,15,0,0">
+                                            <Grid.CacheMode>
+                                                <BitmapCache RenderAtScale="1.0" SnapsToDevicePixels="True" />
+                                            </Grid.CacheMode>
 
                                             <Image
-                                                HorizontalAlignment="Stretch"
-                                                Opacity="{Binding IconOpacity}"
-                                                Source="{Binding Icon}" />
+                                                Width="150"
+                                                Opacity="{Binding ShadowOpacity}"
+                                                Source="{Binding Shadow}" />
+
+                                            <TextBlock
+                                                Height="50"
+                                                MaxWidth="150"
+                                                Margin="{Binding TextMargin}"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="{Binding FontFamily}"
+                                                FontSize="{Binding FontSize}"
+                                                FontWeight="Normal"
+                                                Foreground="{Binding FontColor}"
+                                                Opacity="{Binding TextOpacity}"
+                                                Text="{Binding Text}"
+                                                TextAlignment="Center"
+                                                TextOptions.TextFormattingMode="Ideal"
+                                                TextTrimming="CharacterEllipsis"
+                                                TextWrapping="WrapWithOverflow"
+                                                UseLayoutRounding="True"
+                                                Visibility="{Binding TextVisible}">
+                                                <TextBlock.Effect>
+                                                    <DropShadowEffect
+                                                        BlurRadius="4"
+                                                        Direction="270"
+                                                        Opacity="{Binding FontShadowOpacity}"
+                                                        ShadowDepth="1"
+                                                        Color="{Binding FontShadowColor}" />
+                                                </TextBlock.Effect>
+                                            </TextBlock>
+
+                                            <Grid
+                                                Width="100"
+                                                Height="100"
+                                                Margin="0,10,0,0"
+                                                VerticalAlignment="Top"
+                                                RenderOptions.BitmapScalingMode="HighQuality">
+
+                                                <Grid.RenderTransform>
+                                                    <ScaleTransform x:Name="gdIconScale" CenterX="50" CenterY="50" />
+                                                </Grid.RenderTransform>
+
+                                                <Image
+                                                    HorizontalAlignment="Stretch"
+                                                    Opacity="{Binding IconOpacity}"
+                                                    Source="{Binding Icon}" />
+                                            </Grid>
+
                                         </Grid>
-
-                                    </Grid>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantPendingIndicator}">
-                            <Image x:Name="imAssistantPending"
-                                Width="20"
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                RenderTransformOrigin=".5,.5"
-                                Source="res/assistant/assistantPending.png">
-                                <Image.RenderTransform>
-                                    <RotateTransform />
-                                </Image.RenderTransform>
-
-                                <Image.Triggers>
-                                    <EventTrigger RoutedEvent="Loaded">
-                                        <BeginStoryboard x:Name="sbRotateAni">
-                                            <Storyboard x:Name="sbRotate">
-                                                <DoubleAnimation
-                                                    FillBehavior="Stop"
-                                                    RepeatBehavior="Forever"
-                                                    Storyboard.TargetName="imAssistantPending"
-                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
-                                                    From="360"
-                                                    To="0"
-                                                    Duration="0:0:2" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Image.Triggers>
-                            </Image>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantSearchedWeb}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/search.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="{Binding Text}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding Query}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantCalendarEventsListed}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/assistant/refresh.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="Calendar Events Listed">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding username}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding date}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantGmailMessagesListed}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/assistant/refresh.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="Gmail Messages Listed">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding username}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding query}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding count}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantGmailMessageSent}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/assistant/note.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="Gmail Message Sent">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding username}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding to}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding subject}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding message}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantItemsListed}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/assistant/refresh.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="Items Refreshed">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantLaunchedApp}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="{Binding Icon}" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="{Binding Text}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding Name}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantExecutedCommand}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/assistant/command.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="{Binding Text}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <Grid MaxWidth="{Binding ElementName=gdAssistant, Path=ActualWidth}" HorizontalAlignment="Left">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition />
-                                                <ColumnDefinition />
-                                            </Grid.ColumnDefinitions>
-
-                                            <TextBlock
-                                                Grid.Column="0"
-                                                Margin="0,5,0,0"
-                                                FontSize="14"
-                                                FontWeight="Bold"
-                                                Foreground="#4287f5"
-                                                Text="{Binding File}">
-                                                <TextBlock.Effect>
-                                                    <DropShadowEffect
-                                                        BlurRadius="2"
-                                                        Direction="270"
-                                                        ShadowDepth="1"
-                                                        Color="Black" />
-                                                </TextBlock.Effect>
-                                            </TextBlock>
-
-                                            <TextBlock
-                                                Grid.Column="1"
-                                                Margin="10,5,0,0"
-                                                FontSize="14"
-                                                FontWeight="Bold"
-                                                Foreground="#a3c1f0"
-                                                Text="{Binding Parameters}"
-                                                TextWrapping="Wrap"
-                                                Visibility="{Binding Path=showParameters, Converter={StaticResource BoolToVis}}">
-                                                <TextBlock.Effect>
-                                                    <DropShadowEffect
-                                                        BlurRadius="2"
-                                                        Direction="270"
-                                                        ShadowDepth="1"
-                                                        Color="Black" />
-                                                </TextBlock.Effect>
-                                            </TextBlock>
-                                        </Grid>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantAddedCalendarEvent}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/add.png" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="{Binding Text}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding Title}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-                        <DataTemplate DataType="{x:Type my:AssistantSetItemNote}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="{Binding Icon}" />
-                                    <StackPanel Margin="15,0,0,0">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="White"
-                                            Text="{Binding Text}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#4287f5"
-                                            Text="{Binding Name}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-
-                                        <TextBlock
-                                            MaxWidth="850"
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#a3c1f0"
-                                            Text="{Binding Note}"
-                                            TextWrapping="Wrap">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </StackPanel>
-
-                                </StackPanel>
-
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantMemoryAction}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/assistant/brain.png" />
-                                    <Grid MaxWidth="850" Margin="15,0,0,0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                        </Grid.RowDefinitions>
-
-                                        <StackPanel Grid.Row="0" Orientation="Horizontal">
-                                            <TextBlock
-                                                FontSize="14"
-                                                FontWeight="Bold"
-                                                Foreground="White"
-                                                Text="{Binding Text}">
-                                                <TextBlock.Effect>
-                                                    <DropShadowEffect
-                                                        BlurRadius="2"
-                                                        Direction="270"
-                                                        ShadowDepth="1"
-                                                        Color="Black" />
-                                                </TextBlock.Effect>
-                                            </TextBlock>
-
-                                            <TextBlock
-                                                Margin="5,0,0,0"
-                                                FontSize="14"
-                                                FontWeight="Bold"
-                                                Foreground="#4287f5"
-                                                Text="{Binding Name}">
-                                                <TextBlock.Effect>
-                                                    <DropShadowEffect
-                                                        BlurRadius="2"
-                                                        Direction="270"
-                                                        ShadowDepth="1"
-                                                        Color="Black" />
-                                                </TextBlock.Effect>
-                                            </TextBlock>
-                                        </StackPanel>
-
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#a3c1f0"
-                                            Text="{Binding Memory}"
-                                            TextWrapping="Wrap">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </Grid>
-
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-
-
-                        <DataTemplate DataType="{x:Type my:AssistantFailedFunction}">
-                            <Border
-                                Margin="50,20,0,0"
-                                HorizontalAlignment="Left"
-                                Background="#66000000"
-                                CornerRadius="10">
-                                <StackPanel Margin="15" Orientation="Horizontal">
-                                    <Image
-                                        Width="20"
-                                        HorizontalAlignment="Left"
-                                        RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="res/cancel.png" />
-                                    <Grid MaxWidth="850" Margin="15,0,0,0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                        </Grid.RowDefinitions>
-
-
-                                        <StackPanel Grid.Row="0" Orientation="Horizontal">
-                                            <TextBlock
-                                                FontSize="14"
-                                                FontWeight="Bold"
-                                                Foreground="White"
-                                                Text="{Binding Text}">
-                                                <TextBlock.Effect>
-                                                    <DropShadowEffect
-                                                        BlurRadius="2"
-                                                        Direction="270"
-                                                        ShadowDepth="1"
-                                                        Color="Black" />
-                                                </TextBlock.Effect>
-                                            </TextBlock>
-
-                                            <TextBlock
-                                                Margin="5,0,0,0"
-                                                FontSize="14"
-                                                FontWeight="Bold"
-                                                Foreground="#4287f5"
-                                                Text="{Binding Function}">
-                                                <TextBlock.Effect>
-                                                    <DropShadowEffect
-                                                        BlurRadius="2"
-                                                        Direction="270"
-                                                        ShadowDepth="1"
-                                                        Color="Black" />
-                                                </TextBlock.Effect>
-                                            </TextBlock>
-                                        </StackPanel>
-
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="0,5,0,0"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Foreground="#a3c1f0"
-                                            Text="{Binding Args}"
-                                            TextWrapping="Wrap">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="2"
-                                                    Direction="270"
-                                                    ShadowDepth="1"
-                                                    Color="Black" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
-                                    </Grid>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ResourceDictionary>
 
                     </ItemsControl.Resources>
 

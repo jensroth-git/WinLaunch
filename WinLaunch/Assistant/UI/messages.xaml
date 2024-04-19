@@ -1,0 +1,70 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:WinLaunch">
+
+    <DataTemplate DataType="{x:Type my:AssistantMessageHeader}">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Column="0"
+                    Width="25"
+                    VerticalAlignment="Top"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="{Binding Icon}" />
+
+                <TextBlock
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="{Binding Name}">
+                    <TextBlock.Effect>
+                        <DropShadowEffect
+                            BlurRadius="2"
+                            Direction="270"
+                            ShadowDepth="1"
+                            Color="Black" />
+                    </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type my:AssistantMessageTextContent}">
+        <RichTextBox
+            Margin="47,0,0,0"
+            my:RichTextBoxHelper.DocumentMarkdown="{Binding Text}"
+            AcceptsReturn="true"
+            Background="Transparent"
+            BorderThickness="0"
+            CaretBrush="White"
+            Foreground="White"
+            IsDocumentEnabled="True"
+            IsReadOnly="True"
+            SelectionBrush="#80ffffff">
+            <RichTextBox.Effect>
+                <DropShadowEffect
+                    BlurRadius="2"
+                    Direction="270"
+                    ShadowDepth="1"
+                    Color="Black" />
+            </RichTextBox.Effect>
+        </RichTextBox>
+    </DataTemplate>
+
+
+    <DataTemplate DataType="{x:Type my:AssistantMessageSpacer}">
+        <Border Height="20" />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type my:AssistantMessageFooter}">
+        <Border Height="30" />
+    </DataTemplate>
+</ResourceDictionary>

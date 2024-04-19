@@ -1,0 +1,115 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:WinLaunch">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../ContextMenu.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type my:AssistantItemsListed}">
+        <Border
+            Margin="50,20,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10">
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    HorizontalAlignment="Left"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="../../res/assistant/refresh.png" />
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Items Refreshed">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type my:AssistantLaunchedApp}">
+        <Border
+            Margin="50,20,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10">
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    HorizontalAlignment="Left"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="{Binding Icon}" />
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="{Binding Text}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Name}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type my:AssistantMessageShowItemContainer}">
+        <Border x:Name="bdItemContainer"
+            Margin="50,30,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10">
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="bdItemContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>

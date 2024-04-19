@@ -1,18 +1,12 @@
-﻿using SocketIOClient;
+﻿using EncryptionUtils;
+using SocketIOClient;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
-using System.Net;
-using System.Security.Cryptography;
 using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using EncryptionUtils;
-using System.Globalization;
 
 namespace WinLaunch
 {
@@ -180,37 +174,6 @@ namespace WinLaunch
                 }));
             };
 
-            AssistantClient.On("wrong_login", message =>
-            {
-                //wrong login
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    //MessageBox.Show(TranslationSource.Instance["AssistantWrongPassword"]);
-
-                    //reset login information
-                    Settings.CurrentSettings.AssistantUsername = null;
-                    Settings.CurrentSettings.AssistantPassword = null;
-
-                    Settings.SaveSettings(Settings.CurrentSettings);
-
-                    //will be disconnected shortly
-                    TransitionAssistantState(AssistantState.Login);
-                }));
-            });
-
-            AssistantClient.On("system_message", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        string message = args.GetValue<string>();
-
-                        MessageBox.Show(message);
-                    }
-                    catch { }
-                }));
-            });
 
             AssistantClient.On("new_session", async (args) =>
             {
@@ -237,599 +200,43 @@ namespace WinLaunch
                 catch { }
             });
 
-            AssistantClient.On("msg_stream_update", messagePart =>
-            {
-                Dispatcher.BeginInvoke(new Action(async () =>
-                {
-                    try
-                    {
-                        var element = GetLastActualAssistantMessage();
-
-                        if (element is AssistantMessageTextContent)
-                        {
-                            //update text
-                            (element as AssistantMessageTextContent).Text += messagePart.GetValue<string>();
-                        }
-                        else
-                        {
-                            if (!(element is AssistantMessageHeader))
-                            {
-                                icAssistantContent.Items.Add(new AssistantMessageSpacer());
-                            }
-
-                            icAssistantContent.Items.Add(new AssistantMessageTextContent() { Text = messagePart.GetValue<string>() });
-                            icAssistantContent.Items.Add(new AssistantMessageFooter());
-
-                            MovePendingIndicatorToBottom();
-
-                            scvAssistant.ScrollToBottom();
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("msg_stream_end", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(async () =>
-                {
-                    try
-                    {
-                        //if it is not an immediate response, add a spacer
-                        var element = GetLastActualAssistantMessage();
-
-                        if (element is AssistantMessageTextContent)
-                        {
-                            if (Settings.CurrentSettings.AssistantTTS)
-                            {
-                                AssistantMessageTextContent message = element as AssistantMessageTextContent;
-
-                                assistantSpeech.SpeakAsyncCancelAll();
-                                assistantSpeech.SpeakAsync(message.Text);
-                            }
-                        }
-
-                        AssistantResponsePending = false;
-                        RemovePendingIndicator();
-                        scvAssistant.ScrollToBottom();
-
-
-                        if (AssistantDelayClose)
-                        {
-                            AssistantDelayClose = false;
-
-                            await Task.Delay(2000);
-
-                            if (!IsHidden)
-                            {
-                                ToggleLaunchpad();
-                            }
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("rate_limit", message =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        //if it is not an immediate response, add a spacer
-                        var element = GetLastActualAssistantMessage();
-
-                        if (!(element is AssistantMessageHeader))
-                        {
-                            icAssistantContent.Items.Add(new AssistantMessageSpacer());
-                        }
-
-                        string rateLimitMessage = message.GetValue<string>();
-
-                        icAssistantContent.Items.Add(new AssistantMessageTextContent() { Text = rateLimitMessage });
-                        icAssistantContent.Items.Add(new AssistantMessageFooter());
-
-                        AssistantResponsePending = false;
-                        RemovePendingIndicator();
-                        scvAssistant.ScrollToBottom();
-
-                        if (Settings.CurrentSettings.AssistantTTS)
-                        {
-                            assistantSpeech.SpeakAsyncCancelAll();
-                            assistantSpeech.SpeakAsync(rateLimitMessage);
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("show_items", itemList =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var items = itemList.GetValue<List<string>>();
-
-                        foreach (var item in items)
-                        {
-                            AppendShowItem(item);
-                        }
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("store_memory", memory =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var memoryName = memory.GetValue<string>();
-                        var memoryValue = memory.GetValue<string>(1);
-
-                        Settings.CurrentSettings.AssistantMemoryList.RemoveAll(x => x.Name == memoryName);
-
-                        if (!string.IsNullOrEmpty(memoryValue))
-                        {
-                            Settings.CurrentSettings.AssistantMemoryList.Add(new AssistantMemoryItem()
-                            {
-                                Name = memoryName,
-                                Memory = memoryValue
-                            });
-                        }
-
-                        Settings.SaveSettings(Settings.CurrentSettings);
-
-                        icAssistantContent.Items.Add(new AssistantMemoryAction()
-                        {
-                            Text = TranslationSource.Instance["AssistantStoreMemory"],
-                            Name = memoryName,
-                            Memory = memoryValue
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("forget_memory", memory =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var memoryName = memory.GetValue<string>();
-
-                        var memoryItem = Settings.CurrentSettings.AssistantMemoryList.Find(x => x.Name == memoryName);
-                        if (memoryItem != null)
-                        {
-                            Settings.CurrentSettings.AssistantMemoryList.Remove(memoryItem);
-                            Settings.SaveSettings(Settings.CurrentSettings);
-
-                            icAssistantContent.Items.Add(new AssistantMemoryAction()
-                            {
-                                Text = TranslationSource.Instance["AssistantForgetMemory"],
-                                Name = memoryName,
-                                Memory = memoryItem.Memory
-                            });
-
-                            MovePendingIndicatorToBottom();
-                            scvAssistant.ScrollToBottom();
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("set_note_for_item", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var name = args.GetValue<string>();
-                        var note = args.GetValue<string>(1);
-
-                        var InstalledItems = SBM.AssistantFindItemsByExactName(name, true);
-
-                        if (InstalledItems.Count == 0)
-                            return;
-
-                        InstalledItems.First().Notes = note;
-                        InstalledItems.First().NotesProp = note;
-
-                        //save items
-                        TriggerSaveItemsDelayed();
-
-                        icAssistantContent.Items.Add(new AssistantSetItemNote()
-                        {
-                            Text = "Set Item Note",
-                            Icon = InstalledItems.First().Icon,
-                            Name = InstalledItems.First().Name,
-                            Note = note
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("launch_items", itemList =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var items = itemList.GetValue<List<string>>();
-
-                        foreach (var item in items)
-                        {
-                            var InstalledItems = SBM.AssistantFindItemsByExactName(item);
-
-                            if (InstalledItems.Count == 0)
-                                continue;
-
-                            ItemActivated(InstalledItems.First(), EventArgs.Empty, false, false);
-
-                            icAssistantContent.Items.Add(new AssistantLaunchedApp()
-                            {
-                                Text = TranslationSource.Instance["AssistantLaunchedItem"],
-                                Name = InstalledItems.First().Name,
-                                Icon = InstalledItems.First().Icon
-                            });
-
-                            MovePendingIndicatorToBottom();
-
-                            AssistantDelayClose = true;
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("search_web", query =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        String searchRequest = query.GetValue<string>();
-                        System.Diagnostics.Process.Start("http://www.google.com/search?q=" + System.Uri.EscapeDataString(searchRequest));
-
-                        icAssistantContent.Items.Add(new AssistantSearchedWeb()
-                        {
-                            Text = TranslationSource.Instance["AssistantSearchedWeb"],
-                            Query = searchRequest
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        AssistantDelayClose = true;
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("shell_execute", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(async () =>
-                {
-                    string output = string.Empty;
-                    try
-                    {
-                        string file = args.GetValue<string>();
-                        string parameters = args.GetValue<string>(1);
-                        bool hide = args.GetValue<bool>(2);
-
-                        icAssistantContent.Items.Add(new AssistantExecutedCommand(file, parameters)
-                        {
-                            Text = TranslationSource.Instance["AssistantExecutedCommand"]
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        if (Settings.CurrentSettings.ExecuteAssistantCommands)
-                        {
-                            try
-                            {
-                                output = ExecuteProcessAndGetOutput(file, parameters);
-                                await args.CallbackAsync(output);
-                            }
-                            catch (Exception ex)
-                            {
-                                try
-                                {
-                                    await args.CallbackAsync(ex.Message);
-                                }
-                                catch { }
-                            }
-
-                            if (hide)
-                            {
-                                AssistantDelayClose = true;
-                            }
-                        }
-                        else
-                        {
-                            try
-                            {
-                                await args.CallbackAsync("User disabled commands, they can be enabled again in the settings");
-                            }
-                            catch { }
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("run_python", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(async () =>
-                {
-                    string output = string.Empty;
-                    try
-                    {
-                        string code = args.GetValue<string>();
-                        icAssistantContent.Items.Add(new AssistantExecutedCommand("Python code Run", code)
-                        {
-                            Text = TranslationSource.Instance["AssistantExecutedCommand"]
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        if (Settings.CurrentSettings.ExecuteAssistantCommands)
-                        {
-                            try
-                            {
-                                Trace.WriteLine("Executing Python Code:\n" + code);//Debugging
-                                output = RunPythonAndGetOutput(code);
-                                Trace.WriteLine("Python Output\n" + output);
-                                await args.CallbackAsync(output);//Debugging
-                            }
-                            catch (Exception ex)
-                            {
-                                try
-                                {
-                                    await args.CallbackAsync(ex.Message);
-                                }
-                                catch { }
-                            }
-                        }
-                        else
-                        {
-                            try
-                            {
-                                await args.CallbackAsync("User disabled python scripting, they can be enabled again in the settings");
-                            }
-                            catch { }
-                        }
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("failed_function", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var function = args.GetValue<string>();
-                        var functionArgs = args.GetValue<string>(1);
-
-                        icAssistantContent.Items.Add(new AssistantFailedFunction()
-                        {
-                            Text = "Failed to execute function",
-                            Function = function,
-                            Args = functionArgs
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("get_calendar_events", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var username = args.GetValue<string>();
-                        var date = args.GetValue<string>(1);
-
-                        //parse date to datetime
-                        DateTime parsedDate = DateTime.Parse(date);
-
-                        icAssistantContent.Items.Add(new AssistantCalendarEventsListed()
-                        {
-                            username = username,
-                            date = parsedDate.ToShortDateString()
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        AssistantDelayClose = false;
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("add_calendar_event", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        icAssistantContent.Items.Add(new AssistantAddedCalendarEvent()
-                        {
-                            Text = TranslationSource.Instance["AssistantAddedCalendarEvent"],
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        AssistantDelayClose = false;
-                    }
-                    catch { }
-                }));
-            });
-
-
-            AssistantClient.On("items_listed", query =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        icAssistantContent.Items.Add(new AssistantItemsListed());
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        AssistantDelayClose = false;
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("get_gmail_messages", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var username = args.GetValue<string>();
-                        var count = args.GetValue<int>(1);
-                        var query = args.GetValue<string>(2);
-
-                        icAssistantContent.Items.Add(new AssistantGmailMessagesListed()
-                        {
-                            username = username,
-                            count = count,
-                            query = query
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        AssistantDelayClose = false;
-                    }
-                    catch { }
-                }));
-            });
-
-            AssistantClient.On("sent_gmail_message", args =>
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    try
-                    {
-                        var username = args.GetValue<string>();
-                        var to = args.GetValue<string>(1);
-                        var subject = args.GetValue<string>(2);
-                        var message = args.GetValue<string>(3);
-
-                        icAssistantContent.Items.Add(new AssistantGmailMessageSent()
-                        {
-                            username = username,
-                            to = to,
-                            subject = subject,
-                            message = message
-                        });
-
-                        MovePendingIndicatorToBottom();
-                        scvAssistant.ScrollToBottom();
-
-                        AssistantDelayClose = false;
-                    }
-                    catch { }
-                }));
-            });
+            //system messages
+            AssistantClient.On("wrong_login", wrong_login);
+            AssistantClient.On("rate_limit", rate_limit);
+            AssistantClient.On("system_message", system_message);
+            AssistantClient.On("failed_function", failed_function);
+
+            //text messages
+            AssistantClient.On("msg_stream_update", msg_stream_update);
+            AssistantClient.On("msg_stream_end", msg_stream_end);
+
+            //item handling
+            AssistantClient.On("items_listed", items_listed);
+            AssistantClient.On("show_items", show_items);
+            AssistantClient.On("launch_items", launch_items);
+
+            //memory & notes
+            AssistantClient.On("store_memory", store_memory);
+            AssistantClient.On("forget_memory", forget_memory);
+            AssistantClient.On("set_note_for_item", set_note_for_item);
+
+            //utils
+            AssistantClient.On("search_web", search_web);
+
+            //execute commands
+            AssistantClient.On("shell_execute", shell_execute);
+            AssistantClient.On("run_python", run_python);
+
+            //calendar
+            AssistantClient.On("get_calendar_events", get_calendar_events);
+            AssistantClient.On("add_calendar_event", add_calendar_event);
+
+            //gmail
+            AssistantClient.On("get_gmail_messages", get_gmail_messages);
+            AssistantClient.On("sent_gmail_message", sent_gmail_message);
 
             await AssistantClient.ConnectAsync();
         }
-
-        //TODO: run threaded to not block the UI thread
-        private string ExecuteProcessAndGetOutput(string file, string parameters)
-        {
-            string output = string.Empty;
-            parameters += " && exit";
-            using (Process process = new Process())
-            {
-                process.StartInfo.FileName = file;
-                process.StartInfo.Arguments = parameters;
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.RedirectStandardOutput = true;
-
-                process.StartInfo.CreateNoWindow = true; // Do not create the black window
-                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; // Hides the window
-
-                process.Start();
-
-                output = process.StandardOutput.ReadToEnd();
-
-                if (!process.WaitForExit(1)) // Wait for the process to exit with a timeout.
-                {
-                    process.Kill(); // Forcefully kill the process if it doesn't exit in time.
-                }
-            }
-
-            return output;
-        }
-
-        private string RunPythonAndGetOutput(string code)
-        {
-            string output = string.Empty;
-            string error = string.Empty;
-
-            //write text into a .py file
-            string tempFile = System.IO.Path.GetTempFileName();
-            System.IO.File.WriteAllText(tempFile, code);
-
-            //print the code to trace
-            //Console.WriteLine("Executing Python Code:" + code);
-
-            //run python
-            using (Process process = new Process())
-            {
-                process.StartInfo.FileName = "python";
-                process.StartInfo.Arguments = tempFile;
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.RedirectStandardOutput = true;
-
-                process.StartInfo.CreateNoWindow = true; // Do not create the black window
-                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; // Hides the window
-
-                process.Start();
-
-                output = process.StandardOutput.ReadToEnd();
-                error = process.StandardError.ReadToEnd();
-
-                if (!process.WaitForExit(1)) // Wait for the process to exit with a timeout.
-                {
-                    process.Kill(); // Forcefully kill the process if it doesn't exit in time.
-                }
-            }
-
-            return output + "\n" + error;
-        }
-
 
         public void InitAssistant()
         {
@@ -843,8 +250,6 @@ namespace WinLaunch
             RichTextBoxHelper.LinkOpened += RichTextBoxHelper_LinkOpened;
 
             //InitRecognizer();
-            //Settings.CurrentSettings.AssistantPassword = null;
-            //Settings.CurrentSettings.AssistantUsername = null;
         }
 
         private void RichTextBoxHelper_LinkOpened(object sender, EventArgs e)
@@ -959,19 +364,14 @@ namespace WinLaunch
             {
                 if (e.Key == Key.Return)
                 {
+                    e.Handled = true;
+
                     if (!AssistantResponsePending)
                     {
                         RunAssistant();
-                        e.Handled = true;
-                        return;
-                    }
-                    else
-                    {
-                        e.Handled = true;
                         return;
                     }
                 }
-
             }
         }
 

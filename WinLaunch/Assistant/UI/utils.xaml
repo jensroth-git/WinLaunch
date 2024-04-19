@@ -1,0 +1,53 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:WinLaunch">
+
+    <DataTemplate DataType="{x:Type my:AssistantSearchedWeb}">
+        <Border
+            Margin="50,20,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10">
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    HorizontalAlignment="Left"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="../../res/search.png" />
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="{Binding Text}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Query}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+    </DataTemplate>
+</ResourceDictionary>

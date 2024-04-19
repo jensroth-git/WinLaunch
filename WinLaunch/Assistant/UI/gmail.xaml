@@ -86,6 +86,7 @@
         <Border
             Margin="50,20,0,0"
             HorizontalAlignment="Left"
+            MaxWidth="1000"
             Background="#66000000"
             CornerRadius="10">
             <StackPanel Margin="15" Orientation="Horizontal">
@@ -159,6 +160,8 @@
                         FontSize="14"
                         FontWeight="Bold"
                         Foreground="#4287f5"
+                        TextWrapping="Wrap"
+                        MaxWidth="860"
                         Text="{Binding message}">
                         <TextBlock.Effect>
                             <DropShadowEffect

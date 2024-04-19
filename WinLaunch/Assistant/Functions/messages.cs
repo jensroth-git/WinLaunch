@@ -1,15 +1,22 @@
-﻿using KTrie;
+﻿using ICSharpCode.AvalonEdit;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using ICSharpCode.AvalonEdit.Highlighting;
+using System.Xml;
+using KTrie;
 using MdXaml;
 using SocketIOClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace WinLaunch
 {
@@ -226,6 +233,25 @@ namespace WinLaunch
                                             }
                                         }
                                     }
+                                }
+                            }
+                            else if(block is BlockUIContainer)
+                            {
+                                var UIBlock = block as BlockUIContainer;
+
+                                if(UIBlock.Child is ICSharpCode.AvalonEdit.TextEditor)
+                                {
+                                    var editor = UIBlock.Child as ICSharpCode.AvalonEdit.TextEditor;
+
+                                    var assembly = Assembly.GetExecutingAssembly();
+                                    using (Stream s = assembly.GetManifestResourceStream("WinLaunch.res.SyntaxHighlighting.DarkPython.xshd"))
+                                    using (XmlTextReader reader = new XmlTextReader(s))
+                                    {
+                                        editor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+                                    }
+
+                                    //set highlighting styles
+                                    Console.WriteLine(editor.SyntaxHighlighting.Name);
                                 }
                             }
                         }

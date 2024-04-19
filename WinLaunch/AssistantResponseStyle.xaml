@@ -17,11 +17,12 @@
             </Style>
 
             <Style xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit" TargetType="avalonEdit:TextEditor">
-                <Setter Property="Background" Value="#EEEEEE" />
+                <Setter Property="Background" Value="#333" />
                 <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
                 <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
                 <Setter Property="Margin" Value="2,0,2,0" />
                 <Setter Property="Padding" Value="3" />
+                <Setter Property="ShowLineNumbers" Value="True" />
             </Style>
 
             <Style TargetType="Paragraph">

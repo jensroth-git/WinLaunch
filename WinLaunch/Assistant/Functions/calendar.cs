@@ -5,8 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Web.UI.HtmlControls;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
+using WinLaunch.Utils;
 
 namespace WinLaunch
 {
@@ -17,6 +20,12 @@ namespace WinLaunch
     }
     public class AssistantCalendarEvent : DependencyObject
     {
+
+        public AssistantCalendarEvent()
+        {
+            OpenUriCommand = new RelayCommand(ExecuteOpenUri);
+        }
+
         public string Title { get; set; }
 
         public Visibility DescriptionVisibility { get; set; } = Visibility.Collapsed;
@@ -66,6 +75,26 @@ namespace WinLaunch
         public string Time { get; set; }
         public string Date { get; set; }
         public SolidColorBrush Color { get; set; }
+        public string htmlLink { get; set; }
+        public ICommand OpenUriCommand { get; private set; }
+        private void ExecuteOpenUri()
+        {
+            // Example action
+            Trace.WriteLine("Opening calendar event link: " + Title + "\n" + htmlLink);
+            // You might want to open the link here
+            MainWindow window = (MainWindow)MainWindow.WindowRef;
+            window.StartFlyOutAnimation();
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    Process.Start( System.Uri.EscapeDataString(htmlLink));
+
+                }
+                catch { }
+            }));
+
+        }
     }
 
     public class AssistantAddedCalendarEvent : DependencyObject
@@ -218,7 +247,8 @@ namespace WinLaunch
                 Attendees = item.Attendees,
                 Time = timePreview,
                 Date = datePreview,
-                Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88ffffff"))
+                Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88ffffff")),
+                htmlLink = "www.google.com"
             });
         }
 

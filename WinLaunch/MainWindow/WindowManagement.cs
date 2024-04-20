@@ -804,7 +804,7 @@ namespace WinLaunch
             }
         }
 
-        private void ForceFadeOut()
+        public void ForceFadeOut()
         {
             //start fade out animation
             //Animation -> HideWinLaunch -> HideWindow

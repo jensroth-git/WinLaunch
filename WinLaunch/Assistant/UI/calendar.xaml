@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:my="clr-namespace:WinLaunch">
+    xmlns:my="clr-namespace:WinLaunch"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
 
     <DataTemplate DataType="{x:Type my:AssistantCalendarEventsListed}">
         <Border
@@ -72,6 +73,13 @@
             BorderBrush="{Binding Color}"
             BorderThickness="5,0,0,0"
             CornerRadius="10">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding OpenUriCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
             <StackPanel Margin="15" Orientation="Horizontal">
                 <Image
                     Width="20"
@@ -120,7 +128,7 @@
                                 Color="Black" />
                         </StackPanel.Effect>
                         <Image
-                            Width="10"
+                            Width="13"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             RenderOptions.BitmapScalingMode="HighQuality"

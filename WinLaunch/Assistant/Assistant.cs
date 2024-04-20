@@ -375,18 +375,33 @@ namespace WinLaunch
             AdjustAssistantMessageSpacing();
             scvAssistant.ScrollToBottom();
 
-            
+            //create mockup CalendarEntry
+            CalendarEvent item = new CalendarEvent()
+            {
+                Title = "Test",
+                Description = "description",
+                StartDateTime = DateTime.Now.ToString(),
+                EndDateTime = DateTime.Now.ToString(),
+                IsAllDay = false,
+                Location = "Germany",
+                Attendees = new List<string>() { "some@email.com", "another@email.com" }
+            };
+
+            CreateCalendarEntryUI(item);
+
             //send prompt
-            await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));
+            //await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));
             AssistantResponsePending = true;
 
             //change send button to abort
             imAssistantSend.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component" + "/res/quit.png"));
+
+
         }
 
         private async void AbortAssistant()
         {
-            if(AssistantClient == null || !AssistantResponsePending)
+            if (AssistantClient == null || !AssistantResponsePending)
             {
                 return;
             }

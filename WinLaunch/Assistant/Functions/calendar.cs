@@ -17,10 +17,10 @@ namespace WinLaunch
     }
     public class AssistantCalendarEvent : DependencyObject
     {
-        private string _description;
-
         public string Title { get; set; }
 
+        public Visibility DescriptionVisibility { get; set; } = Visibility.Collapsed;
+        private string _description;
         public string Description
         {
             get => _description;
@@ -28,18 +28,40 @@ namespace WinLaunch
             {
                 _description = value;
                 // Update DescriptionVisibility based on whether the description is not null or empty.
-                if(string.IsNullOrEmpty(_description))
-                {
-                    DescriptionVisibility = Visibility.Collapsed;
-                }
-                else
-                {
-                    DescriptionVisibility = Visibility.Collapsed;
-                }
+                DescriptionVisibility = string.IsNullOrEmpty(value) ? Visibility.Collapsed : Visibility.Visible;
             }
         }
 
-        public Visibility DescriptionVisibility { get; set; }
+        public Visibility LocationVisibility { get; set; } = Visibility.Collapsed;
+        private string _location;
+        public string Location
+        {
+            get { return _location; }
+            set { 
+                _location = value;
+                LocationVisibility = string.IsNullOrEmpty(value) ? Visibility.Collapsed : Visibility.Visible;
+            }
+        }
+
+        public string AttendeesDescription { get; set; }
+        public Visibility AttendeesVisibility { get; set; } = Visibility.Collapsed;
+        private List<string> _attendees;
+        public List<string> Attendees
+        {
+            get { return _attendees; }
+            set
+            {
+                bool any = (value != null && value.Count > 0);
+                _attendees = value;
+                AttendeesVisibility = any ? Visibility.Visible : Visibility.Collapsed;
+
+                if(any)
+                {
+                    //TODO: multilanguage
+                    AttendeesDescription = _attendees.Count + " Attendee" + (_attendees.Count > 1 ? "s" : "");
+                }
+            }
+        }
 
         public string Time { get; set; }
         public string Date { get; set; }
@@ -89,45 +111,7 @@ namespace WinLaunch
                     foreach (var item in events)
                     {
                         //MessageBox.Show(item.Title+"\n\n"+item.Description+"\n"+item.StartDateTime + " - " + item.EndDateTime);
-
-                        var datePreview = String.Empty;
-                        var timePreview = String.Empty;
-
-                        DateTime startDateTime = DateTime.Parse(item.StartDateTime);
-                        DateTime endDateTime = DateTime.Parse(item.EndDateTime);
-
-                        string startTime = startDateTime.ToString("HH:mm");
-                        string endTime = endDateTime.ToString("HH:mm");
-
-                        string startDate = startDateTime.ToShortDateString();
-                        string endDate = endDateTime.ToShortDateString();
-
-                        if (item.IsAllDay)
-                        {
-                            timePreview = "All Day";
-                        }
-                        else
-                        {
-                            timePreview = startTime + " - " + endTime;
-                        }
-                        if (startDate == endDate)
-                        {
-                            datePreview = startDate;
-                        }
-                        else
-                        {
-                            datePreview = startDate + " - " + endDate;
-                        }
-
-                        icAssistantContent.Items.Add(new AssistantCalendarEvent()
-                        {
-                            Title = item.Title,
-                            //Description = obj["description"].ToString(),
-                            Description = item.Description,
-                            Time = timePreview,
-                            Date = datePreview,
-                            Color = new SolidColorBrush(Color.FromRgb(244, 244, 0))
-                        });
+                        CreateCalendarEntryUI(item);
                     }
 
 
@@ -193,6 +177,49 @@ namespace WinLaunch
                     Debugger.Break();
                 }
             }));
+        }
+
+        private void CreateCalendarEntryUI(CalendarEvent item)
+        {
+            var datePreview = String.Empty;
+            var timePreview = String.Empty;
+
+            DateTime startDateTime = DateTime.Parse(item.StartDateTime);
+            DateTime endDateTime = DateTime.Parse(item.EndDateTime);
+
+            string startTime = startDateTime.ToString("HH:mm");
+            string endTime = endDateTime.ToString("HH:mm");
+
+            string startDate = startDateTime.ToShortDateString();
+            string endDate = endDateTime.ToShortDateString();
+
+            if (item.IsAllDay)
+            {
+                timePreview = "All Day";
+            }
+            else
+            {
+                timePreview = startTime + " - " + endTime;
+            }
+            if (startDate == endDate)
+            {
+                datePreview = startDate;
+            }
+            else
+            {
+                datePreview = startDate + " - " + endDate;
+            }
+
+            icAssistantContent.Items.Add(new AssistantCalendarEvent()
+            {
+                Title = item.Title,
+                Description = item.Description,
+                Location = item.Location,
+                Attendees = item.Attendees,
+                Time = timePreview,
+                Date = datePreview,
+                Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88ffffff"))
+            });
         }
 
         void add_calendar_event(SocketIOResponse args)

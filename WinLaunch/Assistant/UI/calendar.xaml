@@ -67,12 +67,9 @@
 
     <DataTemplate DataType="{x:Type my:AssistantCalendarEvent}">
         <Border
-            Margin="50,20,0,0"
+            Padding="0"
             HorizontalAlignment="Left"
-            Background="#66000000"
-            BorderBrush="{Binding Color}"
-            BorderThickness="5,0,0,0"
-            CornerRadius="10"
+            Background="#01000000"
             Cursor="Hand">
             <Border.Style>
                 <Style TargetType="Border">
@@ -82,8 +79,8 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ThicknessAnimation
-                                            Storyboard.TargetProperty="Margin"
-                                            To="70,20,0,0"
+                                            Storyboard.TargetProperty="Padding"
+                                            To="20,0,0,0"
                                             Duration="0:0:0.3">
                                             <ThicknessAnimation.EasingFunction>
                                                 <ExponentialEase EasingMode="EaseOut" Exponent="5" />
@@ -96,8 +93,8 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ThicknessAnimation
-                                            Storyboard.TargetProperty="Margin"
-                                            To="50,20,0,0"
+                                            Storyboard.TargetProperty="Padding"
+                                            To="0"
                                             Duration="0:0:0.3">
                                             <ThicknessAnimation.EasingFunction>
                                                 <ExponentialEase EasingMode="EaseOut" Exponent="5" />
@@ -117,127 +114,134 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
 
-            <StackPanel Margin="15" Orientation="Horizontal">
-                <Image
-                    Width="20"
-                    HorizontalAlignment="Left"
-                    RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="../../res/assistant/calendar.png" />
-                <StackPanel>
-                    <TextBlock
-                        Margin="20,0,5,0"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="{Binding Title}">
-                        <TextBlock.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </TextBlock.Effect>
-                    </TextBlock>
-
-                    <TextBlock
-                        Margin="20,3,0,3"
-                        FontSize="13"
-                        FontWeight="Regular"
-                        Foreground="White"
-                        Text="{Binding Description}"
-                        Visibility="{Binding DescriptionVisibility}">
-                        <TextBlock.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </TextBlock.Effect>
-                    </TextBlock>
-
-                    <Separator Margin="20,8,20,2" Background="#20ffffff" />
-                    <StackPanel Margin="20,5,0,0" Orientation="Horizontal">
-                        <StackPanel.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </StackPanel.Effect>
-                        <Image
-                            Width="13"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="../../res/assistant/time.png" />
+            <Border x:Name="mainBorder"
+                Margin="50,20,0,0"
+                Background="#66000000"
+                BorderBrush="{Binding Color}"
+                BorderThickness="5,0,0,0"
+                CornerRadius="10">
+                <StackPanel Margin="15" Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        HorizontalAlignment="Left"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Source="../../res/assistant/calendar.png" />
+                    <StackPanel>
                         <TextBlock
-                            Margin="3,0,8,0"
+                            Margin="20,0,5,0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="{Binding Title}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <TextBlock
+                            Margin="20,3,0,3"
                             FontSize="13"
                             FontWeight="Regular"
                             Foreground="White"
-                            Text="{Binding Time}" />
-                        <Image
-                            Width="10"
-                            Margin="3,0,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="../../res/assistant/date.png" />
-                        <TextBlock
-                            Margin="3,0,8,0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Foreground="White"
-                            Text="{Binding Date}" />
-                    </StackPanel>
+                            Text="{Binding Description}"
+                            Visibility="{Binding DescriptionVisibility}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
 
-                    <StackPanel Margin="20,5,0,0" Orientation="Horizontal">
-                        <StackPanel.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </StackPanel.Effect>
-
-                        <StackPanel
-                            Margin="0,0,3,0"
-                            Orientation="Horizontal"
-                            Visibility="{Binding LocationVisibility}">
+                        <Separator Margin="20,8,20,2" Background="#20ffffff" />
+                        <StackPanel Margin="20,5,0,0" Orientation="Horizontal">
+                            <StackPanel.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </StackPanel.Effect>
                             <Image
-                                Width="10"
+                                Width="13"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 RenderOptions.BitmapScalingMode="HighQuality"
-                                Source="../../res/assistant/location.png" />
+                                Source="../../res/assistant/time.png" />
                             <TextBlock
                                 Margin="3,0,8,0"
                                 FontSize="13"
                                 FontWeight="Regular"
                                 Foreground="White"
-                                Text="{Binding Location}" />
+                                Text="{Binding Time}" />
+                            <Image
+                                Width="10"
+                                Margin="3,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="../../res/assistant/date.png" />
+                            <TextBlock
+                                Margin="3,0,8,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Foreground="White"
+                                Text="{Binding Date}" />
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Visibility="{Binding AttendeesVisibility}">
-                            <StackPanel.ToolTip>
-                                <ItemsControl ItemsSource="{Binding Attendees}" />
-                            </StackPanel.ToolTip>
-                            <Image
-                                Width="10"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Source="../../res/assistant/person.png" />
-                            <TextBlock
-                                Margin="3,0,8,0"
-                                FontSize="13"
-                                FontWeight="Regular"
-                                Foreground="White"
-                                Text="{Binding AttendeesDescription}" />
+                        <StackPanel Margin="20,5,0,0" Orientation="Horizontal">
+                            <StackPanel.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </StackPanel.Effect>
+
+                            <StackPanel
+                                Margin="0,0,3,0"
+                                Orientation="Horizontal"
+                                Visibility="{Binding LocationVisibility}">
+                                <Image
+                                    Width="10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="../../res/assistant/location.png" />
+                                <TextBlock
+                                    Margin="3,0,8,0"
+                                    FontSize="13"
+                                    FontWeight="Regular"
+                                    Foreground="White"
+                                    Text="{Binding Location}" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding AttendeesVisibility}">
+                                <StackPanel.ToolTip>
+                                    <ItemsControl ItemsSource="{Binding Attendees}" />
+                                </StackPanel.ToolTip>
+                                <Image
+                                    Width="10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="../../res/assistant/person.png" />
+                                <TextBlock
+                                    Margin="3,0,8,0"
+                                    FontSize="13"
+                                    FontWeight="Regular"
+                                    Foreground="White"
+                                    Text="{Binding AttendeesDescription}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </Border>
         </Border>
     </DataTemplate>
 

@@ -20,7 +20,6 @@ namespace WinLaunch
     }
     public class AssistantCalendarEvent : DependencyObject
     {
-
         public AssistantCalendarEvent()
         {
             OpenUriCommand = new RelayCommand(ExecuteOpenUri);

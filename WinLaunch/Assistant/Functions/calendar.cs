@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using SocketIOClient;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -30,6 +31,18 @@ namespace WinLaunch
 
     partial class MainWindow : Window
     {
+        class CalendarEvent
+        {
+            public string Id { get; set; }
+            public string Title { get; set; }
+            public string Description { get; set; }
+            public string StartDateTime { get; set; }
+            public string EndDateTime { get; set; }
+            public string Link { get; set; }
+            public string Location { get; set; }
+            public List<string> Attendees { get; set; }
+        }
+
         void get_calendar_events(SocketIOResponse args)
         {
             Dispatcher.BeginInvoke(new Action(() =>
@@ -38,16 +51,7 @@ namespace WinLaunch
                 {
                     var username = args.GetValue<string>();
                     var date = args.GetValue<string>(1);
-                    var events = args.GetValue<string>(2);
-
-
-                    //print to console
-                    Console.WriteLine("Username: " + username);
-                    Console.WriteLine("Date: " + date);
-                    Console.WriteLine("Events: " + events);
-
-                    //parse events json
-                    var eventsJson = JArray.Parse(events);
+                    var events = args.GetValue<List<CalendarEvent>>(2);
 
                     //parse date to datetime
                     DateTime parsedDate = DateTime.Parse(date);
@@ -57,56 +61,57 @@ namespace WinLaunch
                         username = username,
                         date = parsedDate.ToShortDateString()
                     });
-                    foreach (var item in eventsJson)
-                    {
-                        JObject obj = item as JObject;
 
-                        //check if description is exist in the event
-                        var keys = obj.Properties().Select(p => p.Name).ToList();
+                    //foreach (var item in eventsJson)
+                    //{
+                    //    JObject obj = item as JObject;
 
-                        //if description is not in add it
-                        if (!keys.Contains("description"))
-                        {
-                            obj["description"] = "";
-                        }
+                    //    //check if description is exist in the event
+                    //    var keys = obj.Properties().Select(p => p.Name).ToList();
 
-                        //fields to show user
-                        string datePreview = String.Empty;
-                        string timePreview = String.Empty;
+                    //    //if description is not in add it
+                    //    if (!keys.Contains("description"))
+                    //    {
+                    //        obj["description"] = "";
+                    //    }
 
-                        try
-                        {
-                            //if the event is all day
-                            datePreview = item["start"]["date"].ToString() + " - " + item["end"]["date"].ToString();
-                            timePreview = "All Day";
-                        }
-                        catch
-                        {
-                            //if the event is not all day
-                            string StartdateTimeString = item["start"]["dateTime"].ToString();
-                            DateTime dateTime = DateTime.Parse(StartdateTimeString);
-                            string startTime = dateTime.ToString("HH:mm");
-                            string startDate = dateTime.ToShortDateString();
+                    //    //fields to show user
+                    //    string datePreview = String.Empty;
+                    //    string timePreview = String.Empty;
 
-                            string EnddateTimeString = item["end"]["dateTime"].ToString();
-                            DateTime endDateTime = DateTime.Parse(EnddateTimeString);
-                            string endTime = endDateTime.ToString("HH:mm");
-                            string endDate = endDateTime.ToShortDateString();
+                    //    try
+                    //    {
+                    //        //if the event is all day
+                    //        datePreview = item["start"]["date"].ToString() + " - " + item["end"]["date"].ToString();
+                    //        timePreview = "All Day";
+                    //    }
+                    //    catch
+                    //    {
+                    //        //if the event is not all day
+                    //        string StartdateTimeString = item["start"]["dateTime"].ToString();
+                    //        DateTime dateTime = DateTime.Parse(StartdateTimeString);
+                    //        string startTime = dateTime.ToString("HH:mm");
+                    //        string startDate = dateTime.ToShortDateString();
 
-                            timePreview = startTime + " - " + endTime;
-                            datePreview = startDate + " - " + endDate;
-                        }
+                    //        string EnddateTimeString = item["end"]["dateTime"].ToString();
+                    //        DateTime endDateTime = DateTime.Parse(EnddateTimeString);
+                    //        string endTime = endDateTime.ToString("HH:mm");
+                    //        string endDate = endDateTime.ToShortDateString();
 
-                        icAssistantContent.Items.Add(new AssistantCalendarEvent()
-                        {
-                            Title = obj["summary"].ToString(),
-                            //Description = obj["description"].ToString(),
-                            Description = obj.ToString(),
-                            Time = timePreview,
-                            Date = datePreview,
-                            Color = new SolidColorBrushu
-                        });
-                    }
+                    //        timePreview = startTime + " - " + endTime;
+                    //        datePreview = startDate + " - " + endDate;
+                    //    }
+
+                    //    icAssistantContent.Items.Add(new AssistantCalendarEvent()
+                    //    {
+                    //        Title = obj["summary"].ToString(),
+                    //        //Description = obj["description"].ToString(),
+                    //        Description = obj.ToString(),
+                    //        Time = timePreview,
+                    //        Date = datePreview,
+                    //        Color = new SolidColorBrushu
+                    //    });
+                    //}
 
 
                     AdjustAssistantMessageSpacing();
@@ -114,7 +119,9 @@ namespace WinLaunch
 
                     AssistantDelayClose = false;
                 }
-                catch { }
+                catch(Exception ex) {
+                    Debugger.Break();
+                }
             }));
         }
 

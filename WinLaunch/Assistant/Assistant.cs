@@ -2,6 +2,7 @@
 using SocketIOClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Speech.Synthesis;
@@ -374,12 +375,13 @@ namespace WinLaunch
             AdjustAssistantMessageSpacing();
             scvAssistant.ScrollToBottom();
 
+            
             //send prompt
-            //await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));
-            //AssistantResponsePending = true;
+            await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));
+            AssistantResponsePending = true;
 
             //change send button to abort
-            //imAssistantSend.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component" + "/res/quit.png"));
+            imAssistantSend.Source = new BitmapImage(new Uri("pack://application:,,,/WinLaunch;component" + "/res/quit.png"));
         }
 
         private async void AbortAssistant()

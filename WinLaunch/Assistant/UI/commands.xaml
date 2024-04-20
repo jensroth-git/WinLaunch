@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
     xmlns:my="clr-namespace:WinLaunch">
 
     <BooleanToVisibilityConverter x:Key="BoolToVis" />
@@ -77,25 +78,94 @@
             </Border>
 
             <Border
+                MinWidth="300"
                 MaxWidth="1000"
-                MaxHeight="500"
                 Margin="0,10,0,0"
                 HorizontalAlignment="Left"
                 Background="#66000000"
                 CornerRadius="10"
                 Visibility="{Binding OutputVisible}">
                 <Grid Margin="20">
-                    <ScrollViewer>
-                        <TextBox
-                            Background="Transparent"
-                            BorderThickness="0"
-                            FontSize="14"
-                            Foreground="white"
-                            IsReadOnly="True"
-                            SelectionBrush="#80ffffff"
-                            Text="{Binding Output}"
-                            TextWrapping="Wrap" />
-                    </ScrollViewer>
+                    <avalon:TextEditor
+                        my:AvalonExtension.BindableText="{Binding Output}"
+                        my:AvalonStyler.DarkMode="True"
+                        Background="#282c34"
+                        BorderThickness="0"
+                        FontSize="14"
+                        Foreground="white"
+                        IsReadOnly="True"
+                        ShowLineNumbers="True"
+                        VerticalScrollBarVisibility="Auto" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type my:AssistantExecutedPython}">
+        <StackPanel Margin="50,20,0,0">
+            <Border
+                HorizontalAlignment="Left"
+                Background="#66000000"
+                CornerRadius="10">
+                <StackPanel Margin="15">
+                    <StackPanel Orientation="Horizontal">
+                        <Image
+                            Width="20"
+                            HorizontalAlignment="Left"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="../../res/assistant/command.png" />
+                        <StackPanel Margin="15,0,0,0">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Text="Executed Python Code">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="2"
+                                        Direction="270"
+                                        ShadowDepth="1"
+                                        Color="Black" />
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <avalon:TextEditor
+                        Margin="0,10,0,0"
+                        Padding="0,8,0,0"
+                        my:AvalonExtension.BindableText="{Binding Code}"
+                        my:AvalonStyler.DarkMode="True"
+                        Background="#282c34"
+                        BorderThickness="0"
+                        FontSize="14"
+                        IsReadOnly="True"
+                        ShowLineNumbers="True"
+                        SyntaxHighlighting="Python"
+                        VerticalScrollBarVisibility="Auto" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                MinWidth="300"
+                MaxWidth="1000"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Left"
+                Background="#66000000"
+                CornerRadius="10"
+                Visibility="{Binding OutputVisible}">
+                <Grid Margin="20">
+                    <avalon:TextEditor
+                        Padding="0,8,0,0"
+                        my:AvalonExtension.BindableText="{Binding Output}"
+                        my:AvalonStyler.DarkMode="True"
+                        Background="#282c34"
+                        BorderThickness="0"
+                        FontSize="14"
+                        Foreground="white"
+                        IsReadOnly="True"
+                        ShowLineNumbers="True"
+                        VerticalScrollBarVisibility="Auto" />
                 </Grid>
             </Border>
         </StackPanel>

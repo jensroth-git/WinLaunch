@@ -17,6 +17,8 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Windows.Media;
+using System.Windows.Data;
 
 namespace WinLaunch
 {
@@ -43,6 +45,110 @@ namespace WinLaunch
     public class AssistantMessageFooter : DependencyObject
     {
 
+    }
+
+    class AvalonStyler : DependencyObject
+    {
+        private static void AdjustThemeColor(IHighlightingDefinition definition, string[] properties, string color)
+        {
+            try
+            {
+                if (definition == null)
+                    return;
+
+                if (color == null)
+                    return;
+
+                foreach (var property in properties)
+                {
+                    var namedColor = definition.GetNamedColor(property);
+
+                    if (namedColor == null)
+                        continue;
+
+                    namedColor.Foreground = new SimpleHighlightingBrush((Color)ColorConverter.ConvertFromString(color));
+                }
+            }
+            catch { }
+        }
+
+        public static void ApplyStyle(ICSharpCode.AvalonEdit.TextEditor editor)
+        {
+            var highlighting = editor.SyntaxHighlighting;
+
+            if(highlighting == null)
+            {
+                //load python highlighting
+                highlighting = HighlightingManager.Instance.GetDefinition("Python");
+            }
+
+            //python
+            AdjustThemeColor(highlighting, new string[] { "Comment" }, "#5c6370");
+            AdjustThemeColor(highlighting, new string[] { "String" }, "#98c379");
+            AdjustThemeColor(highlighting, new string[] { "MethodCall" }, "#61aeee");
+            AdjustThemeColor(highlighting, new string[] { "NumberLiteral" }, "#d19a66");
+            AdjustThemeColor(highlighting, new string[] { "Keywords" }, "#c678dd");
+
+            //c#
+            AdjustThemeColor(highlighting, new string[] { "Char" }, "#98c379");
+            AdjustThemeColor(highlighting, new string[] { "Char" }, "#98c379");
+            AdjustThemeColor(highlighting, new string[] { "Preprocessor" }, "#61aeee");
+            AdjustThemeColor(highlighting,
+                new string[] {
+                                            "ThisOrBaseReference",
+                                            "TypeKeywords",
+                                            "TrueFalse",
+                                            "GotoKeywords",
+                                            "ContextKeywords",
+                                            "ExceptionKeywords",
+                                            "CheckedKeyword",
+                                            "UnsafeKeywords",
+                                            "ValueTypeKeywords",
+                                            "ReferenceTypeKeywords",
+                                            "OperatorKeywords",
+                                            "ParameterModifiers",
+                                            "Modifiers",
+                                            "Visibility",
+                                            "NamespaceKeywords",
+                                            "GetSetAddRemove",
+                                            "NullOrValueKeywords",
+                                            "SemanticKeywords"
+
+            }, "#c678dd");
+
+            editor.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
+
+            editor.SyntaxHighlighting = null;
+            editor.SyntaxHighlighting = highlighting;
+        }
+
+        public static bool GetDarkMode(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(DarkModeProperty);
+        }
+
+        public static void SetDarkMode(DependencyObject obj, bool value)
+        {
+            obj.SetValue(DarkModeProperty, value);
+        }
+
+        // Using a DependencyProperty as the backing store for DarkMode.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DarkModeProperty =
+            DependencyProperty.RegisterAttached("DarkMode", typeof(bool), typeof(AvalonStyler), new FrameworkPropertyMetadata
+            {
+                BindsTwoWayByDefault = false,
+                PropertyChangedCallback = (obj, e) =>
+                {
+                    var editor = (ICSharpCode.AvalonEdit.TextEditor)obj;
+
+                    bool DarkMode = GetDarkMode(editor);
+
+                    if(DarkMode)
+                    {
+                        ApplyStyle(editor);
+                    }
+                }
+            });
     }
 
     public class AppButton : Control
@@ -171,6 +277,8 @@ namespace WinLaunch
             return null;
         }
 
+
+
         public static readonly DependencyProperty DocumentMarkdownProperty =
             DependencyProperty.RegisterAttached(
                 "DocumentMarkdown",
@@ -235,23 +343,34 @@ namespace WinLaunch
                                     }
                                 }
                             }
-                            else if(block is BlockUIContainer)
+                            else if (block is BlockUIContainer)
                             {
                                 var UIBlock = block as BlockUIContainer;
 
-                                if(UIBlock.Child is ICSharpCode.AvalonEdit.TextEditor)
+                                if (UIBlock.Child is ICSharpCode.AvalonEdit.TextEditor)
                                 {
                                     var editor = UIBlock.Child as ICSharpCode.AvalonEdit.TextEditor;
 
-                                    var assembly = Assembly.GetExecutingAssembly();
-                                    using (Stream s = assembly.GetManifestResourceStream("WinLaunch.res.SyntaxHighlighting.DarkPython.xshd"))
-                                    using (XmlTextReader reader = new XmlTextReader(s))
-                                    {
-                                        editor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
-                                    }
+                                    AvalonStyler.ApplyStyle(editor);
 
-                                    //set highlighting styles
-                                    Console.WriteLine(editor.SyntaxHighlighting.Name);
+                                    //var assembly = Assembly.GetExecutingAssembly();
+                                    //using (Stream s = assembly.GetManifestResourceStream("WinLaunch.res.SyntaxHighlighting.DarkUniversal.xshd"))
+                                    //using (XmlTextReader reader = new XmlTextReader(s))
+                                    //{
+                                    //    editor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+                                    //}
+
+                                    ////set highlighting styles
+                                    //Console.WriteLine(editor.SyntaxHighlighting.Name);
+
+                                    /*
+                                        <Color name="Comment"       foreground="#FF55FF00" exampleText="# comment" />
+                                        <Color name="String"        foreground="#FFFFEF00" exampleText="name = 'abc'"/>
+                                        <Color name="MethodCall"    foreground="#FFFF6600" exampleText="def Hello()"/>
+                                        <Color name="NumberLiteral" foreground="#FFFFCF00" exampleText="3.1415f"/>
+                                        <Color name="Keywords"      fontWeight="bold" foreground="#FF0080FF" exampleText="if"/>
+                                     */
+                                    
                                 }
                             }
                         }

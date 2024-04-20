@@ -465,7 +465,7 @@
       <Generator>ShaderEffectGenerator</Generator>
       <LastGenOutput>Darkening.cs</LastGenOutput>
     </None>
-    <EmbeddedResource Include="res\SyntaxHighlighting\DarkPython.xshd" />
+    <EmbeddedResource Include="res\SyntaxHighlighting\DarkUniversal.xshd" />
     <Resource Include="res\Fonts\SF-Pro-Display-Regular.otf" />
     <Resource Include="Darkening.ps">
       <DependentUpon>Darkening.fx</DependentUpon>

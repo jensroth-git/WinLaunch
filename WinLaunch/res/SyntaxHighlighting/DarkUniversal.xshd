@@ -1,0 +1,201 @@
+﻿<?xml version="1.0"?>
+<SyntaxDefinition name="Python" extensions=".py;.pyw" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+  <Color name="Comment"       foreground="#FF55FF00" exampleText="# comment" />
+  <Color name="String"        foreground="#FFFFEF00" exampleText="name = 'abc'"/>
+  <Color name="MethodCall"    foreground="#FFFF6600" exampleText="def Hello()"/>
+  <Color name="NumberLiteral" foreground="#FFFFCF00" exampleText="3.1415f"/>
+  <Color name="Keywords"      fontWeight="bold" foreground="#FF0080FF" exampleText="if"/>
+
+	<Property name="DocCommentMarker" value="///" />
+
+	<RuleSet name="CommentMarkerSet">
+		<Keywords fontWeight="bold" foreground="Red">
+			<Word>TODO</Word>
+			<Word>FIXME</Word>
+		</Keywords>
+		<Keywords fontWeight="bold" foreground="#E0E000">
+			<Word>HACK</Word>
+			<Word>UNDONE</Word>
+		</Keywords>
+	</RuleSet>
+
+	<RuleSet>
+		<Span color="Comment" ruleSet="CommentMarkerSet">
+			<Begin>\#</Begin>
+		</Span>
+
+		<Span color="String" multiline="true">
+			<Begin>'''</Begin>
+			<End>'''</End>
+		</Span>
+		<Span color="String" multiline="true">
+			<Begin>"""</Begin>
+			<End>"""</End>
+		</Span>
+
+		<Span color="String">
+			<Begin>"</Begin>
+			<End>"</End>
+			<RuleSet>
+				<Span begin="\\" end="."/>
+			</RuleSet>
+		</Span>
+		<Span color="String">
+			<Begin>'</Begin>
+			<End>'</End>
+			<RuleSet>
+				<Span begin="\\" end="."/>
+			</RuleSet>
+		</Span>
+
+		<Keywords color="Keywords">
+      <Word>if</Word>
+      <Word>else</Word>
+      <Word>for</Word>
+      <Word>while</Word>
+      <Word>return</Word>
+      <Word>int</Word>
+      <Word>float</Word>
+      <Word>double</Word>
+      <Word>char</Word>
+      <Word>case</Word>
+      <Word>break</Word>
+      <Word>continue</Word>
+      <Word>public</Word>
+      <Word>private</Word>
+      <Word>protected</Word>
+      <Word>class</Word>
+      <Word>interface</Word>
+      <Word>extends</Word>
+      <Word>implements</Word>
+      <Word>package</Word>
+      <Word>import</Word>
+      <Word>try</Word>
+      <Word>catch</Word>
+      <Word>finally</Word>
+      <Word>void</Word>
+      <Word>static</Word>
+      <Word>new</Word>
+      <Word>throw</Word>
+      <Word>throws</Word>
+      <Word>function</Word>
+      <Word>var</Word>
+      <Word>let</Word>
+      <Word>const</Word>
+      <Word>def</Word>
+      <Word>lambda</Word>
+      <Word>yield</Word>
+      <Word>print</Word>
+      <Word>async</Word>
+      <Word>await</Word>
+    </Keywords>
+
+		<Rule color="MethodCall">
+			\b
+			[\d\w_]+  # an identifier
+			(?=\s*\() # followed by (
+		</Rule>
+		<Rule color="NumberLiteral">
+			\b0[xX][0-9a-fA-F]+  # hex number
+			(	\b\d+(\.[0-9]+)?   #number with optional floating point
+			|	\.[0-9]+           #or just starting with floating point
+			)
+			([eE][+-]?[0-9]+)? # optional exponent
+		</Rule>
+	</RuleSet>
+</SyntaxDefinition>
+
+<!--<SyntaxDefinition name="Universal" extensions=".code">
+  --><!-- Define the main rules for the syntax highlighting --><!--
+  <RuleSet ignoreCase="false">
+
+    --><!-- Keywords for various programming languages --><!--
+    <Keywords fontWeight="bold" foreground="#569CD6">
+      --><!-- Blue for keywords --><!--
+      <Word>if</Word>
+      <Word>else</Word>
+      <Word>for</Word>
+      <Word>while</Word>
+      <Word>return</Word>
+      <Word>int</Word>
+      <Word>float</Word>
+      <Word>double</Word>
+      <Word>char</Word>
+      <Word>case</Word>
+      <Word>break</Word>
+      <Word>continue</Word>
+      <Word>public</Word>
+      <Word>private</Word>
+      <Word>protected</Word>
+      <Word>class</Word>
+      <Word>interface</Word>
+      <Word>extends</Word>
+      <Word>implements</Word>
+      <Word>package</Word>
+      <Word>import</Word>
+      <Word>try</Word>
+      <Word>catch</Word>
+      <Word>finally</Word>
+      <Word>void</Word>
+      <Word>static</Word>
+      <Word>new</Word>
+      <Word>throw</Word>
+      <Word>throws</Word>
+      <Word>function</Word>
+      <Word>var</Word>
+      <Word>let</Word>
+      <Word>const</Word>
+      <Word>def</Word>
+      <Word>lambda</Word>
+      <Word>yield</Word>
+      <Word>print</Word>
+      <Word>async</Word>
+      <Word>await</Word>
+    </Keywords>
+
+    --><!-- Comments --><!--
+    <Span color="#57A64A" startLine="true">
+      --><!-- Green for single-line comments --><!--
+      <Begin>//</Begin>
+    </Span>
+    <Span color="#57A64A">
+      --><!-- Green for multi-line comments --><!--
+      <Begin>/*</Begin>
+      <End>*/</End>
+    </Span>
+    <Span color="#57A64A">
+      --><!-- Green for Python-style comments --><!--
+      <Begin>#</Begin>
+    </Span>
+
+    --><!-- Strings --><!--
+    <Span color="#D69D85">
+      --><!-- Orange for strings --><!--
+      <Begin>"</Begin>
+      <End>"</End>
+      <RuleSet>
+        <Span color="#CE9178" escapeCharacter="\">
+          --><!-- Darker orange for escape characters --><!--
+          <Begin>\\</Begin>
+        </Span>
+      </RuleSet>
+    </Span>
+    <Span color="#D69D85">
+      --><!-- Orange for single quote strings --><!--
+      <Begin>'</Begin>
+      <End>'</End>
+      <RuleSet>
+        <Span color="#CE9178" escapeCharacter="\">
+          --><!-- Darker orange for escape characters --><!--
+          <Begin>\\</Begin>
+        </Span>
+      </RuleSet>
+    </Span>
+
+    --><!-- Numbers --><!--
+    <Rule foreground="#B5CEA8">
+      --><!-- Light green for numbers --><!--
+      <RegEx>\b\d+(\.\d*)?\b</RegEx>
+    </Rule>
+  </RuleSet>
+</SyntaxDefinition>-->

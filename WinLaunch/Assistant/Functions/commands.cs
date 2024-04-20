@@ -2,12 +2,43 @@
 using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace WinLaunch
 {
+    public class AvalonExtension : DependencyObject
+    {
+        public static string GetBindableText(DependencyObject obj)
+        {
+            return (string)obj.GetValue(BindableTextProperty);
+        }
+
+        public static void SetBindableText(DependencyObject obj, string value)
+        {
+            obj.SetValue(BindableTextProperty, value);
+        }
+
+        public static readonly DependencyProperty BindableTextProperty =
+            DependencyProperty.RegisterAttached("BindableText", typeof(string), typeof(AvalonExtension), new FrameworkPropertyMetadata
+            {
+                BindsTwoWayByDefault = false,
+                PropertyChangedCallback = (obj, e) =>
+                {
+                    var editor = (ICSharpCode.AvalonEdit.TextEditor)obj;
+
+                    string text = GetBindableText(editor);
+
+                    if (editor.Text != text)
+                    {
+                        editor.Text = text;
+                    }
+                }
+            });
+    }
+
     public class AssistantExecutedCommand : DependencyObject
     {
         public string Text { get; set; }
@@ -35,6 +66,11 @@ namespace WinLaunch
         public static readonly DependencyProperty OutputVisibleProperty =
             DependencyProperty.Register("OutputVisible", typeof(Visibility), typeof(AssistantExecutedCommand), new PropertyMetadata(Visibility.Collapsed));
 
+        public void SetOuput(string output)
+        {
+            Output = output;
+            OutputVisible = Visibility.Visible;
+        }
 
         public AssistantExecutedCommand(string file, string parameters)
         {
@@ -45,6 +81,37 @@ namespace WinLaunch
                 showParameters = true;
                 Parameters = parameters;
             }
+        }
+    }
+
+
+    public class AssistantExecutedPython : DependencyObject
+    {
+        public string Code { get; set; }
+
+        public string Output
+        {
+            get { return (string)GetValue(OutputProperty); }
+            set { SetValue(OutputProperty, value); }
+        }
+
+        public static readonly DependencyProperty OutputProperty =
+            DependencyProperty.Register("Output", typeof(string), typeof(AssistantExecutedCommand), new PropertyMetadata(""));
+
+
+        public Visibility OutputVisible
+        {
+            get { return (Visibility)GetValue(OutputVisibleProperty); }
+            set { SetValue(OutputVisibleProperty, value); }
+        }
+
+        public static readonly DependencyProperty OutputVisibleProperty =
+            DependencyProperty.Register("OutputVisible", typeof(Visibility), typeof(AssistantExecutedCommand), new PropertyMetadata(Visibility.Collapsed));
+
+        public void SetOuput(string output)
+        {
+            Output = output;
+            OutputVisible = Visibility.Visible;
         }
     }
 
@@ -134,8 +201,7 @@ namespace WinLaunch
                         if (!string.IsNullOrEmpty(output))
                         {
                             //update output in the UI
-                            commandUI.Output = output.TrimEnd(new char[] { '\n', '\r' });
-                            commandUI.OutputVisible = Visibility.Visible;
+                            commandUI.SetOuput(output.TrimEnd(new char[] { '\n', '\r' }));
                         }
                     }
                     catch (Exception ex)
@@ -161,7 +227,7 @@ namespace WinLaunch
             System.IO.File.WriteAllText(tempFile, code);
 
             //print the code to trace
-            //Console.WriteLine("Executing Python Code:" + code);
+            Console.WriteLine(tempFile);
 
             //run python
             using (Process process = new Process())
@@ -203,9 +269,9 @@ namespace WinLaunch
                 try
                 {
                     string code = args.GetValue<string>();
-                    var commandUI = new AssistantExecutedCommand("Python code Run", code)
+                    var commandUI = new AssistantExecutedPython()
                     {
-                        Text = TranslationSource.Instance["AssistantExecutedCommand"]
+                        Code = code,
                     };
                     icAssistantContent.Items.Add(commandUI);
 
@@ -223,8 +289,7 @@ namespace WinLaunch
                             if (!string.IsNullOrEmpty(output))
                             {
                                 //update output in the UI
-                                commandUI.Output = output.TrimEnd(new char[] { '\n', '\r' });
-                                commandUI.OutputVisible = Visibility.Visible;
+                                commandUI.SetOuput(output.TrimEnd(new char[] { '\n', '\r' }));
                             }
 
 

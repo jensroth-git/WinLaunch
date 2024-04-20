@@ -80,7 +80,6 @@
                     RenderOptions.BitmapScalingMode="HighQuality"
                     Source="../../res/assistant/calendar.png" />
                 <StackPanel>
-
                     <TextBlock
                             Margin="20 0 5 0"
                             FontSize="14"
@@ -96,52 +95,54 @@
                         </TextBlock.Effect>
                     </TextBlock>
 
-                    <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
-                        <!--<TextBlock
-                            FontSize="14"
-                            FontWeight="Bold"
+                    <TextBlock
+                            Margin="20 3 0 3"
+                            FontSize="13"
+                            FontWeight="Regular"
                             Foreground="White"
-                            Text="Event">
-                            <TextBlock.Effect>
-                                <DropShadowEffect
-                                    BlurRadius="2"
-                                    Direction="270"
-                                    ShadowDepth="1"
-                                    Color="Black" />
-                            </TextBlock.Effect>
-                        </TextBlock>-->
+                            Text="{Binding Description}"
+                            Visibility="{Binding DescriptionVisibility}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
 
-                        <!--<TextBlock
-                            Margin="3 0 3 0"
-                            FontSize="14"
-                            FontWeight="Bold"
-                            Foreground="#4287f5"
-                            Text="{Binding Description}">
-                            <TextBlock.Effect>
-                                <DropShadowEffect
-                                    BlurRadius="2"
-                                    Direction="270"
-                                    ShadowDepth="1"
-                                    Color="Black" />
-                            </TextBlock.Effect>
-                        </TextBlock>-->
+                    <Separator  Margin="20 8 20 2" Background="#34000000"/>
+                    <StackPanel Orientation="Horizontal" Margin="20,5,0,0">
+                        <Image
+                            Width="10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            RenderOptions.BitmapScalingMode="LowQuality"
+                            Source="../../res/assistant/time.png" />                   
                         <TextBlock
-                            Margin="5 0 5 0"
-                            FontSize="14"
+                            Margin="3 0 8 0"
+                            FontSize="13"
                             FontWeight="Regular"
                             Foreground="White"
                             Text="{Binding Time}">
                             <TextBlock.Effect>
                                 <DropShadowEffect
-                                    BlurRadius="2"
-                                    Direction="270"
-                                    ShadowDepth="1"
-                                    Color="Black" />
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
                             </TextBlock.Effect>
                         </TextBlock>
+                        <Image
+                            Width="10"
+                            Margin="3 0 0 0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            RenderOptions.BitmapScalingMode="LowQuality"
+                            Source="../../res/assistant/date.png" />
                         <TextBlock
-                            Margin="5 0 5 0"
-                            FontSize="14"
+                            Margin="3 0 8 0"
+                            FontSize="13"
                             FontWeight="Regular"
                             Foreground="White"
                             Text="{Binding Date}">

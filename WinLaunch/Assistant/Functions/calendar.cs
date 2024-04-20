@@ -17,8 +17,30 @@ namespace WinLaunch
     }
     public class AssistantCalendarEvent : DependencyObject
     {
+        private string _description;
+
         public string Title { get; set; }
-        public string Description { get; set; }
+
+        public string Description
+        {
+            get => _description;
+            set
+            {
+                _description = value;
+                // Update DescriptionVisibility based on whether the description is not null or empty.
+                if(string.IsNullOrEmpty(_description))
+                {
+                    DescriptionVisibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    DescriptionVisibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        public Visibility DescriptionVisibility { get; set; }
+
         public string Time { get; set; }
         public string Date { get; set; }
         public SolidColorBrush Color { get; set; }
@@ -71,29 +93,31 @@ namespace WinLaunch
                         var datePreview = String.Empty;
                         var timePreview = String.Empty;
 
+                        DateTime startDateTime = DateTime.Parse(item.StartDateTime);
+                        DateTime endDateTime = DateTime.Parse(item.EndDateTime);
+
+                        string startTime = startDateTime.ToString("HH:mm");
+                        string endTime = endDateTime.ToString("HH:mm");
+
+                        string startDate = startDateTime.ToShortDateString();
+                        string endDate = endDateTime.ToShortDateString();
+
                         if (item.IsAllDay)
                         {
-                            Trace.WriteLine("All Day Event");
-                            //if the event is all day
-                            datePreview = item.StartDateTime + " - " + item.EndDateTime;
                             timePreview = "All Day";
                         }
                         else
                         {
-                            Trace.WriteLine("Not All Day Event");
-                            //if the event is not all day
-                            DateTime dateTime = DateTime.Parse(item.StartDateTime);
-                            string startTime = dateTime.ToString("HH:mm");
-                            string startDate = dateTime.ToShortDateString();
-
-                            DateTime endDateTime = DateTime.Parse(item.EndDateTime);
-                            string endTime = endDateTime.ToString("HH:mm");
-                            string endDate = endDateTime.ToShortDateString();
-
                             timePreview = startTime + " - " + endTime;
+                        }
+                        if (startDate == endDate)
+                        {
+                            datePreview = startDate;
+                        }
+                        else
+                        {
                             datePreview = startDate + " - " + endDate;
                         }
-
 
                         icAssistantContent.Items.Add(new AssistantCalendarEvent()
                         {

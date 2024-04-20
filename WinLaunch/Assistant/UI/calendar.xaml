@@ -78,79 +78,82 @@
                     Width="20"
                     HorizontalAlignment="Left"
                     RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="../../res/assistant/refresh.png" />
-                <StackPanel Margin="15,0,0,0">
+                    Source="../../res/assistant/calendar.png" />
+                <StackPanel>
+
                     <TextBlock
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Text="Calendar Events Listed">
+                            Margin="20 0 5 0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="{Binding Title}">
                         <TextBlock.Effect>
                             <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
                         </TextBlock.Effect>
                     </TextBlock>
 
-                    <TextBlock
-                        Margin="0,5,0,0"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Foreground="#4287f5"
-                        Text="{Binding Title}">
-                        <TextBlock.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </TextBlock.Effect>
-                    </TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="15,0,0,0">
+                        <!--<TextBlock
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Event">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>-->
 
-                    <TextBlock
-                        Margin="0,5,0,0"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Foreground="#4287f5"
-                        Text="{Binding Description}">
-                        <TextBlock.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </TextBlock.Effect>
-                    </TextBlock>
-                    <TextBlock
-                        Margin="0,5,0,0"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Foreground="#4287f5"
-                        Text="{Binding Time}">
-                        <TextBlock.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </TextBlock.Effect>
-                    </TextBlock>
-                    <TextBlock
-                        Margin="0,5,0,0"
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Foreground="#4287f5"
-                        Text="{Binding Date}">
-                        <TextBlock.Effect>
-                            <DropShadowEffect
-                                BlurRadius="2"
-                                Direction="270"
-                                ShadowDepth="1"
-                                Color="Black" />
-                        </TextBlock.Effect>
-                    </TextBlock>
+                        <!--<TextBlock
+                            Margin="3 0 3 0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="#4287f5"
+                            Text="{Binding Description}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>-->
+                        <TextBlock
+                            Margin="5 0 5 0"
+                            FontSize="14"
+                            FontWeight="Regular"
+                            Foreground="White"
+                            Text="{Binding Time}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock
+                            Margin="5 0 5 0"
+                            FontSize="14"
+                            FontWeight="Regular"
+                            Foreground="White"
+                            Text="{Binding Date}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Border>

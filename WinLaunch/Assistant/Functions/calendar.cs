@@ -39,6 +39,7 @@ namespace WinLaunch
             public string StartDateTime { get; set; }
             public string EndDateTime { get; set; }
             public string Link { get; set; }
+            public bool IsAllDay { get; set; }
             public string Location { get; set; }
             public List<string> Attendees { get; set; }
         }
@@ -61,6 +62,50 @@ namespace WinLaunch
                         username = username,
                         date = parsedDate.ToShortDateString()
                     });
+
+                    //for loop in events list
+                    foreach (var item in events)
+                    {
+                        //MessageBox.Show(item.Title+"\n\n"+item.Description+"\n"+item.StartDateTime + " - " + item.EndDateTime);
+
+                        var datePreview = String.Empty;
+                        var timePreview = String.Empty;
+
+                        if (item.IsAllDay)
+                        {
+                            Trace.WriteLine("All Day Event");
+                            //if the event is all day
+                            datePreview = item.StartDateTime + " - " + item.EndDateTime;
+                            timePreview = "All Day";
+                        }
+                        else
+                        {
+                            Trace.WriteLine("Not All Day Event");
+                            //if the event is not all day
+                            DateTime dateTime = DateTime.Parse(item.StartDateTime);
+                            string startTime = dateTime.ToString("HH:mm");
+                            string startDate = dateTime.ToShortDateString();
+
+                            DateTime endDateTime = DateTime.Parse(item.EndDateTime);
+                            string endTime = endDateTime.ToString("HH:mm");
+                            string endDate = endDateTime.ToShortDateString();
+
+                            timePreview = startTime + " - " + endTime;
+                            datePreview = startDate + " - " + endDate;
+                        }
+
+
+                        icAssistantContent.Items.Add(new AssistantCalendarEvent()
+                        {
+                            Title = item.Title,
+                            //Description = obj["description"].ToString(),
+                            Description = item.Description,
+                            Time = timePreview,
+                            Date = datePreview,
+                            Color = new SolidColorBrush(Color.FromRgb(244, 244, 0))
+                        });
+                    }
+
 
                     //foreach (var item in eventsJson)
                     //{
@@ -119,7 +164,8 @@ namespace WinLaunch
 
                     AssistantDelayClose = false;
                 }
-                catch(Exception ex) {
+                catch (Exception ex)
+                {
                     Debugger.Break();
                 }
             }));

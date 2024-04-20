@@ -88,7 +88,7 @@ namespace WinLaunch
             {
                 try
                 {
-                    Process.Start( System.Uri.EscapeDataString(htmlLink));
+                    Process.Start(htmlLink);
 
                 }
                 catch { }
@@ -248,7 +248,7 @@ namespace WinLaunch
                 Time = timePreview,
                 Date = datePreview,
                 Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88ffffff")),
-                htmlLink = "www.google.com"
+                htmlLink = item.Link
             });
         }
 

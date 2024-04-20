@@ -384,9 +384,11 @@ namespace WinLaunch
                 EndDateTime = DateTime.Now.ToString(),
                 IsAllDay = false,
                 Location = "Germany",
+                Link = "google.com",
                 Attendees = new List<string>() { "some@email.com", "another@email.com" }
             };
 
+            CreateCalendarEntryUI(item);
             CreateCalendarEntryUI(item);
 
             //send prompt

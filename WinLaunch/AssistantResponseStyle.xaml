@@ -17,7 +17,7 @@
             </Style>
 
             <Style xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit" TargetType="avalonEdit:TextEditor">
-                <Setter Property="Background" Value="#282c34" />
+                <Setter Property="Background" Value="#45000000" />
                 <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
                 <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
                 <Setter Property="Margin" Value="2,0,2,0" />

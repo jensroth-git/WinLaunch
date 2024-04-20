@@ -46,13 +46,6 @@
                                 FontWeight="Bold"
                                 Foreground="#4287f5"
                                 Text="{Binding File}">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="2"
-                                        Direction="270"
-                                        ShadowDepth="1"
-                                        Color="Black" />
-                                </TextBlock.Effect>
                             </TextBlock>
 
                             <TextBlock
@@ -64,15 +57,15 @@
                                 Text="{Binding Parameters}"
                                 TextWrapping="Wrap"
                                 Visibility="{Binding Path=showParameters, Converter={StaticResource BoolToVis}}">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="2"
-                                        Direction="270"
-                                        ShadowDepth="1"
-                                        Color="Black" />
-                                </TextBlock.Effect>
                             </TextBlock>
                         </Grid>
+                        <StackPanel.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </StackPanel.Effect>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -89,13 +82,20 @@
                     <avalon:TextEditor
                         my:AvalonExtension.BindableText="{Binding Output}"
                         my:AvalonStyler.DarkMode="True"
-                        Background="#282c34"
+                        Background="#01000000"
                         BorderThickness="0"
                         FontSize="14"
                         Foreground="white"
                         IsReadOnly="True"
                         ShowLineNumbers="True"
                         VerticalScrollBarVisibility="Auto" />
+                    <Grid.Effect>
+                        <DropShadowEffect
+                             BlurRadius="2"
+                             Direction="270"
+                             ShadowDepth="1"
+                             Color="Black" />
+                    </Grid.Effect>
                 </Grid>
             </Border>
         </StackPanel>
@@ -113,20 +113,14 @@
                             Width="20"
                             HorizontalAlignment="Left"
                             RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="../../res/assistant/command.png" />
+                            Source="../../res/assistant/python.png" />
                         <StackPanel Margin="15,0,0,0">
                             <TextBlock
                                 FontSize="14"
                                 FontWeight="Bold"
                                 Foreground="White"
                                 Text="Executed Python Code">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="2"
-                                        Direction="270"
-                                        ShadowDepth="1"
-                                        Color="Black" />
-                                </TextBlock.Effect>
+                                
                             </TextBlock>
                         </StackPanel>
                     </StackPanel>
@@ -136,13 +130,20 @@
                         Padding="0,8,0,0"
                         my:AvalonExtension.BindableText="{Binding Code}"
                         my:AvalonStyler.DarkMode="True"
-                        Background="#282c34"
+                        Background="#01000000"
                         BorderThickness="0"
                         FontSize="14"
                         IsReadOnly="True"
-                        ShowLineNumbers="True"
+                        ShowLineNumbers="False"
                         SyntaxHighlighting="Python"
                         VerticalScrollBarVisibility="Auto" />
+                    <StackPanel.Effect>
+                        <DropShadowEffect
+                            BlurRadius="2"
+                            Direction="270"
+                            ShadowDepth="1"
+                            Color="Black" />
+                    </StackPanel.Effect>
                 </StackPanel>
             </Border>
 
@@ -154,18 +155,28 @@
                 Background="#66000000"
                 CornerRadius="10"
                 Visibility="{Binding OutputVisible}">
+                
+                
                 <Grid Margin="20">
                     <avalon:TextEditor
                         Padding="0,8,0,0"
                         my:AvalonExtension.BindableText="{Binding Output}"
                         my:AvalonStyler.DarkMode="True"
-                        Background="#282c34"
+                        Background="#01000000"
                         BorderThickness="0"
                         FontSize="14"
                         Foreground="white"
                         IsReadOnly="True"
-                        ShowLineNumbers="True"
-                        VerticalScrollBarVisibility="Auto" />
+                        ShowLineNumbers="False"
+                        VerticalScrollBarVisibility="Auto">
+                    </avalon:TextEditor>
+                    <Grid.Effect>
+                        <DropShadowEffect
+                            BlurRadius="2"
+                            Direction="270"
+                            ShadowDepth="1"
+                            Color="Black" />
+                    </Grid.Effect>
                 </Grid>
             </Border>
         </StackPanel>

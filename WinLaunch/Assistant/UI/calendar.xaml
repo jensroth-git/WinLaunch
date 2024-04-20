@@ -64,6 +64,98 @@
         </Border>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type my:AssistantCalendarEvent}">
+        <Border
+            Margin="50,20,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10"
+            BorderThickness="5 0 0 0"
+            BorderBrush="{Binding Color}"
+            >
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    HorizontalAlignment="Left"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="../../res/assistant/refresh.png" />
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Calendar Events Listed">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Title}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Description}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Time}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Date}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type my:AssistantAddedCalendarEvent}">
         <Border
             Margin="50,20,0,0"
@@ -75,7 +167,7 @@
                     Width="20"
                     HorizontalAlignment="Left"
                     RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="../../res/add.png" />
+                    Source="../../res/assistant/calendar.png" />
                 <StackPanel Margin="15,0,0,0">
                     <TextBlock
                         FontSize="14"

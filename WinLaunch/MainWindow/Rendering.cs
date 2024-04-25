@@ -24,18 +24,14 @@ namespace WinLaunch
 
                 if (LoadingAssets)
                 {
-                    if (LoadingText.Visibility != System.Windows.Visibility.Visible)
-                    {
-                        LoadingText.Visibility = System.Windows.Visibility.Visible;
-                        spSearchAndAssistantContainer.Visibility = System.Windows.Visibility.Hidden;
-                    }
-                        
+                    gdLoading.Visibility = System.Windows.Visibility.Visible;
+                    spSearchAndAssistantContainer.Visibility = System.Windows.Visibility.Collapsed;
                 }
                 else
                 {
-                    if (LoadingText.Visibility != System.Windows.Visibility.Hidden)
+                    if (gdLoading.Visibility != System.Windows.Visibility.Hidden)
                     {
-                        LoadingText.Visibility = System.Windows.Visibility.Hidden;
+                        gdLoading.Visibility = System.Windows.Visibility.Hidden;
                         spSearchAndAssistantContainer.Visibility = System.Windows.Visibility.Visible;
                     }
                         

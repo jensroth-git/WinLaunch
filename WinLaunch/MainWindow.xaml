@@ -1579,21 +1579,33 @@
             </Grid>
         </Grid>
 
-        <TextBlock x:Name="LoadingText"
+        <Grid x:Name="gdLoading"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Foreground="White"
-            Text="{my:Loc Loading}"
-            Visibility="Collapsed">
-            <TextBlock.Effect>
-                <DropShadowEffect
-                    BlurRadius="2"
-                    Direction="270"
-                    ShadowDepth="1"
-                    Color="Black" />
-            </TextBlock.Effect>
-        </TextBlock>
+            VerticalAlignment="Center">
+            <StackPanel>
+                <Image
+                    Width="400"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="res/Logo.bright.png" />
+
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
+                    Text="{my:Loc Loading}"
+                    Visibility="Visible">
+                    <TextBlock.Effect>
+                        <DropShadowEffect
+                            BlurRadius="2"
+                            Direction="270"
+                            ShadowDepth="1"
+                            Color="Black" />
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+
+        </Grid>
+
 
         <Border x:Name="PageCounterWrap"
             Margin="0,0,0,45"

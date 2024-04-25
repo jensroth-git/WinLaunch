@@ -142,59 +142,6 @@ namespace WinLaunch
                         CreateCalendarEntryUI(item);
                     }
 
-
-                    //foreach (var item in eventsJson)
-                    //{
-                    //    JObject obj = item as JObject;
-
-                    //    //check if description is exist in the event
-                    //    var keys = obj.Properties().Select(p => p.Name).ToList();
-
-                    //    //if description is not in add it
-                    //    if (!keys.Contains("description"))
-                    //    {
-                    //        obj["description"] = "";
-                    //    }
-
-                    //    //fields to show user
-                    //    string datePreview = String.Empty;
-                    //    string timePreview = String.Empty;
-
-                    //    try
-                    //    {
-                    //        //if the event is all day
-                    //        datePreview = item["start"]["date"].ToString() + " - " + item["end"]["date"].ToString();
-                    //        timePreview = "All Day";
-                    //    }
-                    //    catch
-                    //    {
-                    //        //if the event is not all day
-                    //        string StartdateTimeString = item["start"]["dateTime"].ToString();
-                    //        DateTime dateTime = DateTime.Parse(StartdateTimeString);
-                    //        string startTime = dateTime.ToString("HH:mm");
-                    //        string startDate = dateTime.ToShortDateString();
-
-                    //        string EnddateTimeString = item["end"]["dateTime"].ToString();
-                    //        DateTime endDateTime = DateTime.Parse(EnddateTimeString);
-                    //        string endTime = endDateTime.ToString("HH:mm");
-                    //        string endDate = endDateTime.ToShortDateString();
-
-                    //        timePreview = startTime + " - " + endTime;
-                    //        datePreview = startDate + " - " + endDate;
-                    //    }
-
-                    //    icAssistantContent.Items.Add(new AssistantCalendarEvent()
-                    //    {
-                    //        Title = obj["summary"].ToString(),
-                    //        //Description = obj["description"].ToString(),
-                    //        Description = obj.ToString(),
-                    //        Time = timePreview,
-                    //        Date = datePreview,
-                    //        Color = new SolidColorBrushu
-                    //    });
-                    //}
-
-
                     AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 

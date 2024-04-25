@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:my="clr-namespace:WinLaunch">
 
     <DataTemplate DataType="{x:Type my:AssistantGmailMessagesListed}">
@@ -82,11 +83,179 @@
     </DataTemplate>
 
 
+    <DataTemplate DataType="{x:Type my:AssistantGmailMessageSnippet}">
+        <Border
+            Padding="0"
+            HorizontalAlignment="Left"
+            Background="#01000000"
+            Cursor="Hand">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Padding"
+                                            To="20,0,0,0"
+                                            Duration="0:0:0.3">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="5" />
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Padding"
+                                            To="0"
+                                            Duration="0:0:0.3">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="5" />
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding OpenUriCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+            <Border x:Name="mainBorder"
+                Margin="50,20,0,0"
+                Background="#66000000"
+                BorderBrush="White"
+                BorderThickness="5,0,0,0"
+                CornerRadius="10">
+                <StackPanel Margin="15" Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        HorizontalAlignment="Left"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Source="../../res/assistant/note.png" />
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,0,5,0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="{Binding subject}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <Separator Margin="20,8,20,2" Background="#20ffffff" />
+
+
+                        <StackPanel Margin="20,5,5,0" Orientation="Horizontal">
+                            <StackPanel.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </StackPanel.Effect>
+                            <Image
+                                Width="10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="../../res/assistant/person.png" />
+
+                            <TextBlock
+                                Margin="3,0,0,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Foreground="White"
+                                Text="From: " />
+                            <TextBlock
+                                Margin="3,0,8,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Foreground="White"
+                                Text="{Binding from}" />
+
+                            <TextBlock
+                                Margin="3,0,0,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Foreground="White"
+                                Text="To: " />
+                            <TextBlock
+                                Margin="3,0,8,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Foreground="White"
+                                Text="{Binding to}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="20,5,0,0" Orientation="Horizontal">
+                            <StackPanel.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </StackPanel.Effect>
+                            <Image
+                                Width="10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="../../res/assistant/date.png" />
+                            <TextBlock
+                                Margin="3,0,8,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Foreground="White"
+                                Text="{Binding date}" />
+                        </StackPanel>
+
+
+                        <Separator Margin="20,8,20,2" Background="#20ffffff" />
+
+                        <TextBlock
+                            MaxWidth="800"
+                            Margin="20,5,5,0"
+                            FontSize="14"
+                            Foreground="White"
+                            Text="{Binding snippet}"
+                            TextWrapping="Wrap">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Border>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type my:AssistantGmailMessageSent}">
         <Border
+            MaxWidth="1000"
             Margin="50,20,0,0"
             HorizontalAlignment="Left"
-            MaxWidth="1000"
             Background="#66000000"
             CornerRadius="10">
             <StackPanel Margin="15" Orientation="Horizontal">
@@ -156,13 +325,13 @@
                     </TextBlock>
 
                     <TextBlock
+                        MaxWidth="860"
                         Margin="0,5,0,0"
                         FontSize="14"
                         FontWeight="Bold"
                         Foreground="#4287f5"
-                        TextWrapping="Wrap"
-                        MaxWidth="860"
-                        Text="{Binding message}">
+                        Text="{Binding message}"
+                        TextWrapping="Wrap">
                         <TextBlock.Effect>
                             <DropShadowEffect
                                 BlurRadius="2"

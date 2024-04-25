@@ -641,11 +641,7 @@
                         </ScrollViewer>
                     </TabItem>
 
-                    <TabItem
-                        Height="23"
-                        VerticalAlignment="Top"
-                        Header="{my:Loc Icons}"
-                        Style="{StaticResource OSXTabBarItemCenter}">
+                    <TabItem Header="{my:Loc Icons}" Style="{StaticResource OSXTabBarItemCenter}">
                         <ScrollViewer>
                             <StackPanel Margin="7,0,0,0">
                                 <GroupBox Header="{my:Loc Icons}">

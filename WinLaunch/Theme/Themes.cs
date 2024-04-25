@@ -210,7 +210,7 @@ namespace WinLaunch
                     Wallpaperbottom.Visibility = System.Windows.Visibility.Visible;
                     Wallpapernoblur.Visibility = System.Windows.Visibility.Visible;
 
-                    //Wallpapernoblur.Source = Theme.CurrentTheme.Background;
+                    Wallpapernoblur.Source = Theme.CurrentTheme.Background;
                     Wallpaperbottom.Source = Theme.CurrentTheme.BlurredBackground;
 
                     SetBackgroundPosition();

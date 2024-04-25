@@ -162,50 +162,6 @@ namespace WinLaunch
             Xoffset -= (ScreenLeft - ScreenBoundsLeft);
             Yoffset -= (ScreenTop - ScreenBoundsTop);
 
-            //else if (Theme.CurrentTheme.BackgroundMode == BackgroundMode.Center)
-            //{
-            //    Xoffset -= (ScreenLeft % ScreenWidth);
-            //    Yoffset -= (ScreenTop % ScreenHeight);
-
-            //    //Center
-            //    WPWidth = ScreenWidth;
-            //    WPHeight = WPWidth * BackgroundHWRatio;
-
-            //    if (WPHeight < ScreenHeight)
-            //    {
-            //        WPHeight = ScreenHeight;
-            //        WPWidth = WPHeight / BackgroundHWRatio;
-
-            //        Xoffset -= (WPWidth - ScreenWidth) / 2.0;
-            //    }
-            //    else
-            //    {
-            //        Yoffset -= (WPHeight - ScreenHeight) / 2.0;
-            //    }
-            //}
-            //else if (Theme.CurrentTheme.BackgroundMode == BackgroundMode.Panorama)
-            //{
-            //    //Center
-            //    WPWidth = ScreenWidth;
-            //    WPHeight = WPWidth * BackgroundHWRatio;
-
-            //    if (WPHeight < ScreenHeight)
-            //    {
-            //        WPHeight = ScreenHeight;
-            //        WPWidth = WPHeight / BackgroundHWRatio;
-
-            //        Xoffset -= (WPWidth - ScreenWidth) / 2.0;
-            //    }
-            //    else
-            //    {
-            //        Yoffset -= (WPHeight - ScreenHeight) / 2.0;
-            //    }
-
-            //    PanoramaScrollWidth = WPWidth - ScreenWidth;
-
-            //    Xoffset -= PanoramaScrollWidth * PanoramaOffset;
-            //}
-
             //set values
             BackgroundPosition = new Rect(Xoffset, Yoffset, WPWidth, WPHeight);
             Wallpaperbottom.Width = WPWidth;
@@ -426,7 +382,7 @@ namespace WinLaunch
                 this.Wallpaperbottom.Opacity = CanvasOpacityAnim.Value;
                 this.PageCounter.Opacity = CanvasOpacityAnim.Value;
                 this.MainCanvas.Opacity = CanvasOpacityAnim.Value;
-                this.Wallpapernoblur.Opacity = 0.0;// 1.0 - CanvasOpacityAnim.Value;
+                this.Wallpapernoblur.Opacity = 1.0 - CanvasOpacityAnim.Value;
             }
             else
             {

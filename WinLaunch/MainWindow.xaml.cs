@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Net;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
-using System.Security.AccessControl;
-using System.Security.Principal;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -141,7 +134,7 @@ namespace WinLaunch
                 //wake main instance of WinLaunch then exit
                 Environment.Exit(-1);
             }
-            
+
             InitializeComponent();
 
             CanvasOpacityAnim = new AnimationHelper(0.0, 1.0);
@@ -176,17 +169,19 @@ namespace WinLaunch
             //load theme
             Theme.CurrentTheme = Theme.LoadTheme();
 
-            //enable if aero is in use and available
-            //if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
-            if(Settings.CurrentSettings.DeskMode && Settings.CurrentSettings.LegacyDeskMode)
+            if (Settings.CurrentSettings.DeskMode && Settings.CurrentSettings.LegacyDeskMode)
             {
                 //disable on legacy desk mode
                 this.AllowsTransparency = false;
             }
+            else if (Theme.CurrentTheme.UseAeroBlur && GlassUtils.IsBlurBehindAvailable())
+            {
+                //enable if aero is in use and available
+                this.AllowsTransparency = true;
+            }
             else
             {
-                //with the new desk mode we can enable this all the time
-                this.AllowsTransparency = true;
+                this.AllowsTransparency = false;
             }
         }
 

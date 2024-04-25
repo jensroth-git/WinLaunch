@@ -335,7 +335,7 @@
 
             </ContextMenu>
         </Grid.ContextMenu>
-        
+
         <!--  Background  -->
         <Grid x:Name="BGGrid" Visibility="Visible">
             <Image x:Name="Wallpaperbottom"
@@ -346,8 +346,7 @@
             <Image x:Name="Wallpapernoblur"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Stretch="Fill"
-                Visibility="Collapsed" />
+                Stretch="Fill" />
         </Grid>
 
         <Canvas x:Name="MainCanvas"

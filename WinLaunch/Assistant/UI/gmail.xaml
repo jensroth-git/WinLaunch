@@ -83,7 +83,7 @@
     </DataTemplate>
 
 
-    <DataTemplate DataType="{x:Type my:AssistantGmailMessageSnippet}">
+    <DataTemplate DataType="{x:Type my:AssistantGmailMessage}">
         <Border
             Padding="0"
             HorizontalAlignment="Left"
@@ -235,7 +235,7 @@
                             Margin="20,5,5,0"
                             FontSize="14"
                             Foreground="White"
-                            Text="{Binding snippet}"
+                            Text="{Binding body}"
                             TextWrapping="Wrap">
                             <TextBlock.Effect>
                                 <DropShadowEffect

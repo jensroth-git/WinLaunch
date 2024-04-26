@@ -278,6 +278,7 @@ namespace WinLaunch
             //gmail
             AssistantClient.On("get_gmail_messages", get_gmail_messages);
             AssistantClient.On("sent_gmail_message", sent_gmail_message);
+            AssistantClient.On("get_gmail_message_details", get_gmail_message_details);
 
             await AssistantClient.ConnectAsync();
         }

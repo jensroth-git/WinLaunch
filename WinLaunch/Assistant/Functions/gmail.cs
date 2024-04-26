@@ -17,15 +17,15 @@ namespace WinLaunch
         public string query { get; set; }
     }
 
-    public class AssistantGmailMessageSnippet : DependencyObject
+    public class AssistantGmailMessage : DependencyObject
     {
         public string from { get; set; }
         public string to { get; set; }
         public string date { get; set; }
         public string subject { get; set; }
-        public string snippet { get; set; }
+        public string body { get; set; }
 
-        public AssistantGmailMessageSnippet()
+        public AssistantGmailMessage()
         {
             OpenUriCommand = new RelayCommand(ExecuteOpenUri);
         }
@@ -130,26 +130,43 @@ namespace WinLaunch
         }
 
 
+        void get_gmail_message_details(SocketIOResponse args)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    var message = args.GetValue<GmailMessage>();
+
+                    CreateGmailMessageUI(message);
+
+                    AdjustAssistantMessageSpacing();
+                    scvAssistant.ScrollToBottom();
+
+                    AssistantDelayClose = false;
+                }
+                catch { }
+            }));
+        }
+
         private void CreateGmailMessageUI(GmailMessage message)
         {
-            DateTime date = DateTime.Parse(message.Date);
+            string dateString = message.Date;
 
-            if (message.Body == null)
+            DateTime date;
+            if(DateTime.TryParse(message.Date, out date))
             {
-                //snippet
-                icAssistantContent.Items.Add(new AssistantGmailMessageSnippet()
-                {
-                    from = message.From,
-                    to = message.To,
-                    date = date.ToString(),
-                    subject = message.Subject,
-                    snippet = message.Snippet
-                });
+                dateString = date.ToString("ddd, MMM d, yyyy h:mm tt");
             }
-            else
+
+            icAssistantContent.Items.Add(new AssistantGmailMessage()
             {
-                //full message
-            }
+                from = message.From,
+                to = message.To,
+                date = dateString,
+                subject = message.Subject,
+                body = (message.Body == null) ? message.Snippet : message.Body
+            });
         }
     }
 }

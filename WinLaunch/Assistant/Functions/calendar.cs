@@ -126,16 +126,24 @@ namespace WinLaunch
                 try
                 {
                     var username = args.GetValue<string>();
-                    var date = args.GetValue<string>(1);
+                    var info = args.GetValue<string>(1);
                     var events = args.GetValue<List<CalendarEvent>>(2);
+                    string infoPreview = String.Empty;
 
-                    //parse date to datetime
-                    DateTime parsedDate = DateTime.Parse(date);
+                    //check if string info is a valid datetime string
+                    if(DateTime.TryParse(info, out DateTime dateInfo))
+                    {
+                        infoPreview = dateInfo.ToShortDateString();
+                    }
+                    else
+                    {
+                        infoPreview = info;
+                    }
 
                     icAssistantContent.Items.Add(new AssistantCalendarEventsListed()
                     {
                         username = username,
-                        date = parsedDate.ToShortDateString()
+                        date = infoPreview
                     });
 
                     //for loop in events list

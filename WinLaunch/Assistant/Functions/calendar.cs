@@ -4,11 +4,13 @@ using SocketIOClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Web.UI.HtmlControls;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using WinLaunch.Utils;
 
 namespace WinLaunch
@@ -45,7 +47,8 @@ namespace WinLaunch
         public string Location
         {
             get { return _location; }
-            set { 
+            set
+            {
                 _location = value;
                 LocationVisibility = string.IsNullOrEmpty(value) ? Visibility.Collapsed : Visibility.Visible;
             }
@@ -63,7 +66,7 @@ namespace WinLaunch
                 _attendees = value;
                 AttendeesVisibility = any ? Visibility.Visible : Visibility.Collapsed;
 
-                if(any)
+                if (any)
                 {
                     //TODO: multilanguage
                     AttendeesDescription = _attendees.Count + " Attendee" + (_attendees.Count > 1 ? "s" : "");
@@ -154,7 +157,7 @@ namespace WinLaunch
             }));
         }
 
-        private void CreateCalendarEntryUI(CalendarEvent item)
+        private void CreateCalendarEntryUI(CalendarEvent item, string prefix = "", string color = "#88ffffff")
         {
             var datePreview = String.Empty;
             var timePreview = String.Empty;
@@ -187,13 +190,13 @@ namespace WinLaunch
 
             icAssistantContent.Items.Add(new AssistantCalendarEvent()
             {
-                Title = item.Title,
+                Title = prefix + item.Title,
                 Description = item.Description,
                 Location = item.Location,
                 Attendees = item.Attendees,
                 Time = timePreview,
                 Date = datePreview,
-                Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#88ffffff")),
+                Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color)),
                 htmlLink = item.Link
             });
         }
@@ -204,10 +207,31 @@ namespace WinLaunch
             {
                 try
                 {
-                    icAssistantContent.Items.Add(new AssistantAddedCalendarEvent()
-                    {
-                        Text = TranslationSource.Instance["AssistantAddedCalendarEvent"],
-                    });
+                    var username = args.GetValue<string>();
+                    CalendarEvent calendarEvent = args.GetValue<CalendarEvent>(1);
+
+                    //create entry UI
+                    CreateCalendarEntryUI(calendarEvent, prefix: "Created Event: ", color: "#8ec336");
+
+                    AdjustAssistantMessageSpacing();
+                    scvAssistant.ScrollToBottom();
+
+                    AssistantDelayClose = false;
+                }
+                catch { }
+            }));
+        }
+        void edit_calendar_event(SocketIOResponse args)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    var username = args.GetValue<string>();
+                    CalendarEvent calendarEvent = args.GetValue<CalendarEvent>(1);
+
+                    //create entry UI
+                    CreateCalendarEntryUI(calendarEvent, prefix: "Edited Event: ", color: "#eaa431");
 
                     AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();

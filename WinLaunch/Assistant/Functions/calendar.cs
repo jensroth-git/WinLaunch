@@ -241,5 +241,25 @@ namespace WinLaunch
                 catch { }
             }));
         }
+        void remove_calendar_event(SocketIOResponse args)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    var username = args.GetValue<string>();
+                    CalendarEvent calendarEvent = args.GetValue<CalendarEvent>(1);
+
+                    //create entry UI
+                    CreateCalendarEntryUI(calendarEvent, prefix: "Removed Event: ", color: "#e26831");
+
+                    AdjustAssistantMessageSpacing();
+                    scvAssistant.ScrollToBottom();
+
+                    AssistantDelayClose = false;
+                }
+                catch { }
+            }));
+        }
     }
 }

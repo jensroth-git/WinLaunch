@@ -275,7 +275,7 @@ namespace WinLaunch
             AssistantClient.On("get_calendar_events", get_calendar_events);
             AssistantClient.On("add_calendar_event", add_calendar_event);
             AssistantClient.On("edit_calendar_event", edit_calendar_event);
-            //AssistantClient.On("remove_calendar_event", remove_calendar_event);
+            AssistantClient.On("remove_calendar_event", remove_calendar_event);
 
             //gmail
             AssistantClient.On("get_gmail_messages", get_gmail_messages);

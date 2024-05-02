@@ -34,7 +34,7 @@ namespace WinLaunch
         bool AssistantDelayClose = false;
         bool AssistantResponsePending = false;
 
-        SocketIOClient.SocketIO AssistantClient;
+        public SocketIOClient.SocketIO AssistantClient;
 
         SpeechSynthesizer assistantSpeech = new SpeechSynthesizer();
 

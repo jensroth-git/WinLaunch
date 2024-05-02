@@ -19,6 +19,9 @@ namespace WinLaunch
 
     public class AssistantGmailMessage : DependencyObject
     {
+        public bool expandable { get; set; }
+        public string username { get; set; }
+        public string id { get; set; }
         public string from { get; set; }
         public string to { get; set; }
         public string date { get; set; }
@@ -33,13 +36,18 @@ namespace WinLaunch
         public ICommand OpenUriCommand { get; private set; }
         private void ExecuteOpenUri()
         {
+            if (!expandable)
+            {
+                return;
+            }
+
             MainWindow window = (MainWindow)MainWindow.WindowRef;
-            window.StartFlyOutAnimation();
+            
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 try
                 {
-                    //Process.Start(htmlLink);
+                    window.AssistantClient.EmitAsync("get_gmail_message_details", username, id);
                 }
                 catch { }
             }));
@@ -65,9 +73,9 @@ namespace WinLaunch
             public string Date { get; set; }
             public string Subject { get; set; }
             public string Snippet { get; set; }
-            public string Body { get; set; }
+            public string BodyText { get; set; }
+            public string BodyHTML { get; set; }
         }
-
 
         void get_gmail_messages(SocketIOResponse args)
         {
@@ -87,9 +95,10 @@ namespace WinLaunch
                         query = query
                     });
 
+                    //create expandable messages
                     foreach (var message in messages)
                     {
-                        CreateGmailMessageUI(message);
+                        CreateGmailMessageUI(username, message, true);
                     }
 
                     AdjustAssistantMessageSpacing();
@@ -129,16 +138,16 @@ namespace WinLaunch
             }));
         }
 
-
         void get_gmail_message_details(SocketIOResponse args)
         {
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 try
                 {
-                    var message = args.GetValue<GmailMessage>();
+                    var username = args.GetValue<string>();
+                    var message = args.GetValue<GmailMessage>(1);
 
-                    CreateGmailMessageUI(message);
+                    CreateGmailMessageUI(username, message);
 
                     AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
@@ -149,7 +158,7 @@ namespace WinLaunch
             }));
         }
 
-        private void CreateGmailMessageUI(GmailMessage message)
+        private void CreateGmailMessageUI(string username, GmailMessage message, bool expandable = false)
         {
             string dateString = message.Date;
 
@@ -159,14 +168,35 @@ namespace WinLaunch
                 dateString = date.ToString("ddd, MMM d, yyyy h:mm tt");
             }
 
-            icAssistantContent.Items.Add(new AssistantGmailMessage()
+            var UImessage = new AssistantGmailMessage()
             {
+                expandable = expandable,
+                username = username,
+                id = message.Id,
                 from = message.From,
                 to = message.To,
                 date = dateString,
-                subject = message.Subject,
-                body = (message.Body == null) ? message.Snippet : message.Body
-            });
+                subject = message.Subject
+            };
+
+            if(message.BodyText == null)
+            {
+                if(message.BodyHTML != null)
+                {
+                    //TODO: html
+                    UImessage.body = "message contains HTML only!";
+                }
+                else
+                {
+                    UImessage.body = message.Snippet;
+                }
+            }
+            else
+            {
+                UImessage.body = message.BodyText;
+            }
+
+            icAssistantContent.Items.Add(UImessage);
         }
     }
 }

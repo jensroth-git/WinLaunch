@@ -1,0 +1,229 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:my="clr-namespace:WinLaunch">
+
+    <DataTemplate DataType="{x:Type my:AssistantPeopleContactsListed}">
+        <Border
+            Margin="50,20,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10">
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    HorizontalAlignment="Left"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="../../res/assistant/refresh.png" />
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Contacts Listed">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding username}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding info}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type my:AssistantPeopleContact}">
+        <Border
+            Padding="0"
+            HorizontalAlignment="Left"
+            Background="#01000000"
+            Cursor="Hand">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Padding"
+                                            To="20,0,0,0"
+                                            Duration="0:0:0.3">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="5" />
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Padding"
+                                            To="0"
+                                            Duration="0:0:0.3">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="5" />
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <Border x:Name="mainBorder"
+                Margin="50,20,0,0"
+                Background="#66000000"
+                BorderThickness="5,0,0,0"
+                CornerRadius="10">
+                <StackPanel Margin="15" Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        HorizontalAlignment="Left"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Source="../../res/assistant/search.png" />
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,0,5,0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="{Binding Name}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <Separator Margin="20,8,20,2" Background="#20ffffff" />
+                        <TextBlock
+                            Margin="20,3,0,3"
+                            FontSize="13"
+                            FontWeight="Regular"
+                            Foreground="White"
+                            Visibility="Collapsed"
+                            Text="{Binding Email}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock
+                             Margin="20,3,0,3"
+                             FontSize="13"
+                             FontWeight="Regular"
+                             Foreground="White"
+                             Text="{Binding Number}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                     BlurRadius="2"
+                                     Direction="270"
+                                     ShadowDepth="1"
+                                     Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Border>
+    </DataTemplate>
+
+
+
+    <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding OpenUriCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+
+    <!--BorderBrush="{Binding Color}"-->
+
+    <!--<DataTemplate DataType="{x:Type my:AssistantAddedCalendarEvent}">
+        <Border
+            Margin="50,20,0,0"
+            HorizontalAlignment="Left"
+            Background="#66000000"
+            CornerRadius="10">
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <Image
+                    Width="20"
+                    HorizontalAlignment="Left"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="../../res/assistant/calendar.png" />
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="{Binding Text}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#4287f5"
+                        Text="{Binding Title}">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="2"
+                                Direction="270"
+                                ShadowDepth="1"
+                                Color="Black" />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>-->
+
+</ResourceDictionary>

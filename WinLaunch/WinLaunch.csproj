@@ -235,6 +235,7 @@
     <Compile Include="ActivationMethods\WindowsKeyActivation.cs" />
     <Compile Include="Assistant\AssistantConfig.cs" />
     <Compile Include="Assistant\AssistantUI.cs" />
+    <Compile Include="Assistant\Functions\people.cs" />
     <Compile Include="Assistant\Functions\calendar.cs" />
     <Compile Include="Assistant\Functions\commands.cs" />
     <Compile Include="Assistant\Functions\gmail.cs" />
@@ -317,6 +318,10 @@
     <Page Include="AssistantResponseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assistant\UI\people.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assistant\UI\calendar.xaml">
       <SubType>Designer</SubType>

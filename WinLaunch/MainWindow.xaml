@@ -824,6 +824,7 @@
                                 <ResourceDictionary Source="Assistant/UI/calendar.xaml" />
                                 <ResourceDictionary Source="Assistant/UI/commands.xaml" />
                                 <ResourceDictionary Source="Assistant/UI/gmail.xaml" />
+                                <ResourceDictionary Source="Assistant/UI/people.xaml" />
                                 <ResourceDictionary Source="Assistant/UI/items.xaml" />
                                 <ResourceDictionary Source="Assistant/UI/memory.xaml" />
                                 <ResourceDictionary Source="Assistant/UI/messages.xaml" />

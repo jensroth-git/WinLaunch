@@ -393,9 +393,20 @@ namespace WinLaunch
             //    Link = "google.com",
             //    Attendees = new List<string>() { "some@email.com", "another@email.com" }
             //};
+            //CreateCalendarEntryUI(item);
+            //CreateCalendarEntryUI(item);
 
-            //CreateCalendarEntryUI(item);
-            //CreateCalendarEntryUI(item);
+
+            //PeopleContact contact = new PeopleContact()
+            //{
+            //    names = new string[] { "Test" },
+            //    emailAddresses = new string[] { "zeg@gmail.com" },
+            //    phoneNumbers = new string[] { "123456789" }
+            //};
+
+            //CreatePeopleEntryUI(contact);
+            //CreatePeopleEntryUI(contact);
+
 
             //send prompt
             await AssistantClient.EmitAsync("msg", prompt, DateTime.Now.ToString("o", CultureInfo.InvariantCulture));

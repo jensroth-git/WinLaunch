@@ -28,11 +28,12 @@ namespace WinLaunch
         public string Number { get; set; }
     }
 
+
     partial class MainWindow : Window
     {
         class PeopleContact
         {
-            //public string Id { get; set; }
+            public string id { get; set; }
             public string[] names { get; set; }
             public string[] emailAddresses { get; set; }
             public string[] phoneNumbers { get; set; }
@@ -47,7 +48,6 @@ namespace WinLaunch
                     var username = args.GetValue<string>();
                     var info = args.GetValue<string>(1);
                     var contacts = args.GetValue<List<PeopleContact>>(2);
-                    string infoPreview = string.Join("|", contacts);
 
                     //check if string info is a valid datetime string
 
@@ -71,41 +71,45 @@ namespace WinLaunch
                 }
                 catch (Exception ex)
                 {
+                    Trace.WriteLine(ex);
                     Debugger.Break();
                 }
             }));
         }
 
-        private void CreatePeopleEntryUI(PeopleContact item, string color = "#88ffffff")
+        private void CreatePeopleEntryUI(PeopleContact item, string prefix = "", string color = "#88ffffff")
         {
             icAssistantContent.Items.Add(new AssistantPeopleContact()
             {
-                Name = string.Join("|", item.names),
+                Name = prefix + string.Join("|", item.names),
                 Email = string.Join("|", item.emailAddresses),
                 Number = string.Join("|", item.phoneNumbers),
             });
         }
 
-        //void add_people_contact(SocketIOResponse args)
-        //{
-        //    Dispatcher.BeginInvoke(new Action(() =>
-        //    {
-        //        try
-        //        {
-        //            var username = args.GetValue<string>();
-        //            PeopleContact PeopleContact = args.GetValue<PeopleContact>(1);
+        void add_people_contact(SocketIOResponse args)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    var username = args.GetValue<string>();
+                    PeopleContact peopleContact = args.GetValue<PeopleContact>(1);
 
-        //            //create entry UI
-        //            CreatePeopleEntryUI(PeopleContact, prefix: "Created Event: ", color: "#8ec336");
+                    //create entry UI
+                    CreatePeopleEntryUI(peopleContact, prefix: "Added Contact: ", color: "#8ec336");
 
-        //            AdjustAssistantMessageSpacing();
-        //            scvAssistant.ScrollToBottom();
+                    AdjustAssistantMessageSpacing();
+                    scvAssistant.ScrollToBottom();
 
-        //            AssistantDelayClose = false;
-        //        }
-        //        catch { }
-        //    }));
-        //}
+                    AssistantDelayClose = false;
+                }
+                catch (Exception ex)
+                {
+                    Debugger.Break();
+                }
+            }));
+        }
         //void edit_people_contact(SocketIOResponse args)
         //{
         //    Dispatcher.BeginInvoke(new Action(() =>

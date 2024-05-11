@@ -15,7 +15,7 @@
                     Width="20"
                     HorizontalAlignment="Left"
                     RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="../../res/assistant/search.png" />
+                    Source="../../res/assistant/refresh.png" />
                 <StackPanel Margin="15,0,0,0">
                     <TextBlock
                         FontSize="14"
@@ -118,7 +118,7 @@
                         Width="20"
                         HorizontalAlignment="Left"
                         RenderOptions.BitmapScalingMode="HighQuality"
-                        Source="../../res/assistant/person.png" />
+                        Source="../../res/assistant/search.png" />
                     <StackPanel>
                         <TextBlock
                             Margin="20,0,5,0"
@@ -136,11 +136,11 @@
                         </TextBlock>
                         <Separator Margin="20,8,20,2" Background="#20ffffff" />
                         <TextBlock
-                            Margin="20,3,0,1"
+                            Margin="20,3,0,3"
                             FontSize="13"
                             FontWeight="Regular"
                             Foreground="White"
-                            Visibility="Visible"
+                            Visibility="Collapsed"
                             Text="{Binding Email}">
                             <TextBlock.Effect>
                                 <DropShadowEffect
@@ -151,11 +151,10 @@
                             </TextBlock.Effect>
                         </TextBlock>
                         <TextBlock
-                             Margin="20,3,0,1"
+                             Margin="20,3,0,3"
                              FontSize="13"
                              FontWeight="Regular"
                              Foreground="White"
-                             Visibility="Visible"
                              Text="{Binding Number}">
                             <TextBlock.Effect>
                                 <DropShadowEffect

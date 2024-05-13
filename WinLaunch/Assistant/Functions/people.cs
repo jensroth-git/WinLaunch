@@ -57,11 +57,14 @@ namespace WinLaunch
                         info = info,
                     });
 
-                    //for loop in events list
-                    foreach (var item in contacts)
+                    if (contacts != null)
                     {
-                        //MessageBox.Show(item.Title+"\n\n"+item.Description+"\n"+item.StartDateTime + " - " + item.EndDateTime);
-                        CreatePeopleEntryUI(item);
+                        //for loop in events list
+                        foreach (var item in contacts)
+                        {
+                            //MessageBox.Show(item.Title+"\n\n"+item.Description+"\n"+item.StartDateTime + " - " + item.EndDateTime);
+                            CreatePeopleEntryUI(item);
+                        }
                     }
 
                     AdjustAssistantMessageSpacing();
@@ -71,6 +74,7 @@ namespace WinLaunch
                 }
                 catch (Exception ex)
                 {
+                    Trace.WriteLine("Error in get_people_contacts: " + ex.Message);
                     Debugger.Break();
                 }
             }));

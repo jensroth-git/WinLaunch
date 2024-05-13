@@ -32,7 +32,7 @@ namespace WinLaunch
     {
         class PeopleContact
         {
-            //public string Id { get; set; }
+            public string id { get; set; }
             public string[] names { get; set; }
             public string[] emailAddresses { get; set; }
             public string[] phoneNumbers { get; set; }

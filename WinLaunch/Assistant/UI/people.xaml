@@ -118,7 +118,7 @@
                         Width="20"
                         HorizontalAlignment="Left"
                         RenderOptions.BitmapScalingMode="HighQuality"
-                        Source="../../res/assistant/search.png" />
+                        Source="../../res/assistant/person.png" />
                     <StackPanel>
                         <TextBlock
                             Margin="20,0,5,0"

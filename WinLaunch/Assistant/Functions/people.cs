@@ -26,6 +26,7 @@ namespace WinLaunch
         public string Name { get; set; }
         public string Email { get; set; }
         public string Number { get; set; }
+        public string Metadata { get; set; }
     }
 
     partial class MainWindow : Window
@@ -36,6 +37,7 @@ namespace WinLaunch
             public string[] names { get; set; }
             public string[] emailAddresses { get; set; }
             public string[] phoneNumbers { get; set; }
+            public string[] metadata { get; set; }
         }
 
         void get_people_contacts(SocketIOResponse args)
@@ -82,11 +84,15 @@ namespace WinLaunch
 
         private void CreatePeopleEntryUI(PeopleContact item, string color = "#88ffffff")
         {
+
+            Trace.WriteLine("Creating People Entry UI");
+
             icAssistantContent.Items.Add(new AssistantPeopleContact()
             {
-                Name = string.Join("|", item.names),
-                Email = string.Join("|", item.emailAddresses),
-                Number = string.Join("|", item.phoneNumbers),
+                Name = item.names != null && item.names.Length > 0 ? string.Join("|", item.names) : null,
+                Email = item.emailAddresses != null && item.emailAddresses.Length > 0 ? string.Join("|", item.emailAddresses) : null,
+                Number = item.phoneNumbers != null && item.phoneNumbers.Length > 0 ? string.Join("|", item.phoneNumbers) : null,
+                Metadata = item.metadata != null && item.metadata.Length > 0  ? string.Join("|", item.metadata) : null,
             });
         }
 

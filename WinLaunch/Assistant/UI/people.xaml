@@ -65,7 +65,7 @@
         </Border>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type my:AssistantPeopleContact}">
+    <!--<DataTemplate DataType="{x:Type my:AssistantPeopleContact}">
         <Border
             Padding="0"
             HorizontalAlignment="Left"
@@ -168,9 +168,207 @@
                 </StackPanel>
             </Border>
         </Border>
+    </DataTemplate>-->
+
+
+    <DataTemplate DataType="{x:Type my:AssistantPeopleContact}">
+        <Border
+            Padding="0"
+            HorizontalAlignment="Left"
+            Background="#01000000"
+            Cursor="Hand">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Padding"
+                                            To="20,0,0,0"
+                                            Duration="0:0:0.3">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="5" />
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                            Storyboard.TargetProperty="Padding"
+                                            To="0"
+                                            Duration="0:0:0.3">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="5" />
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonDown">
+                    <i:InvokeCommandAction Command="{Binding OpenUriCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+
+            <Border x:Name="mainBorder"
+                Margin="50,20,0,0"
+                Background="#66000000"
+                BorderThickness="5,0,0,0"
+                CornerRadius="10">
+                <StackPanel Margin="15" Orientation="Horizontal">
+                    <Image
+                        Width="20"
+                        HorizontalAlignment="Left"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Source="../../res/assistant/contact.png" />
+                    <StackPanel>
+                        <TextBlock
+                            Margin="20,0,5,0"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="{Binding Name}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Name}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <!--Converter={StaticResource StringToVisibilityConverter}}"-->
+                        <TextBlock
+                            Margin="20,3,0,3"
+                            FontSize="13"
+                            FontWeight="Regular"
+                            Foreground="White"
+                            Text="{Binding Metadata}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Metadata}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <Separator Margin="20,8,20,2" Background="#20ffffff" />
+
+
+                        <StackPanel Margin="20,5,0,0" Orientation="Vertical">
+                            <StackPanel.Effect>
+                                <DropShadowEffect
+                                    BlurRadius="2"
+                                    Direction="270"
+                                    ShadowDepth="1"
+                                    Color="Black" />
+                            </StackPanel.Effect>
+
+                            <StackPanel
+                                Margin="0,0,3,0"
+                                Orientation="Horizontal"
+                                >
+                                <Image
+                                    Width="10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="../../res/assistant/mail.png" />
+                                <TextBlock
+                                    Margin="3,0,8,0"
+                                    FontSize="13"
+                                    FontWeight="Regular"
+                                    Foreground="White"
+                                    Text="{Binding Email}" />
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Email}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+
+                            </StackPanel>
+                            <StackPanel
+                                Margin="0,0,3,0"
+                                Orientation="Horizontal"
+                                >
+                                <Image
+                                    Width="10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="../../res/assistant/phone.png" />
+                                <TextBlock
+                                    Margin="3,0,8,0"
+                                    FontSize="13"
+                                    FontWeight="Regular"
+                                    Foreground="White"
+                                    Text="{Binding Number}" />
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Number}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal" Visibility="{Binding AttendeesVisibility}">
+                                <StackPanel.ToolTip>
+                                    <ItemsControl ItemsSource="{Binding Attendees}" />
+                                </StackPanel.ToolTip>
+                                <Image
+                                    Width="10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="../../res/assistant/person.png" />
+                                <TextBlock
+                                    Margin="3,0,8,0"
+                                    FontSize="13"
+                                    FontWeight="Regular"
+                                    Foreground="White"
+                                    Text="{Binding AttendeesDescription}" />
+                            </StackPanel>-->
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Border>
     </DataTemplate>
-
-
 
     <!--<i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">

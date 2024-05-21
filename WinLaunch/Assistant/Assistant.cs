@@ -404,8 +404,23 @@ namespace WinLaunch
             //    phoneNumbers = new string[] { "123456789" }
             //};
 
+            //PeopleContact contact2 = new PeopleContact()
+            //{
+            //    names = new string[] { "Test" },
+            //    emailAddresses = new string[] {},
+            //    phoneNumbers = new string[] { "123456789" }
+            //};
+
+            //PeopleContact contact3 = new PeopleContact()
+            //{
+            //    names = new string[] { "Test" },
+            //    emailAddresses = new string[] { "zeggg" },
+            //    phoneNumbers = null
+            //};
+
             //CreatePeopleEntryUI(contact);
-            //CreatePeopleEntryUI(contact);
+            //CreatePeopleEntryUI(contact2);
+            //CreatePeopleEntryUI(contact3);
 
 
             //send prompt

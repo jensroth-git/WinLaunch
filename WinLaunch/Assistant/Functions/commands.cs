@@ -219,6 +219,10 @@ namespace WinLaunch
 
         private string RunPythonAndGetOutput(string code)
         {
+            
+            
+            
+            
             string output = string.Empty;
             string error = string.Empty;
 
@@ -263,8 +267,23 @@ namespace WinLaunch
 
         void run_python(SocketIOResponse args)
         {
+
             Dispatcher.BeginInvoke(new Action(async () =>
             {
+
+                if (!Settings.CurrentSettings.ExecuteAssistantPython)
+                {
+                    try
+                    {
+                        await args.CallbackAsync("User disabled commands, they can be enabled again in the settings");
+                    }
+                    catch { }
+
+                    return;
+                }
+
+
+
                 string output = string.Empty;
                 try
                 {

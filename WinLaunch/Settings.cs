@@ -34,6 +34,7 @@ namespace WinLaunch
         public string AssistantPassword { get; set; }
         public bool AssistantTTS { get; set; }
         public bool ExecuteAssistantCommands { get; set; }
+        public bool ExecuteAssistantPython { get; set; }
         public bool AssistantProMode { get; set; }
 
         /// <summary>
@@ -183,6 +184,7 @@ namespace WinLaunch
             AssistantIconVisible = true;
             AssistantTTS = false;
             ExecuteAssistantCommands = true;
+            ExecuteAssistantPython = true;
 
             //set default settings
             Columns = 8;

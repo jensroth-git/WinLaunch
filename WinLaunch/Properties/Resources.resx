@@ -140,7 +140,6 @@
   </data>
   <data name="AllowFreePlacement" xml:space="preserve">
     <value>Allow free item placement</value>
-    
   </data>
   <data name="AllowFreePlacementInfo" xml:space="preserve">
     <value>Allows items to be placed anywhere on the grid</value>
@@ -180,6 +179,9 @@
   </data>
   <data name="AssistantExecutedCommand" xml:space="preserve">
     <value>Executed Command</value>
+  </data>
+  <data name="AssistantExecutePython" xml:space="preserve">
+    <value>Enable assistant Python execution</value>
   </data>
   <data name="AssistantForgetMemory" xml:space="preserve">
     <value>Forget memory</value>

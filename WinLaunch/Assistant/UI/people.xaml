@@ -223,7 +223,8 @@
             <Border x:Name="mainBorder"
                 Margin="50,20,0,0"
                 Background="#66000000"
-                BorderThickness="5,0,0,0"
+                BorderThickness="5,0,0,0"                
+                BorderBrush="{Binding Color}"
                 CornerRadius="10">
                 <StackPanel Margin="15" Orientation="Horizontal">
                     <Image
@@ -256,7 +257,6 @@
                             </TextBlock.Effect>
                         </TextBlock>
 
-                        <!--Converter={StaticResource StringToVisibilityConverter}}"-->
                         <TextBlock
                             Margin="20,3,0,3"
                             FontSize="13"
@@ -376,13 +376,13 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>-->
 
-    <!--BorderBrush="{Binding Color}"-->
 
     <!--<DataTemplate DataType="{x:Type my:AssistantAddedCalendarEvent}">
         <Border
             Margin="50,20,0,0"
             HorizontalAlignment="Left"
             Background="#66000000"
+            BorderBrush="{Binding Color}"
             CornerRadius="10">
             <StackPanel Margin="15" Orientation="Horizontal">
                 <Image

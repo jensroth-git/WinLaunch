@@ -250,6 +250,15 @@ namespace WinLaunch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable assistant Python execution.
+        /// </summary>
+        internal static string AssistantExecutePython {
+            get {
+                return ResourceManager.GetString("AssistantExecutePython", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forget memory.
         /// </summary>
         internal static string AssistantForgetMemory {

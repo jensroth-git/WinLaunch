@@ -845,6 +845,10 @@
                                     Margin="0,0,0,10"
                                     Content="{my:Loc AssistantExecuteCommands}"
                                     IsChecked="{Binding settings.ExecuteAssistantCommands}" />
+                                <CheckBox x:Name="cbExecuteAssistantPython"
+                                    Margin="0,0,0,10"
+                                    Content="{my:Loc AssistantExecutePython}"
+                                    IsChecked="{Binding settings.ExecuteAssistantPython}" />
 
                                 <Button x:Name="btnResetAssistantLogin"
                                     Height="24"

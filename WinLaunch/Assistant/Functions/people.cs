@@ -26,7 +26,7 @@ namespace WinLaunch
         public string Name { get; set; }
         public string Email { get; set; }
         public string Number { get; set; }
-        public string Metadata { get; set; }
+        public string Descriptions { get; set; }
     }
 
     partial class MainWindow : Window
@@ -37,7 +37,7 @@ namespace WinLaunch
             public string[] names { get; set; }
             public string[] emailAddresses { get; set; }
             public string[] phoneNumbers { get; set; }
-            public string[] metadata { get; set; }
+            public string[] descriptions { get; set; }
         }
 
         void get_people_contacts(SocketIOResponse args)
@@ -92,7 +92,7 @@ namespace WinLaunch
                 Name = item.names != null && item.names.Length > 0 ? string.Join("|", item.names) : null,
                 Email = item.emailAddresses != null && item.emailAddresses.Length > 0 ? string.Join("|", item.emailAddresses) : null,
                 Number = item.phoneNumbers != null && item.phoneNumbers.Length > 0 ? string.Join("|", item.phoneNumbers) : null,
-                Metadata = item.metadata != null && item.metadata.Length > 0  ? string.Join("|", item.metadata) : null,
+                Descriptions = item.descriptions != null  && item.descriptions.Length > 0 && item.descriptions[0]!="" ? string.Join("|", item.descriptions) : null,
             });
         }
 

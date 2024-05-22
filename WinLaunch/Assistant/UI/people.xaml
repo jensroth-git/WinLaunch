@@ -262,11 +262,11 @@
                             FontSize="13"
                             FontWeight="Regular"
                             Foreground="White"
-                            Text="{Binding Metadata}">
+                            Text="{Binding Descriptions}">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Metadata}" Value="{x:Null}">
+                                        <DataTrigger Binding="{Binding Descriptions}" Value="{x:Null}">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>
                                     </Style.Triggers>
@@ -294,7 +294,7 @@
                             </StackPanel.Effect>
 
                             <StackPanel
-                                Margin="0,0,3,0"
+                                Margin="0,0,3,5"
                                 Orientation="Horizontal"
                                 >
                                 <Image

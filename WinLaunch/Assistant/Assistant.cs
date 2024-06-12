@@ -281,6 +281,7 @@ namespace WinLaunch
             AssistantClient.On("get_people_contacts", get_people_contacts);
             AssistantClient.On("remove_people_contact", remove_people_contact);
             AssistantClient.On("edit_people_contact", edit_people_contact);
+            AssistantClient.On("add_people_contact", add_people_contact);
 
             //gmail
             AssistantClient.On("get_gmail_messages", get_gmail_messages);

@@ -94,30 +94,36 @@ namespace WinLaunch
                 Email = item.emailAddresses != null && item.emailAddresses.Length > 0 ? string.Join("|", item.emailAddresses) : null,
                 Number = item.phoneNumbers != null && item.phoneNumbers.Length > 0 ? string.Join("|", item.phoneNumbers) : null,
                 Descriptions = item.descriptions != null && item.descriptions.Length > 0 && item.descriptions[0] != "" ? string.Join("|", item.descriptions) : null,
-                Color = "#88ffffff",
+                Color = color,
             });
         }
 
-        //void add_people_contact(SocketIOResponse args)
-        //{
-        //    Dispatcher.BeginInvoke(new Action(() =>
-        //    {
-        //        try
-        //        {
-        //            var username = args.GetValue<string>();
-        //            PeopleContact PeopleContact = args.GetValue<PeopleContact>(1);
+        void add_people_contact(SocketIOResponse args)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    var username = args.GetValue<string>();
+                    PeopleContact PeopleContact = args.GetValue<PeopleContact>(1);
 
-        //            //create entry UI
-        //            CreatePeopleEntryUI(PeopleContact, prefix: "Created Event: ", color: "#8ec336");
+                    //create entry UI
+                    CreatePeopleEntryUI(PeopleContact, prefix: "Created Event: ", color: "#8ec336");
 
-        //            AdjustAssistantMessageSpacing();
-        //            scvAssistant.ScrollToBottom();
+                    AdjustAssistantMessageSpacing();
+                    scvAssistant.ScrollToBottom();
 
-        //            AssistantDelayClose = false;
-        //        }
-        //        catch { }
-        //    }));
-        //}
+                    AssistantDelayClose = false;
+                }
+                catch (Exception ex)
+                {
+
+                    //print
+                    Trace.WriteLine("Error in add_people_contact" + ex.ToString());
+                    Debugger.Break();
+                }
+            }));
+        }
         void edit_people_contact(SocketIOResponse args)
         {
             Dispatcher.BeginInvoke(new Action(() =>
@@ -125,37 +131,52 @@ namespace WinLaunch
                 try
                 {
                     var username = args.GetValue<string>();
-                    PeopleContact PeopleContact = args.GetValue<PeopleContact>(1);
+                    PeopleContact peopleContact = args.GetValue<PeopleContact>(1);
 
-                    //create entry UI
-                    CreatePeopleEntryUI(PeopleContact, prefix: "Edited Contact: ", color: "#eaa431");
+                    if (peopleContact != null)
+                    {
+                        //create entry UI
+                        CreatePeopleEntryUI(peopleContact, prefix: "Edited Contact: ", color: "#eaa431");
+                    }
 
                     AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine("Error in edit_people_contact" + ex.ToString());
+                    Debugger.Break();
+                }
             }));
         }
         void remove_people_contact(SocketIOResponse args)
         {
             Dispatcher.BeginInvoke(new Action(() =>
             {
+
                 try
                 {
                     var username = args.GetValue<string>();
-                    PeopleContact PeopleContact = args.GetValue<PeopleContact>(1);
+                    PeopleContact peopleContact = args.GetValue<PeopleContact>(1);
 
-                    //create entry UI
-                    CreatePeopleEntryUI(PeopleContact, prefix: "Removed Contact: ", color: "#e26831");
+                    if (peopleContact != null)
+                    {
+                        //create entry UI
+                        CreatePeopleEntryUI(peopleContact, prefix: "Removed Contact: ", color: "#e26831");
+                    }
 
                     AdjustAssistantMessageSpacing();
                     scvAssistant.ScrollToBottom();
 
                     AssistantDelayClose = false;
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine("Error in remove_people_contact" + ex.ToString());
+                    Debugger.Break();
+                }
             }));
         }
     }

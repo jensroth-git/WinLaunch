@@ -263,7 +263,7 @@
                     Width="20"
                     HorizontalAlignment="Left"
                     RenderOptions.BitmapScalingMode="HighQuality"
-                    Source="../../res/assistant/note.png" />
+                    Source="../../res/assistant/mail.png" />
                 <StackPanel Margin="15,0,0,0">
                     <TextBlock
                         FontSize="14"
@@ -283,7 +283,7 @@
                         Margin="0,5,0,0"
                         FontSize="14"
                         FontWeight="Bold"
-                        Foreground="#4287f5"
+                        Foreground="White"
                         Text="{Binding username}">
                         <TextBlock.Effect>
                             <DropShadowEffect
@@ -298,7 +298,7 @@
                         Margin="0,5,0,0"
                         FontSize="14"
                         FontWeight="Bold"
-                        Foreground="#4287f5"
+                        Foreground="White"
                         Text="{Binding to}">
                         <TextBlock.Effect>
                             <DropShadowEffect
@@ -313,7 +313,7 @@
                         Margin="0,5,0,0"
                         FontSize="14"
                         FontWeight="Bold"
-                        Foreground="#4287f5"
+                        Foreground="White"
                         Text="{Binding subject}">
                         <TextBlock.Effect>
                             <DropShadowEffect
@@ -329,7 +329,7 @@
                         Margin="0,5,0,0"
                         FontSize="14"
                         FontWeight="Bold"
-                        Foreground="#4287f5"
+                        Foreground="White"
                         Text="{Binding message}"
                         TextWrapping="Wrap">
                         <TextBlock.Effect>

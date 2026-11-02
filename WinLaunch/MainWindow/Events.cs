@@ -738,18 +738,34 @@ namespace WinLaunch
         }
         #endregion
 
+        
         #region WindowsKeyActivation
         WindowsKeyActivation wka = new WindowsKeyActivation();
-
+        
         private void InitWindowsKeyActivation()
         {
+            wka.Activated += Wka_Activated;
+        
             if (Settings.CurrentSettings.WindowsKeyActivationEnabled && !Settings.CurrentSettings.DeskMode)
             {
                 wka.StartListening();
             }
         }
-
+        
+        private void Wka_Activated(object sender, EventArgs e)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                if (!ActivatorsEnabled || Settings.CurrentSettings.DeskMode)
+                    return;
+        
+                DebugLog.WriteToLogFile("Windows key activated");
+                ToggleLaunchpad();
+            }));
+        }
+        
         #endregion WindowsKeyActivation
+
 
         #region MiddleMouseButtonActivator
         MiddleMouseActivation middleMouseActivator = null;
